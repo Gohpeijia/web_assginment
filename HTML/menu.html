@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/menu.css">
+</head>
+<body>
+
+  <!-- ======= NAVBAR (match your existing navbar style) ======= -->
+  <header class="navbar">
+    <div class="nav-logo">
+      <span class="logo-circle">&#9998;</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Order Now</a>
+      <a href="#">Visit Us</a>
+      <a href="#">About Us</a>
+    </nav>
+    <div class="nav-icons">
+      <button aria-label="Search">&#128269;</button>
+      <button aria-label="Account">&#128100;</button>
+      <button aria-label="Cart">&#128722;</button>
+    </div>
+  </header>
+
+  <!-- ======= INTERACTIVE CAKE SECTION ======= -->
+  <section class="cake-section" aria-label="Interactive cake menu display">
+    <div id="scene">
+      <!-- custom cursor elements -->
+      <div class="cursor-ring" id="cursorRing"></div>
+      <div class="cursor-dot"  id="cursorDot"></div>
+    </div>
+  </section>
+
+  <!-- ======= CATALOGUE CARDS (static fallback / full menu below) ======= -->
+  <section class="catalogue-section">
+    <h2 class="section-title">Full Menu</h2>
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Search cakes..." aria-label="Search menu">
+      <select id="categoryFilter" aria-label="Filter by category">
+        <option value="all">All Categories</option>
+        <option value="cake">Cakes</option>
+        <option value="tart">Tarts</option>
+        <option value="mousse">Mousse</option>
+      </select>
+      <select id="sortSelect" aria-label="Sort items">
+        <option value="default">Sort By</option>
+        <option value="name-asc">Name A–Z</option>
+        <option value="name-desc">Name Z–A</option>
+        <option value="price-asc">Price Low–High</option>
+        <option value="price-desc">Price High–Low</option>
+      </select>
+    </div>
+    <div class="catalogue-grid" id="catalogueGrid"></div>
+    <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
+  </section>
+
+  <script src="../JS/menu.js"></script>
+</body>
+</html>
