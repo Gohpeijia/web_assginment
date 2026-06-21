@@ -20,7 +20,7 @@ const FEATURED_CAKES = [
     price: 10.00,
     bg: "#3D1C02",
     accent: "#8B4513",
-    img: "../Image/Food/Chocolate_Indulgence.svg",
+    img: "../Assets/Food/Chocolate_Indulgence.svg",
   },
   {
     name: "Fruit Cake",
@@ -28,7 +28,7 @@ const FEATURED_CAKES = [
     price: 11.00,
     bg: "#3D1C02",
     accent: "#8B4513",
-    img: "../Image/Food/Oolong_melon_cake.svg",
+    img: "../Assets/Food/Oolong_melon_cake.svg",
   },
   {
     name: "Cheesecake",
@@ -36,7 +36,7 @@ const FEATURED_CAKES = [
     price: 9.00,
     bg: "#3D1C02",
     accent: "#8B4513",
-    img: "../Image/Food/New_York_Cheesecake.svg"
+    img: "../Assets/Food/New_York_Cheesecake.svg"
   },
   {
     name: "Pie",
@@ -44,7 +44,7 @@ const FEATURED_CAKES = [
     price: 7.00,
     bg: "#3D1C02",
     accent: "#8B4513",
-    img: "../Image/Food/Apple_pie.svg",
+    img: "../Assets/Food/Apple_pie.svg",
   },
   {
     name: "Fruit Tart",
@@ -52,7 +52,7 @@ const FEATURED_CAKES = [
     price: 3.00,
     bg: "#3D1C02",
     accent: "#8B4513",
-    img: "../Image/Food/Fruit_tart.svg",
+    img: "../Assets/Food/Fruit_tart.svg",
   },
   {
     name: "Mille Crepe",
@@ -60,7 +60,7 @@ const FEATURED_CAKES = [
     price: 12.00,
     bg: "#3D1C02",
     accent: "#8B4513",
-    img: "../Image/Food/Matcha_mille_crepe.svg",
+    img: "../Assets/Food/Matcha_mille_crepe.svg",
   },
   {
     name: "Tiramisu",
@@ -68,7 +68,7 @@ const FEATURED_CAKES = [
     price: 17.00,
     bg: "#3D1C02",
     accent: "#8B4513",
-    img: "../Image/Food/Tiramisu.svg"
+    img: "../Assets/Food/Tiramisu.svg"
   },
 ];
 
@@ -77,121 +77,121 @@ const FEATURED_CAKES = [
    ───────────────────────────────────────────── */
 const FULL_MENU = [
   {
-    name: "Blueberry Lemon Cake",
-    category: "Fruit Cake",
-    priceSlice: 13.99,
-    price: 89.99,
-    img: "../Image/Food/Blueberry_Lemon_cake.svg" 
-  },
-  {
-    name: "Caramel_Almond_Vanilla_Crêpe",
-    category: "Mille Crepe",
-    priceSlice: 14.99,
-    price: 109.99,
-    img: "../Image/Food/Caramel_Almond_Vanilla_Crêpe_have_slides.svg" 
-  },
-  {
-    name: "Apple Pie",
-    category: "Pie",
-    priceSlice: 15.99,
-    price: 99.99,
-    img: "../Image/Food/Apple_pie_slice.svg" 
+    name: "Valrhona Chocolate",
+    category: "Cream Cake",
+    price: 11.99,
+    priceWhole: 89.99,
+    img: "../Assets/Food/Valrhona_Chocolate_Cake.svg"
   },
   {
     name: "Chocolate Indulgence",
     category: "Cream Cake",
-    priceSlice:11.99,
-    price: 89.99,
-    img: "../Image/Food/Chocolate_Indulgence.svg" 
-  },
-  {
-    name: "Strawberry Shortcake",
-    category: "Fruit Cake",
-    priceSlice: 10.99,
-    price: 119.99,
-    img: "../Image/Food/Strawberry_cake.svg" 
-  },
-  {
-    name: "Fruit_Tart",
-    category: "tart",
-    price: 3.99,
-    img: "../Image/Food/Fruit_Tart.svg" 
-  },
-  {
-    name: "Kochi Yuzu Mango Tart",
-    category: "Tart",
-    price: 4.99,
-    img: "../Image/Food/Kochi_Yuzu_Mango_Tart.svg" 
-  },
-  {
-    name: "Lime Pie",
-    category: "Pie",
-    priceSlice: 8.99,
-    price: 79.99,
-    img: "../Image/Food/Lime_pie.svg" 
-  },
-  {
-    name: "Pistachio Raspberry",
-    category: "Fruit Cake",
-    priceSlice: 16.99,
-    price: 129.99,
-    img: "../Image/Food/Pistachio_Raspberry.svg"
-  },
-  {
-    name: "Valrhona Chocolate",
-    category: "Cream Cake",
-    priceSlice: 11.99,
-    price: 89.99,
-    img: "../Image/Food/Valrhona_Chocolate_Cake.svg"
+    price:11.99,
+    priceWhole: 89.99,
+    img: "../Assets/Food/Chocolate_Indulgence.svg" 
   },
   {
     name: "New York Cheesecake",
     category: "Cheesecake",
-    priceSlice: 12.99,
-    price: 99.99,
-    img: "../Image/Food/New_York_Cheesecake.svg"
+    price: 12.99,
+    priceWhole: 99.99,
+    img: "../Assets/Food/New_York_Cheesecake.svg"
   },
   {
-    name: "Uji Matcha Tart",
-    category: "tart",
-    priceSlice: 16.00,
-    price: 16.00,
-    img: "../Image/Food/uji_matcha_tart.svg"
+    name: "Lychee Coffee Hazaelnut",
+    category: "Fruit Cake",
+    price: 12.99,
+    priceWhole: 119.99,
+    img: "../Assets/Food/Lychee_Coffee_Hazelnut.svg"
   },
   {
-    name: "Musang King Durian Crêpe",
-    category: "Mille Crepe",
-    priceSlice: 18.99,
-    price: 139.99,
-    img: "../Image/Food/Musang_King_Durian_Crêpe.svg"
+    name: "Blueberry Lemon Cake",
+    category: "Fruit Cake",
+    price: 13.99,
+    priceWhole: 89.99,
+    img: "../Assets/Food/Blueberry_Lemon_cake.svg" 
+  },
+  {
+    name: "Oolong Melon Cake",
+    category: "Fruit Cake",
+    price: 11.99,
+    priceWhole: 109.99,
+    img: "../Assets/Food/Oolong_melon_cake.svg"
+  },
+  {
+    name: "Pistachio Raspberry",
+    category: "Fruit Cake",
+    price: 16.99,
+    priceWhole: 129.99,
+    img: "../Assets/Food/Pistachio_Raspberry.svg"
+  },
+  {
+    name: "Strawberry Shortcake",
+    category: "Fruit Cake",
+    price: 10.99,
+    priceWhole: 119.99,
+    img: "../Assets/Food/Strawberry_cake.svg" 
   },
   {
     name: "Tiramisu",
     category: "Tiramisu",
     price: 17.99,
-    img: "../Image/Food/Tiramisu.svg"
+    img: "../Assets/Food/Tiramisu.svg"
   },
   {
-    name: "Oolong Melon Cake",
-    category: "Fruit Cake",
-    priceSlice: 11.99,
-    price: 109.99,
-    img: "../Image/Food/Oolong_melon_cake.svg"
+    name: "Fruit Tart",
+    category: "tart",
+    price: 3.99,
+    img: "../Assets/Food/Fruit_Tart.svg" 
+  },
+  {
+    name: "Kochi Yuzu Mango Tart",
+    category: "Tart",
+    price: 14.99,
+    img: "../Assets/Food/Kochi_Yuzu_Mango_Tart.svg" 
+  },
+  {
+    name: "Uji Matcha Tart",
+    category: "tart",
+    price: 16.00,
+    priceWhole: 16.00,
+    img: "../Assets/Food/uji_matcha_tart.svg"
+  },
+  {
+    name: "Apple Pie",
+    category: "Pie",
+    price: 8.99,
+    priceWhole: 99.99,
+    img: "../Assets/Food/Apple_pie_slice.svg" 
+  },
+  {
+    name: "Lime Pie",
+    category: "Pie",
+    price: 8.99,
+    priceWhole: 79.99,
+    img: "../Assets/Food/Lime_pie.svg" 
+  },
+  {
+    name: "Caramel Almond Vanilla Crêpe",
+    category: "Mille Crepe",
+    price: 14.99,
+    priceWhole: 109.99,
+    img: "../Assets/Food/Caramel_Almond_Vanilla_Crêpe_have_slides.svg" 
+  },
+  {
+    name: "Musang King Durian Crêpe",
+    category: "Mille Crepe",
+    price: 18.99,
+    priceWhole: 139.99,
+    img: "../Assets/Food/Musang_King_Durian_Crêpe.svg"
   },
   {
     name: "Matcha Mille Crepe",
     category: "Mille Crepe",
-    priceSlice: 14.99,
-    price: 111.99,
-    img: "../Image/Food/Matcha_mille_crepe.svg"
+    price: 14.99,
+    priceWhole: 111.99,
+    img: "../Assets/Food/Matcha_mille_crepe.svg"
   },
-  {
-    name: "Lychee Coffee Hazaelnut",
-    category: "Fruit Cake",
-    priceSlice: 12.99,
-    price: 119.99,
-    img: "../Image/Food/Lychee_Coffee_Hazelnut.svg"
-  }
 ];
 
 /* ─────────────────────────────────────────────
@@ -381,7 +381,7 @@ function spawnParticles(x, y, color) {
       p.style.top     = py + 'px';
       p.style.opacity = life;
       if (life > 0) {
-        requestAnimationFrame(tick);
+        requestAnimationFrame(tick); 
       } else {
         p.remove();
       }
@@ -397,7 +397,6 @@ const catalogueGrid = document.getElementById('catalogueGrid');
 const noResultsText = document.getElementById('noResults');
 
 function renderCatalogue(itemsToRender) {
-  /* Clear the grid first */
   catalogueGrid.innerHTML = '';
 
   /* Show "No Results" message if empty */
@@ -408,31 +407,214 @@ function renderCatalogue(itemsToRender) {
     noResultsText.classList.add('hidden');
   }
 
-  /* Loop through the array and build HTML for each cake */
+  // Loop through the array and build HTML for each cake 
   itemsToRender.forEach(item => {
     // If you forget a price, this falls back to 0.00
     const itemPrice = item.price ? item.price.toFixed(2) : "0.00"; 
+    let priceHTML = '';
+   const cat = item.category.toLowerCase();
+    if (cat === 'tart' || cat === 'pie' || cat === 'tiramisu' || !item.priceWhole) {
+      /* FIX: Removed the "From" label for single items */
+      priceHTML = `
+        <div class="price-block single-price">
+          <span class="price-value">RM ${itemPrice}</span>
+        </div>
+      `;
+    } else {
+      /* Show 'FROM' for whole cakes */
+      priceHTML = `
+        <div class="price-block single-price">
+          <div class="price-label">From</div>
+          <span class="price-value">RM ${itemPrice}</span>
+        </div>
+      `;
+    }
     
     const card = document.createElement('div');
     card.className = 'cat-card';
     
     card.innerHTML = `
-      <img src="${item.img}" alt="${item.name}" onerror="this.src='../Image/Food/placeholder.png'">
+      <img src="${item.img}" alt="${item.name}">
       <div class="cat-card-body">
         <h3 class="cat-card-name">${item.name}</h3>
         <span class="cat-card-category">${item.category}</span>
-        <div class="cat-card-price">RM ${itemPrice}</div>
+        ${priceHTML}
       </div>
-      <button class="cat-card-btn" aria-label="Add ${item.name} to cart">Add to Cart</button>
     `;
     
     catalogueGrid.appendChild(card);
+    card.addEventListener('click', () => openModal(item));  
   });
 }
 
 /* Call the function immediately to load the cakes on the screen */
 renderCatalogue(FULL_MENU);
 
+/* ─────────────────────────────────────────────
+   MODAL LOGIC
+   ───────────────────────────────────────────── */
+const modal = document.getElementById('productModal');
+const closeModalBtn = document.getElementById('closeModal');
+const modalImg = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalPrice = document.getElementById('modalPrice');
+const sizeOptionGroup = document.getElementById('sizeOptionGroup');
+
+let currentModalItem = null;
+
+// Function to open modal and inject data
+function openModal(item) {
+  currentModalItem = item;
+  
+  modalImg.src = item.img;
+  modalTitle.textContent = item.name;
+
+  // Hide Size option for Tarts, Pies, and Tiramisu 
+  const cat = item.category.toLowerCase();
+  if (cat === 'tart' || cat === 'pie' || cat === 'tiramisu') {
+    sizeOptionGroup.classList.add('hidden'); 
+    
+    // Show default single price
+    modalPrice.textContent = `RM ${item.price.toFixed(2)}`;
+  } else {
+    sizeOptionGroup.classList.remove('hidden');
+
+    // Reset buttons to 'Slices' by default
+    const sizeBtns = sizeOptionGroup.querySelectorAll('.opt-btn');
+    sizeBtns[0].classList.add('active');    
+    sizeBtns[1].classList.remove('active'); 
+    
+    // Show default Slice price
+    modalPrice.textContent = `RM ${item.price.toFixed(2)}`;
+  }
+
+  currentQty = 1;
+  qtyValue.textContent = currentQty;
+  
+  modal.classList.remove('hidden'); // This is now safely outside the if/else block!
+}
+
+// Close Modal when clicking the X
+closeModalBtn.addEventListener('click', () => {
+  modal.classList.add('hidden');
+});
+
+// Close Modal when clicking outside the box
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.add('hidden');
+  }
+});
+/* ─────────────────────────────────────────────
+   MODAL INTERACTIVITY & CHECKOUT
+   ───────────────────────────────────────────── */
+
+// 1. Handle Option Buttons (Size & Candles)
+const optionGroups = document.querySelectorAll('.btn-group');
+optionGroups.forEach(group => {
+  const buttons = group.querySelectorAll('.opt-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons in this specific group
+      buttons.forEach(b => b.classList.remove('active'));
+      // Add active class to the clicked button
+      btn.classList.add('active');
+
+      if (btn.textContent === 'Slice' && currentModalItem) {
+        modalPrice.textContent = `RM ${currentModalItem.price.toFixed(2)}`;
+      } else if (btn.textContent === 'Whole Cake' && currentModalItem) {
+        // Fallback to regular price just in case a cake is missing a priceWhole
+        const wholePrice = currentModalItem.priceWhole ? currentModalItem.priceWhole : currentModalItem.price;
+        modalPrice.textContent = `RM ${wholePrice.toFixed(2)}`;
+      }
+    });
+  });
+});
+
+// 2. Handle Quantity Plus/Minus
+const qtyMinus = document.getElementById('qtyMinus');
+const qtyPlus = document.getElementById('qtyPlus');
+const qtyValue = document.getElementById('qtyValue');
+let currentQty = 1;
+
+qtyMinus.addEventListener('click', () => {
+  if (currentQty > 1) { // Prevents going below 1
+    currentQty--;
+    qtyValue.textContent = currentQty;
+  }
+});
+
+qtyPlus.addEventListener('click', () => {
+  currentQty++;
+  qtyValue.textContent = currentQty;
+});
+
+// 3. Handle Add to Cart Animation
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
+addToCartBtn.addEventListener('click', () => {
+  // Step A: Switch to Loading state
+  addToCartBtn.classList.add('loading');
+  
+  addToCartBtn.innerHTML = `
+    <div class="loading-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  `;
+
+  // Step B: Wait 1.5 seconds, then show Success state
+  setTimeout(() => {
+    addToCartBtn.classList.remove('loading');
+    addToCartBtn.classList.add('success');
+    addToCartBtn.innerHTML = '&#10004; ADDED TO CART'; // Adds a checkmark icon
+
+    // Step C: Wait 1 more second, then close modal and reset
+    setTimeout(() => {
+      // Hide the modal (jumps back to the menu behind it)
+      modal.classList.add('hidden');
+      
+      // Reset the button back to normal for the next cake
+      addToCartBtn.classList.remove('success');
+      addToCartBtn.innerHTML = 'ADD TO CART';
+      
+      // Reset quantity back to 1
+      currentQty = 1;
+      qtyValue.textContent = currentQty;
+    }, 1000); // 1000ms = 1 second
+
+  }, 1500); // 1500ms = 1.5 seconds loading
+});
+
+/* ─────────────────────────────────────────────
+   SEARCH & FILTER LOGIC
+   ───────────────────────────────────────────── */
+const searchInput = document.getElementById('searchInput');
+const categoryFilter = document.getElementById('categoryFilter');
+const sortSelect = document.getElementById('sortSelect');
+
+function updateCatalogue() {
+  let filtered = FULL_MENU.filter(item => {
+    const matchesSearch = item.name.toLowerCase().includes(searchInput.value.toLowerCase());
+    const filterCat = categoryFilter.value.toLowerCase();
+    const matchesCat = filterCat === 'all' || item.category.toLowerCase().includes(filterCat);
+    return matchesSearch && matchesCat;
+  });
+
+  const sortVal = sortSelect.value;
+  if (sortVal === 'price-asc') filtered.sort((a, b) => (a.price || a.priceWhole) - (b.price || b.priceWhole));
+  if (sortVal === 'price-desc') filtered.sort((a, b) => (b.price || b.priceWhole) - (a.price || a.priceWhole));
+  
+  if (sortVal === 'name-asc') filtered.sort((a, b) => a.name.localeCompare(b.name));
+  if (sortVal === 'name-desc') filtered.sort((a, b) => b.name.localeCompare(a.name));
+
+  renderCatalogue(filtered);
+}
+
+searchInput.addEventListener('input', updateCatalogue);
+categoryFilter.addEventListener('change', updateCatalogue);
+sortSelect.addEventListener('change', updateCatalogue);
 
 /* ─────────────────────────────────────────────
    INIT

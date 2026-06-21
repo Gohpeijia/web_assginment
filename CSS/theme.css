@@ -1,6 +1,48 @@
 /*bright mode*/
+/*menu colour, but still can add/change(navbar) if yall use other colours*/
+:root {
+  --brown-dark:    #1e110b;
+  --brown-mid:     #5C3317;
+  --brown-light:   #7B4A2D;
+  --gold:          #F5C842;
+  --gold-light:    #FAE095;
+  --success:       #518c2b;
+  --cream:         #F5ECD7;
+  --white:         #FFFFFF;
+  --text-muted:    #7B5B3A;
+  --radius-sm:     8px;
+  --radius-md:     12px;
+  --radius-lg:     20px;
+  --transition:    0.3s ease;
+}
 
+/* ---------- RESET ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--cream);
+  color: var(--brown-dark);
+}
+
+/* =============================================
+   NAVBAR 
+   i simply just a template, can change/add if yall want to use other colours or add more elements
+   ============================================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--brown-dark);
+  padding: 16px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
 
 /*dark mode*/

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Menu</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/theme.css">
   <link rel="stylesheet" href="../CSS/menu.css">
 </head>
 <body>
@@ -55,6 +57,55 @@
     <div class="catalogue-grid" id="catalogueGrid"></div>
     <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
   </section>
+
+  <div id="productModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modalImage" src="" alt="Cake Details">
+        </div>
+        
+        <div class="modal-details">
+          <h2 id="modalTitle" class="modal-title">Cake Name</h2>
+          <div id="modalPrice" class="modal-price">RM 0.00</div>
+
+          <div class="modal-options">
+            <div class="option-group" id="sizeOptionGroup">
+              <label>SIZE</label>
+              <div class="btn-group">
+                <button class="opt-btn active">Slice</button>
+                <button class="opt-btn">Whole Cake</button>
+              </div>
+            </div>
+            
+            <div class="option-group">
+              <br>
+              <label>CANDLES - SET NUMBER AT CHECKOUT. </label>
+              <div class="btn-group">
+                <button class="opt-btn active">YES</button>
+                <button class="opt-btn">NO</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="stock-status">
+            <span class="dot"></span> IN STOCK
+          </div>
+
+          <div class="cart-actions">
+            <div class="qty-selector">
+              <button id="qtyMinus">-</button>
+              <span id="qtyValue">1</span>
+              <button id="qtyPlus">+</button>
+            </div>
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="../JS/menu.js"></script>
 </body>
