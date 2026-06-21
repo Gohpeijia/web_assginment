@@ -152,25 +152,51 @@
   margin-bottom: 36px;
 }
 
+/* --- PREMIUM FILTER BAR & DROPDOWN STYLING --- */
+
 .filter-bar input,
 .filter-bar select {
-  padding: 10px 16px;
-  border: 1.5px solid var(--brown-light);
-  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  border: 1.5px solid rgba(92, 51, 23, 0.2);
+  border-radius: 30px; /* Modern pill shape */
   background: var(--white);
   color: var(--brown-dark);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   outline: none;
-  transition: border-color var(--transition);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(92, 51, 23, 0.05); /* Soft shadow */
+  transition: all var(--transition);
+}
+
+/* Customizing the Dropdown Arrow */
+.filter-bar select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 45px;
+  /* Injects a custom dark-brown chevron arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C3317' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+}
+
+/* Premium Hover & Focus Effects */
+.filter-bar input:hover,
+.filter-bar select:hover {
+  border-color: var(--brown-mid);
+  transform: translateY(-2px); /* Slight lift effect */
+  box-shadow: 0 8px 20px var(--brown-dark);
 }
 
 .filter-bar input:focus,
 .filter-bar select:focus {
-  border-color: var(--brown-mid);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--brown-light); 
 }
 
-.filter-bar input {
-  width: 240px;
+.filter-bar select:focus {
+  border-color: var(--brown-mid);
 }
 
 /* catalogue grid */
@@ -188,7 +214,7 @@
   background: var(--white);
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(92,51,23,0.15);
+  border: 1px solid var(--brown-dark);
   transition: transform var(--transition), box-shadow var(--transition);
   display: flex;
   flex-direction: column;
@@ -196,7 +222,7 @@
 
 .cat-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px #5c33172e;
+  box-shadow: 0 12px 30px var(--brown-mid);
   background: var(--gold-light);
 }
 
@@ -359,12 +385,12 @@
     height: 420px;
   }
   .cake {
-    width: 95px;
-    height: 95px;
+    width: 100px;
+    height: 100px;
   }
   .cake img {
-    width: 56px;
-    height: 56px;
+    width: 130px;
+    height: 130px;
   }
   .catalogue-section {
     padding: 36px 20px 40px;
@@ -377,7 +403,7 @@
     padding: 12px 16px;
   }
   .nav-links {
-    display: none; /* add hamburger menu in JS if needed */
+    display: none; 
   }
   .hero-banner {
     height: 200px;
@@ -394,8 +420,8 @@
     height: 80px;
   }
   .cake img {
-    width: 46px;
-    height: 46px;
+    width: 110px;
+    height: 110px;
   }
   .cake-label {
     font-size: 8px;
