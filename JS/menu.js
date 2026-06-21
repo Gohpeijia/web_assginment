@@ -431,12 +431,12 @@ function renderCatalogue(itemsToRender) {
     }
     
     const card = document.createElement('div');
-    card.className = 'cat-card';
+    card.className = 'cat-card card-hover-trigger';
     
     card.innerHTML = `
       <img src="${item.img}" alt="${item.name}">
       <div class="cat-card-body">
-        <h3 class="cat-card-name">${item.name}</h3>
+        <h3 class="cat-card-name hover-underline">${item.name}</h3>
         <span class="cat-card-category">${item.category}</span>
         ${priceHTML}
       </div>

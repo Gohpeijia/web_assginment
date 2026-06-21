@@ -44,5 +44,78 @@ body {
   z-index: 999;
 }
 
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: opacity var(--transition);
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-icons button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.nav-icons button:hover {
+  opacity: 0.7;
+}
+
+/* =============================================
+   GLOBAL UTILITIES & ANIMATIONS
+   ============================================= */
+
+/* 1. Add this class to any text element you want to have the sweep effect */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* 2. The invisible line waiting underneath */
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* 3. Sweeps in when you hover over the text itself */
+.hover-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* 4. Sweeps in if you hover over a parent container (like your cake cards) */
+.card-hover-trigger:hover .hover-underline::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 
 /*dark mode*/
