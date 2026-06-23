@@ -1,0 +1,115 @@
+
+.team-section {
+  padding: 60px 40px;
+  background-color: var(--cream);
+  min-height: 80vh;
+}
+
+.team-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: -15px;
+  margin-bottom: 50px;
+  font-size: 1.1rem;
+}
+
+/* CSS Grid to perfectly align 4 members */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-card {
+  background: var(--white);
+  border: 1px solid rgba(92, 51, 23, 0.15);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(92, 51, 23, 0.15);
+}
+
+.team-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--brown-mid);
+}
+
+.team-card-body {
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.team-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brown-dark);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.team-role {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Formatting the required "Quantified Contributions" */
+.team-contributions {
+  flex: 1; /* Pushes the button to the bottom */
+  margin-bottom: 25px;
+}
+
+.team-contributions p {
+  font-size: 0.85rem;
+  color: var(--brown-dark);
+  margin-bottom: 8px;
+}
+
+.team-contributions ul {
+  list-style-type: square;
+  padding-left: 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* The Portfolio Button */
+.portfolio-btn {
+  display: inline-block;
+  text-align: center;
+  background-color: var(--brown-dark);
+  color: var(--cream);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: background-color var(--transition);
+}
+
+.portfolio-btn:hover {
+  background-color: var(--brown-light);
+}
+
+/* Responsive adjustment for mobiles */
+@media (max-width: 768px) {
+  .team-section {
+    padding: 40px 20px;
+  }
+}

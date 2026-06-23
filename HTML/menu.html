@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Menu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/theme.css">
+  <link rel="stylesheet" href="../CSS/menu.css">
+
+</head>
+<body>
+
+  <!-- ======= NAVBAR (match your existing navbar style) ======= -->
+  <header class="navbar">
+    <div class="nav-logo">
+      <span class="logo-circle">&#9998;</span>
+    </div>
+    <nav class="nav-links">
+      <a href="menu.html" class="hover-underline">Order Now</a>
+      <a href="about_us.html" class="hover-underline">About Us</a>
+    </nav>
+    <div class="nav-icons">
+      <button aria-label="Search">&#128269;</button>
+      <button aria-label="Account">&#128100;</button>
+      <button aria-label="Cart">&#128722;</button>
+    </div>
+  </header>
+
+  <!-- ======= INTERACTIVE CAKE SECTION ======= -->
+  <section class="cake-section" aria-label="Interactive cake menu display">
+    <div id="scene">
+      <!-- custom cursor elements -->
+      <div class="cursor-ring" id="cursorRing"></div>
+      <div class="cursor-dot"  id="cursorDot"></div>
+    </div>
+  </section>
+
+  <!-- ======= CATALOGUE CARDS (static fallback / full menu below) ======= -->
+  <section class="catalogue-section">
+    <h2 class="section-title">Full Menu</h2>
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Search cakes..." aria-label="Search menu">
+      <select id="categoryFilter" aria-label="Filter by category">
+        <option value="all">All Categories</option>
+        <option value="cake">Cream Cake</option>
+        <option value="cake">Cheese Cake</option>
+        <option value="cake">Fruit Cake</option>
+        <option value="tart">Tart</option>
+        <option value="mousse">Tiramisu</option>
+        <option value="cake">Mille Crepe</option>
+      </select>
+      <select id="sortSelect" aria-label="Sort items">
+        <option value="default">Sort By</option>
+        <option value="name-asc">Name A–Z</option>
+        <option value="name-desc">Name Z–A</option>
+        <option value="price-asc">Price Low–High</option>
+        <option value="price-desc">Price High–Low</option>
+      </select>
+    </div>
+    <div class="catalogue-grid" id="catalogueGrid"></div>
+    <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
+  </section>
+
+  <div id="productModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img id="modalImage" src="" alt="Cake Details">
+        </div>
+        
+        <div class="modal-details">
+          <h2 id="modalTitle" class="modal-title">Cake Name</h2>
+          <div id="modalPrice" class="modal-price">RM 0.00</div>
+
+          <div class="modal-options">
+            <div class="option-group" id="sizeOptionGroup">
+              <label>SIZE</label>
+              <div class="btn-group">
+                <button class="opt-btn active">Slice</button>
+                <button class="opt-btn">Whole Cake</button>
+              </div>
+            </div>
+            
+            <div class="option-group">
+              <br>
+              <label>CANDLES - SET NUMBER AT CHECKOUT. </label>
+              <div class="btn-group">
+                <button class="opt-btn active">YES</button>
+                <button class="opt-btn">NO</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="stock-status">
+            <span class="dot"></span> IN STOCK
+          </div>
+
+          <div class="cart-actions">
+            <div class="qty-selector">
+              <button id="qtyMinus">-</button>
+              <span id="qtyValue">1</span>
+              <button id="qtyPlus">+</button>
+            </div>
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../JS/menu.js"></script>
+</body>
+</html>
