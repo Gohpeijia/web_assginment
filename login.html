@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>SUNBAKE</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="login_page.css">
+    <script type="text/javascript" src="login.js" defer></script>
+</head>
+
+<body>
+<header>
+    <div class="login_title">
+    <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+    </div>
+</header>
+
+
+<div class="login_content">
+    <h1>Welcome to Sunbake!</h1>
+    <h3>Log in to your account</h3>
+
+    <form class="loginn" id="loginForm">
+        <input required type="email" id="email" placeholder="Email" required>
+        <div class="password_holder">
+        <input required type="password" id="password" placeholder="Password" required>
+        <span class="eye">👁</span>
+        </div>
+
+        <p class="forgotpw">
+            <a href="">Forgot your Password?</a>
+        </p>
+
+        <button type="submit">Login</button>
+
+        <p class="newuser">
+            <a href="register.html">New to Sunbake? Create an Account!</a>
+        </p>
+
+        
+        
+    </form>
+
+
+</div>
+
+<div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="loading-box">
+        <div id="overlaySpinner" class="spinner"></div>
+        <p id="overlayMessage">Logging you in...</p>
+        <button type="button" id="overlayClose" class="overlay-close hidden">OK</button>
+    </div>
+</div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
