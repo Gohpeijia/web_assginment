@@ -1,115 +1,804 @@
-
-.team-section {
-  padding: 60px 40px;
-  background-color: var(--cream);
-  min-height: 80vh;
+:root {
+  --bg: #FAF7F2;
+  --surface: #F3EAD8;
+  --border: #E2D1BC;
+  --terra: #C4622D;
+  --terra-light: #FAE9D8;
+  --terra-dark: #7A3D15;
+  --gold: #D4A843;
+  --gold-light: #FDF3D8;
+  --teal: #4A7D6B;
+  --teal-light: #E6F2EE;
+  --teal-dark: #2D5C4A;
+  --ink: #2A1F14;
+  --muted: #7A6355;
+  --faint: #B09B8A;
+  --sand: #E2D1BC;
 }
 
-.team-subtitle {
-  text-align: center;
-  color: var(--text-muted);
-  margin-top: -15px;
-  margin-bottom: 50px;
-  font-size: 1.1rem;
+/* Smooth transitions for theme switching */
+body, nav, .skill-card, .ach-card, .edu-card {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* CSS Grid to perfectly align 4 members */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Dark mode overrides the same variable names so every component
+   that already uses var(--x) re-themes automatically. */
+[data-theme="dark"] {
+  --bg: #120F0D;
+  --surface: #1C1815;
+  --border: #332B25;
+  --ink: #FAF7F2;
+  --muted: #A89B8D;
+  --faint: #6A5B50;
+  --sand: #2A241F;
+  /* Adjusting light tags so they don't blind the user in dark mode */
+  --terra-light: rgba(196, 98, 45, 0.15);
+  --teal-light: rgba(74, 125, 107, 0.15);
+  --gold-light: rgba(212, 168, 67, 0.15);
 }
 
-.team-card {
-  background: var(--white);
-  border: 1px solid rgba(92, 51, 23, 0.15);
-  border-radius: var(--radius-md);
+/* 2. RESET & BASE */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { 
+  background: var(--bg); 
+  color: var(--ink); 
+  font-family: 'DM Sans', sans-serif; 
+  font-size: 16px; line-height: 1.7; 
+}
+
+/* 3. NAVIGATION */
+nav {
+  position: sticky; top: 0; 
+  z-index: 100;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 5vw;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  height: 58px;
+}
+.nav-logo { font-family: 'Lora', serif; 
+  font-size: 17px; 
+  color: var(--ink); 
+  text-decoration: none; 
+}
+.nav-logo span { 
+  color: var(--terra); 
+}
+.nav-links { 
+  display: flex; 
+  gap: 28px; 
+  list-style: none; 
+}
+.nav-links a { 
+  text-decoration: none; 
+  color: var(--muted); font-size: 14px; 
+  font-weight: 400; 
+  transition: color 0.2s; 
+}
+.nav-links a:hover { color: var(--terra); }
+
+/* Theme toggle button */
+.theme-btn {
+  background: none; 
+  border: none; 
+  color: var(--ink);
+  cursor: pointer; 
+  padding: 5px; 
+  margin-left: 20px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  transition: transform 0.2s, color 0.2s;
+}
+.theme-btn:hover { 
+  transform: scale(1.1); 
+  color: var(--terra); 
+}
+.theme-btn svg { 
+  width: 20px; 
+  height: 20px; 
+}
+
+/* Sun/moon icon swap is handled entirely in CSS via the data-theme
+   attribute that theme.js sets on <html> — no JS inline styles needed. */
+#sun-icon { display: none; }
+[data-theme="dark"] #moon-icon { display: none; }
+[data-theme="dark"] #sun-icon { display: block; }
+
+/* 4. HERO */
+.hero {
+  min-height: 88vh;
+  display: flex; align-items: center;
+  padding: 80px 10vw 60px;
+  position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition), box-shadow var(--transition);
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -60px; right: -80px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, #F3EAD8 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+.hero-content { 
+  position: relative; 
+  z-index: 1; 
+  max-width: 680px; 
+}
+.hero-tag {
+  display: inline-block;
+  background: var(--terra-light); 
+  color: var(--terra-dark);
+  font-size: 11px; 
+  font-weight: 500; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase;
+  padding: 5px 13px; 
+  border-radius: 20px; 
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(42px, 6vw, 68px);
+  font-weight: 500; line-height: 1.15;
+  color: var(--ink); margin-bottom: 8px;
+}
+.hero h1 em { 
+  color: var(--terra); 
+  font-style: italic; 
+}
+.hero-sub {
+  font-size: 18px; 
+  color: var(--muted); 
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+.hero-ctas { 
+  display: flex; 
+  gap: 12px; 
+  flex-wrap: wrap; 
+  margin-bottom: 48px; 
+}
+.btn-primary {
+  background: var(--terra); 
+  color: #FAF7F2;
+  padding: 11px 26px; 
+  border-radius: 7px;
+  text-decoration: none; 
+  font-size: 14px; font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { 
+  background: var(--terra-dark); 
+  transform: translateY(-1px); 
+}
+.btn-outline {
+  border: 1px solid var(--terra); 
+  color: var(--terra);
+  padding: 10px 24px; 
+  border-radius: 7px;
+  text-decoration: none; 
+  font-size: 14px; font-weight: 400;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-outline:hover { 
+  background: var(--terra-light); 
+}
+.hero-socials { 
+  display: flex; 
+  gap: 16px; 
+  align-items: center; 
+}
+.social-link {
+  display: flex; 
+  align-items: center; 
+  gap: 7px;
+  text-decoration: none; 
+  color: var(--muted); 
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.social-link:hover { 
+  color: var(--terra); 
+}
+.social-link svg { 
+  width: 17px; 
+  height: 17px; 
+}
+.hero-stats {
+  position: absolute; 
+  right: 8vw; 
+  bottom: 60px;
+  display: flex; 
+  gap: 32px;
+}
+.stat { 
+  text-align: center; 
+}
+.stat-num { 
+  font-family: 'Lora', serif; 
+  font-size: 36px; 
+  color: var(--terra); 
+  font-weight: 500; 
+  line-height: 1; 
+}
+.stat-label { 
+  font-size: 12px; 
+  color: var(--faint); 
+  margin-top: 4px; 
 }
 
-.team-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(92, 51, 23, 0.15);
+.progress-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.team-photo {
+.btn-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background: currentColor;
+  opacity: 0.4;
+  width: 0%;
+  transition: width 0s;
+}
+
+/* Loading State triggered by JavaScript */
+.progress-btn.is-loading {
+  pointer-events: none; /* Prevents double-clicking */
+}
+
+.progress-btn.is-loading .btn-progress {
   width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-bottom: 3px solid var(--brown-mid);
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.team-card-body {
-  padding: 25px 20px;
+/* 5. SHARED SECTION STYLES */
+section { padding: 80px 10vw; }
+.section-eyebrow {
+  font-size: 11px; 
+  font-weight: 500; 
+  letter-spacing: 0.12em;
+  text-transform: uppercase; 
+  color: var(--terra);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Lora', serif; 
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 500; 
+  color: var(--ink); 
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+.divider { height: 0.5px; background: var(--border); margin: 0; }
+
+/* 6. Dark brown background */
+.dark-section { 
+  background: var(--surface); 
+}
+
+/* 6. ABOUT */
+.about-grid { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 60px; align-items: start; 
+}
+.about-text p { 
+  color: var(--muted); 
+  margin-bottom: 16px; 
+  font-weight: 300; 
+  font-size: 16px; 
+}
+.about-text p strong { 
+  color: var(--ink); 
+  font-weight: 500; 
+}
+.about-detail-list { 
+  list-style: none; 
+  margin-top: 24px; 
+}
+.about-detail-list li {
+  display: flex; 
+  align-items: flex-start; 
+  gap: 12px;
+  padding: 10px 0; 
+  border-bottom: 0.5px solid var(--border);
+  font-size: 14px; 
+  color: var(--muted);
+}
+.about-detail-list li:last-child { border-bottom: none; }
+.about-detail-list .detail-label { 
+  color: var(--faint); 
+  min-width: 80px; 
+  font-size: 13px; 
+}
+.about-detail-list .detail-val { 
+  color: var(--ink); 
+  font-weight: 400; 
+}
+/* Highlights the "Status: Student" value (was an inline style) */
+.detail-val-active { color: var(--teal); }
+
+.edu-card {
+  background: var(--surface); 
+  border-radius: 14px;
+  padding: 28px; 
+  border: 0.5px solid var(--border);
+}
+.edu-card h4 { font-family: 'Lora', serif; 
+  font-size: 18px; 
+  font-weight: 500; 
+  margin-bottom: 4px; 
+}
+.edu-card .uni { 
+  color: var(--terra); 
+  font-size: 14px; 
+  font-weight: 500; 
+  margin-bottom: 6px; 
+}
+.edu-card .year { 
+  color: var(--faint); 
+  font-size: 13px; 
+  margin-bottom: 14px; 
+}
+.edu-card .section-eyebrow { margin-bottom: 20px; }
+.dean-badge {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 7px;
+  background: var(--terra-light); 
+  color: #7A5A10;
+  padding: 6px 13px; 
+  border-radius: 20px;
+  font-size: 12px; 
+  font-weight: 500;
+}
+.dean-badge svg { 
+  width: 14px; 
+  height: 14px; 
+}
+
+/* "Relevant areas" sub-block at the bottom of the education card (previously three separate inline style attributes) */
+.edu-extra {
+  margin-top: 20px; 
+  padding-top: 20px;
+  border-top: 0.5px solid var(--border);
+}
+.edu-extra-label {
+  font-size: 12px; 
+  color: var(--faint); 
+  margin-bottom: 10px;
+  font-weight: 500; 
+  text-transform: uppercase; 
+  letter-spacing: 0.07em;
+}
+.edu-extra-tags { display: flex; 
+  flex-wrap: wrap; 
+  gap: 7px; 
+}
+
+/* 7. SKILLS */
+   
+.skills-grid {
+  display: grid;
+  /* This creates the automatic 4-column layout that wraps on smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill-card {
+  background: var(--bg);
+  border: 0.5px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
-.team-name {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--brown-dark);
-  text-transform: uppercase;
-  margin-bottom: 5px;
+.skill-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--terra); /* Gives a nice subtle hover effect */
 }
 
-.team-role {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+/* The square icon wrapper at the top of each card */
+.skill-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
-/* Formatting the required "Quantified Contributions" */
-.team-contributions {
-  flex: 1; /* Pushes the button to the bottom */
-  margin-bottom: 25px;
-}
+/* Icon specific background colors */
+.icon-terra { background: var(--terra-light); color: var(--terra-dark); }
+.icon-teal  { background: var(--teal-light); color: var(--teal-dark); }
+.icon-gold  { background: var(--gold-light); color: #7A5A10; }
 
-.team-contributions p {
-  font-size: 0.85rem;
-  color: var(--brown-dark);
+/* Card Typography */
+.skill-card h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
   margin-bottom: 8px;
 }
 
-.team-contributions ul {
-  list-style-type: square;
-  padding-left: 20px;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
+.skill-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1; 
 }
 
-/* The Portfolio Button */
-.portfolio-btn {
+/* PROGRESS BARS for language*/
+.skill-bar-container {
+  margin-bottom: 24px; /* Space between bars and tags */
+}
+
+.skill-bar {
+  margin-bottom: 12px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.skill-info span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.skill-info .pct {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.bar {
+  width: 100%;
+  height: 6px; /* Slightly thinner for a modern look */
+  background: var(--border); /* Changed from --bg so the empty track is visible */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 20px;
+  /* Adds a smooth loading animation when the page loads */
+  animation: fillBar 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  width: 0; /* Starts at 0 for the animation */
+}
+
+@keyframes fillBar {
+  to { width: var(--target-width); }
+}
+.python   { --target-width: 90%; background: var(--terra); }
+.java     { --target-width: 80%; background: var(--teal); }
+.cpp      { --target-width: 70%; background: var(--gold); }
+.csharp   { --target-width: 75%; background: var(--terra); }
+.ts       { --target-width: 70%; background: var(--teal); }
+.html-css { --target-width: 95%; background: var(--gold); }
+.dart       { --target-width: 70%; background: var(--terra); }
+
+/* TAGS (Pills inside the cards) */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.tag-terra { 
+  background: var(--terra-light); 
+  color: var(--terra-dark); 
+}
+.tag-teal  { 
+  background: var(--teal-light); 
+  color: var(--teal-dark); 
+}
+.tag-gold  { 
+  background: var(--gold-light); 
+  color: #7A5A10; 
+}
+.tag-sand { 
+  background: #F1E8DC; 
+  color: var(--muted); 
+}
+
+/* 8. ACHIEVEMENT CARDS (Shared by Certifications, Awards, and Projects sections) */
+.ach-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px; 
+}
+.ach-card {
+  background: var(--bg); 
+  border-radius: 14px; 
+  padding: 24px;
+  border: 0.5px solid var(--border);
+  transition: transform 0.2s;
+  position: relative; 
+  overflow: hidden;
+}
+.ach-card::before {
+  content: '';
+  position: absolute; 
+  top: 0; 
+  left: 0;
+  height: 3px; 
+  width: 100%;
+}
+.ach-card.accent-terra::before { background: var(--terra); }
+.ach-card.accent-gold::before { background: var(--gold); }
+.ach-card.accent-teal::before { background: var(--teal); }
+.ach-card:hover { transform: translateY(-3px); }
+.ach-org { 
+  font-size: 11px; 
+  font-weight: 500; letter-spacing: 0.07em; 
+  text-transform: uppercase; 
+  color: var(--faint); 
+  margin-bottom: 8px; 
+  min-height: 32px; 
+}
+.ach-title { 
+  font-family: 'Lora', serif; 
+  font-size: 17px; 
+  font-weight: 500; 
+  color: var(--ink); 
+  margin-bottom: 6px; 
+  line-height: 1.3; 
+}
+.ach-desc { 
+  font-size: 13px; 
+  color: var(--muted); 
+  margin-bottom: 14px; 
+  line-height: 1.6; 
+}
+.ach-date { 
+  font-size: 12px; 
+  color: var(--faint); 
+}
+.ach-badge {
   display: inline-block;
-  text-align: center;
-  background-color: var(--brown-dark);
-  color: var(--cream);
-  padding: 12px 20px;
-  border-radius: var(--radius-sm);
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 500;
+  margin-bottom: 14px;
+}
+/* Badge colour variants (previously inline styles) */
+.ach-badge.badge-terra { background: var(--terra-light); 
+  color: var(--terra-dark); 
+}
+.ach-badge.badge-gold  { background: var(--terra-light); 
+  color: #7A5A10; }
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--terra);
   text-decoration: none;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  transition: background-color var(--transition);
+  transition: color 0.2s, transform 0.2s;
+}
+.btn-link:hover {
+  color: var(--terra-dark);
+  transform: translateX(2px);
+}
+.btn-link svg {
+  width: 14px;
+  height: 14px;
 }
 
-.portfolio-btn:hover {
-  background-color: var(--brown-light);
+/* 9. PROJECTS  */
+.projects-placeholder {
+  text-align: center; padding: 60px 40px;
+  background: var(--surface); border-radius: 16px;
+  border: 1.5px dashed var(--border);
+}
+.projects-placeholder p { color: var(--muted); font-size: 15px; margin-top: 12px; }
+.projects-placeholder .placeholder-icon {
+  font-size: 40px; display: block; margin-bottom: 8px;
 }
 
-/* Responsive adjustment for mobiles */
+/* 10. CONTACT */
+.contact-section { 
+  background: var(--ink); 
+}
+[data-theme="dark"] .contact-section { 
+  background: #0e0d0c; 
+}
+
+.contact-section .section-eyebrow { 
+  color: var(--gold); 
+}
+.contact-section .section-title { 
+  color: #FAF7F2;
+  margin-bottom: 16px; 
+}
+.contact-sub { 
+  color: #B09B8A; 
+  font-size: 16px; 
+  margin-bottom: 40px; 
+  max-width: 480px; 
+}
+.contact-links { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 14px; 
+}
+.contact-link {
+  display: flex; 
+  align-items: center; 
+  gap: 10px;
+  background: rgba(255,255,255,0.06); 
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 10px; 
+  padding: 14px 20px;
+  text-decoration: none; 
+  color: #FAF7F2;
+  font-size: 14px; 
+  transition: background 0.2s;
+}
+.contact-link:hover { 
+  background: rgba(196,98,45,0.2); 
+  border-color: var(--terra); 
+}
+.contact-link svg { 
+  width: 18px; 
+  height: 18px; 
+  opacity: 0.7; 
+}
+.contact-link span { 
+  font-size: 12px; 
+  color: #B09B8A; 
+  display: block; 
+}
+
+/* 11. FOOTER */
+footer {
+  background: #1E1610; 
+  color: #7A6355;
+  text-align: center; 
+  padding: 24px;
+  font-size: 13px;
+}
+footer a { 
+  color: var(--terra); 
+  text-decoration: none; 
+}
+
+/* 12. ANIMATIONS */
+@keyframes fadeUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(18px); 
+  }
+  to {
+     opacity: 1; 
+     transform: translateY(0); 
+  }
+}
+
+.hero-content > * { animation: fadeUp 0.6s ease both; }
+.hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* 13. RESPONSIVE — TABLET & MOBILE */
 @media (max-width: 768px) {
-  .team-section {
-    padding: 40px 20px;
+  .about-grid { grid-template-columns: 1fr; 
+    gap: 32px; 
+  }
+  .hero-stats { 
+    position: static; 
+    margin-top: 40px; 
+    justify-content: flex-start; 
+  }
+  nav { padding: 0 5vw; }
+  .nav-links { gap: 16px; }
+  section { padding: 60px 6vw; }
+  .hero { padding: 60px 6vw 50px; }
+}
+
+/* 14. DARK MODE FIXES
+   (component-specific tweaks the variable swap alone can't cover) */
+/* Keep the nav backdrop matching the dark background */
+[data-theme="dark"] nav {
+  background: rgba(18, 15, 13, 0.92);
+  border-bottom: 0.5px solid var(--border);
+}
+
+/* Hide the decorative glow circle behind the hero in dark mode */
+[data-theme="dark"] .hero::before {
+  display: none;
+}
+
+/* Brighten skill tag text so it stays readable on dark surfaces */
+[data-theme="dark"] .tag-terra { color: #E68B5E; }
+[data-theme="dark"] .tag-teal  { color: #72B79D; }
+[data-theme="dark"] .tag-gold  { color: #E3C174; }
+[data-theme="dark"] .tag-sand {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ink);
+}
+
+/* 15. PRINT STYLESHEET */
+@media print {
+  nav,
+  footer,
+  .theme-btn,
+  .hero-socials,
+  .hero-ctas,
+  .hero::before,
+  .divider {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 0 0 20px;
+  }
+
+  section {
+    padding: 20px 0;
+    page-break-inside: avoid;
+  }
+
+  .ach-card,
+  .skill-card,
+  .edu-card {
+    border: 1px solid #999;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .contact-section {
+    background: var(--bg);
+    color: #000;
   }
 }

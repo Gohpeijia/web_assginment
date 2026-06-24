@@ -140,7 +140,7 @@ const FULL_MENU = [
   },
   {
     name: "Fruit Tart",
-    category: "tart",
+    category: "Tart",
     price: 3.99,
     img: "../Assets/Food/Fruit_Tart.svg" 
   },
@@ -152,7 +152,7 @@ const FULL_MENU = [
   },
   {
     name: "Uji Matcha Tart",
-    category: "tart",
+    category: "Tart",
     price: 16.00,
     priceWhole: 16.00,
     img: "../Assets/Food/uji_matcha_tart.svg"
@@ -390,6 +390,7 @@ function spawnParticles(x, y, color) {
   }
 }
 
+
 /* ─────────────────────────────────────────────
    CATALOGUE GENERATOR
    ───────────────────────────────────────────── */
@@ -446,9 +447,6 @@ function renderCatalogue(itemsToRender) {
     card.addEventListener('click', () => openModal(item));  
   });
 }
-
-/* Call the function immediately to load the cakes on the screen */
-renderCatalogue(FULL_MENU);
 
 /* ─────────────────────────────────────────────
    MODAL LOGIC
@@ -621,6 +619,8 @@ sortSelect.addEventListener('change', updateCatalogue);
    ───────────────────────────────────────────── */
 buildScene();
 animate();
+
+renderCatalogue(FULL_MENU);
 
 /* rebuild scene on window resize */
 window.addEventListener('resize', () => {

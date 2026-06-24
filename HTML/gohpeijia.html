@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Goh Pei Jia</title>
+<link rel="icon" type="image/png" href="../Assets/Portfolio/GohPeiJia/matrixparrot.gif"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<!-- All styling lives in this external stylesheet (no inline styles/scripts) -->
+<link rel="stylesheet" href="../CSS/portfolio.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><b><span>Goh</span> <span>Pei</span> <span>Jia</span></b></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+    <svg id="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    <svg id="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+  </button>
+</nav>
+
+<!-- The six selections at the first part (HERO) -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="hero-tag">Computer Science Student · Sunway University</span>
+    <h1>Goh<br><em>Pei Jia</em></h1>
+    <p class="hero-sub">Aspiring software engineer passionate about<br>problem solving & building elegant solutions.</p>
+      <div class="hero-ctas">
+        <a href="https://canva.link/h31v5njpulng221" class="btn-outline progress-btn">
+          <span class="btn-text">View Resume</span>
+          <div class="btn-progress"></div>
+        </a>
+        <a href="#projects" class="btn-primary progress-btn">
+          <span class="btn-text">View Projects</span>
+          <div class="btn-progress"></div>
+        </a>
+        <a href="#contact" class="btn-outline progress-btn">
+          <span class="btn-text">Get in Touch</span>
+          <div class="btn-progress"></div>
+        </a>
+      </div>
+    <div class="hero-socials">
+      <a href="mailto:peijia0307@gmail.com" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        peijia0307@gmail.com
+      </a>
+      <a href="https://github.com/Gohpeijia" target="_blank" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        Gohpeijia
+      </a>
+      <a href="https://www.linkedin.com/in/pei-jia-goh" target="_blank" class="social-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Certifications</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Competitions</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Dean's List</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT ME -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <h1 class="section-title reveal">About me</h1>
+      <p>Hi! I'm <strong>Pei Jia</strong>, a Computer Science student at Sunway University with a strong foundation in programming, problem solving, and software development.</p>
+      <p>I enjoy participating in hackathons and coding competitions — from KitaHack powered by Google Developer Group to CodeNection at MMU. I believe in learning by doing and pushing myself beyond the classroom.</p>
+      <p>Beyond tech, I've been recognised in writing competitions, earning a <strong>Bronze Award</strong> in The Queen's Commonwealth Essay Competition 2023 — a testament to my belief that great engineers communicate just as well as they code.</p>
+      <ul class="about-detail-list">
+        <li><span class="detail-label">Location</span><span class="detail-val">Petaling Jaya, Selangor, Malaysia</span></li>
+        <li><span class="detail-label">Email</span><span class="detail-val">peijia0307@gmail.com</span></li>
+        <li><span class="detail-label">GitHub</span><span class="detail-val">github.com/Gohpeijia</span></li>
+        <li><span class="detail-label">Status</span><span class="detail-val detail-val-active">Student</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="edu-card">
+        <div class="section-eyebrow">Education</div>
+        <h4>Bachelor of Science (Hons)<br>in Computer Science</h4>
+        <div class="uni">Sunway University</div>
+        <div class="year">2024 — Present · Subang Jaya, Malaysia</div>
+        <div class="dean-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Dean's List — September 2025
+        </div>
+        <div class="edu-extra">
+          <div class="edu-extra-label">Relevant areas</div>
+          <div class="edu-extra-tags">
+            <span class="tag tag-terra">Data Structures</span>
+            <span class="tag tag-terra">Algorithms</span>
+            <span class="tag tag-teal">Software Engineering</span>
+            <span class="tag tag-gold">Python</span>
+            <span class="tag tag-terra">Databases</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Skills & technologies (SKILLS) -->
+<section id="skills" class="dark-section">
+  <div class="section-eyebrow">What I work with</div>
+  <h2 class="section-title reveal">Skills & Technologies</h2>
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-icon icon-terra">💬</div>
+      <h4>Technical Proficiency</h4>
+      <p>Proficient across multiple languages for web, systems, and app development.</p>
+      <div class="skill-bar-container">
+        <div class="skill-bar">
+          <div class="skill-info">
+            <span>Python</span>
+            <span class="pct">90%</span>
+          </div>
+          <div class="bar"><div class="fill python"></div></div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-info">
+            <span>Java</span>
+            <span class="pct">80%</span>
+          </div>
+          <div class="bar"><div class="fill java"></div></div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-info">
+            <span>C++</span>
+            <span class="pct">70%</span>
+          </div>
+          <div class="bar"><div class="fill cpp"></div></div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-info">
+            <span>C#</span>
+            <span class="pct">75%</span>
+          </div>
+          <div class="bar"><div class="fill csharp"></div></div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-info">
+            <span>TypeScript</span>
+            <span class="pct">70%</span>
+          </div>
+          <div class="bar"><div class="fill ts"></div></div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-info">
+            <span>HTML & CSS</span>
+            <span class="pct">95%</span>
+          </div>
+          <div class="bar"><div class="fill html-css"></div></div>
+        </div>
+
+        <div class="skill-bar">
+          <div class="skill-info">
+            <span>Dart</span>
+            <span class="pct">70%</span>
+          </div>
+          <div class="bar"><div class="fill dart"></div></div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon icon-teal">🛠️</div>
+      <h4>Platforms & Tools</h4>
+      <p>Experienced with cross-platform development environments and game engines.</p>
+      <div class="skill-tags">
+        <span class="tag tag-teal">Unity</span>
+        <span class="tag tag-teal">Flutter</span>
+        <span class="tag tag-teal">Firebase</span>
+        <span class="tag tag-teal">VS Code</span>
+        <span class="tag tag-teal">Qt Creator</span>
+        <span class="tag tag-teal">Visual Studio</span>
+        <span class="tag tag-teal">Google AI Studio</span>
+        <span class="tag tag-teal">Framer</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon icon-gold">📦</div>
+      <h4>Package Managers</h4>
+      <p>Comfortable managing dependencies and build pipelines across ecosystems.</p>
+      <div class="skill-tags">
+        <span class="tag tag-gold">NPM</span>
+        <span class="tag tag-gold">PIP</span>
+        <span class="tag tag-gold">UPM</span>
+        <span class="tag tag-gold">Conan</span>
+        <span class="tag tag-gold">pub</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon icon-sand">🎨</div>
+      <h4>Other  Skills</h4>
+      <p>Design, editing and productivity tools used in projects and academic work.</p>
+      <div class="skill-tags">
+        <span class="tag tag-sand">Canva</span>
+        <span class="tag tag-sand">CapCut</span>
+        <span class="tag tag-sand">Microsoft Office</span>
+        <span class="tag tag-sand">LM Notebooks</span>
+        <span class="tag tag-sand">ClickUp</span>
+        <span class="tag tag-sand">GitHub & Git</span>
+        <span class="tag tag-sand">Antigravity</span>
+        <span class="tag tag-sand">Kiro</span>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Certificates and Licenses -->
+<section id="certifications">
+  <div class="section-eyebrow">Recognition & certifications</div>
+  <h2 class="section-title reveal">Certificates and Licenses</h2>
+  <div class="ach-grid reveal">
+
+        <div class="ach-card accent-teal">
+      <div class="ach-org">CCNA</div>
+      <div class="ach-title">CCNA: Introduction to Networks</div>
+      <div class="ach-badge badge-terra">Certification</div>
+      <div class="ach-desc">Earned Cisco's networking credential with knowledge of IP addressing, Ethernet, switching, routing, and network connectivity. Completed 54 labs and 14 hours of hands-on practice using Cisco hardware and Packet Tracer.</div>
+      <div class="ach-date">March 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/CCNAcert.pdf" target="_blank" class="btn-link">
+        View Certificate
+      </a>
+    </div>
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org">Universiti Sains Malaysia</div>
+      <div class="ach-title">Varsity Hackathon 2026</div>
+      <div class="ach-badge badge-terra">Certification</div>
+      <div class="ach-desc">Participated in VHACK 2026, a international hackathon powered by USM and APEX.</div>
+      <div class="ach-date">March 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/V HACK 2026 QUALIFIER_GOH PEI JIA.pdf" target="_blank" class="btn-link">
+        View Certificate
+      </a>
+    </div>
+
+    <div class="ach-card accent-teal">
+      <div class="ach-org">HackerRank</div>
+      <div class="ach-title">Problem Solving — Intermediate + Basic</div>
+      <div class="ach-badge badge-terra">Certification × 2</div>
+      <div class="ach-desc">Passed the HackerRank skill certification test in Problem Solving at intermediate and basic level.</div>
+      <div class="ach-date">April 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/problem_solving_intermediate certificate.pdf" target="_blank" class="btn-link">
+        View Certificate (intermediate)
+      </a> 
+      <br>
+      <a href="../Assets/Portfolio/GohPeiJia/problem_solving_basic certificate.pdf" target="_blank" class="btn-link">
+        View Certificate (basic)
+      </a>
+    </div>
+
+    <div class="ach-card accent-teal">
+      <div class="ach-org">HackerRank</div>
+      <div class="ach-title">Python (Basic)</div>
+      <div class="ach-badge badge-terra">Certification</div>
+      <div class="ach-desc">Certified in Python (Basic), demonstrating core programming fundamentals.</div>
+      <div class="ach-date">April 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/python_basic certificate.pdf" target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org">Google Developer Group on Campus · Malaysia</div>
+      <div class="ach-title">KitaHack 2026 — Participant</div>
+      <div class="ach-badge badge-terra">Hackathon</div>
+      <div class="ach-desc">Participated in KitaHack 2026, a national hackathon powered by Enber and organised by Google Developer Group on Campus Malaysia.</div>
+      <div class="ach-date">February 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/KitaHack2026  cert.pdf" target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org">MMU Faculty of Computing & Informatics</div>
+      <div class="ach-title">CodeNection 2024 — Participant</div>
+      <div class="ach-badge badge-terra">Coding Competition</div>
+      <div class="ach-desc">Competed in the Closed Category of CodeNection 2024, organised by MMU in collaboration with MDEC, Cyberview & UniPin.</div>
+      <div class="ach-date">November 2024</div>
+      <a href="../Assets/Portfolio/GohPeiJia/Codenection 2024.pdf"target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Awards -->
+<section id="awards" class="dark-section">
+  <h2 class="section-title reveal">Awards</h2>
+  <div class="ach-grid reveal">
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org"> UM Hackathon 2026 </div>
+      <div class="ach-title"> UM Hackathon 2026 - Finalist TOP 19 </div>
+      <div class="ach-badge badge-terra">International</div>
+      <div class="ach-desc">A coding competition where students battle through 270++ groups of participants.</div>
+      <div class="ach-date">April 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/UMHACK2026cert.jpeg" target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org">Monash Coding League (MCL) 2026 </div>
+      <div class="ach-title">Monash Coding League (MCL) 2026 — Finalist Top 7</div>
+      <div class="ach-badge badge-terra">International</div>
+      <div class="ach-desc">A high-energy coding competition where students battle through challenging rounds, solve problems under pressure, and showcase their logic, speed, and creativity.</div>
+      <div class="ach-date">April 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/monashcodingfinalist.PNG" target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+    <div class="ach-card accent-gold">
+      <div class="ach-org">Sunway University</div>
+      <div class="ach-title">Dean's List Award</div>
+      <div class="ach-badge badge-gold">Academic Excellence</div>
+      <div class="ach-desc">Awarded for outstanding academic performance in the September 2025 Semester, BSc (Hons) Computer Science.</div>
+      <div class="ach-date">February 2026</div>
+      <a href="../Assets/Portfolio/GohPeiJia/Dean list award Y1S1.pdf" target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+    <div class="ach-card accent-gold">
+      <div class="ach-org">Multimedia University</div>
+      <div class="ach-title">Dean's List Award</div>
+      <div class="ach-badge badge-gold">Academic Excellence</div>
+      <div class="ach-desc">Awarded for outstanding academic performance in Foundation Year.</div>
+      <div class="ach-date">2024 & 2025</div>
+      <a href="../Assets/Portfolio/GohPeiJia/MMU deans award.pdf" target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org">Royal Commonwealth Society</div>
+      <div class="ach-title">Queen's Commonwealth Essay Competition — Bronze Award</div>
+      <div class="ach-badge badge-terra">International</div>
+      <div class="ach-desc">Recognised by the Royal Commonwealth Society for essay writing excellence in a global competition.</div>
+      <div class="ach-date">June 2023</div>
+      <a href="../Assets/Portfolio/GohPeiJia/QCEC Certificate.pdf" target="_blank" class="btn-link">
+        View Certificate
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="section-eyebrow">What I've built</div>
+<h2 class="section-title reveal">Projects & Hackathons</h2>
+<div class="ach-grid reveal">
+
+    <div class="ach-card accent-teal">
+      <div class="ach-org">UM Hackathon 2026</div>
+      <div class="ach-title">Tauke.Ai</div>
+      <div class="ach-badge badge-teal">Backend Development</div>
+      <div class="ach-desc">Handle the backend part by using FastAPI, Uvicorn and Supabase. Developing the app for LLM orchestration,ingestion, analysis, and structured processing. <br> The github contains <strong>deploy link.</strong></div>
+      
+      <a href="https://github.com/Gohpeijia/UM-Hackathon-2026.git" target="_blank" class="btn-link">
+        View Repository
+      </a>
+    </div>
+
+    <div class="ach-card accent-teal">
+      <div class="ach-org">Varsity Hackathon 2026</div>
+      <div class="ach-title">LawChat</div>
+      <div class="ach-badge badge-teal">App Development</div>
+      <div class="ach-desc">Developed collaboratively with a team, focusing specifically on implementing responsive front-end layouts to ensure a seamless UI/UX experience across both mobile phone and iPad platforms.</div>
+      
+      <a href="https://github.com/Gohpeijia/VHACK2026-LawChat" target="_blank" class="btn-link">
+        View Repository
+      </a>
+    </div>
+
+    <div class="ach-card accent-gold">
+      <div class="ach-org">Gemini Hackathon with Google DeepMind 2026</div> <div class="ach-title">BilBoleh</div>
+      <div class="ach-badge badge-gold">AI & Backend</div>
+      <div class="ach-desc">Rapidly prototyped an AI-powered application by integrating Google AI Studio and the Gemini API. Configured and managed Firebase as the backend database for robust data handling.</div>
+      
+      <a href="https://github.com/Gohpeijia/GeminiHackathon-BilBoleh" target="_blank" class="btn-link">
+        View Repository
+      </a>
+    </div>
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org">KitaHack 2026</div>
+      <div class="ach-title">FridgeGuardian</div>
+      <div class="ach-badge badge-terra">Backend Lead</div>
+      <div class="ach-desc">Served as the Backend and GitHub Lead for the project. Architected the Firebase database infrastructure and managed version control and repository workflows for the development team.</div>
+      
+      <a href="https://github.com/Gohpeijia/KitaHack2026" target="_blank" class="btn-link">
+        View Repository
+      </a>
+    </div>
+
+    <div class="ach-card accent-teal">
+      <div class="ach-org">Interactive Research Platform</div>
+      <div class="ach-title">AI in Education</div>
+      <div class="ach-badge badge-teal">Web & Content</div>
+      <div class="ach-desc">Contributed to academic research and writing. Developed the interactive 'Quiz' module and generated multimedia video presentations using Google's NotebookLM.</div>
+      
+      <a href="https://researchpaper.framer.website/" target="_blank" class="btn-link">
+        Visit Website
+      </a>
+    </div>
+
+    <div class="ach-card accent-terra">
+      <div class="ach-org">Game Development</div>
+      <div class="ach-title">Farmer Sim</div>
+      <div class="ach-badge badge-terra">Unity Developer</div>
+      <div class="ach-desc">Programmed core game features in a collaborative environment, including level progression, livestock mechanics, and shop systems. Handled Unity packages and dependencies via NPM.</div>
+      
+      <a href="https://janine-24.itch.io/farmer-sim" target="_blank" class="btn-link">
+        Play on Itch.io
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-eyebrow">Let's connect</div>
+  <h2 class="section-title reveal">Get in touch</h2>
+  <p class="contact-sub">Whether you have a project idea, an opportunity, or just want to say hi — my inbox is open.</p>
+  <div class="contact-links">
+    <a href="mailto:peijia0307@gmail.com" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      <div>
+        <span>Email</span>
+        peijia0307@gmail.com
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/in/pei-jia-goh" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      <div>
+        <span>LinkedIn</span>
+        pei-jia-goh
+      </div>
+    </a>
+    <a href="https://github.com/Gohpeijia" target="_blank" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <div>
+        <span>GitHub</span>
+        Gohpeijia
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  Designed & built with care · Goh Pei Jia &copy; 2026 ·
+  <a href="mailto:peijia0307@gmail.com">peijia0307@gmail.com</a>
+</footer>
+
+<!-- All interactivity (theme toggle + scroll reveal) lives in this external script -->
+<script src="../JS/portfolio.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+.login_title img{
+    display: block;
+    margin: 30px auto 0 auto;
+    width:700px;
+    height:auto;
+}
+.loginn{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items:center; 
+}
+
+.loginn input{
+    width: 350px;
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.6);
+    box-sizing: border-box;
+}
+form input:focus{
+    outline:none;
+}
+.loginn button{
+    padding: 15px 40px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: #8B6B20;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+.password_holder{
+    position: relative;
+    width: 350px;
+}
+
+.password_holder input{
+    width: 100%;
+    padding-right: 45px;
+    box-sizing: border-box;
+}
+
+.eye{
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.forgotpw a{
+    color: #8B6B20;
+    text-decoration: underline;
+}
+.newuser a{
+    color: #8B6B20;
+    text-decoration: none;
+}
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-overlay.hidden {
+    display: none;
+}
+
+.loading-box {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.loading-box p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #8B6B20;
+    font-weight: bold;
+}
+
+.spinner.hidden {
+    display: none;
+}
+
+.overlay-close {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    background: #8B6B20;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.overlay-close.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #eee;
+    border-top: 5px solid #8B6B20;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
