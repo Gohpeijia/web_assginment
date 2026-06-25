@@ -502,6 +502,15 @@ section { padding: 80px 10vw; }
 .html-css { --target-width: 95%; background: var(--gold); }
 .dart       { --target-width: 70%; background: var(--terra); }
 
+@keyframes fillBar {
+  to { width: var(--target-width); }
+}
+.pythond   { --target-width: 60%; background: var(--terra); }
+.javad     { --target-width: 40%; background: var(--teal); }
+.html-cssd { --target-width: 75%; background: var(--gold); }
+
+
+
 /* TAGS (Pills inside the cards) */
 .skill-tags {
   display: flex;
