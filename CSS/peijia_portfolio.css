@@ -1,0 +1,628 @@
+html {
+    scroll-behavior: smooth;
+}
+:root {
+    --bg-primary: #FCF7E6;       
+    --bg-secondary: #f5e19e;     
+    --text-primary: #291802;     
+    --accent-color: #8C2222;     
+    
+    /* Footer Colors */
+    --footer-bg: #151108;
+    --footer-text: #F4F1EA;
+
+    --font-heading: 'Courier New', Courier, monospace; 
+    --font-body: Consolas, Monaco, 'Courier New', monospace; 
+}
+
+/* Dark Theme Overrides (Applied via JS) */
+[data-theme="dark"] {
+    --bg-primary: #1A1A1A;
+    --bg-secondary: #2A2A2A;
+    --text-primary: #F4F1EA;
+    --footer-bg: #000000;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Forces all headings to use the uppercase Courier New font with spaced-out letters. */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Visually hides text but keeps it readable for screen readers. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Accessibility: Visible Focus States for Keyboard Navigation */
+*:focus-visible {
+    outline: 2px dashed var(--accent-color);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   LAYOUT, GRID, & RESPONSIVENESS
+   ========================================= */
+
+/* Header & Navigation */
+.site-header {
+    border-bottom: 2px solid var(--text-primary);
+    padding: 1rem 2rem;
+}
+
+/* logo and <nav> inside a <div> with this class */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* use in <ul>*/
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* for theme button */
+#theme-toggle {
+    background: none;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+} 
+
+/* aboutme Section */
+.aboutme {
+    background-color: var(--bg-secondary);
+    text-align: center;
+    padding: 4rem 1rem;
+    border-bottom: 2px solid var(--text-primary);
+}
+
+/*  PROFILE DETAILS, CONTACT LIST & SKILLS */
+
+/* Takes over the flex spacing so the whole right column grows together */
+.profile-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+/* Contact info list styling */
+.info-list {
+    list-style: none;
+    border-top: 1px solid var(--text-primary);
+}
+
+.info-list li {
+    display: flex;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.info-label {
+    width: 120px;
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.info-value {
+    color: var(--text-primary);
+}
+
+.skills-section {
+    flex: 1;
+    width: 100%;
+}
+
+/* CSS-Only Progress Bars */
+.skills-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+
+.skill {
+    margin-bottom: 1.2rem;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+
+/* The outer box of the progress bar */
+.skill-bar-container {
+    width: 100%;
+    height: 18px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--text-primary);
+}
+
+/* The filled inner part of the progress bar */
+.skill-fill {
+    height: 100%;
+    background-color: var(--text-primary);
+    /* Adding a subtle animation for when the page loads  */
+    animation: loadBar 1.5s ease-in-out forwards;
+}
+
+/* Strict external CSS width classes to avoid inline styles */
+.w-90 { width: 90%; }
+.w-80 { width: 80%; }
+.w-70 { width: 70%; }
+.w-60 { width: 60%; }
+.w-50 { width: 50%; }
+
+/* Optional: Animation keyframe for the skill bars filling up */
+@keyframes loadBar {
+    from { transform: scaleX(0); transform-origin: left; }
+    to { transform: scaleX(1); transform-origin: left; }
+}
+
+/* for certs */
+.personalinfo {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/*a grid which introduce a part.*/
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+
+.chapter-number {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+/* Flex Layouts for Content inside Grid Items */
+.item-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.responsive-img {
+    max-width: 30%;
+    height: auto;
+    flex: 1;
+    border: 2px solid var(--text-primary);
+}
+
+.item-content p {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+/* FOOTER & CONTACT SECTION */
+
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 4rem 2rem 1.5rem;
+    margin-top: 6rem;
+    border-top: 4px solid var(--text-primary);
+}
+
+/* 3-Column Grid for Desktop */
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-bottom: 1px dashed var(--text-secondary);
+    padding-bottom: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+    color: var(--footer-text);
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    color: #999; /* Slightly faded text for the bio */
+    font-size: 0.95rem;
+    max-width: 80%;
+}
+
+.footer-content h4 {
+    color: var(--bg-secondary); /* Uses your yellow accent for headers */
+    margin-bottom: 1.2rem;
+}
+
+.footer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-list a {
+    color: var(--footer-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-list a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Bottom Bar Layout */
+.footer-bottom {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.back-to-top {
+    color: var(--bg-secondary);
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.back-to-top:hover {
+    color: var(--footer-text);
+}
+
+.back-to-project {
+    color: var(--text-primaryy);
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.back-to-project:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Tablet/Mobile Layout */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-brand p {
+        max-width: 100%;
+    }
+}
+
+/* =========================================
+   TECH STACK & INTERACTIVE TERMINAL
+   ========================================= */
+
+/* Helper class to ensure side-by-side columns align at the top */
+.align-start {
+    align-items: flex-start;
+}
+
+/* Split the container exactly in half */
+.tech-stack-column, .interactive-column {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Left Side: Tags and Lists */
+.stack-box h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    border-bottom: 1px dashed var(--text-primary);
+    padding-bottom: 0.2rem;
+}
+
+.tag-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-list li {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.tag-list li a {
+    color: var(--bg-primary);
+}
+
+.tag-list li a:hover {
+    color: var(--bg-secondary);
+}
+
+/* Right Side: Interactive Terminal */
+.terminal-box {
+    border: 2px solid var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+.terminal-header {
+    display: flex;
+    border-bottom: 2px solid var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+.term-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    border-right: 2px solid var(--text-primary);
+    padding: 0.5rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: background-color 0.2s;
+}
+
+.term-btn:last-child {
+    border-right: none;
+}
+
+.term-btn:hover {
+    background-color: var(--bg-primary);
+}
+
+/* State when a tab is clicked */
+.term-btn.active {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.terminal-display {
+    padding: 1.5rem;
+    min-height: 180px; /* Keeps the box from jumping sizes */
+    font-family: var(--font-body);
+}
+
+.term-content p {
+    margin-bottom: 0.8rem;
+}
+
+/* Hides inactive tabs without removing them from HTML */
+.term-content.hidden {
+    display: none;
+}
+
+/* PROJECT GALLERY & the CARDS */
+
+/* Grid to place cards side-by-side on desktop, stacking on mobile */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+
+/* The Pure CSS Wooden Board Effect */
+.card {
+    background-color: #c49a6c; /* Warm wood tone */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.04) 0px,
+        rgba(0,0,0,0.04) 2px,
+        transparent 2px,
+        transparent 8px
+    ); /* Creates subtle diagonal wood grain */
+    border: 3px solid var(--text-primary);
+    padding: 1rem;
+    /* Harsh shadow for that vintage, industrial print look */
+    box-shadow: 8px 8px 0px var(--text-primary); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Interactive hover effect: The card lifts up when you mouse over it */
+.card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px var(--text-primary);
+}
+
+/* The 'paper' pinned to the wood */
+.card-inner {
+    background-color: var(--bg-primary);
+    border: 2px dashed var(--text-primary);
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Red stamped title */
+.stamped-title {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    margin-bottom: 1rem;
+}
+
+/* Pushes the button to the bottom so all cards look even */
+.card p {
+    flex-grow: 1; 
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Industrial style button */
+.card-btn {
+    display: block;
+    text-align: center;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border: 2px solid var(--text-primary);
+}
+
+.card-btn:hover {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* =========================================
+   CERTIFICATIONS & AWARDS SPECIFICS
+   ========================================= */
+
+/* Adjusts spacing inside the card to push the link to the bottom */
+.cert-layout {
+    gap: 0.8rem;
+}
+
+/* Small, uppercase organization title */
+.cert-org {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Overrides the stamped title to fit better with the cert layout */
+.cert-title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    font-size: 1.3rem;
+}
+
+/* The pill-shaped tag (like the 'Certification' bubble in your image) */
+.cert-badge {
+    align-self: flex-start;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid var(--text-primary);
+}
+
+/* Date styling */
+.cert-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: auto; /* Pushes everything below it to the bottom */
+}
+
+/* Minimalist text link instead of the heavy block button */
+.cert-link {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    display: inline-block;
+    padding-top: 0.5rem;
+}
+
+.cert-link:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* Tablet Viewport */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .item-content, 
+    .flex-row-reverse {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile Viewport */
+@media screen and (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+}
