@@ -10,7 +10,6 @@ html {
     /* Footer Colors */
     --footer-bg: #151108;
     --footer-text: #F4F1EA;
-
     --font-heading: 'Courier New', Courier, monospace; 
     --font-body: Consolas, Monaco, 'Courier New', monospace; 
 }
@@ -19,6 +18,7 @@ html {
 [data-theme="dark"] {
     --bg-primary: #1A1A1A;
     --bg-secondary: #2A2A2A;
+    --accent-color: #d1aaaa;
     --text-primary: #F4F1EA;
     --footer-bg: #000000;
 }
