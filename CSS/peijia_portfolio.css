@@ -10,8 +10,8 @@ html {
     /* Footer Colors */
     --footer-bg: #151108;
     --footer-text: #F4F1EA;
-    --font-heading: 'Courier New', Courier, monospace; 
-    --font-body: Consolas, Monaco, 'Courier New', monospace; 
+    --font-heading: Comic Sans MS;
+    --font-body: Lucida Console; 
 }
 
 /* Dark Theme Overrides (Applied via JS) */
@@ -33,7 +33,7 @@ html {
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -45,6 +45,100 @@ h1, h2, h3, h4 {
     letter-spacing: 2px;
     margin-bottom: 1rem;
 }
+
+/* =========================================
+   AUDIO HINT LABEL
+   ========================================= */
+
+.audio-hint {
+    position: fixed;
+    right: 2%; /* Pins it to the right edge */
+    bottom: 35%; /* Places it middle of page */
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+    opacity: 0.4;
+    
+    /* Advanced CSS: Writes the text vertically */
+    writing-mode: vertical-rl; 
+    transform: rotate(180deg); /* Flips it so it reads bottom-to-top */
+    
+    z-index: -10;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* The state for when the music is actively playing */
+.audio-hint.is-playing {
+    color: var(--accent-color);
+    opacity: 0.8;
+}
+
+/* Hide on mobile just like the floating decor */
+@media screen and (max-width: 1024px) {
+    .audio-hint {
+        display: none;
+    }
+}
+
+/* =========================================
+   MARGIN INTERACTIVITY (SCROLL & FLOATING)
+   ========================================= */
+
+/* Left Side: Industrial Scroll Tracker */
+.scroll-tracker-container {
+    position: fixed;
+    top: 0;
+    left: 3%; /* Places it in the left margin */
+    width: 3px;
+    height: 100vh; /* Takes up the full height of the screen */
+    background-color: var(--text-secondary);
+    opacity: 0.2;
+    z-index: 100;
+}
+
+.scroll-tracker-line {
+    width: 100%;
+    height: 0%; /* This will be dynamically updated by JavaScript */
+    background-color: var(--accent-color);
+}
+
+/* Right Side: Floating Tech Decor */
+.floating-decor {
+    position: fixed;
+    right: 4%; /* Places it in the right margin */
+    font-family: var(--font-body);
+    font-size: 3.5rem;
+    color: var(--text-secondary);
+    opacity: 0.1;
+    z-index: 1; /* Keeps them behind your main content */
+    cursor: crosshair; /* Adds a cool tech cursor when hovered */
+    
+    /* Smooth transitions for the hover effect */
+    transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    
+    /* Continuous slow rotation */
+    animation: slowSpin 25s linear infinite;
+}
+
+.floating-decor:hover {
+    opacity: 0.8;
+    color: var(--accent-color);
+    animation-play-state: paused; /* Stops the spinning */
+    transform: scale(1.3) rotate(0deg); /* Enlarges and straightens out */
+}
+
+/* Distributing the 3 symbols vertically */
+.right-pos-1 { top: 15%; }
+.right-pos-2 { top: 50%; animation-direction: reverse; } /* Spins the opposite way */
+.right-pos-3 { top: 85%; }
+
+/* Applied via JS when the user is near the top or bottom of the page */
+.fade-out {
+    opacity: 0 !important;
+    pointer-events: none; /* Prevents the user from accidentally clicking them when they are invisible */
+}
+
 
 a {
     color: var(--text-primary);
@@ -519,7 +613,10 @@ a:hover {
 .card p {
     flex-grow: 1; 
     margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 0.85rem;              
+    letter-spacing: 1px;
 }
 
 /* Industrial style button */
@@ -550,10 +647,12 @@ a:hover {
 
 /* Small, uppercase organization title */
 .cert-org {
+    font-family: var(--font-heading); 
     font-size: 0.8rem;
     color: var(--text-secondary);
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 /* Overrides the stamped title to fit better with the cert layout */
@@ -624,5 +723,19 @@ a:hover {
 
     .hero-section {
         padding: 2rem 1rem;
+    }
+}
+
+/* The pure CSS animation keyframes */
+@keyframes slowSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide these margin elements on mobile screens so they don't block content */
+@media screen and (max-width: 1250px) {
+    .scroll-tracker-container,
+    .floating-decor {
+        display: none;
     }
 }
