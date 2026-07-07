@@ -2,7 +2,7 @@
 const loginForm = document.getElementById("loginForm");
 
 // Find the email and password input boxes
-const emailInput = document.getElementById("email");
+const loginInput = document.getElementById("loginInput");
 const passwordInput = document.getElementById("password");
 
 // Find the eye icon and popup elements
@@ -45,37 +45,53 @@ eyeButton.addEventListener("click", togglePassword);
 
 // Run this code when the user clicks the Login button
 loginForm.addEventListener("submit", function (event) {
+
     event.preventDefault();
 
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+    const login = loginInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
 
-    if (email === "" || password === "") {
-        showErrorPopup("Please enter email and password.");
+    if (login === "" || password === "") {
+        showErrorPopup("Please enter your username/email and password.");
         return;
     }
 
-    // Get the saved password for this email (saved by register.js)
-    const savedPassword = localStorage.getItem(email);
+    // Get all registered users
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (savedPassword === null) {
-    showErrorPopup("No account found with this email.");
-    return;
+    // Find matching username OR email
+    const user = users.find(function (user) {
+
+        return (
+            user.username.toLowerCase() === login ||
+            user.email.toLowerCase() === login
+        );
+
+    });
+
+    if (!user) {
+        showErrorPopup("Username or email not found.");
+        return;
     }
 
-    if (savedPassword !== password) {
-    showErrorPopup("Incorrect password.");
-    return;
+    if (user.password !== password) {
+        showErrorPopup("Incorrect password.");
+        return;
     }
-    
-    // Save who is logged in (temporary — gone when browser tab closes)
-    sessionStorage.setItem("userEmail", email);
+
+    // Save login session
     sessionStorage.setItem("isLoggedIn", "true");
+    sessionStorage.setItem("userEmail", user.email);
+    sessionStorage.setItem("username", user.username);
 
     showLoadingPopup();
 
     setTimeout(function () {
+
         hidePopup();
+
         window.location.href = "index.html";
+
     }, 2000);
+
 });

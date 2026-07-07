@@ -21,24 +21,27 @@
 
 <form class="registerr" id="registerr_form">
 
-    <!-- STEP 1 -->
+    <!--STEP 1 - USERNAME-->
     <div id="step1">
 
         <h2>Create Account</h2>
 
-        <input type="email"
-                id="email"
-                placeholder="Email" required
-        >
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            required>
 
-        <button type="button"
-                id="nextBtn">Next
+        <button
+            type="button"
+            id="nextBtn1">
+            Next
         </button>
 
     </div>
 
 
-    <!-- STEP 2 -->
+    <!-- STEP 2 - EMAIL-->
     <div
         id="step2"
         style="display:none;">
@@ -46,22 +49,53 @@
         <h2>Create Account</h2>
 
         <input
-            type="password"
-            id="password"
-            placeholder="Password" required
-        >
-
-        <input
-            type="password"
-            id="confirm_password"
-            placeholder="Confirm Password" required
-        >
+            type="email"
+            id="email"
+            placeholder="Email"
+            required>
 
         <div class="button_group">
 
             <button
                 type="button"
-                id="backBtn">
+                id="backBtn1">
+                Back
+            </button>
+
+            <button
+                type="button"
+                id="nextBtn2">
+                Next
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!--STEP 3 - PASSWORD-->
+    <div
+        id="step3">
+
+        <h2>Create Account</h2>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required>
+
+        <input
+            type="password"
+            id="confirm_password"
+            placeholder="Confirm Password"
+            required>
+
+        <div class="button_group">
+
+            <button
+                type="button"
+                id="backBtn2">
                 Back
             </button>
 
@@ -76,16 +110,20 @@
 
 </form>
 
+
 <div id="loadingOverlay" class="loading-overlay hidden">
-        <div class="loading-box">
-            <div id="overlaySpinner" class="spinner"></div>
-            <p id="overlayMessage"></p>
-            <button type="button" id="overlayClose" class="overlay-close hidden">
+    <div class="loading-box">
+        <div id="overlaySpinner" class="spinner"></div>
+        <p id="overlayMessage"></p>
+
+        <button
+            type="button"
+            id="overlayClose"
+            class="overlay-close hidden">
             OK
-            </button>
-        </div>
+        </button>
+    </div>
 </div>
 
 </body>
-
 </html>

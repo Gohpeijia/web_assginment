@@ -1,108 +1,30 @@
-// Form
+// Register Form
 const registerForm = document.getElementById("registerr_form");
 
 // Steps
 const step1 = document.getElementById("step1");
 const step2 = document.getElementById("step2");
+const step3 = document.getElementById("step3");
 
 // Buttons
-const nextBtn = document.getElementById("nextBtn");
-const backBtn = document.getElementById("backBtn");
+const nextBtn1 = document.getElementById("nextBtn1");
+const nextBtn2 = document.getElementById("nextBtn2");
+const backBtn1 = document.getElementById("backBtn1");
+const backBtn2 = document.getElementById("backBtn2");
 
 // Inputs
+const usernameInput = document.getElementById("username");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirm_password");
 
-
-// ========================================
-// NEXT BUTTON
-// ========================================
-
-nextBtn.addEventListener("click", function () {
-
-    const email = emailInput.value.trim();
-
-    if (email === "") {
-        showErrorPopup("Please enter your email.");
-        return;
-    }
-
-    // Valid email format
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailPattern.test(email)) {
-        showErrorPopup("Please enter a valid email address.");
-        return;
-    }
-
-    // Duplicate email
-    if (localStorage.getItem(email) !== null) {
-        showErrorPopup("An account with this email already exists.");
-        return;
-    }
-
-    // Move to Step 2
-    step1.style.display = "none";
-    step2.style.display = "block";
-
-});
-
-
-// ========================================
-// BACK BUTTON
-// ========================================
-
-backBtn.addEventListener("click", function () {
-
-    step2.style.display = "none";
-    step1.style.display = "block";
-
-});
-
-
-// ========================================
-// REGISTER
-// ========================================
-
-registerForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
-    const confirmPassword = confirmPasswordInput.value.trim();
-
-    if (password.length < 8) {
-        showErrorPopup("Password must contain at least 8 characters.");
-        return;
-    }
-
-    if (password !== confirmPassword) {
-        showErrorPopup("Passwords do not match.");
-        return;
-    }
-
-    // Save account
-    localStorage.setItem(email, password);
-
-    showLoadingPopup("Creating your account...");
-
-    setTimeout(function () {
-
-    hidePopup();
-
-    window.location.href = "login.html";
-
-}, 2000);
-
-});
-
+// Popup Elements
 const loadingOverlay = document.getElementById("loadingOverlay");
 const overlaySpinner = document.getElementById("overlaySpinner");
 const overlayMessage = document.getElementById("overlayMessage");
 const overlayClose = document.getElementById("overlayClose");
 
+// Popup Functions
 function hidePopup() {
     loadingOverlay.classList.add("hidden");
 }
@@ -122,3 +44,123 @@ function showErrorPopup(message) {
 }
 
 overlayClose.addEventListener("click", hidePopup);
+
+// Load Users
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+
+// Username Validation
+nextBtn1.addEventListener("click", function () {
+
+    const username = usernameInput.value.trim();
+
+    if (username === "") {
+        showErrorPopup("Please enter a username.");
+        return;
+    }
+
+    // Duplicate username
+    const usernameExists = users.some(user =>
+        user.username.toLowerCase() === username.toLowerCase()
+    );
+
+    if (usernameExists) {
+        showErrorPopup("Username already exists.");
+        return;
+    }
+
+    step1.style.display = "none";
+    step2.style.display = "flex";
+
+});
+
+backBtn1.addEventListener("click", function () {
+
+    step2.style.display = "none";
+    step1.style.display = "flex";
+
+});
+
+// Email Validation
+nextBtn2.addEventListener("click", function () {
+
+    const email = emailInput.value.trim().toLowerCase();
+
+    if (email === "") {
+        showErrorPopup("Please enter your email.");
+        return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        showErrorPopup("Please enter a valid email address.");
+        return;
+    }
+
+    // Duplicate email
+    const emailExists = users.some(user =>
+        user.email.toLowerCase() === email
+    );
+
+    if (emailExists) {
+        showErrorPopup("An account with this email already exists.");
+        return;
+    }
+
+    step2.style.display = "none";
+    step3.style.display = "flex";
+
+});
+
+backBtn2.addEventListener("click", function () {
+
+    step3.style.display = "none";
+    step2.style.display = "flex";
+
+});
+
+// CREATE ACCOUNT
+registerForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const username = usernameInput.value.trim();
+    const email = emailInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (password.length < 8) {
+        showErrorPopup("Password must contain at least 8 characters.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        showErrorPopup("Passwords do not match.");
+        return;
+    }
+
+    // Create user object
+    const newUser = {
+        username: username,
+        email: email,
+        password: password
+    };
+
+    // Add to array
+    users.push(newUser);
+
+    // Save array into localStorage
+    localStorage.setItem("users", JSON.stringify(users));
+
+    showLoadingPopup("Creating your account...");
+
+    setTimeout(function () {
+
+        hidePopup();
+
+        window.location.href = "login.html";
+
+    }, 2000);
+
+});
