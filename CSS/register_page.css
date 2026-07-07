@@ -1,24 +1,23 @@
 .login_title img{
     display: block;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 30px auto;
     width:700px;
     height:auto;
 }
 
 .registerr{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items:center; 
+    width:350px;
+    margin:10px auto 0;
 }
 
 .registerr input{
-    width: 350px;
+    width: 100%;
     padding: 15px 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background: rgba(255,255,255,0.6);
     box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 .registerr button{
@@ -47,9 +46,33 @@
     box-sizing: border-box;
 }
 
+/* ==========================
+   Multi-Step Registration
+========================== */
 
+#step1,
+#step2{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
+.button_group{
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
 
+.button_group button{
+    flex: 1;
+}
+
+#step1 h2,
+#step2 h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#8B6B20;
+}
 
 
 

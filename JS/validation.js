@@ -1,37 +1,94 @@
-// Find the register form on the page
+// Form
 const registerForm = document.getElementById("registerr_form");
 
-// Find the email and password input boxes
+// Steps
+const step1 = document.getElementById("step1");
+const step2 = document.getElementById("step2");
+
+// Buttons
+const nextBtn = document.getElementById("nextBtn");
+const backBtn = document.getElementById("backBtn");
+
+// Inputs
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirm_password");
 
-// Run this code when the user clicks Create Account
+
+// ========================================
+// NEXT BUTTON
+// ========================================
+
+nextBtn.addEventListener("click", function () {
+
+    const email = emailInput.value.trim();
+
+    if (email === "") {
+        alert("Please enter your email.");
+        return;
+    }
+
+    // Valid email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    // Duplicate email
+    if (localStorage.getItem(email) !== null) {
+        alert("An account with this email already exists.");
+        return;
+    }
+
+    // Move to Step 2
+    step1.style.display = "none";
+    step2.style.display = "block";
+
+});
+
+
+// ========================================
+// BACK BUTTON
+// ========================================
+
+backBtn.addEventListener("click", function () {
+
+    step2.style.display = "none";
+    step1.style.display = "block";
+
+});
+
+
+// ========================================
+// REGISTER
+// ========================================
+
 registerForm.addEventListener("submit", function (event) {
+
     event.preventDefault();
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const confirmPassword = confirmPasswordInput.value.trim();
 
-    const errorMessage = validateRegisterForm(email, password, confirmPassword);
-
-    if (errorMessage !== "") {
-        alert(errorMessage);
+    if (password.length < 8) {
+        alert("Password must contain at least 8 characters.");
         return;
     }
 
-    // Check if this email is already registered
-    const existingAccount = localStorage.getItem(email);
-
-    if (existingAccount !== null) {
-        alert("An account with this email already exists.");
+    if (password !== confirmPassword) {
+        alert("Passwords do not match.");
         return;
     }
 
-    // Save the new account in the browser (email = key, password = value)
+    // Save account
     localStorage.setItem(email, password);
 
-    alert("Account created! You can log in now.");
+    alert("Account created successfully!");
+
     window.location.href = "login.html";
+
 });
+
