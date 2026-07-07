@@ -58,11 +58,16 @@ loginForm.addEventListener("submit", function (event) {
     // Get the saved password for this email (saved by register.js)
     const savedPassword = localStorage.getItem(email);
 
-    if (savedPassword === null || savedPassword !== password) {
-        showErrorPopup("Incorrect user.");
-        return;
+    if (savedPassword === null) {
+    showErrorPopup("No account found with this email.");
+    return;
     }
 
+    if (savedPassword !== password) {
+    showErrorPopup("Incorrect password.");
+    return;
+    }
+    
     // Save who is logged in (temporary — gone when browser tab closes)
     sessionStorage.setItem("userEmail", email);
     sessionStorage.setItem("isLoggedIn", "true");
