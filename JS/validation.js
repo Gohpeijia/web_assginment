@@ -24,7 +24,7 @@ nextBtn.addEventListener("click", function () {
     const email = emailInput.value.trim();
 
     if (email === "") {
-        alert("Please enter your email.");
+        showErrorPopup("Please enter your email.");
         return;
     }
 
@@ -32,13 +32,13 @@ nextBtn.addEventListener("click", function () {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
+        showErrorPopup("Please enter a valid email address.");
         return;
     }
 
     // Duplicate email
     if (localStorage.getItem(email) !== null) {
-        alert("An account with this email already exists.");
+        showErrorPopup("An account with this email already exists.");
         return;
     }
 
@@ -74,21 +74,51 @@ registerForm.addEventListener("submit", function (event) {
     const confirmPassword = confirmPasswordInput.value.trim();
 
     if (password.length < 8) {
-        alert("Password must contain at least 8 characters.");
+        showErrorPopup("Password must contain at least 8 characters.");
         return;
     }
 
     if (password !== confirmPassword) {
-        alert("Passwords do not match.");
+        showErrorPopup("Passwords do not match.");
         return;
     }
 
     // Save account
     localStorage.setItem(email, password);
 
-    alert("Account created successfully!");
+    showLoadingPopup("Creating your account...");
+
+    setTimeout(function () {
+
+    hidePopup();
 
     window.location.href = "login.html";
 
+}, 2000);
+
 });
 
+const loadingOverlay = document.getElementById("loadingOverlay");
+const overlaySpinner = document.getElementById("overlaySpinner");
+const overlayMessage = document.getElementById("overlayMessage");
+const overlayClose = document.getElementById("overlayClose");
+
+function hidePopup() {
+    loadingOverlay.classList.add("hidden");
+}
+
+function showLoadingPopup(message) {
+    overlayMessage.textContent = message;
+    overlaySpinner.classList.remove("hidden");
+    overlayClose.classList.add("hidden");
+    loadingOverlay.classList.remove("hidden");
+}
+
+function showErrorPopup(message) {
+    overlayMessage.textContent = message;
+    overlaySpinner.classList.add("hidden");
+    overlayClose.classList.remove("hidden");
+    loadingOverlay.classList.remove("hidden");
+}
+
+overlayClose.addEventListener("click", hidePopup);
