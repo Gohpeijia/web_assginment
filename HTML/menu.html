@@ -1,299 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Menu</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../CSS/theme.css">
-  <link rel="stylesheet" href="../CSS/menu.css">
+    <head>
+      <title>Menu</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../CSS/theme.css">
+      <link rel="stylesheet" href="../CSS/menu.css">
+    </head>
+  <body>
 
-</head>
-<body>
+    <!--  NAVBAR (match your existing navbar style)  -->
+    <header class="navbar">
+        <span class="logo-circle"><img src="../Assets/Images/shopIcon.png" alt="Logo"></span>
+      <nav class="nav-links">
+        <a href="menu.html" class="hover-underline">Order Now</a>
+        <a href="about_us.html" class="hover-underline">About Us</a>
+      </nav>
 
-  <!--  NAVBAR (match your existing navbar style)  -->
-  <header class="navbar">
-    <div class="nav-logo">
-      <span class="logo-circle">&#9998;</span>
-    </div>
-    <nav class="nav-links">
-      <a href="menu.html" class="hover-underline">Order Now</a>
-      <a href="about_us.html" class="hover-underline">About Us</a>
-    </nav>
-    <div class="nav-icons">
-      <button aria-label="Search">&#128269;</button>
-      <button aria-label="Account">&#128100;</button>
-      <button aria-label="Cart">&#128722;</button>
-    </div>
-  </header>
+      <div class="nav-icons">
+        <button aria-label="Search" href="menu.html" class="hover-underline">
+          <img src="../Assets/Images/filter.png" alt="Search">
+        </button>
+        
+        <button id="account" aria-label="Account" class="hover-underline">
+          <img src="../Assets/Images/account.png" alt="Account">
+        </button>
+        
+        <button aria-label="Cart" class="hover-underline" href="cart.html">
+          <img src="../Assets/Images/cartIcon.png" alt="Cart">
+        </button>
+      </div>
+    </header>
 
-  <!--  INTERACTIVE CAKE SECTION  -->
-  <section class="cake-section" aria-label="Interactive cake menu display"> <!-- ARIA label added for screen reader to read -->
-    <div id="scene">
-          <div class="scene-title">Our Cakes</div>
-        </div>
-      </section>
+    <!--  INTERACTIVE CAKE SECTION  -->
+    <section class="cake-section" aria-label="Interactive cake menu display"> <!-- ARIA label added for screen reader to read -->
+      <div id="scene">
+        <div class="scene-title">Our Cakes</div>
+      </div>
       <!-- custom cursor elements -->
       <div class="cursor-ring" id="cursorRing"></div>
       <div class="cursor-dot"  id="cursorDot"></div>
-    </div>
-  </section>
+    </section>
 
-  <!--  CATALOGUE CARDS (static fallback / full menu below)  -->
-  <section class="catalogue-section">
-    <h2 class="section-title">Full Menu</h2>
-    <div class="filter-bar">
-      <input type="text" id="searchInput" placeholder="Search cakes..." aria-label="Search menu">
-      <select id="categoryFilter" aria-label="Filter by category">
-        <option value="all">All Categories</option>
-        <option value="Cream Cake">Cream Cake</option>
-        <option value="Cheesecake">Cheese Cake</option>
-        <option value="Fruit Cake">Fruit Cake</option>
-        <option value="Tart">Tart</option>
-        <option value="Tiramisu">Tiramisu</option>
-        <option value="Mille Crepe">Mille Crepe</option>
-      </select>
-      <select id="sortSelect" aria-label="Sort items">
-        <option value="default">None</option>
-        <option value="name-asc">Name A–Z</option>
-        <option value="name-desc">Name Z–A</option>
-        <option value="price-asc">Price Low–High</option>
-        <option value="price-desc">Price High–Low</option>
-      </select>
-    </div>
-    <div class="catalogue-grid" id="catalogueGrid"></div>
-    <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
-  </section>
+    <!--  CATALOGUE CARDS (static fallback / full menu below)  -->
+    <section class="catalogue-section">
+      <h2 class="section-title">Full Menu</h2>
+      <div class="filter-bar">
+        <input type="text" id="searchInput" placeholder="Search cakes..." aria-label="Search menu">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <option value="Cream Cake">Cream Cake</option>
+          <option value="Cheesecake">Cheese Cake</option>
+          <option value="Fruit Cake">Fruit Cake</option>
+          <option value="Tart">Tart</option>
+          <option value="Tiramisu">Tiramisu</option>
+          <option value="Mille Crepe">Mille Crepe</option>
+        </select>
+        <select id="sortSelect" aria-label="Sort items">
+          <option value="default">None</option>
+          <option value="name-asc">Name A–Z</option>
+          <option value="name-desc">Name Z–A</option>
+          <option value="price-asc">Price Low–High</option>
+          <option value="price-desc">Price High–Low</option>
+        </select>
+      </div>
+      <div class="catalogue-grid" id="catalogueGrid"></div>
+      <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
+    </section>
 
-  <div id="productModal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-btn" id="closeModal">&times;</span>
-      
-      
-      <div class="modal-body">
-        <div class="modal-image-container">
-          <img id="modalImage" src="" alt="Cake Details">
-        </div>
-        
-        <div class="modal-details">
-          <h2 id="modalTitle" class="modal-title">Cake Name</h2>
-          <div id="modalPrice" class="modal-price">RM 0.00</div>
+    <div id="productModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
 
-          <div class="modal-options">
-            <div class="option-group" id="sizeOptionGroup">
-              <label>SIZE</label>
-              <div class="btn-group">
-                <button class="opt-btn active">Slice</button>
-                <button class="opt-btn">Whole Cake</button>
+        <div class="modal-body">
+          <div class="modal-image-container">
+            <img id="modalImage" src="" alt="Cake Details">
+          </div>
+          
+          <div class="modal-details">
+            <h2 id="modalTitle" class="modal-title">Cake Name</h2>
+            <div id="modalPrice" class="modal-price">RM 0.00</div>
+
+            <div class="modal-options">
+              <div class="option-group" id="sizeOptionGroup">
+                <label>SIZE <br>slice = 2 inch <br> whole cake = 8 inch</label>
+                <div class="btn-group">
+                  <button class="opt-btn active">Slice</button>
+                  <button class="opt-btn">Whole Cake</button>
+                </div>
               </div>
-            </div>
-            
-            <div class="option-group">
               <br>
-              <label>CANDLES - SET NUMBER AT CHECKOUT. </label>
-              <div class="btn-group">
-                <button class="opt-btn active">YES</button>
-                <button class="opt-btn">NO</button>
+              <div class="option-group">
+                <label>CANDLES - SET NUMBER AT CHECKOUT. </label>
+                <div class="btn-group">
+                  <button class="opt-btn active">YES</button>
+                  <button class="opt-btn">NO</button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="stock-status">
-            <span class="dot"></span> IN STOCK
-          </div>
-
-          <div class="cart-actions">
-            <div class="qty-selector">
-              <button id="qtyMinus">-</button>
-              <span id="qtyValue">1</span>
-              <button id="qtyPlus">+</button>
+            <div class="stock-status">
+              <span class="dot"></span> IN STOCK
             </div>
-            <button class="add-to-cart-btn">ADD TO CART</button>
+
+            <div class="cart-actions">
+              <div class="qty-selector">
+                <button id="qtyMinus">-</button>
+                <span id="qtyValue">1</span>
+                <button id="qtyPlus">+</button>
+              </div>
+              <button class="add-to-cart-btn">ADD TO CART</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    const FEATURED_CAKES = [
-      { 
-        name: "Ceram Cake", 
-        category: "Creamcake", 
-        price: 10.00, 
-        bg: "#3D1C02", 
-        accent: "#8B4513", 
-        img: "../Assets/Food/Chocolate_Indulgence.svg" 
-      },
-      { 
-        name: "Fruit Cake", 
-        category: "Fruitcake", 
-        price: 11.00, 
-        bg: "#3D1C02", 
-        accent: "#8B4513", 
-        img: "../Assets/Food/Oolong_melon_cake.svg" 
-      },
-      { 
-        name: "Cheesecake", 
-        category: "Cheesecake", 
-        price: 9.00, 
-        bg: "#3D1C02", 
-        accent: "#8B4513", 
-        img: "../Assets/Food/New_York_Cheesecake.svg" 
-      },
-      { 
-        name: "Pie", 
-        category: "Pie", 
-        price: 7.00, 
-        bg: "#3D1C02", 
-        accent: "#8B4513", 
-        img: "../Assets/Food/Apple_pie.svg" 
-      },
-      { 
-        name: "Fruit Tart", 
-        category: "tart", 
-        price: 3.00, 
-        bg: "#3D1C02", 
-        accent: "#8B4513", 
-        img: "../Assets/Food/Fruit_tart.svg" 
-      },
-      { 
-        name: "Mille Crepe", 
-        category: "cake", 
-        price: 12.00, 
-        bg: "#3D1C02", 
-        accent: "#8B4513", 
-        img: "../Assets/Food/Matcha_mille_crepe.svg" 
-      },
-      { 
-        name: "Tiramisu", 
-        category: "Tiramisu", 
-        price: 17.00, 
-        bg: "#3D1C02", 
-        accent: "#8B4513", 
-        img: "../Assets/Food/Tiramisu.svg" 
-      }
-    ];
+    <div id="profileModal" class="modal hidden">
+      <div class="modal-content profile-modal-content">
+        <span class="close-btn" id="closeProfileModal">&times;</span>
+        <div class="profile-modal-body">
+          <h2 class="modal-title">Account</h2>
+          <p class="profile-message">You haven't logged in yet!</p>
+          <a href="login.html" class="login-redirect-btn">Go to Login Page</a>
+        </div>
+      </div>
+    </div>
 
-    const FULL_MENU = [
-      { 
-        name: "Valrhona Chocolate", 
-        category: "Cream Cake", 
-        price: 11.99, 
-        priceWhole: 89.99, 
-        img: "../Assets/Food/Valrhona_Chocolate_Cake.svg" 
-      },
-      { 
-        name: "Chocolate Indulgence", 
-        category: "Cream Cake", 
-        price: 11.99, 
-        priceWhole: 89.99, 
-        img: "../Assets/Food/Chocolate_Indulgence.svg" 
-      },
-      { 
-        name: "New York Cheesecake", 
-        category: "Cheesecake", 
-        price: 12.99, 
-        priceWhole: 99.99, 
-        img: "../Assets/Food/New_York_Cheesecake.svg" 
-      },
-      { 
-        name: "Lychee Coffee Hazaelnut", 
-        category: "Fruit Cake", 
-        price: 12.99, 
-        priceWhole: 119.99, 
-        img: "../Assets/Food/Lychee_Coffee_Hazelnut.svg" 
-      },
-      { 
-        name: "Blueberry Lemon Cake", 
-        category: "Fruit Cake", 
-        price: 13.99, 
-        priceWhole: 89.99, 
-        img: "../Assets/Food/Blueberry_Lemon_cake.svg" 
-      },
-      { 
-        name: "Oolong Melon Cake", 
-        category: "Fruit Cake", 
-        price: 11.99, 
-        priceWhole: 109.99, 
-        img: "../Assets/Food/Oolong_melon_cake.svg" 
-      },
-      { 
-        name: "Pistachio Raspberry", 
-        category: "Fruit Cake", 
-        price: 16.99, 
-        priceWhole: 129.99, 
-        img: "../Assets/Food/Pistachio_Raspberry.svg" 
-      },
-      { 
-        name: "Strawberry Shortcake", 
-        category: "Fruit Cake", 
-        price: 10.99, 
-        priceWhole: 119.99, 
-        img: "../Assets/Food/Strawberry_cake.svg" 
-      },
-      { 
-        name: "Tiramisu", 
-        category: "Tiramisu", 
-        price: 17.99, 
-        img: "../Assets/Food/Tiramisu.svg" 
-      },
-      { 
-        name: "Fruit Tart", 
-        category: "Tart", 
-        price: 3.99, 
-        img: "../Assets/Food/Fruit_Tart.svg" 
-      },
-      { 
-        name: "Kochi Yuzu Mango Tart", 
-        category: "Tart", 
-        price: 14.99, 
-        img: "../Assets/Food/Kochi_Yuzu_Mango_Tart.svg" 
-      },
-      { 
-        name: "Uji Matcha Tart", 
-        category: "Tart", 
-        price: 16.00, 
-        priceWhole: 16.00, 
-        img: "../Assets/Food/uji_matcha_tart.svg" 
-      },
-      { 
-        name: "Apple Pie", 
-        category: "Pie", 
-        price: 8.99, 
-        priceWhole: 99.99, 
-        img: "../Assets/Food/Apple_pie_slice.svg" 
-      },
-      { 
-        name: "Lime Pie", 
-        category: "Pie", 
-        price: 8.99, 
-        priceWhole: 79.99, 
-        img: "../Assets/Food/Lime_pie.svg" 
-      },
-      { 
-        name: "Caramel Almond Vanilla Crêpe", 
-        category: "Mille Crepe", 
-        price: 14.99, 
-        priceWhole: 109.99, 
-        img: "../Assets/Food/Caramel_Almond_Vanilla_Crêpe_have_slides.svg" 
-      },
-      { 
-        name: "Musang King Durian Crêpe", 
-        category: "Mille Crepe", 
-        price: 18.99, 
-        priceWhole: 139.99, 
-        img: "../Assets/Food/Musang_King_Durian_Crêpe.svg" 
-      },
-      { 
-        name: "Matcha Mille Crepe", 
-        category: "Mille Crepe", 
-        price: 14.99, 
-        priceWhole: 111.99, 
-        img: "../Assets/Food/Matcha_mille_crepe.svg" 
-      }
-    ];
-  </script>
-
-  <script src="../JS/menu.js"></script>
-</body>
+    <script src="../JS/menu.js"></script>
+  </body>
+  <footer>
+    <hr class="divider">
+    
+    <div class="footer_index_center">
+      <h2>To get to know us</h2>
+      <br>
+      <h3>Customer Service</h3>
+      <p>Discover our commitment to exceptional customer service with every purchase. Your satisfaction is always our top priority.</p>
+    </div>
+    <p class="copyright">&copy; 2024 Cake Shop. All rights reserved.</p>
+  </footer>
 </html>
