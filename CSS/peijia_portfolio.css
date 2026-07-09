@@ -1,17 +1,16 @@
-html {
-    scroll-behavior: smooth;
-}
 :root {
     --bg-primary: #FCF7E6;       
     --bg-secondary: #f5e19e;     
-    --text-primary: #291802;     
+    --textandcontainer-primary: #291802;     
     --accent-color: #8C2222;     
     
     /* Footer Colors */
     --footer-bg: #151108;
     --footer-text: #F4F1EA;
-    --font-heading: Comic Sans MS;
-    --font-body: Lucida Console; 
+
+    /*font-families (use sans-serif as fallback)*/
+    --font-heading:  system-ui, sans-serif;
+    --font-body: Lucida Console, sans-serif; 
 }
 
 /* Dark Theme Overrides (Applied via JS) */
@@ -19,7 +18,7 @@ html {
     --bg-primary: #1A1A1A;
     --bg-secondary: #2A2A2A;
     --accent-color: #d1aaaa;
-    --text-primary: #F4F1EA;
+    --textandcontainer-primary: #F4F1EA;
     --footer-bg: #000000;
 }
 
@@ -32,7 +31,7 @@ html {
 
 body {
     background-color: var(--bg-primary);
-    color: var(--text-primary);
+    color: var(--textandcontainer-primary);
     font-family: var(--font-heading);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -46,102 +45,8 @@ h1, h2, h3, h4 {
     margin-bottom: 1rem;
 }
 
-/* =========================================
-   AUDIO HINT LABEL
-   ========================================= */
-
-.audio-hint {
-    position: fixed;
-    right: 2%; /* Pins it to the right edge */
-    bottom: 35%; /* Places it middle of page */
-    font-family: var(--font-heading);
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: var(--text-secondary);
-    opacity: 0.4;
-    
-    /* Advanced CSS: Writes the text vertically */
-    writing-mode: vertical-rl; 
-    transform: rotate(180deg); /* Flips it so it reads bottom-to-top */
-    
-    z-index: -10;
-    transition: color 0.3s ease, opacity 0.3s ease;
-}
-
-/* The state for when the music is actively playing */
-.audio-hint.is-playing {
-    color: var(--accent-color);
-    opacity: 0.8;
-}
-
-/* Hide on mobile just like the floating decor */
-@media screen and (max-width: 1024px) {
-    .audio-hint {
-        display: none;
-    }
-}
-
-/* =========================================
-   MARGIN INTERACTIVITY (SCROLL & FLOATING)
-   ========================================= */
-
-/* Left Side: Industrial Scroll Tracker */
-.scroll-tracker-container {
-    position: fixed;
-    top: 0;
-    left: 3%; /* Places it in the left margin */
-    width: 3px;
-    height: 100vh; /* Takes up the full height of the screen */
-    background-color: var(--text-secondary);
-    opacity: 0.2;
-    z-index: 100;
-}
-
-.scroll-tracker-line {
-    width: 100%;
-    height: 0%; /* This will be dynamically updated by JavaScript */
-    background-color: var(--accent-color);
-}
-
-/* Right Side: Floating Tech Decor */
-.floating-decor {
-    position: fixed;
-    right: 4%; /* Places it in the right margin */
-    font-family: var(--font-body);
-    font-size: 3.5rem;
-    color: var(--text-secondary);
-    opacity: 0.1;
-    z-index: 1; /* Keeps them behind your main content */
-    cursor: crosshair; /* Adds a cool tech cursor when hovered */
-    
-    /* Smooth transitions for the hover effect */
-    transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-    
-    /* Continuous slow rotation */
-    animation: slowSpin 25s linear infinite;
-}
-
-.floating-decor:hover {
-    opacity: 0.8;
-    color: var(--accent-color);
-    animation-play-state: paused; /* Stops the spinning */
-    transform: scale(1.3) rotate(0deg); /* Enlarges and straightens out */
-}
-
-/* Distributing the 3 symbols vertically */
-.right-pos-1 { top: 15%; }
-.right-pos-2 { top: 50%; animation-direction: reverse; } /* Spins the opposite way */
-.right-pos-3 { top: 85%; }
-
-/* Applied via JS when the user is near the top or bottom of the page */
-.fade-out {
-    opacity: 0 !important;
-    pointer-events: none; /* Prevents the user from accidentally clicking them when they are invisible */
-}
-
-
 a {
-    color: var(--text-primary);
+    color: var(--textandcontainer-primary);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -162,19 +67,26 @@ a:hover {
     border: 0;
 }
 
+/* Hide the Download completed successfully! before download */
+.hidden {
+    display: none;
+}
+
 /* Accessibility: Visible Focus States for Keyboard Navigation */
 *:focus-visible {
     outline: 2px dashed var(--accent-color);
     outline-offset: 4px;
 }
 
-/* =========================================
-   LAYOUT, GRID, & RESPONSIVENESS
-   ========================================= */
+/* LAYOUT, GRID, & RESPONSIVENESS*/
 
 /* Header & Navigation */
 .site-header {
-    border-bottom: 2px solid var(--text-primary);
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    background-color: var(--bg-primary);
+    border-bottom: 2px solid var(--textandcontainer-primary);
     padding: 1rem 2rem;
 }
 
@@ -202,8 +114,8 @@ a:hover {
 /* for theme button */
 #theme-toggle {
     background: none;
-    border: 2px solid var(--text-primary);
-    color: var(--text-primary);
+    border: 2px solid var(--textandcontainer-primary);
+    color: var(--textandcontainer-primary);
     padding: 0.5rem;
     cursor: pointer;
     font-size: 1.2rem;
@@ -214,7 +126,7 @@ a:hover {
     background-color: var(--bg-secondary);
     text-align: center;
     padding: 4rem 1rem;
-    border-bottom: 2px solid var(--text-primary);
+    border-bottom: 2px solid var(--textandcontainer-primary);
 }
 
 /*  PROFILE DETAILS, CONTACT LIST & SKILLS */
@@ -230,13 +142,13 @@ a:hover {
 /* Contact info list styling */
 .info-list {
     list-style: none;
-    border-top: 1px solid var(--text-primary);
+    border-top: 1px solid var(--textandcontainer-primary);
 }
 
 .info-list li {
     display: flex;
     padding: 0.8rem 0;
-    border-bottom: 1px solid var(--text-primary);
+    border-bottom: 1px solid var(--textandcontainer-primary);
     font-size: 0.95rem;
 }
 
@@ -247,7 +159,7 @@ a:hover {
 }
 
 .info-value {
-    color: var(--text-primary);
+    color: var(--textandcontainer-primary);
 }
 
 .skills-section {
@@ -279,13 +191,13 @@ a:hover {
     width: 100%;
     height: 18px;
     background-color: var(--bg-primary);
-    border: 1px solid var(--text-primary);
+    border: 1px solid var(--textandcontainer-primary);
 }
 
 /* The filled inner part of the progress bar */
 .skill-fill {
     height: 100%;
-    background-color: var(--text-primary);
+    background-color: var(--textandcontainer-primary);
     /* Adding a subtle animation for when the page loads  */
     animation: loadBar 1.5s ease-in-out forwards;
 }
@@ -318,7 +230,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-bottom: 2px solid var(--text-primary);
+    border-bottom: 2px solid var(--textandcontainer-primary);
     margin-bottom: 2rem;
 }
 
@@ -343,7 +255,6 @@ a:hover {
     max-width: 30%;
     height: auto;
     flex: 1;
-    border: 2px solid var(--text-primary);
 }
 
 .item-content p {
@@ -358,7 +269,7 @@ a:hover {
     color: var(--footer-text);
     padding: 4rem 2rem 1.5rem;
     margin-top: 6rem;
-    border-top: 4px solid var(--text-primary);
+    border-top: 4px solid var(--textandcontainer-primary);
 }
 
 /* 3-Column Grid for Desktop */
@@ -430,7 +341,7 @@ a:hover {
 }
 
 .back-to-project {
-    color: var(--text-primaryy);
+    color: var(--textandcontainer-primary);
     font-weight: bold;
     font-family: var(--font-heading);
 }
@@ -451,9 +362,7 @@ a:hover {
     }
 }
 
-/* =========================================
-   TECH STACK & INTERACTIVE TERMINAL
-   ========================================= */
+/* TECH STACK & INTERACTIVE TERMINAL */
 
 /* Helper class to ensure side-by-side columns align at the top */
 .align-start {
@@ -472,7 +381,7 @@ a:hover {
 .stack-box h4 {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
-    border-bottom: 1px dashed var(--text-primary);
+    border-bottom: 1px dashed var(--textandcontainer-primary);
     padding-bottom: 0.2rem;
 }
 
@@ -484,7 +393,7 @@ a:hover {
 }
 
 .tag-list li {
-    background-color: var(--text-primary);
+    background-color: var(--textandcontainer-primary);
     color: var(--bg-primary);
     padding: 0.3rem 0.6rem;
     font-size: 0.85rem;
@@ -501,13 +410,13 @@ a:hover {
 
 /* Right Side: Interactive Terminal */
 .terminal-box {
-    border: 2px solid var(--text-primary);
+    border: 2px solid var(--textandcontainer-primary);
     background-color: var(--bg-primary);
 }
 
 .terminal-header {
     display: flex;
-    border-bottom: 2px solid var(--text-primary);
+    border-bottom: 2px solid var(--textandcontainer-primary);
     background-color: var(--bg-secondary);
 }
 
@@ -515,12 +424,12 @@ a:hover {
     flex: 1;
     background: none;
     border: none;
-    border-right: 2px solid var(--text-primary);
+    border-right: 2px solid var(--textandcontainer-primary);
     padding: 0.5rem;
     font-family: var(--font-heading);
     font-weight: bold;
     cursor: pointer;
-    color: var(--text-primary);
+    color: var(--textandcontainer-primary);
     transition: background-color 0.2s;
 }
 
@@ -534,7 +443,7 @@ a:hover {
 
 /* State when a tab is clicked */
 .term-btn.active {
-    background-color: var(--text-primary);
+    background-color: var(--textandcontainer-primary);
     color: var(--bg-primary);
 }
 
@@ -573,23 +482,23 @@ a:hover {
         transparent 2px,
         transparent 8px
     ); /* Creates subtle diagonal wood grain */
-    border: 3px solid var(--text-primary);
+    border: 3px solid var(--textandcontainer-primary);
     padding: 1rem;
     /* Harsh shadow for that vintage, industrial print look */
-    box-shadow: 8px 8px 0px var(--text-primary); 
+    box-shadow: 8px 8px 0px var(--textandcontainer-primary); 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Interactive hover effect: The card lifts up when you mouse over it */
 .card:hover {
     transform: translate(-4px, -4px);
-    box-shadow: 12px 12px 0px var(--text-primary);
+    box-shadow: 12px 12px 0px var(--textandcontainer-primary);
 }
 
 /* The 'paper' pinned to the wood */
 .card-inner {
     background-color: var(--bg-primary);
-    border: 2px dashed var(--text-primary);
+    border: 2px dashed var(--textandcontainer-primary);
     padding: 1.5rem;
     height: 100%;
     display: flex;
@@ -600,7 +509,7 @@ a:hover {
 .stamped-title {
     font-size: 1.4rem;
     color: var(--accent-color);
-    border-bottom: 2px solid var(--text-primary);
+    border-bottom: 2px solid var(--textandcontainer-primary);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -614,31 +523,73 @@ a:hover {
     flex-grow: 1; 
     margin-bottom: 1.5rem;
     font-family: var(--font-heading);
-    text-transform: uppercase;
-    font-size: 0.85rem;              
-    letter-spacing: 1px;
+    color: var(--textandcontainer-primary);
+    font-size: 0.95rem;  
 }
 
 /* Industrial style button */
 .card-btn {
     display: block;
     text-align: center;
-    background-color: var(--text-primary);
+    background-color: var(--textandcontainer-primary);
     color: var(--bg-primary);
     padding: 0.5rem 1rem;
     font-weight: bold;
     font-family: var(--font-heading);
-    border: 2px solid var(--text-primary);
+    border: 2px solid var(--textandcontainer-primary);
 }
 
 .card-btn:hover {
     background-color: var(--bg-primary);
-    color: var(--text-primary);
+    color: var(--textandcontainer-primary);
 }
 
-/* =========================================
-   CERTIFICATIONS & AWARDS SPECIFICS
-   ========================================= */
+/* FLOATING MARGIN PREVIEWS */
+.margin-preview {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%) scale(0.95);
+    width: 260px; /* Fits comfortably inside your side margins */
+    background-color: var(--bg-primary);
+    border: 3px solid var(--textandcontainer-primary);
+    padding: 8px;
+    box-shadow: 8px 8px 0px var(--textandcontainer-primary);
+    z-index: 1001; /* Keeps it on top of main content and header */
+    opacity: 0;
+    pointer-events: none; /* Prevents blocking mouse scrolls */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.margin-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px dashed var(--textandcontainer-primary);
+}
+
+/* Position left and right previews in respective margins */
+#left-preview-container {
+    left: 2%;
+}
+
+#right-preview-container {
+    right: 2%;
+}
+
+/* Show preview animation */
+.margin-preview.active {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/* Hide previews on mobile/tablet viewports (where there are no margins) */
+@media screen and (max-width: 1250px) {
+    .margin-preview {
+        display: none;
+    }
+}
+
+/* CERTIFICATIONS & AWARDS SPECIFICS */
 
 /* Adjusts spacing inside the card to push the link to the bottom */
 .cert-layout {
@@ -667,12 +618,12 @@ a:hover {
 .cert-badge {
     align-self: flex-start;
     background-color: var(--bg-secondary);
-    color: var(--text-primary);
+    color: var(--textandcontainer-primary);
     padding: 0.2rem 0.8rem;
     border-radius: 12px;
     font-size: 0.8rem;
     font-weight: bold;
-    border: 1px solid var(--text-primary);
+    border: 1px solid var(--textandcontainer-primary);
 }
 
 /* Date styling */
@@ -692,7 +643,7 @@ a:hover {
 }
 
 .cert-link:hover {
-    color: var(--text-primary);
+    color: var(--textandcontainer-primary);
     text-decoration: underline;
 }
 
@@ -732,10 +683,164 @@ a:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Hide these margin elements on mobile screens so they don't block content */
-@media screen and (max-width: 1250px) {
-    .scroll-tracker-container,
-    .floating-decor {
-        display: none;
-    }
+/* EDUCATION TIMELINE */
+.education-timeline {
+    width: 100%;
+    border-left: 2px solid var(--textandcontainer-primary);
+    padding-left: 1.5rem;
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+/* Timeline dot */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.5rem - 6px - 1px);
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-color);
+    border: 2px solid var(--textandcontainer-primary);
+    border-radius: 50%;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    border: 1px solid var(--textandcontainer-primary);
+    padding: 0.1rem 0.5rem;
+    background-color: var(--bg-secondary);
+}
+
+.timeline-degree {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.institution {
+    font-style: italic;
+    color: var(--textandcontainer-primary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.edu-desc {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.edu-bullets {
+    list-style-type: square;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--textandcontainer-primary);
+}
+
+.edu-bullets li {
+    margin-bottom: 0.3rem;
+}
+
+/* SIMULATED CV DOWNLOAD */
+.cv-download-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.download-btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: var(--textandcontainer-primary);
+    color: var(--bg-primary);
+    border: 2px solid var(--textandcontainer-primary);
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--accent-color);
+    transition: all 0.2s ease;
+    width: 100%;
+    max-width: 320px;
+}
+
+.download-btn:hover {
+    background-color: var(--bg-primary);
+    color: var(--textandcontainer-primary);
+    box-shadow: 2px 2px 0px var(--accent-color);
+    transform: translate(2px, 2px);
+}
+
+.download-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--accent-color);
+}
+
+.download-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+.download-progress-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    background-color: var(--accent-color);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.download-btn.downloading {
+    background-color: var(--bg-secondary);
+    color: var(--textandcontainer-primary);
+}
+
+.download-btn.completed {
+    background-color: #2e7d32;
+    color: #ffffff;
+    border-color: #1b5e20;
+    box-shadow: none;
+    transform: none;
+}
+
+.download-message {
+    font-size: 0.85rem;
+    color: #2e7d32;
+    font-weight: bold;
+    margin-top: 0.2rem;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }

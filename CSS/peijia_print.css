@@ -1,0 +1,108 @@
+body {
+    font-size: 11pt;
+    line-height: 1.4;
+}
+
+#theme-toggle,
+.site-header,
+.site-footer,
+.back-to-top,
+.back-to-project,
+.margin-preview,
+#left-preview-container,
+#right-preview-container,
+.card-btn,
+.cv-download-container,
+.terminal-header,
+.cert-link {
+    display: none;
+}
+
+main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.personalinfo {
+    margin: 1.5rem auto;
+    gap: 2rem;
+    page-break-inside: avoid;
+}
+
+.responsive-img {
+    max-width: 120px;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.terminal-box {
+    background: none;
+}
+
+.terminal-display {
+    padding: 0.5rem;
+    min-height: auto;
+}
+
+.term-content {
+    display: block;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.term-content.hidden {
+    display: block;
+}
+
+.term-content p {
+    margin-bottom: 0.4rem;
+}
+
+.project-gallery {
+    display: block;
+}
+
+.card {
+    background: none;
+    box-shadow: none;
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+    transform: none;
+}
+
+.card-inner {
+    border: none;
+    padding: 0.5rem;
+    background: none;
+}
+
+.stamped-title {
+    font-size: 1.2rem;
+}
+
+a[href^="http"]::after,
+a[href^="mailto"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    text-decoration: none;
+}
+
+.skill-bar-container {
+    height: 12px;;
+}
+
+.skill-fill {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 0.5rem;
+    page-break-after: avoid;
+}

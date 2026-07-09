@@ -15,6 +15,184 @@ const REPEL_STRENGTH = 20;   /* how hard cakes are pushed away       */
 const FRICTION       = 0.80; /* 0–1 – higher = slides more          */
 const RETURN_SPEED   = 0.001; /* how fast cakes return to origin      */
 
+const FEATURED_CAKES = [
+  { 
+    name: "Ceram Cake", 
+    category: "Creamcake", 
+    price: 10.00, 
+    bg: "#3D1C02", 
+    accent: "#8B4513", 
+    img: "../Assets/Food/Chocolate_Indulgence.svg" 
+  },
+  { 
+    name: "Fruit Cake", 
+    category: "Fruitcake", 
+    price: 11.00, 
+    bg: "#3D1C02", 
+    accent: "#8B4513", 
+    img: "../Assets/Food/Oolong_melon_cake.svg" 
+  },
+  { 
+    name: "Cheesecake", 
+    category: "Cheesecake", 
+    price: 9.00, 
+    bg: "#3D1C02", 
+    accent: "#8B4513", 
+    img: "../Assets/Food/New_York_Cheesecake.svg" 
+  },
+  { 
+    name: "Pie", 
+    category: "Pie", 
+    price: 7.00, 
+    bg: "#3D1C02", 
+    accent: "#8B4513", 
+    img: "../Assets/Food/Apple_pie.svg" 
+  },
+  { 
+    name: "Fruit Tart", 
+    category: "tart", 
+    price: 3.00, 
+    bg: "#3D1C02", 
+    accent: "#8B4513", 
+    img: "../Assets/Food/Fruit_tart.svg" 
+  },
+  { 
+    name: "Mille Crepe", 
+    category: "cake", 
+    price: 12.00, 
+    bg: "#3D1C02", 
+    accent: "#8B4513", 
+    img: "../Assets/Food/Matcha_mille_crepe.svg" 
+  },
+  { 
+    name: "Tiramisu", 
+    category: "Tiramisu", 
+    price: 17.00, 
+    bg: "#3D1C02", 
+    accent: "#8B4513", 
+    img: "../Assets/Food/Tiramisu.svg" 
+  }
+];
+
+const FULL_MENU = [
+  { 
+    name: "Valrhona Chocolate", 
+    category: "Cream Cake", 
+    price: 11.99, 
+    priceWhole: 89.99, 
+    img: "../Assets/Food/Valrhona_Chocolate_Cake.svg" 
+  },
+  { 
+    name: "Chocolate Indulgence", 
+    category: "Cream Cake", 
+    price: 11.99, 
+    priceWhole: 89.99, 
+    img: "../Assets/Food/Chocolate_Indulgence.svg" 
+  },
+  { 
+    name: "New York Cheesecake", 
+    category: "Cheesecake", 
+    price: 12.99, 
+    priceWhole: 99.99, 
+    img: "../Assets/Food/New_York_Cheesecake.svg" 
+  },
+  { 
+    name: "Lychee Coffee Hazaelnut", 
+    category: "Fruit Cake", 
+    price: 12.99, 
+    priceWhole: 119.99, 
+    img: "../Assets/Food/Lychee_Coffee_Hazelnut.svg" 
+  },
+  { 
+    name: "Blueberry Lemon Cake", 
+    category: "Fruit Cake", 
+    price: 13.99, 
+    priceWhole: 89.99, 
+    img: "../Assets/Food/Blueberry_Lemon_cake.svg" 
+  },
+  { 
+    name: "Oolong Melon Cake", 
+    category: "Fruit Cake", 
+    price: 11.99, 
+    priceWhole: 109.99, 
+    img: "../Assets/Food/Oolong_melon_cake.svg" 
+  },
+  { 
+    name: "Pistachio Raspberry", 
+    category: "Fruit Cake", 
+    price: 16.99, 
+    priceWhole: 129.99, 
+    img: "../Assets/Food/Pistachio_Raspberry.svg" 
+  },
+  { 
+    name: "Strawberry Shortcake", 
+    category: "Fruit Cake", 
+    price: 10.99, 
+    priceWhole: 119.99, 
+    img: "../Assets/Food/Strawberry_cake.svg" 
+  },
+  { 
+    name: "Tiramisu", 
+    category: "Tiramisu", 
+    price: 17.99, 
+    img: "../Assets/Food/Tiramisu.svg" 
+  },
+  { 
+    name: "Fruit Tart", 
+    category: "Tart", 
+    price: 3.99, 
+    img: "../Assets/Food/Fruit_Tart.svg" 
+  },
+  { 
+    name: "Kochi Yuzu Mango Tart", 
+    category: "Tart", 
+    price: 14.99, 
+    img: "../Assets/Food/Kochi_Yuzu_Mango_Tart.svg" 
+  },
+  { 
+    name: "Uji Matcha Tart", 
+    category: "Tart", 
+    price: 16.00, 
+    priceWhole: 16.00, 
+    img: "../Assets/Food/uji_matcha_tart.svg" 
+  },
+  { 
+    name: "Apple Pie", 
+    category: "Pie", 
+    price: 8.99, 
+    priceWhole: 99.99, 
+    img: "../Assets/Food/Apple_pie_slice.svg" 
+  },
+  { 
+    name: "Lime Pie", 
+    category: "Pie", 
+    price: 8.99, 
+    priceWhole: 79.99, 
+    img: "../Assets/Food/Lime_pie.svg" 
+  },
+  { 
+    name: "Caramel Almond Vanilla Crêpe", 
+    category: "Mille Crepe", 
+    price: 14.99, 
+    priceWhole: 109.99, 
+    img: "../Assets/Food/Caramel_Almond_Vanilla_Crêpe_have_slides.svg" 
+  },
+  { 
+    name: "Musang King Durian Crêpe", 
+    category: "Mille Crepe", 
+    price: 18.99, 
+    priceWhole: 139.99, 
+    img: "../Assets/Food/Musang_King_Durian_Crêpe.svg" 
+  },
+  { 
+    name: "Matcha Mille Crepe", 
+    category: "Mille Crepe", 
+    price: 14.99, 
+    priceWhole: 111.99, 
+    img: "../Assets/Food/Matcha_mille_crepe.svg" 
+  }
+];
+
 /* ─────────────────────────────────────────────
    INTERACTIVE SCENE SETUP
    ───────────────────────────────────────────── */
@@ -220,9 +398,8 @@ function renderCatalogue(itemsToRender) {
     // If you forget a price, this falls back to 0.00
     const itemPrice = item.price ? item.price.toFixed(2) : "0.00"; 
     let priceHTML = '';
-   const cat = item.category.toLowerCase();
-    if (cat === 'tart' || cat === 'pie' || cat === 'tiramisu' || !item.priceWhole) {
-      /* FIX: Removed the "From" label for single items */
+       if (!item.priceWhole) {
+      /* Single price items (e.g. Tarts, Pies, Tiramisu) */
       priceHTML = `
         <div class="price-block single-price">
           <span class="price-value">RM ${itemPrice}</span>
@@ -275,21 +452,17 @@ function openModal(item) {
   modalTitle.textContent = item.name;
 
   // Hide Size option for Tarts, Pies, and Tiramisu 
-  const cat = item.category.toLowerCase();
-  if (cat === 'tart' || cat === 'pie' || cat === 'tiramisu') {
+    if (!item.priceWhole) {
     sizeOptionGroup.classList.add('hidden'); 
-    
-    // Show default single price
     modalPrice.textContent = `RM ${item.price.toFixed(2)}`;
   } else {
     sizeOptionGroup.classList.remove('hidden');
 
-    // Reset buttons to 'Slices' by default
+    // Reset buttons to 'Slice' by default
     const sizeBtns = sizeOptionGroup.querySelectorAll('.opt-btn');
     sizeBtns[0].classList.add('active');    
     sizeBtns[1].classList.remove('active'); 
     
-    // Show default Slice price
     modalPrice.textContent = `RM ${item.price.toFixed(2)}`;
   }
 
@@ -420,6 +593,63 @@ function updateCatalogue() {
 searchInput.addEventListener('input', updateCatalogue);
 categoryFilter.addEventListener('change', updateCatalogue);
 sortSelect.addEventListener('change', updateCatalogue);
+
+/* ─────────────────────────────────────────────
+   PROFILE MODAL LOGIC
+   ───────────────────────────────────────────── */
+const account = document.getElementById('account');
+const profileModal = document.getElementById('profileModal');
+const closeProfileBtn = document.getElementById('closeProfileModal');
+
+// 1. Open the modal and dynamically set login/logout states
+account.addEventListener('click', () => {
+  const profileMsg = profileModal.querySelector('.profile-message');
+  const redirectBtn = profileModal.querySelector('.login-redirect-btn');
+  
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+  const userEmail = sessionStorage.getItem("userEmail");
+
+  if (isLoggedIn && userEmail) {
+    // User is logged in: show email and turn redirect button into "Log Out"
+    profileMsg.textContent = `Logged in as: ${userEmail}`;
+    redirectBtn.textContent = 'Log Out';
+    redirectBtn.href = '#';
+    
+    // Clear session on click
+    redirectBtn.onclick = (e) => {
+      e.preventDefault();
+      sessionStorage.clear();
+      location.reload(); // Refresh the page to reset state
+    };
+  } else {
+    // User is guest: show default guest message and redirect button
+    profileMsg.textContent = "You haven't logged in yet!";
+    redirectBtn.textContent = 'Go to Login Page';
+    redirectBtn.href = 'login.html';
+    redirectBtn.onclick = null; // Reset click overrides
+  }
+
+  profileModal.classList.remove('hidden');
+});
+
+// 2. Close the modal when the 'X' is clicked (Registered once on page load)
+closeProfileBtn.addEventListener('click', () => {
+  profileModal.classList.add('hidden');
+});
+
+// 3. Close the modal when clicking the dark background outside the box
+profileModal.addEventListener('click', (e) => {
+  if (e.target === profileModal) {
+    profileModal.classList.add('hidden');
+  }
+});
+
+// 4. Close the modal when clicking the dark background outside the box
+profileModal.addEventListener('click', (e) => {
+  if (e.target === profileModal) {
+    profileModal.classList.add('hidden');
+  }
+});
 
 /* ─────────────────────────────────────────────
    INIT

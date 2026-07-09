@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goh Pei Jia</title>
     <link rel="icon" type="image/png" href="../Assets/Portfolio/GohPeiJia/matrixparrot.gif">
     <link rel="stylesheet" href="../CSS/peijia_portfolio.css">
+    <link rel="stylesheet" href="../CSS/peijia_print.css" media="print"> 
 </head>
+
 <body data-theme="light">
-
-    <div class="scroll-tracker-container" aria-hidden="true">
-        <div class="scroll-tracker-line" id="scroll-line"></div>
-    </div>
-
-    <div class="audio-hint" id="audio-hint-text">CLICK SYMBOLS FOR AUDIO</div>
-    <div class="floating-decor right-pos-1" aria-hidden="true">{ }</div>
-    <div class="floating-decor right-pos-2" aria-hidden="true">&lt;/&gt;</div>
-    <div class="floating-decor right-pos-3" aria-hidden="true">#</div>
-
     <header class="site-header">
         <div class="nav-container">
             <div class="logo">
@@ -26,6 +19,7 @@
             <nav aria-label="Main Navigation">
                 <ul class="nav-links">
                     <li><a href="#aboutme">About me</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#cert">Certification</a></li>
                     <li><a href="#project">Project</a></li>
@@ -42,7 +36,8 @@
         <section id="aboutme" class="aboutme">
             <div>
                 <h2>Goh Pei Jia</h2>
-                <p>A Computer Science student at Sunway University with a strong foundation in programming, problem solving, and backend development.</p>
+                <p>A Computer Science student at Sunway University with a strong foundation in programming, problem
+                    solving, and backend development.</p>
             </div>
         </section>
 
@@ -54,13 +49,10 @@
                 </div>
 
                 <div class="item-content">
-                    <img src="../Assets/Portfolio/GohPeiJia/GohPeiJiaImage.png" alt="Portrait photo of Goh Pei Jia" class="responsive-img">
-                    
+                    <img src="../Assets/Portfolio/GohPeiJia/GohPeiJiaImage.svg" alt="Portrait photo of Goh Pei Jia" class="responsive-img">
+
                     <div class="profile-details">
-                        
-                        <p>Currently pursuing a Bachelor of Computer Science at Sunway University and Lancaster University (dual degree), with a foundation in Information Technology from Multimedia University.</p>
-                        <p>Have a strong interest in data science and artificial intelligence. Recognised with the Dean's List Award in Multimedia University and Sunway University, TOP 7 in Monash Coding League (MCL) 2026 by MUSA and final TOP 19 in UMHACKATHON 2026</p>
-                        
+
                         <ul class="info-list">
                             <li>
                                 <span class="info-label">Location</span>
@@ -83,19 +75,74 @@
                                 Student
                             </li>
                         </ul>
+
+                        <div class="cv-download-container">
+                            <button id="cv-download-btn" class="download-btn">
+                                <span class="btn-text">Download Resume / CV</span>
+                                <span class="download-progress-bar"></span>
+                            </button>
+                            <p id="download-message" class="download-message hidden">Download completed successfully! ✓
+                            </p>
+                        </div>
                     </div>
                 </div>
             </article>
-        
-        <section id="skills"></section>
+        </section>
+
+        <section id="education" class="personalinfo">
             <article class="grid-item">
                 <div class="item-header">
-                    <h3>About my skills...</h3>
+                    <h3>Education...</h3>
                     <span class="chapter-number">02</span>
                 </div>
 
                 <div class="item-content align-start">
-                    
+                    <div class="education-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <span class="timeline-degree">Bachelor of Computer Science (Hons) (Dual Degree)</span>
+                                <span class="timeline-date">2025 - Present</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="institution">Sunway University & Lancaster University</p>
+                                <p class="edu-desc">Focusing on advanced computing, software engineering, and data
+                                    science. Consistently recognized for academic excellence.</p>
+                                <ul class="edu-bullets">
+                                    <li>Dean's List Award (Year 1 Semester 1 & 2)</li>
+                                    <li>Top 7 Monash Coding League</li>
+                                    <li>Top 19 UMHACKATHON 2026</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <span class="timeline-degree">Foundation in Information Technology</span>
+                                <span class="timeline-date">2024 - 2025</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="institution">Multimedia University (MMU)</p>
+                                <p class="edu-desc">Built a solid foundation in programming paradigms, database
+                                    management, and computing concepts.</p>
+                                <ul class="edu-bullets">
+                                    <li>Dean's List Award in Foundation Year</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section id="skills" class="personalinfo">
+            <article class="grid-item">
+                <div class="item-header">
+                    <h3>About my skills...</h3>
+                    <span class="chapter-number">03</span>
+                </div>
+
+                <div class="item-content align-start">
+
                     <div class="tech-stack-column">
                         <div class="stack-box">
                             <h4>Platforms & Tools</h4>
@@ -128,12 +175,12 @@
                             <h4>Handles</h4>
                             <ul class="tag-list">
                                 <li><a href="https://github.com/Gohpeijia" target="_blank">GitHub</a></li>
-                                <li><a href="https://www.canva.com" target="_blank">Canvas</a></li>
+                                <li><a href="https://www.canva.com" target="_blank">Canva</a></li>
                                 <li><a href="https://www.unity.com" target="_blank">Unity</a></li>
                                 <li><a href="https://www.clickup.com" target="_blank">ClickUp</a></li>
                                 <li><a href="https://www.capcut.com" target="_blank">Capcut</a></li>
                                 <li><a href="https://notebooklm.google" target="_blank">LM Notebook</a></li>
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -146,21 +193,24 @@
                                 <button class="term-btn" data-target="frontend-info">Frontend</button>
                                 <button class="term-btn" data-target="mobile-info">Mobile</button>
                             </div>
-                            
+
                             <div class="terminal-display">
                                 <div id="backend-info" class="term-content active">
-                                    <p>>Executing backend skills...</p>
-                                    <p>Experience with backend logic, data extraction, and integrating Large Language Models (Gemini API) for behavioral analysis.</p>
+                                    <p>> Executing backend skills...</p>
+                                    <p>Experience with backend logic, data extraction, and integrating Large Language
+                                        Models (Gemini API) for behavioral analysis.</p>
                                     <p>Status: Advanced</p>
-                                </div> 
+                                </div>
                                 <div id="frontend-info" class="term-content hidden">
                                     <p>> Loading frontend skills...</p>
-                                    <p>Building responsive interfaces using HTML, CSS, JavaScript, and React. Focused on clean structure without external libraries.</p>
+                                    <p>Building responsive interfaces using HTML, CSS, JavaScript, and React. Focused on
+                                        clean structure without external libraries.</p>
                                     <p>Status: Advanced</p>
                                 </div>
                                 <div id="mobile-info" class="term-content hidden">
                                     <p>> Compiling Flutter app...</p>
-                                    <p>Executing cross-platform mobile application development using Flutter and Dart (e.g. FridgeGuardian).</p>
+                                    <p>Executing cross-platform mobile application development using Flutter and Dart
+                                        (e.g. FridgeGuardian).</p>
                                     <p>Status: Intermediate</p>
                                 </div>
                             </div>
@@ -173,13 +223,13 @@
             <article class="grid-item">
                 <div class="item-header">
                     <h3>Technical Proficiency...</h3>
-                    <span class="chapter-number">03</span>
+                    <span class="chapter-number">04</span>
                 </div>
 
                 <div class="item-content">
                     <div class="skills-section">
                         <h4>Technical Skills</h4>
-                        
+
                         <div class="skill">
                             <div class="skill-header">
                                 <span>Python</span>
@@ -248,40 +298,48 @@
             <article class="grid-item">
                 <div class="item-header">
                     <h3>Certifications & Awards</h3>
-                    <span class="chapter-number">04</span>
+                    <span class="chapter-number">05</span>
                 </div>
 
                 <div class="project-gallery">
-                <div class="card">
-                    <div class="card-inner cert-layout">
-                        <span class="cert-org">UNIVERSITI MALAYA</span>
-                        <h4 class="stamped-title cert-title">UMHACKATHON 2026</h4>
-                        <span class="cert-badge">Award</span>
-                        <p>Achieved a final placement of TOP 19 in the national university hackathon competition.</p>
-                        <span class="cert-date">April 2026</span>
-                        <a href="../Assets/Portfolio/GohPeiJia/UMHACK2026cert.jpeg" target="_blank" class="cert-link">View Details</a>
+                    <div class="card" data-preview="../Assets/Portfolio/GohPeiJia/UMHACK2026cert.jpeg">
+                        <div class="card-inner cert-layout">
+                            <span class="cert-org">UNIVERSITI MALAYA</span>
+                            <h4 class="stamped-title cert-title">UMHACKATHON 2026</h4>
+                            <span class="cert-badge">Award</span>
+                            <p>Achieved a final placement of TOP 19 in the national university hackathon competition.
+                            </p>
+                            <span class="cert-date">April 2026</span>
+                            <a href="../Assets/Portfolio/GohPeiJia/UMHACK2026cert.jpeg" target="_blank"
+                                class="cert-link">View Details</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card">
+                    <div class="card" data-preview="../Assets/Portfolio/GohPeiJia/MonashCodingPic.jpeg"
+                        data-preview="../Assets/Portfolio/GohPeiJia/MonashCodingPic2.jpeg">
                         <div class="card-inner cert-layout">
                             <span class="cert-org">MUSA (MONASH UNIVERSITY)</span>
                             <h4 class="stamped-title cert-title">Monash Coding League 2026</h4>
                             <span class="cert-badge">Award</span>
-                            <p>Ranked TOP 7 overall in the Monash Coding League (MCL) 2026 competitive programming challenge.</p>
+                            <p>Ranked TOP 7 overall in the Monash Coding League (MCL) 2026 competitive programming
+                                challenge.</p>
                             <span class="cert-date">April 2026</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/monashcodingfinalist.PNG" target="_blank" class="cert-link">View Details</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/monashcodingfinalist.PNG" target="_blank"
+                                class="cert-link">View Details</a>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-inner cert-layout">
                             <span class="cert-org">Royal Commonwealth Society</span>
-                            <h4 class="stamped-title cert-title">Queen's Commonwealth Essay Competition — Bronze Award</h4>
+                            <h4 class="stamped-title cert-title">Queen's Commonwealth Essay Competition — Bronze Award
+                            </h4>
                             <span class="cert-badge">Award</span>
-                            <p>Recognised by the Royal Commonwealth Society for essay writing excellence in a global competition.</p>
+                            <p>Recognised by the Royal Commonwealth Society for essay writing excellence in a global
+                                competition.</p>
                             <span class="cert-date">June 2023</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/QCEC Certificate.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/QCEC Certificate.pdf" target="_blank"
+                                class="cert-link">View Certificate</a>
                         </div>
                     </div>
 
@@ -290,10 +348,13 @@
                             <span class="cert-org">HackerRank</span>
                             <h4 class="stamped-title cert-title">Problem Solving — Intermediate + Basic</h4>
                             <span class="cert-badge">Certification</span>
-                            <p>Passed the HackerRank skill certification test in Problem Solving at intermediate and basic level.</p>
+                            <p>Passed the HackerRank skill certification test in Problem Solving at intermediate and
+                                basic level.</p>
                             <span class="cert-date">April 2026</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/problem_solving_intermediate certificate.pdf" target="_blank" class="cert-link">View Certificate</a>
-                            <a href="../Assets/Portfolio/GohPeiJia/problem_solving_basic certificate.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/problem_solving_intermediate certificate.pdf"
+                                target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/problem_solving_basic certificate.pdf"
+                                target="_blank" class="cert-link">View Certificate</a>
                         </div>
                     </div>
 
@@ -304,7 +365,8 @@
                             <span class="cert-badge">Certification</span>
                             <p>Certified in Python (Basic), demonstrating core programming fundamentals.</p>
                             <span class="cert-date">April 2026</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/python_basic certificate.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/python_basic certificate.pdf" target="_blank"
+                                class="cert-link">View Certificate</a>
                         </div>
                     </div>
 
@@ -313,9 +375,11 @@
                             <span class="cert-org">SUNWAY UNIVERSITY</span>
                             <h4 class="stamped-title cert-title">Dean's List Award</h4>
                             <span class="cert-badge">Academic</span>
-                            <p>Recognised on the Dean's List for outstanding academic performance in the Bachelor of Computer Science program.</p>
+                            <p>Recognised on the Dean's List for outstanding academic performance in the Bachelor of
+                                Computer Science program.</p>
                             <span class="cert-date">2025 - 2026</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/Dean list award Y1S1.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/Dean list award Y1S1.pdf" target="_blank"
+                                class="cert-link">View Certificate</a>
                         </div>
                     </div>
 
@@ -326,10 +390,11 @@
                             <span class="cert-badge">Academic</span>
                             <p>Recognised on the Dean's List during the Information Technology Foundation Year.</p>
                             <span class="cert-date">2024 - 2025</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/MMU deans award.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/MMU deans award.pdf" target="_blank"
+                                class="cert-link">View Certificate</a>
                         </div>
                     </div>
-                
+
                     <div class="card">
                         <div class="card-inner cert-layout">
                             <span class="cert-org">UNIVERSITY SAINS MALAYSIA</span>
@@ -337,7 +402,8 @@
                             <span class="cert-badge">Certification</span>
                             <p>Participated in VHACK 2026, an international hackathon powered by USM and APEX.</p>
                             <span class="cert-date">March 2026</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/V HACK 2026 QUALIFIER_GOH PEI JIA.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/V HACK 2026 QUALIFIER_GOH PEI JIA.pdf"
+                                target="_blank" class="cert-link">View Certificate</a>
                         </div>
                     </div>
 
@@ -346,20 +412,24 @@
                             <span class="cert-org">Google Developer Group on Campus · Malaysia</span>
                             <h4 class="stamped-title cert-title">KitaHack 2026 — Participant</h4>
                             <span class="cert-badge">Certification</span>
-                            <p>Participated in KitaHack 2026, a national hackathon powered by Enber and organised by Google Developer Group on Campus Malaysia</p>
+                            <p>Participated in KitaHack 2026, a national hackathon powered by Enber and organised by
+                                Google Developer Group on Campus Malaysia</p>
                             <span class="cert-date">Febuary 2026</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/KitaHack2026  cert.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <a href="../Assets/Portfolio/GohPeiJia/KitaHack2026  cert.pdf" target="_blank"
+                                class="cert-link">View Certificate</a>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-inner cert-layout">
-                            <span class="cert-org">MMU Faculty of Computing & Informatics<</span>
-                            <h4 class="stamped-title cert-title">CodeNection 2024 — Participant</h4>
-                            <span class="cert-badge">Certification</span>
-                            <p>Competed in the Closed Category of CodeNection 2024, organised by MMU in collaboration with MDEC, Cyberview & UniPin.</p>
-                            <span class="cert-date">November 2024</span>
-                            <a href="../Assets/Portfolio/GohPeiJia/Codenection 2024.pdf" target="_blank" class="cert-link">View Certificate</a>
+                            <span class="cert-org">MMU Faculty of Computing & Informatics</span>
+                                    <h4 class="stamped-title cert-title">CodeNection 2024 — Participant</h4>
+                                    <span class="cert-badge">Certification</span>
+                                    <p>Competed in the Closed Category of CodeNection 2024, organised by MMU in
+                                        collaboration with MDEC, Cyberview & UniPin.</p>
+                                    <span class="cert-date">November 2024</span>
+                                    <a href="../Assets/Portfolio/GohPeiJia/Codenection 2024.pdf" target="_blank"
+                                        class="cert-link">View Certificate</a>
                         </div>
                     </div>
                 </div>
@@ -370,9 +440,9 @@
             <article class="grid-item">
                 <div class="item-header">
                     <h3>My Projects...</h3>
-                    <span class="chapter-number">05</span>
+                    <span class="chapter-number">06</span>
                 </div>
-                
+
                 <div class="project-gallery">
                     <div class="card">
                         <div class="card-inner">
@@ -380,8 +450,11 @@
                             <ul class="tag-list project-tags">
                                 <li>Backend Development</li>
                             </ul>
-                            <p>Handle the backend part by using FastAPI, Uvicorn and Supabase. Developing the app for LLM orchestration, ingestion, analysis, and structured processing. <br> The github contains <strong>deploy link</strong>.</p>
-                            <a href="https://github.com/Gohpeijia/UM-Hackathon-2026.git" target="_blank" class="card-btn">View Code</a>
+                            <p>Handle the backend part by using FastAPI, Uvicorn and Supabase. Developing the app for
+                                LLM orchestration, ingestion, analysis, and structured processing. <br> The github
+                                contains <strong>deploy link</strong>.</p>
+                            <a href="https://github.com/Gohpeijia/UM-Hackathon-2026.git" target="_blank"
+                                class="card-btn">View Code</a>
                         </div>
                     </div>
 
@@ -391,8 +464,10 @@
                             <ul class="tag-list project-tags">
                                 <li>Backend Development</li>
                             </ul>
-                            <p>A cross-platform mobile application designed to track food inventory, monitor expiration dates, and reduce household food waste.</p>
-                            <a href="https://github.com/Gohpeijia/KitaHack2026" target="_blank" class="card-btn">View Code</a>
+                            <p>A cross-platform mobile application designed to track food inventory, monitor expiration
+                                dates, and reduce household food waste.</p>
+                            <a href="https://github.com/Gohpeijia/KitaHack2026" target="_blank" class="card-btn">View
+                                Code</a>
                         </div>
                     </div>
 
@@ -403,8 +478,10 @@
                                 <li>Framer</li>
                                 <li>Interactive Research Platform</li>
                             </ul>
-                            <p>Contributed to academic research and writing. Developed the interactive 'Quiz' module and generated multimedia video presentations using Google's NotebookLM.</p>
-                            <a href="https://researchpaper.framer.website/" target="_blank" class="card-btn">Visit Website</a>
+                            <p>Contributed to academic research and writing. Developed the interactive 'Quiz' module and
+                                generated multimedia video presentations using Google's NotebookLM.</p>
+                            <a href="https://researchpaper.framer.website/" target="_blank" class="card-btn">Visit
+                                Website</a>
                         </div>
                     </div>
 
@@ -415,8 +492,11 @@
                                 <li>Game Development</li>
                                 <li>Unity</li>
                             </ul>
-                            <p>Programmed core game features in a collaborative environment, including level progression, livestock mechanics, and shop systems. Handled Unity packages and dependencies via NPM.</p>
-                            <a href="https://janine-24.itch.io/farmer-sim" target="_blank" class="card-btn">Play on Itch.io</a>
+                            <p>Programmed core game features in a collaborative environment, including level
+                                progression, livestock mechanics, and shop systems. Handled Unity packages and
+                                dependencies via NPM.</p>
+                            <a href="https://janine-24.itch.io/farmer-sim" target="_blank" class="card-btn">Play on
+                                Itch.io</a>
                         </div>
                     </div>
 
@@ -426,8 +506,10 @@
                             <ul class="tag-list project-tags">
                                 <li>Full-stack Development</li>
                             </ul>
-                            <p>An AI-powered tool integrating Large Language Models for optical character recognition and legal behavioral analysis nudges.</p>
-                            <a href="https://github.com/Gohpeijia/VHACK2026-LawChat" target="_blank" class="card-btn">View Code</a>
+                            <p>An AI-powered tool integrating Large Language Models for optical character recognition
+                                and legal behavioral analysis nudges.</p>
+                            <a href="https://github.com/Gohpeijia/VHACK2026-LawChat" target="_blank"
+                                class="card-btn">View Code</a>
                         </div>
                     </div>
 
@@ -437,23 +519,33 @@
                             <ul class="tag-list project-tags">
                                 <li>Vibe coding</li>
                             </ul>
-                            <p>Rapidly prototyped an AI-powered application by integrating Google AI Studio and the Gemini API. Configured and managed Firebase as the backend database for robust data handling.</p>
-                            <a href="https://github.com/Gohpeijia/GeminiHackathon-BilBoleh" target="_blank" class="card-btn">View Code</a>
+                            <p>Rapidly prototyped an AI-powered application by integrating Google AI Studio and the
+                                Gemini API. Configured and managed Firebase as the backend database for robust data
+                                handling.</p>
+                            <a href="https://github.com/Gohpeijia/GeminiHackathon-BilBoleh" target="_blank"
+                                class="card-btn">View Code</a>
                         </div>
                     </div>
 
                 </div>
             </article>
         </section>
-
+        <!-- Floating Previews for Left and Right margins -->
+        <div id="left-preview-container" class="margin-preview">
+            <img id="left-preview-img" src="" alt="Achievement Preview">
+        </div>
+        <div id="right-preview-container" class="margin-preview">
+            <img id="right-preview-img" src="" alt="Achievement Preview">
+        </div>
     </main>
 
     <footer id="contactme" class="site-footer">
         <div class="footer-content">
-            
+
             <div class="footer-brand">
                 <h2 class="footer-logo">Goh Pei Jia</h2>
-                <p>Computer Science student building clean, responsive, and functional web experiences from the ground up.</p>
+                <p>Computer Science student building clean, responsive, and functional web experiences from the ground
+                    up.</p>
             </div>
 
             <div class="footer-links">
@@ -476,7 +568,7 @@
             </div>
 
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; 2026 Goh Pei Jia.</p>
             <a href="#" class="back-to-top">↑ BACK TO TOP</a>
@@ -485,4 +577,5 @@
 
     <script src="../JS/portfoliopj.js"></script>
 </body>
+
 </html>

@@ -24,118 +24,151 @@ termButtons.forEach(button => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleButton = document.getElementById('theme-toggle');
-    const themeIcon = themeToggleButton.querySelector('.theme-icon');
-    const bodyElement = document.body;
+    const themeIcon = themeToggleButton ? themeToggleButton.querySelector('.theme-icon') : null;
+    const rootElement = document.documentElement; // Unify targeting <html>
 
-    // Check for previously saved theme in localStorage
-    const savedTheme = localStorage.getItem('website-theme');
+    // Read saved setting using key "theme"
+    const savedTheme = localStorage.getItem('theme') || 'light';
 
-    // Apply saved theme on page load, default to 'light' if null
+    // Apply setting on load
     if (savedTheme === 'dark') {
-        bodyElement.setAttribute('data-theme', 'dark');
-        themeIcon.textContent = '☀️';
+        rootElement.setAttribute('data-theme', 'dark');
+        if (themeIcon) themeIcon.textContent = '☀️';
     } else {
-        bodyElement.setAttribute('data-theme', 'light');
-        themeIcon.textContent = '🌙';
+        rootElement.removeAttribute('data-theme');
+        if (themeIcon) themeIcon.textContent = '🌙';
     }
 
-    // Toggle event listener
-    themeToggleButton.addEventListener('click', () => {
-        const currentTheme = bodyElement.getAttribute('data-theme');
+    // Toggle handler
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+            const isDark = rootElement.getAttribute('data-theme') === 'dark';
 
-        if (currentTheme === 'light') {
-            bodyElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('website-theme', 'dark');
-            themeIcon.textContent = '☀️';
-        } else {
-            bodyElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('website-theme', 'light');
-            themeIcon.textContent = '🌙';
-        }
-    });
-});
-
-window.addEventListener('scroll', () => {
-    // 1. Get the total height of the scrollable area
-    const scrollableHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    
-    // 2. Get the current scroll position
-    const currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
-    
-    // 3. Calculate the percentage scrolled
-    const scrollPercentage = (currentScrollPosition / scrollableHeight) * 100;
-    
-    // 4. Apply that percentage to the height of our tracker line
-    const scrollLine = document.getElementById('scroll-line');
-    if (scrollLine) {
-        scrollLine.style.height = scrollPercentage + '%';
-    }
-
-    //5. Grab the elements we want to hide, and the sections we want to avoid
-    const decorElements = document.querySelectorAll('.floating-decor, .audio-hint');
-    const heroSection = document.getElementById('aboutme');
-    const footerSection = document.getElementById('contactme');
-
-    if (heroSection && footerSection) {
-        // Find exactly where the hero and footer are relative to the screen
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        const footerTop = footerSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        // If the bottom of the hero is still visible (value > 150px) 
-        // OR the top of the footer has entered the screen
-        if (heroBottom > 150 || footerTop < windowHeight) {
-            // Fade them out
-            decorElements.forEach(el => el.classList.add('fade-out'));
-        } else {
-            // We are safely in the middle of the page, fade them back in!
-            decorElements.forEach(el => el.classList.remove('fade-out'));
-        }
-    }
-});
-
-// INTERACTIVE AUDIO LOGIC (TOGGLE)
-
-// 1. Create the audio object
-const backgroundMusic = new Audio('../Assets/Portfolio/GohPeiJia/ManIneed.mp3'); 
-backgroundMusic.loop = true; 
-
-// Track whether the music is currently playing
-let isPlaying = false; 
-
-// 2. Grab all the floating symbols and the hint text
-const floatingSymbols = document.querySelectorAll('.floating-decor');
-const hintText = document.getElementById('audio-hint-text');
-
-// 3. Attach the click logic to toggle music on/off
-floatingSymbols.forEach(symbol => {
-    symbol.addEventListener('click', () => {
-        
-        if (isPlaying) {
-            // If it is playing, pause it
-            backgroundMusic.pause();
-            isPlaying = false;
-            
-            // Update the hint to show it's paused
-            if (hintText) {
-                hintText.textContent = 'AUDIO: PAUSED (CLICK TO RESUME)';
-                hintText.classList.remove('is-playing');
+            if (!isDark) {
+                rootElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                if (themeIcon) themeIcon.textContent = '☀️';
+            } else {
+                rootElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                if (themeIcon) themeIcon.textContent = '🌙';
             }
-        } else {
-            // If it is paused, play it
-            backgroundMusic.play().then(() => {
-                isPlaying = true;
-                
-                // Update the hint to show it is playing and change color
-                if (hintText) {
-                    hintText.textContent = 'AUDIO: PLAYING (CLICK TO PAUSE)';
-                    hintText.classList.add('is-playing');
-                }
-            }).catch(error => {
-                console.error("Browser blocked audio playback:", error);
-                alert("Please click anywhere on the background of the page first to enable audio!");
-            });
-        }
+        });
+    }
+});
+
+// DYNAMIC FLOATING CARD PREVIEWS
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    const leftPreview = document.getElementById('left-preview-container');
+    const rightPreview = document.getElementById('right-preview-container');
+    const leftImg = document.getElementById('left-preview-img');
+    const rightImg = document.getElementById('right-preview-img');
+
+    cards.forEach(card => {
+        const previewSrc = card.getAttribute('data-preview');
+        if (!previewSrc) return; // Skip cards that don't have a preview image
+
+        // Hover or Touch start function
+        const showPreview = () => {
+            const rect = card.getBoundingClientRect();
+            const cardCenterX = rect.left + rect.width / 2;
+            const windowCenterX = window.innerWidth / 2;
+
+            if (cardCenterX < windowCenterX) {
+                // Card is on the left side of the screen -> Show preview on the right
+                rightImg.src = previewSrc;
+                rightPreview.classList.add('active');
+            } else {
+                // Card is on the right side of the screen -> Show preview on the left
+                leftImg.src = previewSrc;
+                leftPreview.classList.add('active');
+            }
+        };
+
+        // Hover or Touch end function
+        const hidePreview = () => {
+            leftPreview.classList.remove('active');
+            rightPreview.classList.remove('active');
+        };
+
+        // Desktop mouse hover listeners
+        card.addEventListener('mouseenter', showPreview);
+        card.addEventListener('mouseleave', hidePreview);
+
+        // Mobile touch hold listeners
+        card.addEventListener('touchstart', (e) => {
+            showPreview();
+        }, { passive: true });
         
+        card.addEventListener('touchend', hidePreview, { passive: true });
     });
+});
+
+// SIMULATED CV DOWNLOAD LOGIC
+document.addEventListener('DOMContentLoaded', () => {
+    const downloadBtn = document.getElementById('cv-download-btn');
+    const downloadMsg = document.getElementById('download-message');
+    
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            if (downloadBtn.classList.contains('downloading') || downloadBtn.classList.contains('completed')) {
+                return;
+            }
+            
+            // Start simulation
+            downloadBtn.classList.add('downloading');
+            downloadBtn.disabled = true;
+            
+            const btnText = downloadBtn.querySelector('.btn-text');
+            const progressBar = downloadBtn.querySelector('.download-progress-bar');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 5;
+                btnText.textContent = `Downloading... ${progress}%`;
+                progressBar.style.width = `${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Complete simulation
+                    downloadBtn.classList.remove('downloading');
+                    downloadBtn.classList.add('completed');
+                    btnText.textContent = 'Downloaded ✓';
+                    
+                    if (downloadMsg) {
+                        downloadMsg.classList.remove('hidden');
+                        downloadMsg.classList.add('fade-in');
+                    }
+                    
+                    // Trigger actual file download
+                    triggerCvDownload();
+                    
+                    // Reset button after some time
+                    setTimeout(() => {
+                        downloadBtn.classList.remove('completed');
+                        downloadBtn.disabled = false;
+                        btnText.textContent = 'Download Resume / CV';
+                        progressBar.style.width = '0%';
+                        if (downloadMsg) {
+                            downloadMsg.classList.add('hidden');
+                            downloadMsg.classList.remove('fade-in');
+                        }
+                    }, 5000);
+                }
+            }, 100); // 2 seconds total duration
+        });
+    }
+    
+    function triggerCvDownload() {
+        const cvContent = "../Assets/Portfolio/GohPeiJia/Pei_Jia_Goh_CV.docx"; // Path to your CV file
+
+        const link = document.createElement('a');
+        link.href = cvContent;
+        link.download = 'Goh_Pei_Jia_CV.docx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
 });
