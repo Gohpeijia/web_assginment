@@ -162,52 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function triggerCvDownload() {
-        const cvContent = `GOH PEI JIA - PORTFOLIO RESUME / CV
+        const cvContent = "../Assets/Portfolio/GohPeiJia/Pei_Jia_Goh_CV.docx"; // Path to your CV file
 
-Email: peijia0307@gmail.com
-GitHub: github.com/Gohpeijia
-LinkedIn: linkedin.com/in/pei-jia-goh
-Location: Petaling Jaya, Selangor, Malaysia
-Status: Computer Science Student
-
-SUMMARY:
-A Computer Science student at Sunway University with a strong foundation in programming, problem-solving, and backend development.
-
-EDUCATION:
-* Sunway University & Lancaster University (Dual Degree)
-  Bachelor of Computer Science (Hons) (2025 - Present)
-  - Dean's List Award (Year 1 Semester 1)
-* Multimedia University (MMU)
-  Foundation in Information Technology (2024 - 2025)
-  - Dean's List Award
-
-SKILLS & TOOLS:
-* Languages: Python, HTML, CSS, JavaScript, Java, C#, C++, Dart
-* Frameworks & Tools: Unity, Flutter, Firebase, FastAPI, Supabase, Qt
-
-AWARDS & CERTIFICATIONS:
-* UMHACKATHON 2026 - Final Top 19 Placement
-* Monash Coding League 2026 - Top 7 Placement
-* Queen's Commonwealth Essay Competition - Bronze Award
-* HackerRank Problem Solving (Intermediate + Basic)
-* HackerRank Python (Basic)
-
-PROJECTS:
-* Tauke.Ai - Backend Orchestration with FastAPI & Supabase
-* FridgeGuardian - Food inventory tracking Flutter Mobile App
-* AI in Education - Research paper website & interactive module
-* Farmer Sim - Unity Game Development
-* LawChat - Full-stack AI-powered legal analysis tool
-* BilBoleh - Google AI Studio & Gemini API Prototype`;
-        
-        const blob = new Blob([cvContent], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.href = url;
-        link.download = 'Goh_Pei_Jia_CV.txt';
+        link.href = cvContent;
+        link.download = 'Goh_Pei_Jia_CV.docx';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        URL.revokeObjectURL(url);
     }
 });
