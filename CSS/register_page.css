@@ -1,19 +1,17 @@
 .login_title img{
     display: block;
-    margin: 30px auto 0 auto;
+    margin: 30px auto 30px auto;
     width:700px;
     height:auto;
 }
 
 .registerr{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items:center; 
+    width:380px;
+    margin:30px auto 0;
 }
 
 .registerr input{
-    width: 350px;
+    width: 100%;
     padding: 15px 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -47,10 +45,108 @@
     box-sizing: border-box;
 }
 
+/* ==========================
+   Multi-Step Registration
+========================== */
 
+#step1,
+#step2,
+#step3{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#step2,
+#step3{
+    display:none;
+}
 
+.button_group{
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
 
+.button_group button{
+    flex: 1;
+}
 
+#step1 h2,
+#step2 h2,
+#step3 h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#8B6B20;
+}
+
+/* ==========================
+   Popup Overlay
+========================== */
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-overlay.hidden {
+    display: none;
+}
+
+.loading-box {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.loading-box p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #8B6B20;
+    font-weight: bold;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #eee;
+    border-top: 5px solid #8B6B20;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+
+.spinner.hidden {
+    display: none;
+}
+
+.overlay-close {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 20px;
+    background: #8B6B20;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.overlay-close.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 
 
