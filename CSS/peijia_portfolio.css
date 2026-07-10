@@ -1,11 +1,15 @@
 :root {
     --bg-primary: #FCF7E6;       
     --bg-secondary: #f5e19e;     
+    --wood: #c49a6c;
     --textandcontainer-primary: #291802;     
-    --accent-color: #8C2222;     
+    --light-red: #8C2222;     
+    --success: #2e7d32;
+    --black: #000000;
     
     /* Footer Colors */
     --footer-bg: #151108;
+    --footer-greytext: #999;
     --footer-text: #F4F1EA;
 
     /*font-families (use sans-serif as fallback)*/
@@ -17,7 +21,7 @@
 [data-theme="dark"] {
     --bg-primary: #1A1A1A;
     --bg-secondary: #2A2A2A;
-    --accent-color: #d1aaaa;
+    --light-red: #d1aaaa;
     --textandcontainer-primary: #F4F1EA;
     --footer-bg: #000000;
 }
@@ -52,7 +56,7 @@ a {
 }
 
 a:hover {
-    color: var(--accent-color);
+    color: var(--light-red);
 }
 
 /* Visually hides text but keeps it readable for screen readers. */
@@ -74,7 +78,7 @@ a:hover {
 
 /* Accessibility: Visible Focus States for Keyboard Navigation */
 *:focus-visible {
-    outline: 2px dashed var(--accent-color);
+    outline: 2px dashed var(--light-red);
     outline-offset: 4px;
 }
 
@@ -186,6 +190,7 @@ a:hover {
     margin-bottom: 0.4rem;
 }
 
+
 /* The outer box of the progress bar */
 .skill-bar-container {
     width: 100%;
@@ -290,13 +295,13 @@ a:hover {
 }
 
 .footer-brand p {
-    color: #999; /* Slightly faded text for the bio */
+    color: var(--footer-greytext); 
     font-size: 0.95rem;
     max-width: 80%;
 }
 
 .footer-content h4 {
-    color: var(--bg-secondary); /* Uses your yellow accent for headers */
+    color: var(--bg-secondary); 
     margin-bottom: 1.2rem;
 }
 
@@ -315,7 +320,7 @@ a:hover {
 }
 
 .footer-list a:hover {
-    color: var(--accent-color);
+    color: var(--light-red);
     text-decoration: underline;
 }
 
@@ -327,7 +332,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     font-size: 0.85rem;
-    color: #999;
+    color: var(--footer-greytext);
 }
 
 .back-to-top {
@@ -347,7 +352,7 @@ a:hover {
 }
 
 .back-to-project:hover {
-    color: var(--accent-color);
+    color: var(--light-red);
 }
 
 /* Responsive Tablet/Mobile Layout */
@@ -472,19 +477,11 @@ a:hover {
     width: 100%;
 }
 
-/* The Pure CSS Wooden Board Effect */
+/* Wooden Board Effect */
 .card {
-    background-color: #c49a6c; /* Warm wood tone */
-    background-image: repeating-linear-gradient(
-        45deg,
-        rgba(0,0,0,0.04) 0px,
-        rgba(0,0,0,0.04) 2px,
-        transparent 2px,
-        transparent 8px
-    ); /* Creates subtle diagonal wood grain */
+    background-color: var(--wood); 
     border: 3px solid var(--textandcontainer-primary);
     padding: 1rem;
-    /* Harsh shadow for that vintage, industrial print look */
     box-shadow: 8px 8px 0px var(--textandcontainer-primary); 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -508,7 +505,7 @@ a:hover {
 /* Red stamped title */
 .stamped-title {
     font-size: 1.4rem;
-    color: var(--accent-color);
+    color: var(--light-red);
     border-bottom: 2px solid var(--textandcontainer-primary);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
@@ -549,12 +546,12 @@ a:hover {
     position: fixed;
     top: 50%;
     transform: translateY(-50%) scale(0.95);
-    width: 260px; /* Fits comfortably inside your side margins */
+    width: 250px;
     background-color: var(--bg-primary);
     border: 3px solid var(--textandcontainer-primary);
     padding: 8px;
     box-shadow: 8px 8px 0px var(--textandcontainer-primary);
-    z-index: 1001; /* Keeps it on top of main content and header */
+    z-index: 1001; 
     opacity: 0;
     pointer-events: none; /* Prevents blocking mouse scrolls */
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -636,7 +633,7 @@ a:hover {
 /* Minimalist text link instead of the heavy block button */
 .cert-link {
     font-weight: bold;
-    color: var(--accent-color);
+    color: var(--light-red);
     font-family: var(--font-heading);
     display: inline-block;
     padding-top: 0.5rem;
@@ -706,7 +703,7 @@ a:hover {
     top: 6px;
     width: 12px;
     height: 12px;
-    background-color: var(--accent-color);
+    background-color: var(--light-red);
     border: 2px solid var(--textandcontainer-primary);
     border-radius: 50%;
 }
@@ -722,7 +719,7 @@ a:hover {
 
 .timeline-date {
     font-weight: bold;
-    color: var(--accent-color);
+    color: var(--light-red);
     font-size: 0.9rem;
     border: 1px solid var(--textandcontainer-primary);
     padding: 0.1rem 0.5rem;
@@ -783,7 +780,7 @@ a:hover {
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
-    box-shadow: 4px 4px 0px var(--accent-color);
+    box-shadow: 4px 4px 0px var(--light-red);
     transition: all 0.2s ease;
     width: 100%;
     max-width: 320px;
@@ -792,13 +789,13 @@ a:hover {
 .download-btn:hover {
     background-color: var(--bg-primary);
     color: var(--textandcontainer-primary);
-    box-shadow: 2px 2px 0px var(--accent-color);
+    box-shadow: 2px 2px 0px var(--light-red);
     transform: translate(2px, 2px);
 }
 
 .download-btn:active {
     transform: translate(4px, 4px);
-    box-shadow: 0px 0px 0px var(--accent-color);
+    box-shadow: 0px 0px 0px var(--light-red);
 }
 
 .download-btn:disabled {
@@ -811,7 +808,7 @@ a:hover {
     left: 0;
     bottom: 0;
     height: 4px;
-    background-color: var(--accent-color);
+    background-color: var(--light-red);
     width: 0%;
     transition: width 0.1s linear;
 }
@@ -822,16 +819,16 @@ a:hover {
 }
 
 .download-btn.completed {
-    background-color: #2e7d32;
-    color: #ffffff;
-    border-color: #1b5e20;
+    background-color: var(--success);
+    color: var(--footer-text);
+    border-color: var(--success);
     box-shadow: none;
     transform: none;
 }
 
 .download-message {
     font-size: 0.85rem;
-    color: #2e7d32;
+    color: var(--success);
     font-weight: bold;
     margin-top: 0.2rem;
 }

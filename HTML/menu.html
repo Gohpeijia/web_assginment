@@ -11,7 +11,7 @@
 
     <!--  NAVBAR (match your existing navbar style)  -->
     <header class="navbar">
-        <span class="logo-circle"><img src="../Assets/Images/shopIcon.png" alt="Logo"></span>
+        <p class="logo-circle"><img src="../Assets/Images/shopIcon.png" alt="Logo"></p>
       <nav class="nav-links">
         <a href="menu.html" class="hover-underline">Order Now</a>
         <a href="about_us.html" class="hover-underline">About Us</a>
@@ -25,6 +25,16 @@
         <button id="account" aria-label="Account" class="hover-underline">
           <img src="../Assets/Images/account.png" alt="Account">
         </button>
+        <div id="profileModal" class="modal hidden">
+          <div class="modal-content profile-modal-content">
+            <p class="close-btn" id="closeProfileModal">&times;</p>
+            <div class="profile-modal-body">
+              <h2 class="modal-title">Account</h2>
+              <p class="profile-message">You haven't logged in yet!</p>
+              <a href="login.html" class="login-redirect-btn">Go to Login Page</a>
+            </div>
+          </div>
+        </div>
         
         <button aria-label="Cart" class="hover-underline" href="cart.html">
           <img src="../Assets/Images/cartIcon.png" alt="Cart">
@@ -45,7 +55,8 @@
     <!--  CATALOGUE CARDS (static fallback / full menu below)  -->
     <section class="catalogue-section">
       <h2 class="section-title">Full Menu</h2>
-      <div class="filter-bar">
+      <!--  filter bar  -->
+      <div class="input-bar">
         <input type="text" id="searchInput" placeholder="Search cakes..." aria-label="Search menu">
         <select id="categoryFilter" aria-label="Filter by category">
           <option value="all">All Categories</option>
@@ -68,15 +79,15 @@
       <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
     </section>
 
+    <!--  CATALOGUE CARDS (full menu below)  -->
     <div id="productModal" class="modal hidden">
       <div class="modal-content">
-        <span class="close-btn" id="closeModal">&times;</span>
-
+        <div class="close-btn" id="closeModal">&times;</div>
         <div class="modal-body">
           <div class="modal-image-container">
             <img id="modalImage" src="" alt="Cake Details">
           </div>
-          
+          <!--  CATALOGUE CARDS (after press the cards)  -->
           <div class="modal-details">
             <h2 id="modalTitle" class="modal-title">Cake Name</h2>
             <div id="modalPrice" class="modal-price">RM 0.00</div>
@@ -100,13 +111,13 @@
             </div>
 
             <div class="stock-status">
-              <span class="dot"></span> IN STOCK
+              <p class="dot"></p> IN STOCK
             </div>
 
             <div class="cart-actions">
               <div class="qty-selector">
                 <button id="qtyMinus">-</button>
-                <span id="qtyValue">1</span>
+                <p id="qtyValue">1</p>
                 <button id="qtyPlus">+</button>
               </div>
               <button class="add-to-cart-btn">ADD TO CART</button>
@@ -115,29 +126,35 @@
         </div>
       </div>
     </div>
-
-    <div id="profileModal" class="modal hidden">
-      <div class="modal-content profile-modal-content">
-        <span class="close-btn" id="closeProfileModal">&times;</span>
-        <div class="profile-modal-body">
-          <h2 class="modal-title">Account</h2>
-          <p class="profile-message">You haven't logged in yet!</p>
-          <a href="login.html" class="login-redirect-btn">Go to Login Page</a>
-        </div>
-      </div>
-    </div>
-
     <script src="../JS/menu.js"></script>
   </body>
+  
   <footer>
     <hr class="divider">
-    
     <div class="footer_index_center">
       <h2>To get to know us</h2>
       <br>
+      <!-- customer service -->
       <h3>Customer Service</h3>
+      <a href="mailto:peijia0307@gmail.com">Click here to send us an email.</a>
       <p>Discover our commitment to exceptional customer service with every purchase. Your satisfaction is always our top priority.</p>
+
+      <br>
+      <!-- subscribe -->
+      <h3>Freshly Baked Content delivered straight to your inbox</h3>
+      <p>Get the latest updates and exclusive access to everything we’re baking up</p>
+      <br>
+      <form id="subscribeForm" class="input-bar">
+        <input type="email" id="subscribeInput" class="input-bar" placeholder="Enter your email" required>
+        <button type="submit" class="subscribe-btn" aria-label="Subscribe">&#8594;</button>
+      </form>
+
+      <!-- success message (Hidden by default) -->
+      <div id="subscribeSuccess" class="subscribe-success hidden">
+        <p class="success-text">&#10003; THANKS FOR SUBSCRIBING</p>
+      </div>
     </div>
-    <p class="copyright">&copy; 2024 Cake Shop. All rights reserved.</p>
+    <p class="copyright">&copy; 2026 SUNBAKE Bakers. SUNBAKE Manufactory Sdn Bhd.</p>
   </footer>
+  <script src="../JS/website.js"></script>
 </html>

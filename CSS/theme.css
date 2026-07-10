@@ -10,6 +10,7 @@
   --cream:         #F5ECD7;
   --white:         #FFFFFF;
   --text-muted:    #7B5B3A;
+  --footer-bg:     #f7db99;
   --glow-dark:     #3D1C02;
   --glow-light:    #8B4513;
   --radius-sm:     8px;
@@ -83,6 +84,67 @@ body {
 
 .nav-icons button:hover {
   opacity: 0.7;
+}
+
+/* filter bar */
+.input-bar {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+/* ---INPUT BAR & DROPDOWN STYLING --- */
+.input-bar input,
+.input-bar select {
+  padding: 12px 20px;
+  border: 1.5px solid var(--brown-dark);
+  border-radius: 30px; /* Modern pill shape */
+  background: var(--white);
+  color: var(--brown-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+/* Customizing the Dropdown Arrow */
+.input-bar select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 45px;
+  /* Injects a custom dark-brown chevron arrow */
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+}
+
+/* Hover & Focus Effects */
+.input-bar input:hover,
+.input-bar select:hover {
+  border-color: var(--brown-mid);
+  transform: translateY(-1px); /* Slight lift effect */
+  box-shadow: 0 8px 20px var(--brown-dark);
+}
+
+.input-bar input:focus,
+.input-bar select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--brown-light); 
+}
+
+.input-bar select:focus {
+  border-color: var(--brown-mid);
+}
+
+.input-bar select option {
+  background-color: var(--cream); 
+  color: var(--brown-dark);      
+  font-weight: 600;
+  font-family: 'Segoe UI';
+  padding: 10px;
 }
 
 /*GLOBAL UTILITIES & ANIMATIONS */
@@ -178,7 +240,7 @@ body {
     z-index: 2000;
 
 }
-.explore_button span{
+.explore_button p{
     position: relative;
     z-index: 2;
     color:white;
@@ -202,7 +264,7 @@ body {
 .explore_button:hover::before{
     width: 100%;
 }
-.explore_button:hover span{
+.explore_button:hover progress{
     color: #8B6B20;
 }
 
@@ -246,6 +308,10 @@ body {
   background: var(--brown-light);
 }
 
+/*footer*/
+footer{
+    background-color: var(--footer-bg);
+}
 /*line at footer*/
 .divider{
     height: 5px;
@@ -283,10 +349,52 @@ body {
 
 .footer_index_center a{
     text-decoration: none;
-    color: #8B6B20;
+    color: var(--brown-light);
     align-self:auto;
 }
 
+.footer_index_center a:hover{
+    color: var(--gold);
+}
+
+/* SUBSCRIBE SECTION */
+
+/*the submit button and the input use the input-bar*/
+.subscribe-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--brown-dark);
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity var(--transition); 
+}
+
+.subscribe-btn:hover {
+  opacity: 0.8;
+  background-color: var(--gold-light);
+}
+
+/* The Success Message Box */
+.subscribe-success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--cream); 
+  color: var(--success); 
+  padding: 16px 24px;
+  border-radius: var(--radius-md); 
+  margin-top: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: 1.5px solid var(--success);
+}
 
 /*footer bottom left small copyright words*/
 .copyright{
