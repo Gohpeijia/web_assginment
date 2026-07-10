@@ -132,7 +132,7 @@
   font-size: 2rem;
   font-weight: 500;
   color: var(--brown-mid);
-  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-family: 'Impact', 'Arial Black', sans-serif; /*last two act as fallback*/
   text-align: center;
   margin-bottom: 28px;
   letter-spacing: 1px;
@@ -402,7 +402,7 @@
 }
 
 .modal-title {
-  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-family: 'Impact', 'Arial Black', sans-serif;  /*last two act as fallback*/
   font-size: 2.5rem;
   text-transform: uppercase;
   color: var(--brown-dark);
