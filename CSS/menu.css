@@ -1,126 +1,4 @@
 /* =============================================
-   Pointer in INTERACTIVE CAKE SCENE
-   ============================================= */
-.logo-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-
-/* =============================================
-   INTERACTIVE CAKE SCENE
-   ============================================= */
-.cake-section {
-  background: var(--brown-dark);
-  padding-bottom: 20px;
-}
-
-#scene {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  cursor: none;
-}
-
-/* custom cursor */
-.cursor-ring {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border: 2px solid rgba(245, 200, 66, 0.55);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  transition: width 0.15s, height 0.15s;
-}
-
-.cursor-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 101;
-}
-
-/* individual cake bubble */
-.cake {
-  position: absolute;
-  width: 115px;
-  height: 115px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 8px;
-  cursor: none;
-  user-select: none;
-  will-change: transform;
-  text-align: center;
-  transition: box-shadow 0.2s;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.cake img {
-  width: 180px;
-  height: 180px;
-  object-fit: contain;
-  border: none;
-  pointer-events: none;
-  display: block;
-}
-
-.cake-hint {
-  color: var(--white);
-  font-size: 15px;
-  font-weight: 500;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
-  line-height: 1.2;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-/* floating scene title */
-.scene-title {
-  position: absolute;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: var(--gold);
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-family: 'Arial Black';
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-/* particle burst */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0;
-}
-
-/* =============================================
    CATALOGUE SECTION
    ============================================= */
 .catalogue-section {
@@ -200,54 +78,11 @@
   letter-spacing: 0.8px;
 }
 
-.cat-card-price {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--brown-dark);
-  margin-top: auto;
-}
-
-.cat-card-btn {
-  display: block;
-  width: calc(100% - 32px);
-  margin: 0 16px 16px;
-  padding: 10px;
-  background: var(--brown-dark);
-  color: var(--white);
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  letter-spacing: 0.5px;
-  transition: background var(--transition);
-}
-
-.cat-card-btn:hover {
-  background: var(--brown-dark);
-}
-
-
 .no-results {
   text-align: center;
   color: var(--text-muted);
   font-size: 1rem;
   margin-top: 30px;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Styling for the dual-price layout */
-.cat-card-price-split {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background: rgba(92, 51, 23, 0.04); /* Very light brown background */
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
 }
 
 .price-block {
@@ -256,7 +91,7 @@
   flex-direction: column;
   justify-content: center;
   min-height: 52px;
-  background: rgba(92, 51, 23, 0.06); 
+  background: var(--cream); 
   border-radius: var(--radius-sm);
   padding: 8px 12px;
   margin-bottom: 12px;
@@ -270,25 +105,15 @@
 .cat-card:hover .price-block {
   border-color: var(--brown-mid); 
   outline-offset: 2px;             
-  background: rgba(92, 51, 23, 0.02);
+  background: var(--gold-light);
 }
 
 .single-price {
   align-items: center; 
 }
+
 .single-price .price-value {
   font-size: 1.2rem;
-}
-
-.split-price {
-  gap: 4px;
-}
-
-.price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
 }
 
 .price-label {
@@ -317,20 +142,6 @@
   .nav-links {
     gap: 20px;
   }
-  #scene {
-    height: 420px;
-  }
-  .cake {
-    width: 100px;
-    height: 100px;
-  }
-  .cake img {
-    width: 130px;
-    height: 130px;
-  }
-  .catalogue-section {
-    padding: 36px 20px 40px;
-  }
 }
 
 /* Mobile */
@@ -340,20 +151,6 @@
   }
   .nav-links {
     display: none; 
-  }
-  #scene {
-    height: 360px;
-  }
-  .cake {
-    width: 80px;
-    height: 80px;
-  }
-  .cake img {
-    width: 110px;
-    height: 110px;
-  }
-  .cake-hint {
-    font-size: 11px;
   }
   .input-bar {
     flex-direction: column;
@@ -368,11 +165,7 @@
 /* Print stylesheet */
 @media print {
   .navbar,
-  .cake-section,
   .input-bar,
-  .cat-card-btn {
-    display: none;
-  }
   body {
     background: var(--cream);
     color: var(--brown-dark);
@@ -521,7 +314,6 @@
   background: var(--brown-light);
 }
 
-/* 4. Add to Cart Animation States */
 .add-to-cart-btn.loading {
   background: var(--brown-light);
   cursor: wait;

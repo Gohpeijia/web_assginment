@@ -1,63 +1,83 @@
-/* ─────────────────────────────────────────────
-   PROFILE MODAL LOGIC
-   ───────────────────────────────────────────── */
+// SIDEBAR TOGGLE LOGIC 
+const searchFilterBtn = document.getElementById('searchFilterBtn');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+const filterSidebar = document.getElementById('filterSidebar');
+const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+
+if (searchFilterBtn && filterSidebar) {
+  // Open Sidebar
+  searchFilterBtn.addEventListener('click', () => {
+    filterSidebar.classList.add('open');
+    sidebarOverlay.classList.add('open');
+    // Disable background scrolling when sidebar is open
+    document.body.style.overflow = 'hidden'; 
+  });
+
+  // Close Sidebar (X button)
+  closeSidebarBtn.addEventListener('click', closeSidebar);
+  
+  // Close Sidebar (Clicking the dark overlay)
+  sidebarOverlay.addEventListener('click', closeSidebar);
+}
+
+function closeSidebar() {
+  filterSidebar.classList.remove('open');
+  sidebarOverlay.classList.remove('open');
+  // Re-enable background scrolling
+  document.body.style.overflow = ''; 
+}
+
+// PROFILE MODAL LOGIC 
 const account = document.getElementById('account');
 const profileModal = document.getElementById('profileModal');
 const closeProfileBtn = document.getElementById('closeProfileModal');
 
 // 1. Open the modal and dynamically set login/logout states
-account.addEventListener('click', () => {
-  const profileMsg = profileModal.querySelector('.profile-message');
-  const redirectBtn = profileModal.querySelector('.login-redirect-btn');
-  
-  const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
-  const userEmail = sessionStorage.getItem("userEmail");
-
-  if (isLoggedIn && userEmail) {
-    // User is logged in: show email and turn redirect button into "Log Out"
-    profileMsg.textContent = `Logged in as: ${userEmail}`;
-    redirectBtn.textContent = 'Log Out';
-    redirectBtn.href = '#';
+if (account && profileModal && closeProfileBtn) {
+  account.addEventListener('click', () => {
+    const profileMsg = profileModal.querySelector('.profile-message');
+    const redirectBtn = profileModal.querySelector('.login-redirect-btn');
     
-    // Clear session on click
-    redirectBtn.onclick = (e) => {
-      e.preventDefault();
-      sessionStorage.clear();
-      location.reload(); // Refresh the page to reset state
-    };
-  } else {
-    // User is guest: show default guest message and redirect button
-    profileMsg.textContent = "You haven't logged in yet!";
-    redirectBtn.textContent = 'Go to Login Page';
-    redirectBtn.href = 'login.html';
-    redirectBtn.onclick = null; // Reset click overrides
-  }
+    const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+    const userEmail = sessionStorage.getItem("userEmail");
 
-  profileModal.classList.remove('hidden');
-});
+    if (isLoggedIn && userEmail) {
+      // User is logged in: show email and turn redirect button into "Log Out"
+      profileMsg.textContent = `Logged in as: ${userEmail}`;
+      redirectBtn.textContent = 'Log Out';
+      redirectBtn.href = '#';
+      
+      // Clear session on click
+      redirectBtn.onclick = (e) => {
+        e.preventDefault();
+        sessionStorage.clear();
+        location.reload(); // Refresh the page to reset state
+      };
+    } else {
+      // User is guest: show default guest message and redirect button
+      profileMsg.textContent = "You haven't logged in yet!";
+      redirectBtn.textContent = 'Go to Login Page';
+      redirectBtn.href = 'login.html';
+      redirectBtn.onclick = null; // Reset click overrides
+    }
 
-// 2. Close the modal when the 'X' is clicked (Registered once on page load)
-closeProfileBtn.addEventListener('click', () => {
-  profileModal.classList.add('hidden');
-});
+    profileModal.classList.remove('hidden');
+  });
 
-// 3. Close the modal when clicking the dark background outside the box
-profileModal.addEventListener('click', (e) => {
-  if (e.target === profileModal) {
+  // 2. Close the modal when the 'X' is clicked (Registered once on page load)
+  closeProfileBtn.addEventListener('click', () => {
     profileModal.classList.add('hidden');
-  }
-});
+  });
 
-// 4. Close the modal when clicking the dark background outside the box
-profileModal.addEventListener('click', (e) => {
-  if (e.target === profileModal) {
-    profileModal.classList.add('hidden');
-  }
-});
+  // 3. Close the modal when clicking the dark background outside the box
+  profileModal.addEventListener('click', (e) => {
+    if (e.target === profileModal) {
+      profileModal.classList.add('hidden');
+    }
+  });
+}
 
-/* ─────────────────────────────────────────────
-   SUBSCRIBE FORM LOGIC
-   ───────────────────────────────────────────── */
+// SUBSCRIBE FORM LOGIC 
 const subscribeForm = document.getElementById('subscribeForm');
 const subscribeSuccess = document.getElementById('subscribeSuccess');
 

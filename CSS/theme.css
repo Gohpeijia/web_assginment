@@ -41,10 +41,15 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: var(--brown-dark);
-  padding: 16px 40px;
+  padding: 10px 40px;
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.navbar > img {
+  height: 56px;
+  width: auto;
 }
 
 .nav-links {
@@ -269,6 +274,130 @@ body {
 }
 
 /* =============================================
+   SIDEBAR FILTER STYLES
+   ============================================= */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 17, 11, 0.6); /* Uses a transparent dark brown */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+  z-index: 10000;
+}
+
+.sidebar-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background-color: var(--cream);
+  color: var(--brown-dark);
+  z-index: 10001;
+  transform: translateX(100%); /* Hides it off-screen to the right */
+  transition: transform var(--transition);
+  box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  transform: translateX(0); /* Slides it in */
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 30px;
+  border-bottom: 2px solid var(--brown-dark);
+}
+
+.sidebar-header h2 {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 2.2rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.close-sidebar {
+  background: none;
+  border: 1px solid var(--brown-light);
+  border-radius: var(--radius-sm);
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--brown-dark);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+.close-sidebar:hover {
+  background: var(--brown-dark);
+  color: var(--cream);
+}
+
+.sidebar-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.sidebar-subtitle {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: -10px;
+}
+
+.sidebar-input,
+.sidebar-select {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid var(--brown-dark);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--brown-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  transition: all var(--transition);
+}
+
+.sidebar-select {
+  -webkit-appearance: none;
+  appearance: none;
+  /* Adds a custom drop-down arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%231e110b"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 20px;
+  cursor: pointer;
+}
+
+.sidebar-input:focus,
+.sidebar-select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--brown-light);
+}
+
+/* =============================================
    PROFILE MODAL STYLES
    ============================================= */
 .profile-modal-content {
@@ -394,6 +523,11 @@ footer{
   font-weight: 800;
   text-transform: uppercase;
   border: 1.5px solid var(--success);
+}
+
+/*hide the elements */
+.hidden {
+  display: none;
 }
 
 /*footer bottom left small copyright words*/

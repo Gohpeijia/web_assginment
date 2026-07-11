@@ -1,15 +1,7 @@
 .team-section {
   padding: 60px 40px;
   background-color: var(--cream);
-  min-height: 80vh;
-}
-
-.team-subtitle {
-  text-align: center;
-  color: var(--text-muted);
-  margin-top: -15px;
-  margin-bottom: 50px;
-  font-size: 1.1rem;
+  min-height: auto;
 }
 
 /* CSS Grid to perfectly align 4 members */
@@ -18,12 +10,12 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .team-card {
   background: var(--white);
-  border: 1px solid rgba(92, 51, 23, 0.15);
+  border: 1px solid var(--brown-light);
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -33,7 +25,7 @@
 
 .team-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(92, 51, 23, 0.15);
+  box-shadow: 0 15px 35px var(--gold-light);
 }
 
 .team-photo {
@@ -69,7 +61,7 @@
 
 /* Formatting the required "Quantified Contributions" */
 .team-contributions {
-  flex: 1; /* Pushes the button to the bottom */
+  flex: 1;
   margin-bottom: 25px;
 }
 
