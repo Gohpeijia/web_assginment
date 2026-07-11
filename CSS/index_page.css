@@ -87,6 +87,10 @@
     margin-top: 52px;
 }
 
+.modal-content h2{
+    text-align:center;
+}
+
 /*mobile ver*/
 @media (max-width: 768px){
 

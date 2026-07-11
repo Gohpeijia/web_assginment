@@ -142,6 +142,81 @@
     display: none;
 }
 
+/* =========================
+   Progress Bar
+========================= */
+
+.progress-bar{
+    width:400px;
+    margin:0 auto 35px;
+    display:flex;
+    align-items:center;
+}
+
+.progress-step{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.circle{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#DDD4B8;
+    color:#FFFFFF;
+    font-size:18px;
+    font-weight:600;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:all .35s ease;
+}
+
+/* Current Step */
+.progress-step.active .circle{
+    background:#9B7A16;
+    transform:scale(1.08);
+}
+
+/* Completed Step */
+.progress-step.completed .circle{
+    background:#9B7A16;
+    transform:scale(1);
+    font-size:0;
+}
+
+.progress-step.completed .circle::before{
+    content:"✓";
+    font-size:20px;
+    color:#FFFFFF;
+}
+
+/* Line */
+
+.progress-line{
+    flex:1;
+    height:4px;
+    background:#DDD4B8;
+    position:relative;
+    overflow:hidden;
+}
+
+.progress-line::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:0%;
+    height:100%;
+    background:#9B7A16;
+    transition:width .45s ease;
+}
+
+.progress-line.completed::after{
+    width:100%;
+}
+
 @keyframes spin {
     to {
         transform: rotate(360deg);

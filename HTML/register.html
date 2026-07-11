@@ -21,23 +21,49 @@
 
 <form class="registerr" id="registerr_form">
 
+    
+        <div class="progress-bar">
+
+            <div class="progress-step active" id="progress1">
+                <div class="circle">1</div>
+            </div>
+
+            <div class="progress-line" id="line1"></div>
+
+            <div class="progress-step" id="progress2">
+                <div class="circle">2</div>
+            </div>
+
+            <div class="progress-line" id="line2"></div>
+
+            <div class="progress-step" id="progress3">
+                <div class="circle">3</div>
+            </div>
+
+        </div>
+
     <!--STEP 1 - USERNAME-->
+
     <div id="step1">
 
-        <h2>Create Account</h2>
+            <h2>Create Account</h2>
 
-        <input
-            type="text"
-            id="username"
-            placeholder="Username"
-            required>
+            <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                required>
 
-        <button
-            type="button"
-            id="nextBtn1">
-            Next
-        </button>
+            <div class="button_group">
+                <button
+                    type="button"
+                    id="nextBtn1">
+                    Next
+                </button>   
 
+            </div>
+
+        
     </div>
 
 
@@ -75,7 +101,7 @@
 
     <!--STEP 3 - PASSWORD-->
     <div
-        id="step3">
+        id="step3" class="hidden">
 
         <h2>Create Account</h2>
 
