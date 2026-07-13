@@ -1,0 +1,73 @@
+body.dark-mode{
+    background-color:#1b1b1b;
+    color:#F5ECD7;
+    transition:0.3s;
+}
+
+/* Navbar */
+body.dark-mode .navbar{
+    background-color:#111111;
+}
+
+body.dark-mode .nav-links a{
+    color:#F5ECD7;
+}
+
+body.dark-mode .nav-icons button{
+    color:#F5ECD7;
+}
+
+/* Hero Text */
+body.dark-mode .video_text h1{
+    color:#F5ECD7;
+}
+
+/* Explore Button */
+body.dark-mode .explore_button{
+    border:2px solid #F5ECD7;
+}
+
+body.dark-mode .explore_button span{
+    color:#F5ECD7;
+}
+
+body.dark-mode .explore_button::before{
+    background:#F5ECD7;
+}
+
+body.dark-mode .explore_button:hover span{
+    color:#1b1b1b;
+}
+
+/* Login Page */
+body.dark-mode .login_content{
+    color:#F5ECD7;
+}
+
+/* Forms */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+    background:#333333;
+    color:white;
+    border:1px solid #666666;
+}
+
+body.dark-mode input::placeholder{
+    color:#cccccc;
+}
+
+/* Footer */
+body.dark-mode footer{
+    background:#111111;
+    color:#F5ECD7;
+}
+
+body.dark-mode .footer_index_center h2,
+body.dark-mode .footer_index_center a,
+body.dark-mode .copyright{
+    color:#F5ECD7;
+}
+
+body.dark-mode .divider{
+    background:#F5C842;
