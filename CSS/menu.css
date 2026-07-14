@@ -93,6 +93,14 @@
   letter-spacing: 0.8px;
 }
 
+.comming-soon {
+  text-align: center;
+  font-size: 20px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
 /* catalogue grid after filter */
 .catalogue-grid {
   display: grid;
