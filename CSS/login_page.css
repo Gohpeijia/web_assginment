@@ -28,7 +28,7 @@ form input:focus{
     border: none;
     border-radius: 20px;
 
-    background: #8B6B20;
+    background: var(--glow-dark);
     color: white;
 
     font-size: 18px;
@@ -57,11 +57,11 @@ form input:focus{
 }
 
 .forgotpw a{
-    color: #8B6B20;
+    color: var(--glow-dark);
     text-decoration: underline;
 }
 .newuser a{
-    color: #8B6B20;
+    color: var(--glow-dark);
     text-decoration: none;
 }
 
@@ -90,7 +90,7 @@ form input:focus{
 .loading-box p {
     margin-top: 20px;
     font-size: 18px;
-    color: #8B6B20;
+    color: var(--glow-dark);
     font-weight: bold;
 }
 
@@ -103,7 +103,7 @@ form input:focus{
     padding: 10px 30px;
     border: none;
     border-radius: 20px;
-    background: #8B6B20;
+    background: var(--glow-dark);
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -118,7 +118,7 @@ form input:focus{
     width: 50px;
     height: 50px;
     border: 5px solid #eee;
-    border-top: 5px solid #8B6B20;
+    border-top: 5px solid var(--glow-dark);
     border-radius: 50%;
     margin: 0 auto;
     animation: spin 1s linear infinite;

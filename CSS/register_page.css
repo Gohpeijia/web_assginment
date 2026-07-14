@@ -25,7 +25,7 @@
     border: none;
     border-radius: 20px;
 
-    background: #8B6B20;
+    background: var(--glow-dark);
     color: white;
 
     font-size: 18px;
@@ -76,7 +76,7 @@
 #step3 h2{
     text-align:center;
     margin-bottom:20px;
-    color:#8B6B20;
+    color: var(--glow-dark);
 }
 
 /* ==========================
@@ -108,7 +108,7 @@
 .loading-box p {
     margin-top: 20px;
     font-size: 18px;
-    color: #8B6B20;
+    color: var(--glow-dark);
     font-weight: bold;
 }
 
@@ -116,7 +116,7 @@
     width: 50px;
     height: 50px;
     border: 5px solid #eee;
-    border-top: 5px solid #8B6B20;
+    border-top: 5px solid var(--glow-dark);
     border-radius: 50%;
     margin: 0 auto;
     animation: spin 1s linear infinite;
@@ -131,7 +131,7 @@
     padding: 10px 30px;
     border: none;
     border-radius: 20px;
-    background: #8B6B20;
+    background: var(--glow-dark);
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -175,13 +175,13 @@
 
 /* Current Step */
 .progress-step.active .circle{
-    background:#9B7A16;
+    background: var(--glow-dark);
     transform:scale(1.08);
 }
 
 /* Completed Step */
 .progress-step.completed .circle{
-    background:#9B7A16;
+    background: var(--glow-dark);
     transform:scale(1);
     font-size:0;
 }
@@ -209,7 +209,7 @@
     top:0;
     width:0%;
     height:100%;
-    background:#9B7A16;
+    background:var(--glow-dark);
     transition:width .45s ease;
 }
 
