@@ -13,6 +13,7 @@
   --footer-bg:     #f7db99;
   --glow-dark:     #3D1C02;
   --glow-light:    #8B4513;
+  --grey:          #666;
   --radius-sm:     8px;
   --radius-md:     12px;
   --radius-lg:     20px;
@@ -60,7 +61,7 @@ body {
 .nav-links a {
   color: var(--white);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 1rem;
   letter-spacing: 0.5px;
   transition: opacity var(--transition);
@@ -131,13 +132,13 @@ body {
 .input-bar select:hover {
   border-color: var(--brown-mid);
   transform: translateY(-1px); /* Slight lift effect */
-  box-shadow: 0 8px 20px var(--brown-dark);
+  box-shadow: var(--brown-dark);
 }
 
 .input-bar input:focus,
 .input-bar select:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px var(--brown-light); 
+  box-shadow: var(--brown-light); 
 }
 
 .input-bar select:focus {
@@ -152,8 +153,8 @@ body {
   padding: 10px;
 }
 
-/*GLOBAL UTILITIES & ANIMATIONS */
 
+/*GLOBAL UTILITIES & ANIMATIONS */
 /* 1. Add this class to any text element you want to have the sweep effect */
 .hover-underline {
   position: relative;
@@ -306,7 +307,7 @@ body {
   z-index: 10001;
   transform: translateX(100%); /* Hides it off-screen to the right */
   transition: transform var(--transition);
-  box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+  box-shadow: var(--grey);
   display: flex;
   flex-direction: column;
 }
@@ -391,11 +392,6 @@ body {
   cursor: pointer;
 }
 
-.sidebar-input:focus,
-.sidebar-select:focus {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px var(--brown-light);
-}
 
 /* =============================================
    PROFILE MODAL STYLES
@@ -486,8 +482,23 @@ footer{
     color: var(--gold);
 }
 
-/* SUBSCRIBE SECTION */
+/* Mailto Email Link Button */
+.footer_index_center a[href^="mailto:"] {
+  padding: 10px 20px;
+  background-color: var(--brown-dark);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin: 10px 0;
+}
 
+.footer_index_center a[href^="mailto:"]:hover {
+  background-color: var(--brown-light);
+  transform: translateY(-1px);
+}
+
+/* SUBSCRIBE SECTION */
 /*the submit button and the input use the input-bar*/
 .subscribe-btn {
   display: flex;
@@ -525,10 +536,6 @@ footer{
   border: 1.5px solid var(--success);
 }
 
-/*hide the elements */
-.hidden {
-  display: none;
-}
 
 /*footer bottom left small copyright words*/
 .copyright{
@@ -642,4 +649,9 @@ footer{
 
 .close-btn:hover {
   opacity: 0.5;
+}
+
+/*hide the elements */
+.hidden {
+  display: none;
 }

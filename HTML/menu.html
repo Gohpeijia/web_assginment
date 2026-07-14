@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
       <title>Sunbake Menu</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../CSS/theme.css">
       <link rel="stylesheet" href="../CSS/menu.css">
+      <link rel="stylesheet" href="../CSS/theme.css">
     </head>
+
   <body>
 
     <!--  NAVBAR (match your existing navbar style)  -->
@@ -18,10 +20,6 @@
       </nav>
 
       <div class="nav-icons">
-        <button id="searchFilterBtn" aria-label="Search" class="hover-underline">
-          <img src="../Assets/Images/filter.png" alt="Search">
-        </button>
-
         <button id="account" aria-label="account" class="hover-underline">
           <img src="../Assets/Images/account.png" alt="Account">
         </button>
@@ -32,11 +30,244 @@
       </div>
     </header>
 
+    <!-- Menu Banner Image -->
+    <div class="menu-banner">
+      <img src="../Assets/Images/menu_banner.jpeg" alt="Menu Banner">
+    </div>
+
     <section class="catalogue-section">
-      <h2 class="section-title">Full Menu</h2>
-      
+      <div class="catalogue-header">
+        <h2 class="section-title">Full Menu<br></h2>
+        <button id="searchFilterBtn" aria-label="Search" class="filter-btn-catalogue">
+          <img src="../Assets/Images/filter.png" alt="Search">
+        </button>
+      </div>
+      <div class="pickup-info">
+        <strong>Delivery &amp; Store Pickup available. Pickup from these locations:</strong><br>
+        <li><em>SunBake, Bandar Sunway</em> - 9am to 1pm, daily</li>
+        <li><em>SunBake,SS15</em> - 9am to 6pm, daily</li>
+      </div>
+
       <!-- The grid where your cakes will load -->
-      <div class="catalogue-grid" id="catalogueGrid"></div>
+      <div class="catalogue-grid" id="catalogueGrid">
+        <!-- 1. Valrhona Chocolate -->
+        <div class="cat-card card-hover-trigger" data-name="Valrhona Chocolate" data-price="11.99" data-price-whole="89.99" data-category="Cream Cake">
+          <img src="../Assets/Food/Valrhona_Chocolate_Cake.svg" alt="Valrhona Chocolate">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Valrhona Chocolate</h3>
+            <p class="cat-card-category">Cream Cake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 11.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Chocolate Indulgence -->
+        <div class="cat-card card-hover-trigger" data-name="Chocolate Indulgence" data-price="11.99" data-price-whole="89.99" data-category="Cream Cake">
+          <img src="../Assets/Food/Chocolate_Indulgence.svg" alt="Chocolate Indulgence">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Chocolate Indulgence</h3>
+            <p class="cat-card-category">Cream Cake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 11.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. New York Cheesecake -->
+        <div class="cat-card card-hover-trigger" data-name="New York Cheesecake" data-price="12.99" data-price-whole="99.99" data-category="Cheesecake">
+          <img src="../Assets/Food/New_York_Cheesecake.svg" alt="New York Cheesecake">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">New York Cheesecake</h3>
+            <p class="cat-card-category">Cheesecake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 12.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Lychee Coffee Hazelnut -->
+        <div class="cat-card card-hover-trigger" data-name="Lychee Coffee Hazaelnut" data-price="12.99" data-price-whole="119.99" data-category="Fruit Cake">
+          <img src="../Assets/Food/Lychee_Coffee_Hazelnut.svg" alt="Lychee Coffee Hazelnut">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Lychee Coffee Hazaelnut</h3>
+            <p class="cat-card-category">Fruit Cake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 12.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Blueberry Lemon Cake -->
+        <div class="cat-card card-hover-trigger" data-name="Blueberry Lemon Cake" data-price="13.99" data-price-whole="89.99" data-category="Fruit Cake">
+          <img src="../Assets/Food/Blueberry_Lemon_cake.svg" alt="Blueberry Lemon Cake">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Blueberry Lemon Cake</h3>
+            <p class="cat-card-category">Fruit Cake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 13.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Oolong Melon Cake -->
+        <div class="cat-card card-hover-trigger" data-name="Oolong Melon Cake" data-price="11.99" data-price-whole="109.99" data-category="Fruit Cake">
+          <img src="../Assets/Food/Oolong_melon_cake.svg" alt="Oolong Melon Cake">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Oolong Melon Cake</h3>
+            <p class="cat-card-category">Fruit Cake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 11.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Pistachio Raspberry -->
+        <div class="cat-card card-hover-trigger" data-name="Pistachio Raspberry" data-price="16.99" data-price-whole="129.99" data-category="Fruit Cake">
+          <img src="../Assets/Food/Pistachio_Raspberry.svg" alt="Pistachio Raspberry">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Pistachio Raspberry</h3>
+            <p class="cat-card-category">Fruit Cake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 16.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Strawberry Shortcake -->
+        <div class="cat-card card-hover-trigger" data-name="Strawberry Shortcake" data-price="10.99" data-price-whole="119.99" data-category="Fruit Cake">
+          <img src="../Assets/Food/Strawberry_cake.svg" alt="Strawberry Shortcake">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Strawberry Shortcake</h3>
+            <p class="cat-card-category">Fruit Cake</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 10.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Tiramisu -->
+        <div class="cat-card card-hover-trigger" data-name="Tiramisu" data-price="17.99" data-category="Tiramisu">
+          <img src="../Assets/Food/Tiramisu.svg" alt="Tiramisu">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Tiramisu</h3>
+            <p class="cat-card-category">Tiramisu</p>
+            <div class="price-block single-price">
+              <p class="price-value">RM 17.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Fruit Tart -->
+        <div class="cat-card card-hover-trigger" data-name="Fruit Tart" data-price="3.99" data-category="Tart">
+          <img src="../Assets/Food/Fruit_Tart.svg" alt="Fruit Tart">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Fruit Tart</h3>
+            <p class="cat-card-category">Tart</p>
+            <div class="price-block single-price">
+              <p class="price-value">RM 3.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Kochi Yuzu Mango Tart -->
+        <div class="cat-card card-hover-trigger" data-name="Kochi Yuzu Mango Tart" data-price="14.99" data-category="Tart">
+          <img src="../Assets/Food/Kochi_Yuzu_Mango_Tart.svg" alt="Kochi Yuzu Mango Tart">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Kochi Yuzu Mango Tart</h3>
+            <p class="cat-card-category">Tart</p>
+            <div class="price-block single-price">
+              <p class="price-value">RM 14.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Uji Matcha Tart -->
+        <div class="cat-card card-hover-trigger" data-name="Uji Matcha Tart" data-price="16.00" data-price-whole="16.00" data-category="Tart">
+          <img src="../Assets/Food/uji_matcha_tart.svg" alt="Uji Matcha Tart">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Uji Matcha Tart</h3>
+            <p class="cat-card-category">Tart</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 16.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Apple Pie -->
+        <div class="cat-card card-hover-trigger" data-name="Apple Pie" data-price="8.99" data-price-whole="99.99" data-category="Pie">
+          <img src="../Assets/Food/Apple_pie_slice.svg" alt="Apple Pie">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Apple Pie</h3>
+            <p class="cat-card-category">Pie</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 8.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Lime Pie -->
+        <div class="cat-card card-hover-trigger" data-name="Lime Pie" data-price="8.99" data-price-whole="79.99" data-category="Pie">
+          <img src="../Assets/Food/Lime_pie.svg" alt="Lime Pie">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Lime Pie</h3>
+            <p class="cat-card-category">Pie</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 8.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Caramel Almond Vanilla Crêpe -->
+        <div class="cat-card card-hover-trigger" data-name="Caramel Almond Vanilla Crêpe" data-price="14.99" data-price-whole="109.99" data-category="Mille Crepe">
+          <img src="../Assets/Food/Caramel_Almond_Vanilla_Crêpe_have_slides.svg" alt="Caramel Almond Vanilla Crêpe">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Caramel Almond Vanilla Crêpe</h3>
+            <p class="cat-card-category">Mille Crepe</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 14.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. Musang King Durian Crêpe -->
+        <div class="cat-card card-hover-trigger" data-name="Musang King Durian Crêpe" data-price="18.99" data-price-whole="139.99" data-category="Mille Crepe">
+          <img src="../Assets/Food/Musang_King_Durian_Crêpe.svg" alt="Musang King Durian Crêpe">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Musang King Durian Crêpe</h3>
+            <p class="cat-card-category">Mille Crepe</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 18.99</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17. Matcha Mille Crepe -->
+        <div class="cat-card card-hover-trigger" data-name="Matcha Mille Crepe" data-price="14.99" data-price-whole="111.99" data-category="Mille Crepe">
+          <img src="../Assets/Food/Matcha_mille_crepe.svg" alt="Matcha Mille Crepe">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">Matcha Mille Crepe</h3>
+            <p class="cat-card-category">Mille Crepe</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM 14.99</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
     </section>
 
@@ -87,6 +318,9 @@
               </div>
               <button class="add-to-cart-btn">ADD TO CART</button>
             </div>
+
+            <!-- View Reviews & Comments Button (hyperlink for teammate connection) -->
+            <a href="#" target="_blank" class="view-comments-btn">VIEW REVIEWS &amp; COMMENTS</a>
           </div>
         </div>
       </div>

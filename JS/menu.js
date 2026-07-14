@@ -1,177 +1,32 @@
-const FULL_MENU = [
-  { 
-    name: "Valrhona Chocolate", 
-    category: "Cream Cake", 
-    price: 11.99, 
-    priceWhole: 89.99, 
-    img: "../Assets/Food/Valrhona_Chocolate_Cake.svg" 
-  },
-  { 
-    name: "Chocolate Indulgence", 
-    category: "Cream Cake", 
-    price: 11.99, 
-    priceWhole: 89.99, 
-    img: "../Assets/Food/Chocolate_Indulgence.svg" 
-  },
-  { 
-    name: "New York Cheesecake", 
-    category: "Cheesecake", 
-    price: 12.99, 
-    priceWhole: 99.99, 
-    img: "../Assets/Food/New_York_Cheesecake.svg" 
-  },
-  { 
-    name: "Lychee Coffee Hazaelnut", 
-    category: "Fruit Cake", 
-    price: 12.99, 
-    priceWhole: 119.99, 
-    img: "../Assets/Food/Lychee_Coffee_Hazelnut.svg" 
-  },
-  { 
-    name: "Blueberry Lemon Cake", 
-    category: "Fruit Cake", 
-    price: 13.99, 
-    priceWhole: 89.99, 
-    img: "../Assets/Food/Blueberry_Lemon_cake.svg" 
-  },
-  { 
-    name: "Oolong Melon Cake", 
-    category: "Fruit Cake", 
-    price: 11.99, 
-    priceWhole: 109.99, 
-    img: "../Assets/Food/Oolong_melon_cake.svg" 
-  },
-  { 
-    name: "Pistachio Raspberry", 
-    category: "Fruit Cake", 
-    price: 16.99, 
-    priceWhole: 129.99, 
-    img: "../Assets/Food/Pistachio_Raspberry.svg" 
-  },
-  { 
-    name: "Strawberry Shortcake", 
-    category: "Fruit Cake", 
-    price: 10.99, 
-    priceWhole: 119.99, 
-    img: "../Assets/Food/Strawberry_cake.svg" 
-  },
-  { 
-    name: "Tiramisu", 
-    category: "Tiramisu", 
-    price: 17.99, 
-    img: "../Assets/Food/Tiramisu.svg" 
-  },
-  { 
-    name: "Fruit Tart", 
-    category: "Tart", 
-    price: 3.99, 
-    img: "../Assets/Food/Fruit_Tart.svg" 
-  },
-  { 
-    name: "Kochi Yuzu Mango Tart", 
-    category: "Tart", 
-    price: 14.99, 
-    img: "../Assets/Food/Kochi_Yuzu_Mango_Tart.svg" 
-  },
-  { 
-    name: "Uji Matcha Tart", 
-    category: "Tart", 
-    price: 16.00, 
-    priceWhole: 16.00, 
-    img: "../Assets/Food/uji_matcha_tart.svg" 
-  },
-  { 
-    name: "Apple Pie", 
-    category: "Pie", 
-    price: 8.99, 
-    priceWhole: 99.99, 
-    img: "../Assets/Food/Apple_pie_slice.svg" 
-  },
-  { 
-    name: "Lime Pie", 
-    category: "Pie", 
-    price: 8.99, 
-    priceWhole: 79.99, 
-    img: "../Assets/Food/Lime_pie.svg" 
-  },
-  { 
-    name: "Caramel Almond Vanilla Crêpe", 
-    category: "Mille Crepe", 
-    price: 14.99, 
-    priceWhole: 109.99, 
-    img: "../Assets/Food/Caramel_Almond_Vanilla_Crêpe_have_slides.svg" 
-  },
-  { 
-    name: "Musang King Durian Crêpe", 
-    category: "Mille Crepe", 
-    price: 18.99, 
-    priceWhole: 139.99, 
-    img: "../Assets/Food/Musang_King_Durian_Crêpe.svg" 
-  },
-  { 
-    name: "Matcha Mille Crepe", 
-    category: "Mille Crepe", 
-    price: 14.99, 
-    priceWhole: 111.99, 
-    img: "../Assets/Food/Matcha_mille_crepe.svg" 
-  }
-];
-
 /* ─────────────────────────────────────────────
-   CATALOGUE GENERATOR
+   CATALOGUE GENERATOR (Static DOM Parser)
    ───────────────────────────────────────────── */
 const catalogueGrid = document.getElementById('catalogueGrid');
 const noResultsText = document.getElementById('noResults');
 
-function renderCatalogue(itemsToRender) {
-  catalogueGrid.innerHTML = '';
+// Parse initial cards on page load
+const cards = Array.from(catalogueGrid.getElementsByClassName('cat-card'));
 
-  /* Show "No Results" message if empty */
-  if (itemsToRender.length === 0) {
-    noResultsText.classList.remove('hidden');
-    return;
-  } else {
-    noResultsText.classList.add('hidden');
-  }
+const initialItems = cards.map(card => {
+  const priceAttr = card.getAttribute('data-price');
+  const priceWholeAttr = card.getAttribute('data-price-whole');
+  
+  const item = {
+    element: card,
+    name: card.getAttribute('data-name'),
+    category: card.getAttribute('data-category'),
+    price: priceAttr ? parseFloat(priceAttr) : 0,
+    priceWhole: priceWholeAttr ? parseFloat(priceWholeAttr) : null,
+    img: card.querySelector('img').getAttribute('src')
+  };
 
-  // Loop through the array and build HTML for each cake 
-  itemsToRender.forEach(item => {
-    // If you forget a price, this falls back to 0.00
-    const itemPrice = item.price ? item.price.toFixed(2) : "0.00"; 
-    let priceHTML = '';
-       if (!item.priceWhole) {
-      /* Single price items (e.g. Tarts, Pies, Tiramisu) */
-      priceHTML = `
-        <div class="price-block single-price">
-          <p class="price-value">RM ${itemPrice}</p>
-        </div>
-      `;
-    } else {
-      /* Show 'FROM' for whole cakes */
-      priceHTML = `
-        <div class="price-block single-price">
-          <div class="price-label">From</div>
-          <p class="price-value">RM ${itemPrice}</p>
-        </div>
-      `;
-    }
-    
-    const card = document.createElement('div');
-    card.className = 'cat-card card-hover-trigger';
-    
-    card.innerHTML = `
-      <img src="${item.img}" alt="${item.name}">
-      <div class="cat-card-body">
-        <h3 class="cat-card-name hover-underline">${item.name}</h3>
-        <p class="cat-card-category">${item.category}</p>
-        ${priceHTML}
-      </div>
-    `;
-    
-    catalogueGrid.appendChild(card);
-    card.addEventListener('click', () => openModal(item));  
+  // Bind click listener to open detail modal
+  card.addEventListener('click', () => {
+    openModal(item);
   });
-}
+
+  return item;
+});
 
 /* ─────────────────────────────────────────────
    MODAL LOGIC
@@ -193,7 +48,7 @@ function openModal(item) {
   modalTitle.textContent = item.name;
 
   // Hide Size option for Tarts, Pies, and Tiramisu 
-    if (!item.priceWhole) {
+  if (!item.priceWhole) {
     sizeOptionGroup.classList.add('hidden'); 
     modalPrice.textContent = `RM ${item.price.toFixed(2)}`;
   } else {
@@ -210,7 +65,7 @@ function openModal(item) {
   currentQty = 1;
   qtyValue.textContent = currentQty;
   
-  modal.classList.remove('hidden'); // This is now safely outside the if/else block!
+  modal.classList.remove('hidden'); 
 }
 
 // Close Modal when clicking the X
@@ -224,6 +79,7 @@ modal.addEventListener('click', (e) => {
     modal.classList.add('hidden');
   }
 });
+
 /* ─────────────────────────────────────────────
    MODAL INTERACTIVITY & CHECKOUT
    ───────────────────────────────────────────── */
@@ -314,26 +170,53 @@ const categoryFilter = document.getElementById('categoryFilter');
 const sortSelect = document.getElementById('sortSelect');
 
 function updateCatalogue() {
-  let filtered = FULL_MENU.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(searchInput.value.toLowerCase());
-    const filterCat = categoryFilter.value.toLowerCase();
-    const matchesCat = filterCat === 'all' || item.category.toLowerCase().includes(filterCat);
+  const query = searchInput.value.toLowerCase().trim();
+  const selectedCat = categoryFilter.value.toLowerCase();
+  const sortVal = sortSelect.value;
+
+  // Filter items
+  let matchedItems = initialItems.filter(item => {
+    const matchesSearch = item.name.toLowerCase().includes(query);
+    const matchesCat = selectedCat === 'all' || item.category.toLowerCase().includes(selectedCat);
     return matchesSearch && matchesCat;
   });
 
-  const sortVal = sortSelect.value;
-  if (sortVal === 'price-asc') filtered.sort((a, b) => (a.price || a.priceWhole) - (b.price || b.priceWhole));
-  if (sortVal === 'price-desc') filtered.sort((a, b) => (b.price || b.priceWhole) - (a.price || a.priceWhole));
+  // Hide all cards first
+  initialItems.forEach(item => {
+    item.element.classList.add('hidden');
+  });
 
-  renderCatalogue(filtered);
+  // Show only matched cards
+  matchedItems.forEach(item => {
+    item.element.classList.remove('hidden');
+  });
+
+  // Handle "No Results" message
+  if (matchedItems.length === 0) {
+    noResultsText.classList.remove('hidden');
+  } else {
+    noResultsText.classList.add('hidden');
+  }
+
+  // Handle sorting if requested
+  if (sortVal === 'price-asc') {
+    matchedItems.sort((a, b) => a.price - b.price);
+    matchedItems.forEach(item => {
+      catalogueGrid.appendChild(item.element);
+    });
+  } else if (sortVal === 'price-desc') {
+    matchedItems.sort((a, b) => b.price - a.price);
+    matchedItems.forEach(item => {
+      catalogueGrid.appendChild(item.element);
+    });
+  } else {
+    // Default sorting (original DOM layout order)
+    initialItems.forEach(item => {
+      catalogueGrid.appendChild(item.element);
+    });
+  }
 }
 
 searchInput.addEventListener('input', updateCatalogue);
 categoryFilter.addEventListener('change', updateCatalogue);
 sortSelect.addEventListener('change', updateCatalogue);
-
-/* ─────────────────────────────────────────────
-   INIT
-   ───────────────────────────────────────────── */
-
-renderCatalogue(FULL_MENU);
