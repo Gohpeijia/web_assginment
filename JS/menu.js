@@ -4,29 +4,33 @@
 const catalogueGrid = document.getElementById('catalogueGrid');
 const noResultsText = document.getElementById('noResults');
 
-// Parse initial cards on page load
-const cards = Array.from(catalogueGrid.getElementsByClassName('cat-card'));
+let initialItems = [];
 
-const initialItems = cards.map(card => {
-  const priceAttr = card.getAttribute('data-price');
-  const priceWholeAttr = card.getAttribute('data-price-whole');
-  
-  const item = {
-    element: card,
-    name: card.getAttribute('data-name'),
-    category: card.getAttribute('data-category'),
-    price: priceAttr ? parseFloat(priceAttr) : 0,
-    priceWhole: priceWholeAttr ? parseFloat(priceWholeAttr) : null,
-    img: card.querySelector('img').getAttribute('src')
-  };
+if (catalogueGrid) {
+  // Parse initial cards on page load
+  const cards = Array.from(catalogueGrid.getElementsByClassName('cat-card'));
 
-  // Bind click listener to open detail modal
-  card.addEventListener('click', () => {
-    openModal(item);
+  initialItems = cards.map(card => {
+    const priceAttr = card.getAttribute('data-price');
+    const priceWholeAttr = card.getAttribute('data-price-whole');
+    
+    const item = {
+      element: card,
+      name: card.getAttribute('data-name'),
+      category: card.getAttribute('data-category'),
+      price: priceAttr ? parseFloat(priceAttr) : 0,
+      priceWhole: priceWholeAttr ? parseFloat(priceWholeAttr) : null,
+      img: card.querySelector('img').getAttribute('src')
+    };
+
+    // Bind click listener to open detail modal
+    card.addEventListener('click', () => {
+      openModal(item);
+    });
+
+    return item;
   });
-
-  return item;
-});
+}
 
 /* ─────────────────────────────────────────────
    MODAL LOGIC
@@ -217,6 +221,8 @@ function updateCatalogue() {
   }
 }
 
-searchInput.addEventListener('input', updateCatalogue);
-categoryFilter.addEventListener('change', updateCatalogue);
-sortSelect.addEventListener('change', updateCatalogue);
+if (catalogueGrid) {
+  searchInput.addEventListener('input', updateCatalogue);
+  categoryFilter.addEventListener('change', updateCatalogue);
+  sortSelect.addEventListener('change', updateCatalogue);
+}

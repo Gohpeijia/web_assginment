@@ -406,11 +406,11 @@
 
 /* Tablet */
 @media (max-width: 768px) {
-  .navbar {
+  .navigation_bar {
     padding: 14px 20px;
   }
-  .nav-links {
-    gap: 20px;
+  .nav-left {
+    gap: 15px;
   }
   .catalogue-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -422,10 +422,11 @@
 
 /* Mobile */
 @media (max-width: 480px) {
-  .navbar {
-    padding: 12px 16px;
+  .navigation_bar {
+    padding: 10px 15px;
+    margin: 15px auto;
   }
-  .nav-links {
+  .nav-left {
     display: none; 
   }
   .input-bar {
@@ -446,7 +447,7 @@
 
 /* Print stylesheet */
 @media print {
-  .navbar,
+  .navigation_bar,
   .input-bar,
   body {
     background: var(--cream);
