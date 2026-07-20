@@ -1,73 +1,255 @@
 body.dark-mode{
-    background-color:#1b1b1b;
-    color:#F5ECD7;
-    transition:0.3s;
-}
-
-/* Navbar */
-body.dark-mode .navbar{
-    background-color:#111111;
-}
-
-body.dark-mode .nav-links a{
+    background:#2B2118;
     color:#F5ECD7;
 }
 
-body.dark-mode .nav-icons button{
+body.dark-mode .navbar,
+body.dark-mode .navigation_bar{
+    background:#1E110B;
+}
+
+body.dark-mode .nav-links a,
+body.dark-mode .nav_fonts{
     color:#F5ECD7;
 }
 
-/* Hero Text */
-body.dark-mode .video_text h1{
+body.dark-mode .icons,
+body.dark-mode .nav-icons img{
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6{
+    color:#F5C842;
+}
+
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label,
+body.dark-mode li,
+body.dark-mode a{
     color:#F5ECD7;
 }
 
-/* Explore Button */
-body.dark-mode .explore_button{
-    border:2px solid #F5ECD7;
+button {
+  background: none;   
+  border: none;      
+  color: inherit;    
 }
 
-body.dark-mode .explore_button span{
+body.dark-mode .catalogue-section{
+    background:#2B2118;
+}
+
+body.dark-mode .section-title{
+    color:#F5C842;
+}
+
+body.dark-mode .cat-card{
+    background:#3A2B22;
+    border:1px solid #6B4A2D;
+}
+
+body.dark-mode .cat-card:hover{
+    background:#4A3529;
+}
+
+body.dark-mode .cat-card-name{
     color:#F5ECD7;
 }
 
-body.dark-mode .explore_button::before{
-    background:#F5ECD7;
+body.dark-mode .cat-card-category{
+    color:#CCCCCC;
 }
 
-body.dark-mode .explore_button:hover span{
-    color:#1b1b1b;
+body.dark-mode .price-block{
+    background:#2B2118;
 }
 
-/* Login Page */
-body.dark-mode .login_content{
+body.dark-mode .price-value{
+    color:#F5C842;
+}
+
+body.dark-mode .price-label{
+    color:#CCCCCC;
+}
+
+body.dark-mode .sidebar{
+    background:#2B2118;
+}
+
+body.dark-mode .sidebar h2,
+body.dark-mode .sidebar h3{
+    color:#F5C842;
+}
+
+body.dark-mode .sidebar-input,
+body.dark-mode .sidebar-select{
+    background:#3A2B22;
+    color:#F5ECD7;
+    border:1px solid #666;
+}
+
+body.dark-mode .modal-content{
+    background:#3A2B22;
     color:#F5ECD7;
 }
 
-/* Forms */
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select{
-    background:#333333;
+body.dark-mode .modal-title,
+body.dark-mode .modal-price{
+    color:#F5C842;
+}
+
+body.dark-mode .opt-btn{
+    border:1px solid #777;
+    color:#F5ECD7;
+}
+
+body.dark-mode .opt-btn.active{
+    background:#8B6B20;
+}
+
+body.dark-mode .qty-selector{
+    border:1px solid #777;
+}
+
+body.dark-mode .qty-selector button{
+    color:#F5ECD7;
+}
+
+body.dark-mode .add-to-cart-btn{
+    background:#8B6B20;
+}
+
+body.dark-mode .add-to-cart-btn:hover{
+    background:#A88424;
+}
+
+body.dark-mode .loginn,
+body.dark-mode .registerr{
+    color:#F5ECD7;
+}
+
+body.dark-mode .loginn input,
+body.dark-mode .registerr input{
+    background:#3A2B22;
+    color:#F5ECD7;
+    border:1px solid #777;
+}
+
+body.dark-mode .loginn input::placeholder,
+body.dark-mode .registerr input::placeholder{
+    color:#BBBBBB;
+}
+
+body.dark-mode .loginn button,
+body.dark-mode .registerr button{
+    background:#8B6B20;
     color:white;
-    border:1px solid #666666;
 }
 
-body.dark-mode input::placeholder{
-    color:#cccccc;
+body.dark-mode .forgotpw a,
+body.dark-mode .newuser a{
+    color:#F5C842;
 }
 
-/* Footer */
-body.dark-mode footer{
-    background:#111111;
+body.dark-mode .circle{
+    background:#555;
+}
+
+body.dark-mode .progress-step.active .circle,
+body.dark-mode .progress-step.completed .circle{
+    background:#F5C842;
+    color:#2B2118;
+}
+
+body.dark-mode .progress-line{
+    background:#555;
+}
+
+body.dark-mode .progress-line.completed::after{
+    background:#F5C842;
+}
+
+body.dark-mode .loading-box{
+    background:#3A2B22;
+}
+
+body.dark-mode .loading-box p{
     color:#F5ECD7;
+}
+
+body.dark-mode .overlay-close{
+    background:#8B6B20;
+}
+
+body.dark-mode .team-section{
+    background:#2B2118;
+}
+
+body.dark-mode .team-card{
+    background:#3A2B22;
+    border:1px solid #6B4A2D;
+}
+
+body.dark-mode .team-card:hover{
+    box-shadow:0 10px 30px rgba(245,200,66,.3);
+}
+
+body.dark-mode .team-name{
+    color:#F5C842;
+}
+
+body.dark-mode .team-role{
+    color:#FFD76A;
+}
+
+body.dark-mode .team-contributions p,
+body.dark-mode .team-contributions li{
+    color:#F5ECD7;
+}
+
+body.dark-mode .portfolio-btn{
+    background:#8B6B20;
+}
+
+body.dark-mode .portfolio-btn:hover{
+    background:#A88424;
+}
+
+body.dark-mode footer{
+    background:#1E110B;
+}
+
+body.dark-mode .divider{
+    background:#F5C842;
 }
 
 body.dark-mode .footer_index_center h2,
+body.dark-mode .footer_index_center h3{
+    color:#F5C842;
+}
+
+body.dark-mode .footer_index_center p,
 body.dark-mode .footer_index_center a,
 body.dark-mode .copyright{
     color:#F5ECD7;
 }
 
-body.dark-mode .divider{
-    background:#F5C842;
+body.dark-mode #subscribeInput{
+    background:#3A2B22;
+    color:#F5ECD7;
+    border:1px solid #666;
+}
+
+body.dark-mode #subscribeInput::placeholder{
+    color:#BBBBBB;
+}
+
+body.dark-mode .subscribe-btn{
+    background:#8B6B20;
+}
