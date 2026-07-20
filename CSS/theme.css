@@ -72,6 +72,13 @@ select, .select-custom {
     height: 40px;
 }
 
+/*stick the navigation bar top to the website*/
+header {
+    position: sticky;
+    top: 0px;
+    z-index: 2000;
+}
+
 /*navigation bar in header*/
 .navigation_bar{
     width: 90%;
@@ -82,6 +89,7 @@ select, .select-custom {
     align-items: center;
     border-radius: 50px;
     padding: 20px 50px;
+    background-color: var(--cream); /* Ensure solid background when scrolling over text */
     box-shadow:0 5px 15px var(--half-transparent);
     position:relative;
     z-index:1000;

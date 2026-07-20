@@ -238,10 +238,10 @@
 /*the cake ame*/
 .cat-card-name {
   font-size: 20px;
+  font-weight: normal; 
   color: var(--brown-dark);
   text-transform: uppercase;
   margin-bottom: 5px;
-  position: relative;
   display: inline-block; 
   max-width: 100%;
   position: relative;

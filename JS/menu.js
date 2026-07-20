@@ -7,8 +7,8 @@ const noResultsText = document.getElementById('noResults');
 let initialItems = [];
 
 if (catalogueGrid) {
-  // Parse initial cards on page load
-  const cards = Array.from(catalogueGrid.getElementsByClassName('cat-card'));
+  // Parse initial cards on page load globally, not just in the first grid
+  const cards = Array.from(document.querySelectorAll('.cat-card'));
 
   initialItems = cards.map(card => {
     const priceAttr = card.getAttribute('data-price');
@@ -16,6 +16,7 @@ if (catalogueGrid) {
     
     const item = {
       element: card,
+      parent: card.parentElement, // Save original grid container
       name: card.getAttribute('data-name'),
       category: card.getAttribute('data-category'),
       price: priceAttr ? parseFloat(priceAttr) : 0,
@@ -178,47 +179,67 @@ function updateCatalogue() {
   const selectedCat = categoryFilter.value.toLowerCase();
   const sortVal = sortSelect.value;
 
-  // Filter items
+  // 1. Hide all cards first
+  initialItems.forEach(item => {
+    item.element.classList.add('hidden');
+  });
+
+  // 2. Filter items globally
   let matchedItems = initialItems.filter(item => {
     const matchesSearch = item.name.toLowerCase().includes(query);
     const matchesCat = selectedCat === 'all' || item.category.toLowerCase().includes(selectedCat);
     return matchesSearch && matchesCat;
   });
 
-  // Hide all cards first
-  initialItems.forEach(item => {
-    item.element.classList.add('hidden');
-  });
-
-  // Show only matched cards
+  // 3. Show matched items
   matchedItems.forEach(item => {
     item.element.classList.remove('hidden');
   });
 
-  // Handle "No Results" message
-  if (matchedItems.length === 0) {
-    noResultsText.classList.remove('hidden');
-  } else {
-    noResultsText.classList.add('hidden');
+  // 4. Handle "No Results" message
+  if (noResultsText) {
+    if (matchedItems.length === 0) {
+      noResultsText.classList.remove('hidden');
+    } else {
+      noResultsText.classList.add('hidden');
+    }
   }
 
-  // Handle sorting if requested
-  if (sortVal === 'price-asc') {
-    matchedItems.sort((a, b) => a.price - b.price);
+  // 5. Handle sorting and DOM movement
+  if (sortVal !== 'default') {
+    // Sort globally
+    matchedItems.sort((a, b) => sortVal === 'price-asc' ? a.price - b.price : b.price - a.price);
+    
+    // Move all sorted items into the first catalogue grid so they appear as one continuous list
+    const firstGrid = document.querySelector('.catalogue-grid');
     matchedItems.forEach(item => {
-      catalogueGrid.appendChild(item.element);
-    });
-  } else if (sortVal === 'price-desc') {
-    matchedItems.sort((a, b) => b.price - a.price);
-    matchedItems.forEach(item => {
-      catalogueGrid.appendChild(item.element);
+      firstGrid.appendChild(item.element);
     });
   } else {
-    // Default sorting (original DOM layout order)
+    // Restore items to their original sections in original order
     initialItems.forEach(item => {
-      catalogueGrid.appendChild(item.element);
+      item.parent.appendChild(item.element);
     });
   }
+
+  // 6. Hide or show sections and banners based on whether they have visible cards
+  const sections = document.querySelectorAll('.catalogue-section');
+  sections.forEach(section => {
+    const visibleCards = section.querySelectorAll('.cat-card:not(.hidden)');
+    const prevElement = section.previousElementSibling; // Check if there's a banner right before the section
+    
+    if (visibleCards.length === 0) {
+      section.style.display = 'none';
+      if (prevElement && prevElement.classList.contains('menu-banner')) {
+        prevElement.style.display = 'none';
+      }
+    } else {
+      section.style.display = '';
+      if (prevElement && prevElement.classList.contains('menu-banner')) {
+        prevElement.style.display = '';
+      }
+    }
+  });
 }
 
 if (catalogueGrid) {
