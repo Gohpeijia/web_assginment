@@ -89,6 +89,26 @@ if (subscribeForm) {
     subscribeForm.classList.add('hidden');
     
     // Show the success message
-    subscribeSuccess.classList.remove('hidden');
+    if (subscribeSuccess) {
+      subscribeSuccess.classList.remove('hidden');
+    }
+  });
+}
+
+// CONTACT FORM LOGIC
+const contactForm = document.getElementById('contactForm');
+const contactSuccess = document.getElementById('contactSuccess');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Stops the page from refreshing
+    
+    // Hide the input form
+    contactForm.classList.add('hidden');
+    
+    // Show the success message
+    if (contactSuccess) {
+      contactSuccess.classList.remove('hidden');
+    }
   });
 }

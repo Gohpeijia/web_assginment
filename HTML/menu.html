@@ -58,7 +58,7 @@
         <div class="cat-card card-hover-trigger" data-name="Valrhona Chocolate" data-price="11.99" data-price-whole="89.99" data-category="Cream Cake">
           <img src="../Assets/Food/Valrhona_Chocolate_Cake.svg" alt="Valrhona Chocolate">
           <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Valrhona Chocolate</h3>
+            <h2 class="cat-card-name hover-underline">Valrhona Chocolate</h2>
             <p class="cat-card-category">Cream Cake</p>
             <div class="price-block single-price">
               <div class="price-label">From</div>
@@ -381,7 +381,7 @@
 
     <!-- PROFILE MODAL  -->
     <div id="profileModal" class="modal hidden">
-      <div class="modal-content profile-modal-content">
+      <div class="modal-content">
         <p id="closeProfileModal" class="close-btn">&times;</p>
         <div class="profile-modal-body">
           <h2 class="modal-title">Account</h2>
@@ -390,34 +390,61 @@
         </div>
       </div>
     </div>
+
+
     <footer>
       <hr class="divider">
-      <div class="footer_index_center">
-        <h2>To get to know us</h2>
+      <div class="footer_container">
+        <div class="footer_left">
+          <h2>To get to know us</h2>
 
-        <br>
+          <br>
 
-        <!-- customer service -->
-        <h3>Customer Service</h3>
-        <a href="mailto:peijia0307@gmail.com">Click here to send us an email.</a>
-        <p>Discover our commitment to exceptional customer service with every purchase. Your satisfaction is always our top priority.</p>
+          <!-- left side (subscribe) -->
+          <h3>Freshly Baked Content delivered straight to your inbox</h3>
+          <p>Get the latest updates and exclusive access to everything we’re baking up</p>
 
-        <br>
+          <br>
 
-        <!-- subscribe -->
-        <h3>Freshly Baked Content delivered straight to your inbox</h3>
-        <p>Get the latest updates and exclusive access to everything we’re baking up</p>
+          <form id="subscribeForm" class="input-bar">
+            <input type="email" id="subscribeInput" name="email" class="input-bar" placeholder="Enter your email" required>
+            <button type="submit" class="subscribe-btn" aria-label="Subscribe">&#8594;</button>
+          </form>
 
-        <br>
+          <!-- success message (Hidden by default) -->
+          <div id="subscribeSuccess" class="subscribe-success hidden">
+            <p class="success-text">&#10003; THANKS FOR SUBSCRIBING</p>
+          </div>
 
-        <form id="subscribeForm" class="input-bar">
-          <input type="email" id="subscribeInput" class="input-bar" placeholder="Enter your email" required>
-          <button type="submit" class="subscribe-btn" aria-label="Subscribe">&#8594;</button>
-        </form>
+        </div>
 
-        <!-- success message (Hidden by default) -->
-        <div id="subscribeSuccess" class="subscribe-success hidden">
-          <p class="success-text">&#10003; THANKS FOR SUBSCRIBING</p>
+          <!-- right side (customer service) -->
+        <div class="footer_right">
+          <div class="contact-form-container">
+            <h3>Contact Us</h3>
+            <form action="#" method="POST" class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name">Username / Name</label>
+                  <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email Address</label>
+                  <input type="email" id="contact-email" name="email" placeholder="name@domain.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Questions / Inquiries</label>
+                <textarea id="contact-message" name="message" placeholder="Ask us anything about our cakes..." rows="4" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <!-- success message (Hidden by default) -->
+            <div id="contactSuccess" class="contact-success hidden">
+                <p class="success-text">&#10003; THANKS FOR REACHING OUT!</p>
+            </div>
+          </div>
         </div>
       </div>
       <p class="copyright">&copy; 2026 SUNBAKE Bakers. SUNBAKE Manufactory Sdn Bhd.</p>
