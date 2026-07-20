@@ -1,0 +1,264 @@
+/* =============================================
+   REVIEW PAGE
+   ============================================= */
+
+.review-page-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.review-product-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 40px;
+    background-color: var(--cream, #fff8ec);
+    border-radius: 16px;
+}
+
+.review-product-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.review-product-image img {
+    width: 100%;
+    max-width: 450px;
+    height: 400px;
+    object-fit: contain;
+}
+
+.review-product-information {
+    flex: 1;
+}
+
+.review-product-information label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#productSelector,
+#ratingFilter,
+#reviewRating {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}
+
+#productName {
+    margin-bottom: 25px;
+    font-size: 36px;
+    color: var(--brown-dark, #4b2e1f);
+}
+
+.product-information-block,
+.product-rating-summary {
+    margin-top: 25px;
+}
+
+#allergensList {
+    padding-left: 22px;
+    line-height: 1.8;
+}
+
+.average-review-stars,
+.review-stars {
+    color: #c58b20;
+    font-size: 24px;
+    letter-spacing: 3px;
+}
+
+.comment-section,
+.write-review-section {
+    margin-top: 40px;
+    padding: 35px;
+    background-color: var(--cream, #fff8ec);
+    border-radius: 16px;
+}
+
+.comment-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.review-card {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.review-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review-card-header h3 {
+    margin: 0;
+}
+
+.review-form-group {
+    margin-bottom: 20px;
+}
+
+.review-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.review-form-group input,
+.review-form-group textarea,
+.review-form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+}
+
+.add-to-cart-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--brown-dark, #4b2e1f);
+    color: white;
+    cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    opacity: 0.85;
+}
+
+#reviewMessage {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#characterCount {
+    text-align: right;
+    font-size: 14px;
+}
+
+#noReviews {
+    margin-top: 20px;
+}
+
+/* Responsive layout */
+
+@media screen and (max-width: 768px) {
+    .review-product-layout {
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .review-product-image,
+    .review-product-information {
+        width: 100%;
+    }
+
+    .review-product-image img {
+        height: 300px;
+    }
+
+    .comment-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: var(--cream, #fff8ec);
+}
+
+.navbar img {
+    width: 80px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--brown-dark, #4b2e1f);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   NAVIGATION BAR
+   ===================================== */
+.navbar{
+    width:90%;
+    height:90px;
+    margin:30px auto;
+    background:white;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 45px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    box-sizing:border-box;
+}
+.nav-left{
+    display:flex;
+    gap:35px;
+}
+.nav-left a{
+    color:#2f2116;
+    text-decoration:none;
+    font-weight:700;
+    font-size:22px;
+}
+.nav-left a:hover{
+    color:#8c5a2d;
+}
+.nav-logo{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+.nav-logo img{
+    height:65px;
+}
+.nav-right{
+    display:flex;
+    gap:22px;
+}
+.nav-right img{
+    width:28px;
+    height:28px;
+    opacity:.75;
+    transition:.3s;
+}
+.nav-right img:hover{
+    opacity:1;
+    transform:scale(1.1);
+}
