@@ -11,9 +11,9 @@
   --white:         #FFFFFF;
   --text-muted:    #7B5B3A;
   --footer-bg:     #f7db99;
-  --glow-dark:     #3D1C02;
-  --glow-light:    #8B4513;
-  --grey:          #666;
+  --printed-text:  #000;
+  --half-transparent: rgba(0, 0, 0, 0.33);  /* Uses a transparent dark brown */
+  
   --radius-sm:     8px;
   --radius-md:     12px;
   --radius-lg:     20px;
@@ -33,6 +33,30 @@ body {
   color: var(--brown-dark);
 }
 
+h2{
+  font-family: 'Impact','Arial Black', 'sans-serif';
+  color:var(--brown-dark);
+}
+
+h3{
+  font-family: fantasy, 'sans-serif';
+}
+
+/*active tab keyboard (focus)*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--brown-mid);
+  outline-offset: 2px;
+}
+
+/* Cross-browser input appearance standard */
+select, .select-custom {
+  -webkit-appearance: none;
+  appearance: none;
+}
 /* =============================================
    NAVBAR 
    i simply just a template, can change/add if yall want to use other colours or add more elements
@@ -57,7 +81,7 @@ body {
 
     padding: 20px 50px;
 
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    box-shadow:0 5px 15px var(--half-transparent);
     position:relative;
     z-index:1000;
 }
@@ -89,7 +113,7 @@ body {
     gap: 20px;
 }
 
-/* filter bar */
+/* Email input  */
 .input-bar {
   display: flex;
   gap: 14px;
@@ -98,58 +122,26 @@ body {
   margin-bottom: 36px;
 }
 
-/* ---INPUT BAR & DROPDOWN STYLING --- */
-.input-bar input,
-.input-bar select {
+.input-bar input{
   padding: 12px 20px;
   border: 1.5px solid var(--brown-dark);
-  border-radius: 30px; /* Modern pill shape */
+  border-radius: 30px; 
   background: var(--white);
   color: var(--brown-dark);
   font-size: 0.95rem;
   font-weight: 600;
   outline: none;
-  cursor: pointer;
   transition: all var(--transition);
 }
 
-/* Customizing the Dropdown Arrow */
-.input-bar select {
-  -webkit-appearance: none;
-  appearance: none;
-  padding-right: 45px;
-  /* Injects a custom dark-brown chevron arrow */
-  background-repeat: no-repeat;
-  background-position: right 18px center;
-  background-size: 16px;
+.input-bar input:hover{
+  transform: translateY(-1px); 
 }
 
-/* Hover & Focus Effects */
-.input-bar input:hover,
-.input-bar select:hover {
-  border-color: var(--brown-mid);
-  transform: translateY(-1px); /* Slight lift effect */
-  box-shadow: var(--brown-dark);
-}
-
-.input-bar input:focus,
-.input-bar select:focus {
+.input-bar input:focus{
   border-color: var(--gold);
-  box-shadow: var(--brown-light); 
+  box-shadow: 0 0 6px var(--brown-light); 
 }
-
-.input-bar select:focus {
-  border-color: var(--brown-mid);
-}
-
-.input-bar select option {
-  background-color: var(--cream); 
-  color: var(--brown-dark);      
-  font-weight: 600;
-  font-family: 'Segoe UI';
-  padding: 10px;
-}
-
 
 /*GLOBAL UTILITIES & ANIMATIONS */
 /* 1. Add this class to any text element you want to have the sweep effect */
@@ -207,7 +199,7 @@ body {
     text-align: center;
     color: white;   
 
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', sans-serif;
 
     font-size: clamp(2rem, 6vw, 5rem);
     letter-spacing: 6px;
@@ -258,7 +250,7 @@ body {
     width: 0%;
     height: 100%;
 
-    background: white;
+    background: var(--text-muted);
 
     transition: width 0.5s ease;
 
@@ -268,7 +260,7 @@ body {
     width: 100%;
 }
 .explore_button:hover progress{
-    color: #8B6B20;
+    color: var(--text-muted);
 }
 
 /* =============================================
@@ -280,7 +272,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(30, 17, 11, 0.6); /* Uses a transparent dark brown */
+  background: var(--half-transparent); 
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition);
@@ -304,7 +296,7 @@ body {
   z-index: 10001;
   transform: translateX(100%); /* Hides it off-screen to the right */
   transition: transform var(--transition);
-  box-shadow: var(--grey);
+  box-shadow: var(--text-muted);
   display: flex;
   flex-direction: column;
 }
@@ -322,7 +314,6 @@ body {
 }
 
 .sidebar-header h2 {
-  font-family: 'Impact', 'Arial Black', sans-serif;
   font-size: 2.2rem;
   margin: 0;
   text-transform: uppercase;
@@ -354,14 +345,6 @@ body {
   flex-direction: column;
   gap: 20px;
   overflow-y: auto;
-}
-
-.sidebar-subtitle {
-  font-family: 'Impact', 'Arial Black', sans-serif;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  margin-top: 15px;
-  margin-bottom: -10px;
 }
 
 .sidebar-input,
@@ -452,15 +435,12 @@ footer{
 
 .footer_index_center h2{
     font-size: 50px;
-    font-family: Impact;
-    color:var(--glow-dark);
     text-transform: uppercase;
 } 
 
 .footer_index_center h3{
     font-size: 30px;
-    font-family: fantasy;
-    color:var(--glow-dark);
+    color:var(--brown-dark);
     text-transform: uppercase;
 }
 
@@ -540,60 +520,6 @@ footer{
     margin-top: 80px;
 }
 
-/*for phones */
-@media (max-width:768px){
-
-    .explore_button{
-        padding: 8px 20px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width:600px){
-
-  
-    .video_text h1{
-        font-size: 1.5rem;
-        letter-spacing:2px;
-    }
-
-   
-    .explore_button{
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .icons{
-    width: 24px;
-    height: 24px;
-    z-index:1001;
-}
-}
-
-/* below are all login page fonts */
-.login_content{
-    display:flex;
-    align-items: center;
-    flex-direction:column;
-}
-
-.login_content h1{
-    font-weight: bold;
-    margin-bottom:0px;
-}
-
-.forgotpw{
-    font-style: italic;
-}
-
-.newuser{
-    font-style: times-new-roman;
-}
-
-
-
-
-
 
 /*dark mode*/
 
@@ -644,6 +570,26 @@ footer{
   z-index: 10;
 }
 
+/* below are all login page fonts */
+.login_content{
+    display:flex;
+    align-items: center;
+    flex-direction:column;
+}
+
+.login_content h1{
+    font-weight: bold;
+    margin-bottom:0px;
+}
+
+.forgotpw{
+    font-style: italic;
+}
+
+.newuser{
+    font-style: times-new-roman;
+}
+
 .close-btn:hover {
   opacity: 0.5;
 }
@@ -651,4 +597,125 @@ footer{
 /*hide the elements */
 .hidden {
   display: none;
+}
+
+/*for phones */
+@media (max-width:768px){
+
+    .explore_button{
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:600px){
+
+  
+    .video_text h1{
+        font-size: 1.5rem;
+        letter-spacing:2px;
+    }
+
+   
+    .explore_button{
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .icons{
+    width: 24px;
+    height: 24px;
+    z-index:1001;
+}
+}
+
+
+/* CLEAN PRINT STYLESHEET FOR ALL PAGES*/
+
+@media print {
+  /* 1. All text becomes sans-serif with zero unwanted shadows/borders */
+  *, *::before, *::after {
+    font-family: sans-serif ;
+    color: var(--printed-text) ;
+    background: transparent ;
+    box-shadow: none ;
+    text-shadow: none ;
+  }
+
+  /* 2. Hide Navigation Bar & Header */
+  header,
+  nav,
+  .navigation_bar,
+  .nav-left,
+  .nav-center,
+  .nav-right,
+  .login_title {
+    display: none ;
+  }
+
+  /* 3. Fix Cake Cards & Price Boxes ("boc" fix) */
+  .cat-card,
+  .cat-card:hover {
+    box-shadow: none ;
+    background: transparent ;
+    border: none ;
+  }
+
+  .price-block,
+  .cat-card:hover .price-block {
+    border: none ;
+    outline: none ;
+    background: transparent ;
+    box-shadow: none ;
+    padding: 0 ;
+  }
+
+  /* 4. Hide Divider Lines & Email Subscription Form */
+  hr,
+  .divider,
+  form,
+  #subscribeForm,
+  #subscribeInput,
+  .input-bar,
+  .subscribe-btn,
+  .subscribe-success,
+  footer h2,
+  footer h3,
+  footer p:not(.copyright),
+  footer a {
+    display: none ;
+  }
+
+  /* 5. Clean Footer (No top border line, ONLY Copyright text) */
+  footer {
+    border: none ;
+    padding: 10px 0 ;
+    margin-top: 20px ;
+    background: transparent ;
+  }
+
+  footer .copyright {
+    display: block ;
+    text-align: center ;
+    font-size: 10pt ;
+    color: var(--printed-text) ;
+  }
+
+  /* 6. Hide all interactive buttons */
+  button,
+  input,
+  select,
+  .portfolio-btn,
+  .login-redirect-btn,
+  .explore_button,
+  .view-comments-btn,
+  .filter-btn-catalogue {
+    display: none ;
+  }
+
+  body {
+    background: var(--white) ;
+    color: var(--printed-text) ;
+    padding: 10px ;
+  }
 }

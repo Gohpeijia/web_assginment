@@ -142,16 +142,14 @@
 }
 
 .cat-card-name {
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: 20px;
   color: var(--brown-dark);
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   position: relative;
   display: inline-block; 
   max-width: 100%;
   position: relative;
-  line-height: 1.2;
 }
 
 .cat-card-category {
@@ -250,7 +248,7 @@
 .option-group label {
   font-size: 0.75rem;
   font-weight: bold;
-  color: var(--grey);
+  color: var(--text-muted);
   margin-bottom: 10px;
   display: block;
 }
@@ -400,9 +398,7 @@
 }
 
 
-/* =============================================
-   RESPONSIVE – MEDIA QUERIES
-   ============================================= */
+/* RESPONSIVE – MEDIA QUERIES */
 
 /* Tablet */
 @media (max-width: 768px) {
@@ -442,28 +438,5 @@
   }
   .menu-banner {
     height: 130px;
-  }
-}
-
-/* Print stylesheet */
-@media print {
-  .navigation_bar,
-  .input-bar,
-  body {
-    background: var(--cream);
-    color: var(--brown-dark);
-    font-size: 12pt;
-  }
-  .catalogue-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@keyframes bounce {
-  0%, 80%, 100% { 
-    transform: scale(0); 
-  }
-  40% { 
-    transform: scale(1); 
   }
 }
