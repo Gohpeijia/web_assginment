@@ -1,8 +1,12 @@
 .login_title img{
     display: block;
     margin: 30px auto 30px auto;
-    width:700px;
-    height:auto;
+    width: 400px;
+    height: auto;
+}
+
+header {
+    position: static;
 }
 
 .registerr{
@@ -21,17 +25,19 @@
 
 .registerr button{
     padding: 15px 40px;
-
     border: none;
     border-radius: 20px;
-
-    background: var(--glow-dark);
+    background: var(--brown-dark);
     color: white;
-
     font-size: 18px;
     font-weight: bold;
-
+    cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.registerr button:hover {
+    background: var(--brown-light);
+    transform: translateY(-2px);
 }
 
 .password_holder{
@@ -76,7 +82,7 @@
 #step3 h2{
     text-align:center;
     margin-bottom:20px;
-    color: var(--glow-dark);
+    color: var(--brown-dark);
 }
 
 /* ==========================
@@ -108,7 +114,7 @@
 .loading-box p {
     margin-top: 20px;
     font-size: 18px;
-    color: var(--glow-dark);
+    color: var(--brown-dark);
     font-weight: bold;
 }
 
@@ -116,7 +122,7 @@
     width: 50px;
     height: 50px;
     border: 5px solid #eee;
-    border-top: 5px solid var(--glow-dark);
+    border-top: 5px solid var(--brown-dark);
     border-radius: 50%;
     margin: 0 auto;
     animation: spin 1s linear infinite;
@@ -131,7 +137,7 @@
     padding: 10px 30px;
     border: none;
     border-radius: 20px;
-    background: var(--glow-dark);
+    background: var(--brown-dark);
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -175,13 +181,13 @@
 
 /* Current Step */
 .progress-step.active .circle{
-    background: var(--glow-dark);
+    background: var(--brown-dark);
     transform:scale(1.08);
 }
 
 /* Completed Step */
 .progress-step.completed .circle{
-    background: var(--glow-dark);
+    background: var(--brown-dark);
     transform:scale(1);
     font-size:0;
 }
@@ -209,7 +215,7 @@
     top:0;
     width:0%;
     height:100%;
-    background:var(--glow-dark);
+    background:var(--brown-dark);
     transition:width .45s ease;
 }
 

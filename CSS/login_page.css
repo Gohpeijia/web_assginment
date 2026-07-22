@@ -1,8 +1,11 @@
 .login_title img{
     display: block;
     margin: 30px auto 0 auto;
-    width:700px;
-    height:auto;
+    width: 400px;
+    height: auto;
+}
+header {
+    position: static;
 }
 .loginn{
     display: flex;
@@ -24,17 +27,19 @@ form input:focus{
 }
 .loginn button{
     padding: 15px 40px;
-
     border: none;
     border-radius: 20px;
-
-    background: var(--glow-dark);
+    background: var(--brown-dark);
     color: white;
-
     font-size: 18px;
     font-weight: bold;
-
+    cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.loginn button:hover {
+    background: var(--brown-light);
+    transform: translateY(-2px);
 }
 
 .password_holder{
@@ -57,12 +62,21 @@ form input:focus{
 }
 
 .forgotpw a{
-    color: var(--glow-dark);
+    color: var(--brown-dark);
+    text-decoration: none;
+}
+
+.forgotpw a:hover{
     text-decoration: underline;
 }
+
 .newuser a{
-    color: var(--glow-dark);
+    color: var(--brown-dark);
     text-decoration: none;
+}
+
+.newuser a:hover{
+    text-decoration: underline;
 }
 
 .loading-overlay {
@@ -84,13 +98,13 @@ form input:focus{
     padding: 40px 50px;
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px var(--half-transparent);
 }
 
 .loading-box p {
     margin-top: 20px;
     font-size: 18px;
-    color: var(--glow-dark);
+    color: var(--brown-dark);
     font-weight: bold;
 }
 
@@ -103,11 +117,31 @@ form input:focus{
     padding: 10px 30px;
     border: none;
     border-radius: 20px;
-    background: var(--glow-dark);
+    background: var(--brown-dark);
     color: white;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.login_content h1 {
+    font-family: 'Impact', sans-serif;
+    font-size: 2.5rem;
+    color: var(--brown-dark);
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login_content h3 {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    text-transform: none;
+    letter-spacing: normal;
+    margin-bottom: 20px;
 }
 
 .overlay-close.hidden {
@@ -118,7 +152,7 @@ form input:focus{
     width: 50px;
     height: 50px;
     border: 5px solid #eee;
-    border-top: 5px solid var(--glow-dark);
+    border-top: 5px solid var(--brown-dark);
     border-radius: 50%;
     margin: 0 auto;
     animation: spin 1s linear infinite;
