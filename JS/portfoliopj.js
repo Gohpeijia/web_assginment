@@ -172,3 +172,30 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(link);
     }
 });
+
+// CONTACT FORM SUBMISSION LOGIC
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success-msg');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            // Show the success message
+            if (successMsg) {
+                successMsg.classList.remove('hidden');
+            }
+
+            // Clear the form fields
+            contactForm.reset();
+
+            // Hide the message after 3 seconds
+            setTimeout(() => {
+                if (successMsg) {
+                    successMsg.classList.add('hidden');
+                }
+            }, 3000);
+        });
+    }
+});

@@ -206,9 +206,9 @@ a:hover {
 
 /* for certs */
 .personalinfo {
-    max-width: 1000px;
+    max-width: 95%;
     margin: 4rem auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     gap: 4rem;
@@ -257,12 +257,12 @@ a:hover {
     border-top: 4px solid var(--textandcontainer-primary);
 }
 
-/* 3-Column Grid for Desktop */
+/* 2-Column Grid for Desktop */
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    max-width: 1000px;
+    max-width: 50%;
     margin: 0 auto;
     border-bottom: 1px dashed var(--text-secondary);
     padding-bottom: 3rem;
@@ -304,9 +304,69 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Footer Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--footer-text);
+}
+
+.form-group input, .form-group textarea {
+    padding: 0.8rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--wood);
+    color: var(--textandcontainer-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border-radius: 4px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--light-red);
+}
+
+.submit-btn {
+    background-color: var(--bg-secondary);
+    color: var(--textandcontainer-primary);
+    border: none;
+    padding: 0.8rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+}
+
+.submit-btn:hover {
+    background-color: var(--light-red);
+    color: var(--bg-primary);
+}
+
+.success-message {
+    background-color: var(--success);
+    color: var(--bg-primary);
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid var(--black);
+}
+
 /* Bottom Bar Layout */
 .footer-bottom {
-    max-width: 1000px;
+    max-width: 50%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -452,7 +512,7 @@ a:hover {
 /* Grid to place cards side-by-side on desktop, stacking on mobile */
 .project-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2.5rem;
     width: 100%;
 }
@@ -637,6 +697,10 @@ a:hover {
     
     .footer-content {
         grid-template-columns: 1fr;
+    }
+
+    .project-gallery {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
