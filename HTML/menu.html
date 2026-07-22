@@ -1,516 +1,376 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
     <head>
-      <title>Sunbake Menu</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../CSS/menu.css">
-      <link rel="stylesheet" href="../CSS/theme.css">
+        <title>Sunbake Menu</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="../CSS/menu.css" rel="stylesheet" />
+        <link href="../CSS/theme.css" rel="stylesheet" />
     </head>
 
-  <body>
+    <body>
 
-    <!--  NAVBAR (match your existing navbar style)  -->
-    <header>
-            <nav class="navigation_bar">
-                <div class="nav-left">
-                    <a href="../HTML/menu.html" class="nav_fonts hover-underline"> Our Products </a>
-                    <a href="../HTML/about_us.html" class="nav_fonts hover-underline"> About Us </a>
-                </div>
+        <!--  NAVBAR (maStch your existing navbar style)  -->
+        <header>
+        <nav class="navigation_bar">
 
-                <div class="nav-center">
-                    <a href="../HTML/index.html" class="logo"><img src="../Assets/Images/logo.png" alt="SUNBAKE"></a>
-                </div>
+            <div class="nav-left">
+            <a class="nav_fonts hover-underline" href="../HTML/menu.html">
+                Our Products
+            </a>
+            <a class="nav_fonts hover-underline" href="../HTML/about_us.html">
+                About Us
+            </a>
+            </div>
 
-                <div class="nav-right">
-                    <a href="#" id="account" aria-label="User Account">
-                      <img src="../Assets/Images/account.png" class="icons" alt="Account"> 
-                    </a>
-                    
-                    <a href="#" id="cart" aria-label="Shopping Cart">
-                      <img src="../Assets/Images/cartIcon.png" class="icons" alt="Cart"> 
-                    </a>
-                    <a href="#" id="searchFilterBtn" aria-label="Search and Filter">
-                      <img src="../Assets/Images/filter.png" class="icons" alt="Filter">
-                    </a>
-                </div>
-            </nav>
+            <div class="nav-center">
+                <a class="logo" href="../HTML/index.html"
+                    ><img alt="SUNBAKE" src="../Assets/Images/logo.png"/>
+                </a>
+            </div>
+
+            <div class="nav-right">
+            <a aria-label="User Account" href="#" id="account">
+                <img alt="Account"
+                class="icons"
+                src="../Assets/Images/account.png"/>
+            </a>
+            <a aria-label="Shopping Cart" href="#" id="cart">
+                <img alt="Cart" class="icons" src="../Assets/Images/cartIcon.png" />
+            </a>
+            <a aria-label="Search and Filter" href="#" id="searchFilterBtn">
+                <img alt="Filter" class="icons" src="../Assets/Images/filter.png" />
+            </a>
+            </div>
+
+        </nav>
         </header>
 
-    <!-- Menu Banner Image -->
-    <div class="menu-banner">
-      <img src="../Assets/Images/menu_banner.jpeg" alt="Menu Banner">
-    </div>
-
-    <section class="catalogue-section">
-      <div class="catalogue-header">
-        <h2 class="section-title">Cream Cake<br></h2>
-      </div>
-      <div class="pickup-info">
-        <strong>Delivery &amp; Store Pickup available. Pickup from these locations:</strong><br>
-        <li><em>SunBake, Bandar Sunway</em> - 9am to 1pm, daily</li>
-        <li><em>SunBake,SS15</em> - 9am to 6pm, daily</li>
-      </div>
-
-      <!-- The grid where your cakes will load -->
-      <div class="catalogue-grid" id="catalogueGrid">
-        <!-- 1. Valrhona Chocolate -->
-        <div class="cat-card card-hover-trigger" data-name="Valrhona Chocolate" data-price="11.99" data-price-whole="89.99" data-category="Cream Cake">
-          <img src="../Assets/Food/Valrhona_Chocolate_Cake.svg" alt="Valrhona Chocolate">
-          <div class="cat-card-body">
-            <h2 class="cat-card-name hover-underline">Valrhona Chocolate</h2>
-            <p class="cat-card-category">Cream Cake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 11.99</p>
-            </div>
-          </div>
+        <!-- menu banner image -->
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/menu_banner.jpeg" />
         </div>
 
-        <!-- 2. Chocolate Indulgence -->
-        <div class="cat-card card-hover-trigger" data-name="Chocolate Indulgence" data-price="11.99" data-price-whole="89.99" data-category="Cream Cake">
-          <img src="../Assets/Food/Chocolate_Indulgence.svg" alt="Chocolate Indulgence">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Chocolate Indulgence</h3>
-            <p class="cat-card-category">Cream Cake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 11.99</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section class="catalogue-section">
 
-    <div class="menu-banner">
-      <img src="../Assets/Images/cheesecakebanner.jpg" alt="Menu Banner">
-    </div>
-    <section class="catalogue-section">
-      <h2 class="section-title">Cheese cake</h2><br>
-      <div class="catalogue-grid" id="catalogueGrid">
-        <!-- 3. New York Cheesecake -->
-        <div class="cat-card card-hover-trigger" data-name="New York Cheesecake" data-price="12.99" data-price-whole="99.99" data-category="Cheesecake">
-          <img src="../Assets/Food/New_York_Cheesecake.svg" alt="New York Cheesecake">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">New York Cheesecake</h3>
-            <p class="cat-card-category">Cheesecake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 12.99</p>
+            <div class="catalogue-header">
+                <h2 class="section-title">Cream Cake<br/></h2>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <div class="menu-banner">
-      <img src="../Assets/Images/fruitcakebanner.webp" alt="Menu Banner">
-    </div>
-    <section class="catalogue-section">
-      <h2 class="section-title">Fruit cake</h2><br>
-      <div class="catalogue-grid" id="catalogueGrid">
-        <!-- 4. Lychee Coffee Hazelnut -->
-        <div class="cat-card card-hover-trigger" data-name="Lychee Coffee Hazaelnut" data-price="12.99" data-price-whole="119.99" data-category="Fruit Cake">
-          <img src="../Assets/Food/Lychee_Coffee_Hazelnut.svg" alt="Lychee Coffee Hazelnut">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Lychee Coffee Hazaelnut</h3>
-            <p class="cat-card-category">Fruit Cake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 12.99</p>
+            <div class="pickup-info">
+                <strong>Delivery &amp; Store Pickup available. Pickup from these locations:</strong>
+                <br/>
+                <li><em>SunBake, Bandar Sunway</em> - 9am to 1pm, daily</li>
+                <li><em>SunBake,SS15</em> - 9am to 6pm, daily</li>
             </div>
-          </div>
+
+            <!-- the grid where your cakes will load -->
+            <div class="catalogue-grid" id="grid-Cream-Cake">
+                <!-- valrhona chocolate, chocolate indulgence -->
+            </div>
+
+        </section>
+
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/cheesecakebanner.jpg" />
         </div>
 
-        <!-- 5. Blueberry Lemon Cake -->
-        <div class="cat-card card-hover-trigger" data-name="Blueberry Lemon Cake" data-price="13.99" data-price-whole="89.99" data-category="Fruit Cake">
-          <img src="../Assets/Food/Blueberry_Lemon_cake.svg" alt="Blueberry Lemon Cake">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Blueberry Lemon Cake</h3>
-            <p class="cat-card-category">Fruit Cake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 13.99</p>
+        <section class="catalogue-section">
+            <h2 class="section-title">Cheese cake</h2>
+            <br/>
+
+            <div class="catalogue-grid" id="grid-Cheesecake">
+                <!-- new york cheesecake -->
             </div>
-          </div>
+        </section>
+
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/fruitcakebanner.webp" />
         </div>
 
-        <!-- 6. Oolong Melon Cake -->
-        <div class="cat-card card-hover-trigger" data-name="Oolong Melon Cake" data-price="11.99" data-price-whole="109.99" data-category="Fruit Cake">
-          <img src="../Assets/Food/Oolong_melon_cake.svg" alt="Oolong Melon Cake">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Oolong Melon Cake</h3>
-            <p class="cat-card-category">Fruit Cake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 11.99</p>
+        <section class="catalogue-section">
+            <h2 class="section-title">Fruit cake</h2>
+            <br/>
+
+            <div class="catalogue-grid" id="grid-Fruit-Cake">
+                <!-- lychee lcoffee hazelnut, blueberry lemon cake, oolong melon cake, pistachio raspberry, strawberry shortcake -->
             </div>
-          </div>
-        </div>
-
-        <!-- 7. Pistachio Raspberry -->
-        <div class="cat-card card-hover-trigger" data-name="Pistachio Raspberry" data-price="16.99" data-price-whole="129.99" data-category="Fruit Cake">
-          <img src="../Assets/Food/Pistachio_Raspberry.svg" alt="Pistachio Raspberry">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Pistachio Raspberry</h3>
-            <p class="cat-card-category">Fruit Cake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 16.99</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. Strawberry Shortcake -->
-        <div class="cat-card card-hover-trigger" data-name="Strawberry Shortcake" data-price="10.99" data-price-whole="119.99" data-category="Fruit Cake">
-          <img src="../Assets/Food/Strawberry_cake.svg" alt="Strawberry Shortcake">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Strawberry Shortcake</h3>
-            <p class="cat-card-category">Fruit Cake</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 10.99</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-        <!-- Menu Banner Image -->
-    <div class="menu-banner">
-      <img src="../Assets/Images/tiramisubanner.jpg" alt="Menu Banner">
-    </div>
-
-    <section class="catalogue-section">
-      <h2 class="section-title">Tiramisu</h2><br>
-      <div class="catalogue-grid" id="catalogueGrid">
-        <!-- 9. Tiramisu -->
-        <div class="cat-card card-hover-trigger" data-name="Tiramisu" data-price="17.99" data-category="Tiramisu">
-          <img src="../Assets/Food/Tiramisu.svg" alt="Tiramisu">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Tiramisu</h3>
-            <p class="cat-card-category">Tiramisu</p>
-            <div class="price-block single-price">
-              <p class="price-value">RM 17.99</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Menu Banner Image -->
-    <div class="menu-banner">
-      <img src="../Assets/Images/tartbanner.webp" alt="Menu Banner">
-    </div>
-
-    <section class="catalogue-section">
-      <h2 class="section-title">Tart</h2><br>
-      <div class="catalogue-grid" id="catalogueGrid">
-        <!-- 10. Fruit Tart -->
-        <div class="cat-card card-hover-trigger" data-name="Fruit Tart" data-price="3.99" data-category="Tart">
-          <img src="../Assets/Food/Fruit_Tart.svg" alt="Fruit Tart">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Fruit Tart</h3>
-            <p class="cat-card-category">Tart</p>
-            <div class="price-block single-price">
-              <p class="price-value">RM 3.99</p>
-            </div>
-          </div>
-        </div>
-
-
-          <!-- 11. Kochi Yuzu Mango Tart -->
-          <div class="cat-card card-hover-trigger" data-name="Kochi Yuzu Mango Tart" data-price="14.99" data-category="Tart">
-            <img src="../Assets/Food/Kochi_Yuzu_Mango_Tart.svg" alt="Kochi Yuzu Mango Tart">
-            <div class="cat-card-body">
-              <h3 class="cat-card-name hover-underline">Kochi Yuzu Mango Tart</h3>
-              <p class="cat-card-category">Tart</p>
-              <div class="price-block single-price">
-                <p class="price-value">RM 14.99</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- 12. Uji Matcha Tart -->
-          <div class="cat-card card-hover-trigger" data-name="Uji Matcha Tart" data-price="16.00" data-price-whole="16.00" data-category="Tart">
-            <img src="../Assets/Food/uji_matcha_tart.svg" alt="Uji Matcha Tart">
-            <div class="cat-card-body">
-              <h3 class="cat-card-name hover-underline">Uji Matcha Tart</h3>
-              <p class="cat-card-category">Tart</p>
-              <div class="price-block single-price">
-                <div class="price-label">From</div>
-                <p class="price-value">RM 16.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Menu Banner Image -->
-    <div class="menu-banner">
-      <img src="../Assets/Images/bannerpie.webp" alt="Menu Banner">
-    </div>
-
-    <section class="catalogue-section">
-      <h2 class="section-title">Pie</h2><br>
-      <div class="catalogue-grid" id="catalogueGrid">
-        <!-- 13. Apple Pie -->
-        <div class="cat-card card-hover-trigger" data-name="Apple Pie" data-price="8.99" data-price-whole="99.99" data-category="Pie">
-          <img src="../Assets/Food/Apple_pie_slice.svg" alt="Apple Pie">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Apple Pie</h3>
-            <p class="cat-card-category">Pie</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 8.99</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 14. Lime Pie -->
-        <div class="cat-card card-hover-trigger" data-name="Lime Pie" data-price="8.99" data-price-whole="79.99" data-category="Pie">
-          <img src="../Assets/Food/Lime_pie.svg" alt="Lime Pie">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Lime Pie</h3>
-            <p class="cat-card-category">Pie</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 8.99</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-  <!-- Menu Banner Image -->
-    <div class="menu-banner">
-      <img src="../Assets/Images/crepebanner.webp" alt="Menu Banner">
-    </div>
-
-    <section class="catalogue-section">
-      <h2 class="section-title">Mille Crepe</h2><br>
-      <div class="catalogue-grid" id="catalogueGrid">
-        <!-- 15. Caramel Almond Vanilla Crêpe -->
-        <div class="cat-card card-hover-trigger" data-name="Caramel Almond Vanilla Crêpe" data-price="14.99" data-price-whole="109.99" data-category="Mille Crepe">
-          <img src="../Assets/Food/Caramel_Almond_Vanilla_Crêpe_have_slides.svg" alt="Caramel Almond Vanilla Crêpe">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Caramel Almond Vanilla Crêpe</h3>
-            <p class="cat-card-category">Mille Crepe</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 14.99</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 16. Musang King Durian Crêpe -->
-        <div class="cat-card card-hover-trigger" data-name="Musang King Durian Crêpe" data-price="18.99" data-price-whole="139.99" data-category="Mille Crepe">
-          <img src="../Assets/Food/Musang_King_Durian_Crêpe.svg" alt="Musang King Durian Crêpe">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Musang King Durian Crêpe</h3>
-            <p class="cat-card-category">Mille Crepe</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 18.99</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- 17. Matcha Mille Crepe -->
-        <div class="cat-card card-hover-trigger" data-name="Matcha Mille Crepe" data-price="14.99" data-price-whole="111.99" data-category="Mille Crepe">
-          <img src="../Assets/Food/Matcha_mille_crepe.svg" alt="Matcha Mille Crepe">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">Matcha Mille Crepe</h3>
-            <p class="cat-card-category">Mille Crepe</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM 14.99</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="no-results hidden" id="noResults">No items found. Try a different search.</p>
-    </div>
-  </section>
-
-      <br>
-
-    <div class="menu-banner">
-      <img src="../Assets/Images/banner2.jpg" alt="Menu Banner">
-    </div>
-    
-    <section class="catalogue-section">
-      <div class="catalogue-header">
-        <h2 class="section-title">Sesonal Cake<br></h2>
-      </div>
-      <p class="comming-soon"><em>Comming soon...</em>
-    </section>
-    
-    
-
-    <!--  product modal  -->
-    <div id="productModal" class="modal hidden">
-      <div class="modal-content">
-        <div class="close-btn" id="closeModal">&times;</div>
-        <div class="modal-body">
-          <div class="modal-image-container">
-            <img id="modalImage" src="" alt="Cake Details">
-          </div>
-          <!--  CATALOGUE CARDS (after press the cards)  -->
-          <div class="modal-details">
-            <h2 id="modalTitle" class="modal-title">Cake Name</h2>
-            <div id="modalPrice" class="modal-price">RM 0.00</div>
-
-            <div class="modal-options">
-              <div class="option-group" id="sizeOptionGroup">
-                <label>SIZE <br>
-                  slice = 2 inch <br>
-                  whole cake = 8 inch</label>
-                <div class="btn-group">
-                  <button class="opt-btn active">Slice</button>
-                  <button class="opt-btn">Whole Cake</button>
-                </div>
-              </div>
-
-              <br>
-
-              <div class="option-group">
-                <label>CANDLES - SET NUMBER AT CHECKOUT. </label>
-                <div class="btn-group">
-                  <button class="opt-btn active">YES</button>
-                  <button class="opt-btn">NO</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="stock-status">
-              <p class="dot"></p> IN STOCK
-            </div>
-
-            <div class="cart-actions">
-              <div class="qty-selector">
-                <button id="qtyMinus">-</button>
-                <p id="qtyValue">1</p>
-                <button id="qtyPlus">+</button>
-              </div>
-              <button class="add-to-cart-btn">ADD TO CART</button>
-            </div>
-
-            <!-- View Reviews & Comments Button (hyperlink for teammate connection) -->
-            <a href="review.html" target="_blank" class="view-comments-btn">VIEW REVIEWS &amp; COMMENTS</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- PROFILE MODAL  -->
-    <div id="profileModal" class="modal hidden">
-      <div class="modal-content">
-        <p id="closeProfileModal" class="close-btn">&times;</p>
-        <div class="profile-modal-body">
-          <h2 class="modal-title">Account</h2>
-          <p class="profile-message">You haven't logged in yet!</p>
-          <a href="login.html" class="login-redirect-btn">Go to Login Page</a>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- SIDEBAR OVERLAY (Darkens the background) -->
-    <div id="sidebarOverlay" class="sidebar-overlay"></div>
-
-    <!-- FILTER & SEARCH SIDEBAR -->
-    <div id="filterSidebar" class="sidebar">
-      <div class="sidebar-header">
-        <h2>SEARCH</h2>
-        <button id="closeSidebarBtn" class="close-sidebar">&times;</button>
-      </div>
-      
-      <div class="sidebar-body">
-        <input type="text" id="searchInput" class="sidebar-input" placeholder="Search cakes..." aria-label="Search menu">
+        </section>
         
-        <h3 class="sidebar-subtitle">Categories</h3>
-        <select id="categoryFilter" class="sidebar-select" aria-label="Filter by category">
-          <option value="all">All Categories</option>
-          <option value="Cream Cake">Cream Cake</option>
-          <option value="Cheesecake">Cheese Cake</option>
-          <option value="Fruit Cake">Fruit Cake</option>
-          <option value="Tart">Tart</option>
-          <option value="Pie">Pie</option>
-          <option value="Tiramisu">Tiramisu</option>
-          <option value="Mille Crepe">Mille Crepe</option>
-        </select>
-        
-        <h3 class="sidebar-subtitle">Sort By</h3>
-        <select id="sortSelect" class="sidebar-select" aria-label="Sort items">
-          <option value="default">None</option>
-          <option value="price-asc">Price Low–High</option>
-          <option value="price-desc">Price High–Low</option>
-        </select>
-      </div>
-    </div>
-
-    <footer>
-      <hr class="divider">
-      <div class="footer_container">
-        <div class="footer_left">
-          <h2>To get to know us</h2>
-
-          <br>
-
-          <!-- left side (subscribe) -->
-          <h4>Freshly Baked Content delivered straight to your inbox</h4>
-          <p>Get the latest updates and exclusive access to everything we’re baking up</p>
-
-          <br>
-
-          <form id="subscribeForm" class="input-bar">
-            <input type="email" id="subscribeInput" name="email" class="input-bar" placeholder="Enter your email" required>
-            <button type="submit" class="subscribe-btn" aria-label="Subscribe">&#8594;</button>
-          </form>
-
-          <!-- success message (Hidden by default) -->
-          <div id="subscribeSuccess" class="subscribe-success hidden">
-            <p class="success-text">&#10003; THANKS FOR SUBSCRIBING</p>
-          </div>
-
+        <!-- menu banner image -->
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/tiramisubanner.jpg" />
         </div>
 
-          <!-- right side (customer service) -->
-        <div class="footer_right">
-          <div class="contact-form-container">
-            <h3>Contact Us</h3>
-            <form action="#" method="POST" class="contact-form" id="contactForm">
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="contact-name">Username / Name</label>
-                  <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                  <label for="contact-email">Email Address</label>
-                  <input type="email" id="contact-email" name="email" placeholder="name@domain.com" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="contact-message">Questions / Inquiries</label>
-                <textarea id="contact-message" name="message" placeholder="Ask us anything about our cakes..." rows="4" required></textarea>
-              </div>
-              <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+        <section class="catalogue-section">
+            <h2 class="section-title">Tiramisu</h2>
+            <br/>
 
-            <!-- success message (Hidden by default) -->
-            <div id="contactSuccess" class="contact-success hidden">
-                <p class="success-text">&#10003; THANKS FOR REACHING OUT!</p>
+            <div class="catalogue-grid" id="grid-Tiramisu">
+                <!-- tiramisu -->
             </div>
-          </div>
+        </section>
+
+        <!-- menu banner image -->
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/tartbanner.webp" />
         </div>
-      </div>
-      <p class="copyright">&copy; 2026 SUNBAKE Bakers. SUNBAKE Manufactory Sdn Bhd.</p>
-    </footer>
-    <script src="../JS/website.js"></script>
-    <script src="../JS/menu.js"></script>
-  </body>
+
+        <section class="catalogue-section">
+            <h2 class="section-title">Tart</h2>
+            <br/>
+
+            <div class="catalogue-grid" id="grid-Tart">
+                <!-- fruit tart, kochi yuzu mango tart, uji matcha tart -->
+            </div>
+        </section>
+
+        <!-- menu banner image -->
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/bannerpie.webp" />
+        </div>
+
+        <section class="catalogue-section">
+            <h2 class="section-title">Pie</h2>
+            <br/>
+
+            <div class="catalogue-grid" id="grid-Pie">
+                <!-- 13. Apple Pie, Lime Pie -->
+            </div>
+        </section>
+
+        <!-- menu banner image -->
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/crepebanner.webp" />
+        </div>
+
+        <section class="catalogue-section">
+            <h2 class="section-title">Mille Crepe</h2>
+            <br/>
+
+            <div class="catalogue-grid" id="grid-Mille-Crepe">
+                <!-- 15. Caramel Almond Vanilla Crêpe, Musang King Durian Crêpe, Matcha Mille Crepe -->
+            </div>
+
+            <p class="no-results hidden" id="noResults">
+                No items found. Try a different search.
+            </p>
+
+        </section>
+
+        <br/>
+
+        <div class="menu-banner">
+            <img alt="Menu Banner" src="../Assets/Images/banner2.jpg" />
+        </div>
+
+        <section class="catalogue-section">
+            <div class="catalogue-header">
+                <h2 class="section-title">Sesonal Cake<br/></h2>
+            </div>
+
+            <p class="comming-soon"><em>Comming soon...</em></p>
+        </section>
+
+        <!--  product modal  -->
+        <div class="modal hidden" id="productModal">
+            <div class="modal-content">
+
+                <div class="close-btn" id="closeModal">
+                    ×
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-image-container">
+                        <img alt="Cake Details" id="modalImage" src="" />
+                    </div>
+                    
+                    <!--  CATALOGUE CARDS (after press the cards)  -->
+                    <div class="modal-details">
+                        <h2 class="modal-title" id="modalTitle">Cake Name</h2>
+                        <div class="modal-price" id="modalPrice">RM 0.00</div>
+                        <div class="modal-options">
+                            <div class="option-group" id="sizeOptionGroup">
+
+                                <label>
+                                    SIZE <br/>
+                                    slice = 2 inch <br/>
+                                    whole cake = 8 inch
+                                </label>
+
+                                <div class="btn-group">
+                                    <button class="opt-btn active">Slice</button>
+                                    <button class="opt-btn">Whole Cake</button>
+                                </div>
+                            </div>
+
+                            <br/>
+
+                            <div class="option-group">
+                                <label>CANDLES - SET NUMBER AT CHECKOUT. </label>
+                                <div class="btn-group">
+                                    <button class="opt-btn active">YES</button>
+                                    <button class="opt-btn">NO</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="stock-status">
+                            <p class="dot"></p>
+                            IN STOCK
+                        </div>
+
+                        <div class="cart-actions">
+
+                            <div class="qty-selector">
+                                <button id="qtyMinus">-</button>
+                                <p id="qtyValue">1</p>
+                                <button id="qtyPlus">+</button>
+                            </div>
+
+                        <button class="add-to-cart-btn">ADD TO CART</button>
+                        </div>
+
+                        <!-- View Reviews & Comments Button (hyperlink for teammate connection) -->
+                        <a class="view-comments-btn" href="review.html" target="_blank">
+                            VIEW REVIEWS &amp; COMMENTS
+                        </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- PROFILE MODAL  -->
+        <div class="modal hidden" id="profileModal">
+            <div class="modal-content">
+                <p class="close-btn" id="closeProfileModal">×</p>
+                <div class="profile-modal-body">
+                    <h2 class="modal-title">Account</h2>
+                    <p class="profile-message">You haven't logged in yet!</p>
+                    <a class="login-redirect-btn" href="login.html">Go to Login Page</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR OVERLAY (Darkens the background) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- FILTER & SEARCH SIDEBAR -->
+        <div class="sidebar" id="filterSidebar">
+            <div class="sidebar-header">
+                <h2>SEARCH</h2>
+                <button class="close-sidebar" id="closeSidebarBtn">×</button>
+            </div>
+
+            <div class="sidebar-body">
+
+                <input 
+                aria-label="Search menu"
+                class="sidebar-input"
+                id="searchInput"
+                placeholder="Search cakes..."
+                type="text"/>
+
+                <h3 class="sidebar-subtitle">Categories</h3>
+
+                <select aria-label="Filter by category" class="sidebar-select" id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Cream Cake">Cream Cake</option>
+                    <option value="Cheesecake">Cheese Cake</option>
+                    <option value="Fruit Cake">Fruit Cake</option>
+                    <option value="Tart">Tart</option>
+                    <option value="Pie">Pie</option>
+                    <option value="Tiramisu">Tiramisu</option>
+                    <option value="Mille Crepe">Mille Crepe</option>
+                </select>
+
+                <h3 class="sidebar-subtitle">Sort By</h3>
+
+                <select aria-label="Sort items" class="sidebar-select" id="sortSelect">
+                    <option value="default">None</option>
+                    <option value="price-asc">Price Low–High</option>
+                    <option value="price-desc">Price High–Low</option>
+                </select>
+            </div>
+        </div>
+
+        <footer>
+            <hr class="divider" />
+
+            <div class="footer_container">
+                <div class="footer_left">
+                    <h2>To get to know us</h2>
+                    <br/>
+
+                    <!-- left side (subscribe) -->
+                    <h4>Freshly Baked Content delivered straight to your inbox</h4>
+
+                    <p>
+                        Get the latest updates and exclusive access to everything we’re baking up
+                    </p>
+                    <br/>
+
+                    <form class="input-bar" id="subscribeForm">
+                        <input class="input-bar" id="subscribeInput" name="email" placeholder="Enter your email" required="" type="email" />
+                        <button aria-label="Subscribe" class="subscribe-btn" type="submit">
+                            →
+                        </button>
+                    </form>
+
+                    <!-- success message (Hidden by default) -->
+                    <div class="subscribe-success hidden" id="subscribeSuccess">
+                        <p class="success-text">✓ THANKS FOR SUBSCRIBING</p>
+                    </div>
+                
+                </div>
+
+                <!-- right side (customer service) -->
+                <div class="footer_right">
+                    <div class="contact-form-container">
+                        <h3>Contact Us</h3>
+                        <form action="#" class="contact-form" id="contactForm" method="POST">
+                            <div class="form-row">
+
+                                <div class="form-group">
+                                    <label for="contact-name">Username / Name</label>
+                                    <input id="contact-name" name="name" placeholder="Your Name" required="" type="text" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contact-email">Email Address</label>
+                                    <input id="contact-email" name="email" placeholder="name@domain.com" required="" type="email" />
+                                </div>
+                            </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Questions / Inquiries</label>
+
+                            <textarea id="contact-message" name="message" placeholder="Ask us anything about our cakes..." required="" rows="4"></textarea>
+
+                        </div>
+
+                        <button class="submit-btn" type="submit">Send Message</button>
+                        
+                    </form>
+
+                    <!-- success message (Hidden by default) -->
+                    <div id="contactSuccess" class="contact-success hidden">
+                        <p class="success-text">&#10003; THANKS FOR REACHING OUT!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <p class="copyright">&copy; 2026 SUNBAKE Bakers. SUNBAKE Manufactory Sdn Bhd.</p>
+        
+        </footer>
+        
+        <script src="../JS/product.js"></script>
+        <script src="../JS/website.js"></script>
+        <script src="../JS/menu.js"></script>
+
+    </body>
 </html>

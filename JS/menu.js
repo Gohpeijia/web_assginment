@@ -1,37 +1,72 @@
 /* ─────────────────────────────────────────────
    CATALOGUE GENERATOR (Static DOM Parser)
    ───────────────────────────────────────────── */
-const catalogueGrid = document.getElementById('catalogueGrid');
+const hasCatalogue = document.querySelector('.catalogue-grid');
 const noResultsText = document.getElementById('noResults');
 
 let initialItems = [];
 
-if (catalogueGrid) {
-  // Parse initial cards on page load globally, not just in the first grid
-  const cards = Array.from(document.querySelectorAll('.cat-card'));
+function createCakeCardHTML(cake) {
+    const wholePriceAttr = cake.priceWhole ? cake.priceWhole : '';
+    return `
+        <div class="cat-card card-hover-trigger" data-name="${cake.name}" data-price="${cake.price}" data-price-whole="${wholePriceAttr}" data-category="${cake.category}">
+          <img src="${cake.img}" alt="${cake.name}">
+          <div class="cat-card-body">
+            <h3 class="cat-card-name hover-underline">${cake.name}</h3>
+            <p class="cat-card-category">${cake.category}</p>
+            <div class="price-block single-price">
+              <div class="price-label">From</div>
+              <p class="price-value">RM ${cake.price.toFixed(2)}</p>
+            </div>
+          </div>
+        </div>
+    `;
+}
 
-  initialItems = cards.map(card => {
-    const priceAttr = card.getAttribute('data-price');
-    const priceWholeAttr = card.getAttribute('data-price-whole');
-    
-    const item = {
-      element: card,
-      parent: card.parentElement, // Save original grid container
-      name: card.getAttribute('data-name'),
-      category: card.getAttribute('data-category'),
-      price: priceAttr ? parseFloat(priceAttr) : 0,
-      priceWhole: priceWholeAttr ? parseFloat(priceWholeAttr) : null,
-      img: card.querySelector('img').getAttribute('src')
-    };
+function loadMenuToHTML() {
+    if (!hasCatalogue || typeof FULL_MENU === 'undefined') return;
 
-    // Bind click listener to open detail modal
-    card.addEventListener('click', () => {
-      openModal(item);
+    FULL_MENU.forEach(cake => {
+        let formattedCategory = cake.category.replace(/\s+/g, '-');
+        if (formattedCategory === 'Cheese-Cake' || formattedCategory === 'Cheese-cake') {
+            formattedCategory = 'Cheesecake';
+        }
+        
+        const targetGrid = document.getElementById(`grid-${formattedCategory}`);
+        
+        if (targetGrid) {
+            targetGrid.innerHTML += createCakeCardHTML(cake);
+        }
     });
 
-    return item;
-  });
+    // Parse newly created cards globally
+    const cards = Array.from(document.querySelectorAll('.cat-card'));
+
+    initialItems = cards.map(card => {
+      const priceAttr = card.getAttribute('data-price');
+      const priceWholeAttr = card.getAttribute('data-price-whole');
+      
+      const item = {
+        element: card,
+        parent: card.parentElement, // Save original grid container
+        name: card.getAttribute('data-name'),
+        category: card.getAttribute('data-category'),
+        price: priceAttr ? parseFloat(priceAttr) : 0,
+        priceWhole: priceWholeAttr ? parseFloat(priceWholeAttr) : null,
+        img: card.querySelector('img').getAttribute('src')
+      };
+
+      // Bind click listener to open detail modal
+      card.addEventListener('click', () => {
+        openModal(item);
+      });
+
+      return item;
+    });
 }
+
+// Execute on load
+loadMenuToHTML();
 
 /* ─────────────────────────────────────────────
    MODAL LOGIC
@@ -242,7 +277,7 @@ function updateCatalogue() {
   });
 }
 
-if (catalogueGrid) {
+if (hasCatalogue) {
   searchInput.addEventListener('input', updateCatalogue);
   categoryFilter.addEventListener('change', updateCatalogue);
   sortSelect.addEventListener('change', updateCatalogue);
