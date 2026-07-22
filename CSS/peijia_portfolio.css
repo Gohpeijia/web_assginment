@@ -1,8 +1,9 @@
 :root {
+    /*body colours*/
     --bg-primary: #FCF7E6;       
     --bg-secondary: #f5e19e;     
     --wood: #c49a6c;
-    --textandcontainer-primary: #291802;     
+    --textandcontainer-primary: #291802;
     --light-red: #8C2222;     
     --success: #2e7d32;
     --black: #000000;
@@ -17,7 +18,7 @@
     --font-body: Lucida Console, sans-serif; 
 }
 
-/* Dark Theme Overrides (Applied via JS) */
+/* dark theme (applied via JS) */
 [data-theme="dark"] {
     --bg-primary: #1A1A1A;
     --bg-secondary: #2A2A2A;
@@ -26,7 +27,7 @@
     --footer-bg: #000000;
 }
 
-/* Basic Reset */
+/* basic reset */
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +42,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Forces all headings to use the uppercase Courier New font with spaced-out letters. */
+/* font design for all headings. */
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
     text-transform: uppercase;
@@ -52,27 +53,25 @@ h1, h2, h3, h4 {
 a {
     color: var(--textandcontainer-primary);
     text-decoration: none;
-    transition: color 0.2s;
 }
 
 a:hover {
     color: var(--light-red);
 }
 
-/* Hide the Download completed successfully! before download */
+/* all word which need to hide temp will use this*/
 .hidden {
     display: none;
 }
 
-/* Accessibility: Visible Focus States for Keyboard Navigation */
+/* accessibility: keyboard navigation (Tab keys etc.) */
 *:focus-visible {
     outline: 2px dashed var(--light-red);
     outline-offset: 4px;
 }
 
 /* LAYOUT, GRID, & RESPONSIVENESS*/
-
-/* Header & Navigation */
+/* header & navigation */
 .site-header {
     position: sticky;
     top: 0;
@@ -103,7 +102,7 @@ a:hover {
     font-size: 0.9rem;
 }
 
-/* for theme button */
+/* theme button */
 #theme-toggle {
     background: none;
     border: 2px solid var(--textandcontainer-primary);
@@ -111,7 +110,7 @@ a:hover {
     padding: 0.5rem;
     cursor: pointer;
     font-size: 1.2rem;
-} 
+}
 
 /* aboutme Section */
 .aboutme {
@@ -119,89 +118,6 @@ a:hover {
     text-align: center;
     padding: 4rem 1rem;
     border-bottom: 2px solid var(--textandcontainer-primary);
-}
-
-/*  PROFILE DETAILS, CONTACT LIST & SKILLS */
-
-/* Takes over the flex spacing so the whole right column grows together */
-.profile-details {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; 
-}
-
-/* Contact info list styling */
-.info-list {
-    list-style: none;
-    border-top: 1px solid var(--textandcontainer-primary);
-}
-
-.info-list li {
-    display: flex;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--textandcontainer-primary);
-    font-size: 0.95rem;
-}
-
-.info-label {
-    width: 120px;
-    color: var(--text-secondary);
-    font-weight: bold;
-}
-
-.skills-section {
-    flex: 1;
-    width: 100%;
-}
-
-/* CSS-Only Progress Bars */
-.skills-section h4 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-
-.skill {
-    margin-bottom: 1.2rem;
-}
-
-.skill-header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 0.4rem;
-}
-
-
-/* The outer box of the progress bar */
-.skill-bar-container {
-    width: 100%;
-    height: 18px;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--textandcontainer-primary);
-}
-
-/* The filled inner part of the progress bar */
-.skill-fill {
-    height: 100%;
-    background-color: var(--textandcontainer-primary);
-    /* Adding a subtle animation for when the page loads  */
-    animation: loadBar 1.5s ease-in-out forwards;
-}
-
-/* Strict external CSS width classes to avoid inline styles */
-.w-90 { width: 90%; }
-.w-80 { width: 80%; }
-.w-70 { width: 70%; }
-.w-60 { width: 60%; }
-.w-50 { width: 50%; }
-
-/* Optional: Animation keyframe for the skill bars filling up */
-@keyframes loadBar {
-    from { transform: scaleX(0); transform-origin: left; }
-    to { transform: scaleX(1); transform-origin: left; }
 }
 
 /* for certs */
@@ -222,7 +138,6 @@ a:hover {
     border-bottom: 2px solid var(--textandcontainer-primary);
     margin-bottom: 2rem;
 }
-
 
 .chapter-number {
     font-family: var(--font-heading);
@@ -247,553 +162,38 @@ a:hover {
     font-size: 0.95rem;
 }
 
-/* FOOTER & CONTACT SECTION */
 
-.site-footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 4rem 2rem 1.5rem;
-    margin-top: 6rem;
-    border-top: 4px solid var(--textandcontainer-primary);
+/*  PROFILE DETAILS, CONTACT LIST & SKILLS */
+/* takes over the flex spacing so the whole right column grows together */
+.profile-details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
 }
 
-/* 2-Column Grid for Desktop */
-.footer-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    max-width: 50%;
-    margin: 0 auto;
-    border-bottom: 1px dashed var(--text-secondary);
-    padding-bottom: 3rem;
-    margin-bottom: 1.5rem;
-}
-
-.footer-logo {
-    color: var(--footer-text);
-    margin-bottom: 1rem;
-}
-
-.footer-brand p {
-    color: var(--footer-greytext); 
-    font-size: 0.95rem;
-    max-width: 80%;
-}
-
-.footer-content h4 {
-    color: var(--bg-secondary); 
-    margin-bottom: 1.2rem;
-}
-
-.footer-list {
+/* contact info list */
+.info-list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    border-top: 1px solid var(--textandcontainer-primary);
 }
 
-.footer-list a {
-    color: var(--footer-text);
-    text-decoration: none;
+.info-list li {
+    display: flex;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--textandcontainer-primary);
     font-size: 0.95rem;
-    transition: color 0.2s;
 }
 
-.footer-list a:hover {
-    color: var(--light-red);
-    text-decoration: underline;
-}
-
-/* Footer Contact Form */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    color: var(--footer-text);
-}
-
-.form-group input, .form-group textarea {
-    padding: 0.8rem;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--wood);
-    color: var(--textandcontainer-primary);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    border-radius: 4px;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--light-red);
-}
-
-.submit-btn {
-    background-color: var(--bg-secondary);
-    color: var(--textandcontainer-primary);
-    border: none;
-    padding: 0.8rem;
-    font-family: var(--font-heading);
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    border-radius: 4px;
-}
-
-.submit-btn:hover {
-    background-color: var(--light-red);
-    color: var(--bg-primary);
-}
-
-.success-message {
-    background-color: var(--success);
-    color: var(--bg-primary);
-    padding: 0.8rem;
-    border-radius: 4px;
-    font-weight: bold;
-    text-align: center;
-    border: 1px solid var(--black);
-}
-
-/* Bottom Bar Layout */
-.footer-bottom {
-    max-width: 50%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: var(--footer-greytext);
-}
-
-.back-to-top {
-    color: var(--bg-secondary);
-    font-weight: bold;
-    font-family: var(--font-heading);
-}
-
-.back-to-top:hover {
-    color: var(--footer-text);
-}
-
-.back-to-project {
-    color: var(--textandcontainer-primary);
-    font-weight: bold;
-    font-family: var(--font-heading);
-}
-
-.back-to-project:hover {
-    color: var(--light-red);
-}
-
-/* Responsive Tablet/Mobile Layout */
-@media screen and (max-width: 768px) {
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .footer-brand p {
-        max-width: 100%;
-    }
-}
-
-/* TECH STACK & INTERACTIVE TERMINAL */
-
-/* Helper class to ensure side-by-side columns align at the top */
-.align-start {
-    align-items: flex-start;
-}
-
-/* Split the container exactly in half */
-.tech-stack-column, .interactive-column {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-/* Left Side: Tags and Lists */
-.stack-box h4 {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    border-bottom: 1px dashed var(--textandcontainer-primary);
-    padding-bottom: 0.2rem;
-}
-
-.tag-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.tag-list li {
-    background-color: var(--textandcontainer-primary);
-    color: var(--bg-primary);
-    padding: 0.3rem 0.6rem;
-    font-size: 0.85rem;
+.info-label {
+    width: 120px;
+    color: var(--text-secondary);
     font-weight: bold;
 }
 
-.tag-list li a {
-    color: var(--bg-primary);
-}
-
-.tag-list li a:hover {
-    color: var(--bg-secondary);
-}
-
-/* Right Side: Interactive Terminal */
-.terminal-box {
-    border: 2px solid var(--textandcontainer-primary);
-    background-color: var(--bg-primary);
-}
-
-.terminal-header {
-    display: flex;
-    border-bottom: 2px solid var(--textandcontainer-primary);
-    background-color: var(--bg-secondary);
-}
-
-.term-btn {
+.skills-section {
     flex: 1;
-    background: none;
-    border: none;
-    border-right: 2px solid var(--textandcontainer-primary);
-    padding: 0.5rem;
-    font-family: var(--font-heading);
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--textandcontainer-primary);
-    transition: background-color 0.2s;
-}
-
-.term-btn:last-child {
-    border-right: none;
-}
-
-.term-btn:hover {
-    background-color: var(--bg-primary);
-}
-
-/* State when a tab is clicked */
-.term-btn.active {
-    background-color: var(--textandcontainer-primary);
-    color: var(--bg-primary);
-}
-
-.terminal-display {
-    padding: 1.5rem;
-    min-height: 180px; /* Keeps the box from jumping sizes */
-    font-family: var(--font-body);
-}
-
-.term-content p {
-    margin-bottom: 0.8rem;
-}
-
-/* Hides inactive tabs without removing them from HTML */
-.term-content.hidden {
-    display: none;
-}
-
-/* PROJECT GALLERY & the CARDS */
-
-/* Grid to place cards side-by-side on desktop, stacking on mobile */
-.project-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2.5rem;
     width: 100%;
-}
-
-/* Wooden Board Effect */
-.card {
-    background-color: var(--wood); 
-    border: 3px solid var(--textandcontainer-primary);
-    padding: 1rem;
-    box-shadow: 8px 8px 0px var(--textandcontainer-primary); 
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Interactive hover effect: The card lifts up when you mouse over it */
-.card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 12px 12px 0px var(--textandcontainer-primary);
-}
-
-/* The 'paper' pinned to the wood */
-.card-inner {
-    background-color: var(--bg-primary);
-    border: 2px dashed var(--textandcontainer-primary);
-    padding: 1.5rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Red stamped title */
-.stamped-title {
-    font-size: 1.4rem;
-    color: var(--light-red);
-    border-bottom: 2px solid var(--textandcontainer-primary);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.project-tags {
-    margin-bottom: 1rem;
-}
-
-/* Pushes the button to the bottom so all cards look even */
-.card p {
-    flex-grow: 1; 
-    margin-bottom: 1.5rem;
-    font-family: var(--font-heading);
-    color: var(--textandcontainer-primary);
-    font-size: 0.95rem;  
-}
-
-/* Industrial style button */
-.card-btn {
-    display: block;
-    text-align: center;
-    background-color: var(--textandcontainer-primary);
-    color: var(--bg-primary);
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    font-family: var(--font-heading);
-    border: 2px solid var(--textandcontainer-primary);
-}
-
-.card-btn:hover {
-    background-color: var(--bg-primary);
-    color: var(--textandcontainer-primary);
-}
-
-/* FLOATING MARGIN PREVIEWS */
-.margin-preview {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%) scale(0.95);
-    width: 250px;
-    background-color: var(--bg-primary);
-    border: 3px solid var(--textandcontainer-primary);
-    padding: 8px;
-    box-shadow: 8px 8px 0px var(--textandcontainer-primary);
-    z-index: 1001; 
-    opacity: 0;
-    pointer-events: none; /* Prevents blocking mouse scrolls */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.margin-preview img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border: 1px dashed var(--textandcontainer-primary);
-}
-
-/* Position left and right previews in respective margins */
-#left-preview-container {
-    left: 2%;
-}
-
-#right-preview-container {
-    right: 2%;
-}
-
-/* Show preview animation */
-.margin-preview.active {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-}
-
-/* Hide previews on mobile/tablet viewports (where there are no margins) */
-@media screen and (max-width: 1250px) {
-    .margin-preview {
-        display: none;
-    }
-}
-
-/* CERTIFICATIONS & AWARDS SPECIFICS */
-
-/* Adjusts spacing inside the card to push the link to the bottom */
-.cert-layout {
-    gap: 0.8rem;
-}
-
-/* Small, uppercase organization title */
-.cert-org {
-    font-family: var(--font-heading); 
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    font-weight: bold;
-}
-
-/* Overrides the stamped title to fit better with the cert layout */
-.cert-title {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-    font-size: 1.3rem;
-}
-
-/* The pill-shaped tag (like the 'Certification' bubble in your image) */
-.cert-badge {
-    align-self: flex-start;
-    background-color: var(--bg-secondary);
-    color: var(--textandcontainer-primary);
-    padding: 0.2rem 0.8rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border: 1px solid var(--textandcontainer-primary);
-}
-
-/* Date styling */
-.cert-date {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-top: auto; /* Pushes everything below it to the bottom */
-}
-
-/* Minimalist text link instead of the heavy block button */
-.cert-link {
-    font-weight: bold;
-    color: var(--light-red);
-    font-family: var(--font-heading);
-    display: inline-block;
-    padding-top: 0.5rem;
-}
-
-.cert-link:hover {
-    color: var(--textandcontainer-primary);
-    text-decoration: underline;
-}
-
-/* Tablet Viewport */
-@media screen and (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .item-content {
-        flex-direction: column;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .project-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Mobile Viewport */
-@media screen and (max-width: 480px) {
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-}
-
-/* The pure CSS animation keyframes */
-@keyframes slowSpin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* EDUCATION TIMELINE */
-.education-timeline {
-    width: 100%;
-    border-left: 2px solid var(--textandcontainer-primary);
-    padding-left: 1.5rem;
-    margin-left: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.timeline-item {
-    position: relative;
-}
-
-/* Timeline dot */
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: calc(-1.5rem - 6px - 1px);
-    top: 6px;
-    width: 12px;
-    height: 12px;
-    background-color: var(--light-red);
-    border: 2px solid var(--textandcontainer-primary);
-    border-radius: 50%;
-}
-
-.timeline-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.timeline-date {
-    font-weight: bold;
-    color: var(--light-red);
-    font-size: 0.9rem;
-    border: 1px solid var(--textandcontainer-primary);
-    padding: 0.1rem 0.5rem;
-    background-color: var(--bg-secondary);
-}
-
-.timeline-degree {
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.institution {
-    font-style: italic;
-    color: var(--textandcontainer-primary);
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.edu-desc {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-}
-
-.edu-bullets {
-    list-style-type: square;
-    padding-left: 1.2rem;
-    font-size: 0.9rem;
-    color: var(--textandcontainer-primary);
-}
-
-.edu-bullets li {
-    margin-bottom: 0.3rem;
 }
 
 /* SIMULATED CV DOWNLOAD */
@@ -879,4 +279,549 @@ a:hover {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* EDUCATION TIMELINE */
+.education-timeline {
+    width: 100%;
+    border-left: 2px solid var(--textandcontainer-primary);
+    padding-left: 1.5rem;
+    margin-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+/* timeline dot */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.5rem - 6px - 1px);
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--light-red);
+    border: 2px solid var(--textandcontainer-primary);
+    border-radius: 50%;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeline-date {
+    font-weight: bold;
+    color: var(--light-red);
+    font-size: 0.9rem;
+    border: 1px solid var(--textandcontainer-primary);
+    padding: 0.1rem 0.5rem;
+    background-color: var(--bg-secondary);
+}
+
+.timeline-degree {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.institution {
+    font-style: italic;
+    color: var(--textandcontainer-primary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.edu-desc {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.edu-bullets {
+    list-style-type: square;
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--textandcontainer-primary);
+}
+
+.edu-bullets li {
+    margin-bottom: 0.3rem;
+}
+
+
+/* TECH STACK & INTERACTIVE TERMINAL */
+/* helper class to ensure side-by-side columns align at the top */
+.align-start {
+    align-items: flex-start;
+}
+
+/* split the container exactly in half */
+.tech-stack-column, .interactive-column {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* left Side: Tags and Lists */
+.stack-box h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    border-bottom: 1px dashed var(--textandcontainer-primary);
+    padding-bottom: 0.2rem;
+}
+
+.tag-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-list li {
+    background-color: var(--textandcontainer-primary);
+    color: var(--bg-primary);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.tag-list li a {
+    color: var(--bg-primary);
+}
+
+.tag-list li a:hover {
+    color: var(--bg-secondary);
+}
+
+/* right Side: Interactive Terminal */
+.terminal-box {
+    border: 2px solid var(--textandcontainer-primary);
+    background-color: var(--bg-primary);
+}
+
+.terminal-header {
+    display: flex;
+    border-bottom: 2px solid var(--textandcontainer-primary);
+    background-color: var(--bg-secondary);
+}
+
+.term-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    border-right: 2px solid var(--textandcontainer-primary);
+    padding: 0.5rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--textandcontainer-primary);
+    transition: background-color 0.2s;
+}
+
+.term-btn:last-child {
+    border-right: none;
+}
+
+.term-btn:hover {
+    background-color: var(--bg-primary);
+}
+
+/* state when a tab is clicked */
+.term-btn.active {
+    background-color: var(--textandcontainer-primary);
+    color: var(--bg-primary);
+}
+
+.terminal-display {
+    padding: 1.5rem;
+    min-height: 180px; /* keeps the box from jumping sizes */
+    font-family: var(--font-body);
+}
+
+.term-content p {
+    margin-bottom: 0.8rem;
+}
+
+/* hides inactive tabs without removing them from HTML */
+.term-content.hidden {
+    display: none;
+}
+
+/* progress Bars */
+.skills-section h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+
+.skill {
+    margin-bottom: 1.2rem;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+}
+
+
+/* the outer box of the progress bar */
+.skill-bar-container {
+    width: 100%;
+    height: 18px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--textandcontainer-primary);
+}
+
+/* the filled inner part of the progress bar */
+.skill-fill {
+    height: 100%;
+    background-color: var(--textandcontainer-primary);
+    /* Adding a subtle animation for when the page loads  */
+    animation: loadBar 1.5s ease-in-out forwards;
+}
+
+/* strict external CSS width classes to avoid inline styles */
+.w-90 { width: 90%; }
+.w-80 { width: 80%; }
+.w-70 { width: 70%; }
+.w-60 { width: 60%; }
+.w-50 { width: 50%; }
+
+/* animation the skill bars filling up */
+@keyframes loadBar {
+    from { transform: scaleX(0); transform-origin: left; }
+    to { transform: scaleX(1); transform-origin: left; }
+}
+
+
+/* CERTIFICATIONS & AWARDS SPECIFICS */
+/* adjusts spacing inside the card to push the link to the bottom */
+.cert-layout {
+    gap: 0.8rem;
+}
+
+/* small, uppercase organization title */
+.cert-org {
+    font-family: var(--font-heading); 
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+/* overrides the stamped title to fit better with the cert layout */
+.cert-title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    font-size: 1.3rem;
+}
+
+/* the pill-shaped tag (like the 'Certification' bubble in your image) */
+.cert-badge {
+    align-self: flex-start;
+    background-color: var(--bg-secondary);
+    color: var(--textandcontainer-primary);
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid var(--textandcontainer-primary);
+}
+
+/* date */
+.cert-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: auto; /* Pushes everything below it to the bottom */
+}
+
+/* minimalist text link instead of the heavy block button */
+.cert-link {
+    font-weight: bold;
+    color: var(--light-red);
+    font-family: var(--font-heading);
+    display: inline-block;
+    padding-top: 0.5rem;
+}
+
+.cert-link:hover {
+    color: var(--textandcontainer-primary);
+    text-decoration: underline;
+}
+
+
+/* FLOATING MARGIN PREVIEWS */
+.margin-preview {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%) scale(0.95);
+    width: 250px;
+    background-color: var(--bg-primary);
+    border: 3px solid var(--textandcontainer-primary);
+    padding: 8px;
+    box-shadow: 8px 8px 0px var(--textandcontainer-primary);
+    z-index: 1001; 
+    opacity: 0;
+    pointer-events: none; /* Prevents blocking mouse scrolls */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.margin-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px dashed var(--textandcontainer-primary);
+}
+
+/* position left and right previews in respective margins */
+#left-preview-container {
+    left: 2%;
+}
+
+#right-preview-container {
+    right: 2%;
+}
+
+/* show preview animation */
+.margin-preview.active {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/* hide previews on mobile/tablet viewports (where there are no margins) */
+@media screen and (max-width: 1250px) {
+    .margin-preview {
+        display: none;
+    }
+}
+
+
+/* PROJECT GALLERY & the CARDS */
+/* grid to place cards side-by-side on desktop, stacking on mobile */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    width: 100%;
+}
+
+/* wooden board effect */
+.card {
+    background-color: var(--wood); 
+    border: 3px solid var(--textandcontainer-primary);
+    padding: 1rem;
+    box-shadow: 8px 8px 0px var(--textandcontainer-primary); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* interactive hover effect */
+.card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px var(--textandcontainer-primary);
+}
+
+/* the card which put picture */
+.card-inner {
+    background-color: var(--bg-primary);
+    border: 2px dashed var(--textandcontainer-primary);
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* red stamped title */
+.stamped-title {
+    font-size: 1.4rem;
+    color: var(--light-red);
+    border-bottom: 2px solid var(--textandcontainer-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    margin-bottom: 1rem;
+}
+
+/* pushes the button to the bottom so all cards look even */
+.card p {
+    flex-grow: 1; 
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    color: var(--textandcontainer-primary);
+    font-size: 0.95rem;  
+}
+
+.card-btn {
+    display: block;
+    text-align: center;
+    background-color: var(--textandcontainer-primary);
+    color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border: 2px solid var(--textandcontainer-primary);
+}
+
+.card-btn:hover {
+    background-color: var(--bg-primary);
+    color: var(--textandcontainer-primary);
+}
+
+
+/* FOOTER & CONTACT SECTION */
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 4rem 2rem 1.5rem;
+    margin-top: 6rem;
+    border-top: 4px solid var(--textandcontainer-primary);
+}
+
+/* 2-column grid for desktop */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 50%;
+    margin: 0 auto;
+    border-bottom: 1px dashed var(--text-secondary);
+    padding-bottom: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+    color: var(--footer-text);
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    color: var(--footer-greytext); 
+    font-size: 0.95rem;
+    max-width: 80%;
+}
+
+.footer-content h4 {
+    color: var(--bg-secondary); 
+    margin-bottom: 1.2rem;
+}
+
+
+/* contact form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--footer-text);
+}
+
+.form-group input, .form-group textarea {
+    padding: 0.8rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--wood);
+    color: var(--textandcontainer-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border-radius: 4px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--light-red);
+}
+
+.submit-btn {
+    background-color: var(--bg-secondary);
+    color: var(--textandcontainer-primary);
+    border: none;
+    padding: 0.8rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+}
+
+.submit-btn:hover {
+    background-color: var(--light-red);
+    color: var(--bg-primary);
+}
+
+.success-message {
+    background-color: var(--success);
+    color: var(--bg-primary);
+    padding: 0.8rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid var(--black);
+}
+
+
+/*RESPONSIVE LAYOUT (PHONE & TABLET)*/
+@media screen and (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-brand p {
+        max-width: 100%;
+    }
+}
+
+/* tablet viewport */
+@media screen and (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .item-content {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .project-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* mobile viewport */
+@media screen and (max-width: 480px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }
