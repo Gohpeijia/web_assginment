@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // SIMULATED CV DOWNLOAD LOGIC
 document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('cv-download-btn');
-    const downloadMsg = document.getElementById('download-message');
     
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
@@ -137,11 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     downloadBtn.classList.add('completed');
                     btnText.textContent = 'Downloaded ✓';
                     
-                    if (downloadMsg) {
-                        downloadMsg.classList.remove('hidden');
-                        downloadMsg.classList.add('fade-in');
-                    }
-                    
                     // Trigger actual file download
                     triggerCvDownload();
                     
@@ -151,10 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         downloadBtn.disabled = false;
                         btnText.textContent = 'Download Resume / CV';
                         progressBar.style.width = '0%';
-                        if (downloadMsg) {
-                            downloadMsg.classList.add('hidden');
-                            downloadMsg.classList.remove('fade-in');
-                        }
                     }, 5000);
                 }
             }, 100); // 2 seconds total duration

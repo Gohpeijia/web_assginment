@@ -263,14 +263,7 @@ a:hover {
     transform: none;
 }
 
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out forwards;
-}
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 
 /* EDUCATION TIMELINE */
@@ -388,13 +381,6 @@ a:hover {
     font-weight: bold;
 }
 
-.tag-list li a {
-    color: var(--bg-primary);
-}
-
-.tag-list li a:hover {
-    color: var(--bg-secondary);
-}
 
 /* right Side: Interactive Terminal */
 .terminal-box {
@@ -533,6 +519,13 @@ a:hover {
     font-size: 0.8rem;
     font-weight: bold;
     border: 1px solid var(--textandcontainer-primary);
+}
+
+/* Stop these specific elements from inheriting flex-grow: 1 from .card p */
+.card .cert-badge,
+.card .cert-org,
+.card .cert-date {
+    flex-grow: 0;
 }
 
 /* date */
