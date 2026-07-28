@@ -1,0 +1,389 @@
+
+* {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+    line-height: 1.4;
+    overflow: visible;
+}
+
+/* Hide screen-only elements */
+.navigation_bar,
+.hero_buttons,
+.image_caption,
+.section_divider,
+footer {
+    display: none !important;
+}
+
+/* General print layout */
+section{
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0.55cm 0;
+    background: #ffffff;
+    color: #000000;
+    page-break-inside: auto;
+    break-inside: auto;
+}
+
+.container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #000000 !important;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+.container h2,
+#education h2 {
+    font-size: 22pt;
+    margin-bottom: 0.4cm;
+    padding-bottom: 0.12cm;
+    border-bottom: 1px solid #777777;
+}
+
+/* Hero */
+.hero {
+    min-height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1cm;
+    padding-top: 0;
+    padding-bottom: 0.7cm;
+}
+
+.hero_text {
+    flex: 1;
+}
+
+.hero_text h3 {
+    font-size: 12pt;
+    margin-bottom: 0.12cm;
+}
+
+.hero_text h1 {
+    font-size: 28pt;
+    line-height: 1.05;
+    margin-bottom: 0.18cm;
+}
+
+.hero_text h2 {
+    font-size: 16pt;
+    margin-bottom: 0.25cm;
+}
+
+.hero_text p {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 0;
+    font-size: 10.5pt;
+    line-height: 1.45;
+}
+
+.hero_image {
+    flex: 0 0 auto;
+    display: block;
+}
+
+.hero_image img {
+    width: 135px;
+    max-width: 135px;
+    height: auto;
+}
+
+/* About */
+.about_content {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 0.8cm;
+    margin-top: 0;
+    align-items: start;
+}
+
+.about_text p {
+    margin: 0;
+    font-size: 10.5pt;
+    line-height: 1.5;
+}
+
+.detail {
+    padding: 0.12cm 0;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.detail span {
+    margin-bottom: 0.03cm;
+    color: #444444;
+    font-size: 8.5pt;
+    font-weight: 700;
+}
+
+.detail p,
+.detail a {
+    color: #000000;
+    font-size: 9.5pt;
+    overflow-wrap: anywhere;
+}
+
+/* Education */
+#education {
+    padding: 0.55cm 0;
+}
+
+.education_row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.8cm;
+    margin-bottom: 0.55cm;
+}
+
+.education_info,
+.education_timeline {
+    flex: 1;
+}
+
+.education_info h3 {
+    font-size: 15pt;
+    margin-bottom: 0.12cm;
+}
+
+.education_info h4 {
+    font-size: 10.5pt;
+    margin-bottom: 0.1cm;
+    color: #222222 !important;
+}
+
+.education_info span,
+.education_timeline h5,
+.timeline_labels {
+    font-size: 9pt;
+    color: #333333 !important;
+}
+
+.education_timeline h5 {
+    margin-bottom: 0.25cm;
+}
+
+.timeline {
+    max-width: 100%;
+    height: 18px;
+}
+
+.timeline_line,
+.timeline_fill {
+    height: 4px;
+}
+
+.timeline_labels {
+    margin-top: 0.12cm;
+}
+
+.current_note {
+    top: 25px;
+    font-size: 8pt;
+}
+
+.current_note .arrow {
+    font-size: 12pt;
+}
+
+.current_note p {
+    margin-top: 0;
+    font-size: 8pt;
+}
+
+.timeline_line,
+.timeline_fill,
+.dot,
+.bar,
+.progress {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* Skills */
+.skill {
+    margin-bottom: 0;
+}
+
+.skill h4 {
+    margin-bottom: 0.08cm;
+    font-size: 10.5pt;
+}
+
+.skill_bar_row {
+    gap: 0.3cm;
+    margin-bottom: 0.3cm;
+}
+
+.bar {
+    height: 10px;
+    border: 1px solid #777777;
+    background: #e8e8e8;
+}
+
+.progress {
+    background: #7a4a18;
+}
+
+.skill_percent {
+    width: 1.2cm;
+    font-size: 9pt;
+    color: #000000;
+}
+
+/* Awards */
+.award_container {
+    display: block;
+    margin-top: 0.25cm;
+}
+
+.award_card {
+    display: block;
+    margin-bottom: 0.35cm;
+    padding: 0.35cm;
+    border: 1px solid #999999;
+    border-radius: 0;
+    background: #ffffff;
+    transform: none !important;
+}
+
+.award_source {
+    margin-bottom: 0.08cm;
+    font-size: 8pt;
+    color: #444444;
+}
+
+.award_card h3 {
+    margin-bottom: 0.12cm;
+    font-size: 12pt;
+}
+
+.award_card p {
+    margin: 0 0 0.15cm;
+    color: #000000;
+    font-size: 9.5pt;
+    line-height: 1.4;
+}
+
+.award_button {
+    display: inline;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: #000000;
+    font-size: 9pt;
+    text-decoration: underline;
+}
+
+/* Project */
+.project {
+    margin-top: 0;
+}
+
+.project h3 {
+    margin-bottom: 0.12cm;
+    font-size: 13pt;
+}
+
+.project p {
+    margin-bottom: 0.18cm;
+    font-size: 10pt;
+    line-height: 1.45;
+}
+
+.project .button {
+    display: inline;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* Contact */
+.contact_cards {
+    display: block;
+    margin-top: 0.2cm;
+}
+
+.contact_card {
+    display: block;
+    margin: 0;
+    padding: 0.18cm 0;
+    border: 0;
+    border-bottom: 1px solid #bbbbbb;
+    border-radius: 0;
+    background: #ffffff;
+    color: #000000;
+    transform: none !important;
+}
+
+.contact_icon {
+    display: none;
+}
+
+.contact_text h4 {
+    margin-bottom: 0.03cm;
+    font-size: 9pt;
+    color: #333333 !important;
+}
+
+.contact_text p {
+    font-size: 10pt;
+    color: #000000;
+    overflow-wrap: anywhere;
+}
+
+.hero,
+.detail,
+.education_row,
+.skill_bar_row,
+.award_card,
+.project,
+.contact_card
+{
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Print useful web addresses without duplicating the URLs already shown
+   in the About Me section. */
+.project a[href^="http"]::after,
+.contact_card[href^="http"]::after,
+.contact_card[href^="mailto"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    font-weight: normal;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+a {
+    color: #000000;
+}
