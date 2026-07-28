@@ -13,19 +13,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/darren new portfolio_css.css">
+    <link rel="stylesheet" href="../CSS/darren_portfolio.css">
     <link rel="stylesheet" href="../CSS/darren_print.css" media="print">
 
 </head>
 
 <body>
 
-    <!-- ========================= -->
     <!-- Navigation -->
-    <!-- ========================= -->
 
     <header>
-
         <nav class="navigation_bar">
 
             <div class="logo">
@@ -48,19 +45,25 @@
 
             </ul>
 
-        </nav>
+            <button
+                type="button"
+                class="theme-toggle"
+                id="theme-toggle"
+                aria-label="Switch to dark theme"
+                aria-pressed="false"
+                title="Switch theme"
+            >
+                <span class="theme-icon" aria-hidden="true">🌙</span>
+            </button>
 
+        </nav>
     </header>
 
 
-    <!-- ========================= -->
     <!-- Hero -->
-    <!-- ========================= -->
-
     <section class="hero" id="home">
 
         <!-- Left Side -->
-
         <div class="hero_text">
 
             <h3>Hello! My name is</h3>
@@ -77,22 +80,26 @@
             </p>
 
             <div class="hero_buttons">
-
-                <a href="../Assets/Portfolio/Darren/Darren's resume sunway.pdf" class="button">
-                    View Resume
-                </a>
+                <button
+                    type="button"
+                    class="button cv-download-button"
+                    id="cv-download-btn"
+                    data-file="../Assets/Portfolio/Darren/Darren's resume sunway.pdf"
+                    data-filename="Darren_Lee_Resume.pdf"
+                    aria-label="Download Darren Lee's resume"
+                >
+                    <span class="btn-text">Download Resume / CV</span>
+                    <span class="download-progress-bar" aria-hidden="true"></span>
+                </button>
 
                 <a href="#projects" class="button">
                     My Projects
                 </a>
-
             </div>
 
         </div>
 
-
         <!-- Right Side -->
-
         <div class="hero_image">
 
             <img src="../Assets/Portfolio/Darren/darren no bg3.png" alt="Darren Lee">
@@ -102,7 +109,6 @@
                 <span>↖</span>
 
                 <p>Yep, that's me.</p>
-
             </div>
 
         </div>
@@ -111,10 +117,8 @@
 
 <div class="section_divider"></div>
 
-    <!-- ========================= -->
-    <!-- About -->
-    <!-- ========================= -->
 
+    <!-- About -->
     <section id="about">
 
         <div class="container">
@@ -168,9 +172,7 @@
 
 <div class="section_divider"></div>
 
-<!-- ========================= -->
 <!-- Education -->
-<!-- ========================= -->
 
 <section id="education">
 
@@ -178,10 +180,7 @@
 
         <h2>Education</h2>
 
-
-        <!-- ======================================= -->
         <!-- Sunway University -->
-        <!-- ======================================= -->
 
         <div class="education_row">
 
@@ -196,7 +195,6 @@
                 <span>2025 – Present</span>
 
             </div>
-
 
             <!-- Right -->
 
@@ -218,10 +216,9 @@
 
                     <div class="current_note">
 
-                    <span class="arrow">↑</span>
+                        <span class="arrow">↑</span>
 
-                    <p>I made it here... somehow...</p>
-
+                        <p>I made it here... somehow...</p>
                     </div>
                 </div>
 
@@ -230,18 +227,13 @@
                     <span>2025</span>
                     <span>2028</span>
 
-                    </div>
+                </div>
 
             </div>
 
         </div>
 
-
-
-
-        <!-- ======================================= -->
         <!-- Methodist College -->
-        <!-- ======================================= -->
 
         <div class="education_row">
 
@@ -291,9 +283,7 @@
 
 <div class="section_divider"></div>
 
-    <!-- ========================= -->
     <!-- Skills -->
-    <!-- ========================= -->
 
     <section id="skills">
 
@@ -309,10 +299,9 @@
 
                     <div class="bar">
                         <div class="progress html"></div>
-                    </div>
+                    </div>  
 
                     <span class="skill_percent">70%</span>
-
                 </div>
 
                 <h4>Java</h4>
@@ -324,7 +313,6 @@
                     </div>
 
                     <span class="skill_percent">45%</span>
-
                 </div>
 
                 <h4>Python</h4>
@@ -336,7 +324,6 @@
                     </div>
 
                     <span class="skill_percent">65%</span>
-
                 </div>
 
                 <h4>SQL</h4>
@@ -347,8 +334,7 @@
                         <div class="progress sql"></div>
                     </div>
 
-                <span class="skill_percent">55%</span>
-
+                    <span class="skill_percent">55%</span>
                 </div>
 
             </div>
@@ -359,9 +345,7 @@
 
 <div class="section_divider"></div>
 
-    <!-- ========================= -->
     <!-- Awards -->
-    <!-- ========================= -->
 
     <section id="awards">
 
@@ -382,13 +366,11 @@
                     performance during Semester 1.
                 </p>
 
-                <a href="../Assets/Portfolio/Darren/dean_darren.pdf"
-                   class="award_button">
+                <a href="../Assets/Portfolio/Darren/dean_darren.pdf" class="award_button">
 
                     View Certificate
 
                 </a>
-
             </div>
 
 
@@ -404,13 +386,11 @@
                     Networking Academy.
                 </p>
 
-                <a href="../Assets/Portfolio/Darren/ccna_darren.pdf"
-                   class="award_button">
+                <a href="../Assets/Portfolio/Darren/ccna_darren.pdf" class="award_button">
 
                     View Certificate
 
                 </a>
-
             </div>
 
 
@@ -426,13 +406,11 @@
                     participation in campus activities.
                 </p>
 
-                <a href="../Assets/Portfolio/Darren/mckl_darren.pdf"
-                   class="award_button">
+                <a href="../Assets/Portfolio/Darren/mckl_darren.pdf" class="award_button">
 
                     View Certificate
 
                 </a>
-
             </div>
 
         </div>
@@ -443,9 +421,7 @@
 
 <div class="section_divider"></div>
 
-    <!-- ========================= -->
     <!-- Projects -->
-    <!-- ========================= -->
 
     <section id="projects">
 
@@ -466,9 +442,10 @@
                 </p>
 
                 <a href="https://github.com/darrenleeee/Student_grading" target="_blank" class="button">
+                   
                     Visit Repository
-                </a>
 
+                </a>
             </div>
 
         </div>
@@ -477,9 +454,7 @@
 
 <div class="section_divider"></div>
 
-    <!-- ========================= -->
     <!-- Contact -->
-    <!-- ========================= -->
 
     <section id="contact">
 
@@ -500,9 +475,7 @@
 
             </a>
 
-            <a href="https://linkedin.com/in/darrenleeee"
-               target="_blank"
-               class="contact_card">
+            <a href="https://linkedin.com/in/darrenleeee" target="_blank" class="contact_card">
 
                 <div class="contact_icon">💼</div>
 
@@ -513,15 +486,15 @@
 
             </a>
 
-            <a href="https://github.com/darrenleeee"
-               target="_blank"
-               class="contact_card">
+            <a href="https://github.com/darrenleeee" target="_blank" class="contact_card">
 
                 <div class="contact_icon">🐈‍⬛</div>
 
                 <div class="contact_text">
+
                     <h4>GitHub</h4>
                     <p>darrenleeee</p>
+
                 </div>
 
             </a>
@@ -532,23 +505,17 @@
 
 </section>
 
-
-
-    <!-- ========================= -->
     <!-- Footer -->
-    <!-- ========================= -->
 
     <footer>
-
         <p>
 
             © 2026 Darren Lee.
             All Rights Reserved.
-
         </p>
-
     </footer>
 
-</body>
+    <script src="../JS/portfoliodarren.js" defer></script>
 
+</body>
 </html>

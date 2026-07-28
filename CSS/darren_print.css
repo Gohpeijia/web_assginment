@@ -1,4 +1,15 @@
-
+:root,
+html[data-theme="dark"] {
+    --cream: #ffffff;
+    --text: #000000;
+    --white: #ffffff;
+    --grey: #dddddd;
+    --pale-grey: #e8e8e8;
+    --sour-cream: #ffffff;
+    --card-bg: #ffffff;
+    --brown: #7a4a18;
+    color-scheme: light;
+}
 * {
     box-shadow: none !important;
     text-shadow: none !important;
