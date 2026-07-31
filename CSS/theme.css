@@ -119,6 +119,43 @@ header {
     justify-self: end;
     display: flex;
     gap: 20px;
+    align-items: center;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+
+    color: var(--brown-dark);
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.theme-toggle:hover {
+    background-color: var(--gold-light);
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 /*form text input boxes*/
