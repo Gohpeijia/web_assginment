@@ -189,3 +189,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// SCROLL REVEAL ANIMATION (Floating Up)
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Target all the main sections to animate
+    const sectionsToAnimate = document.querySelectorAll('section.personalinfo, section.aboutme');
+    
+    // Add the starting CSS class to each
+    sectionsToAnimate.forEach(section => {
+        section.classList.add('fade-in-section');
+    });
+
+    // 2. Setup the Intersection Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Triggers when 15% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // When section comes into view, add the visible class
+                entry.target.classList.add('is-visible');
+                // Stop observing it so it doesn't animate out when scrolling up
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // 3. Start observing each section
+    sectionsToAnimate.forEach(section => {
+        observer.observe(section);
+    });
+});
