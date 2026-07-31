@@ -381,6 +381,14 @@ a:hover {
     font-weight: bold;
 }
 
+.tag-list li a {
+    color: var(--bg-primary);
+}
+
+.tag-list li a:hover {
+    color: var(--light-red);
+}
+
 
 /* right Side: Interactive Terminal */
 .terminal-box {
