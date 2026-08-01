@@ -1,4 +1,5 @@
-// DARK AND LIGHT THEME
+// DARK AND LIGHT THEME 
+// SEPERATED FROM WEBSITE.JS TO ENSURE PERSONAL PORTFOLIO
 document.addEventListener('DOMContentLoaded', () => {
 
     const themeToggle = document.getElementById('theme-toggle');
