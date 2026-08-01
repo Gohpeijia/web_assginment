@@ -229,17 +229,148 @@ header {
     }
 }
 
+/* Tablet layout */
 @media (max-width: 768px) {
-  .login_title img {
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  .loginn input, 
-  .password_holder,
-  .registerr {
-    width: 90%;    
-  }
+    body {
+        padding: 0 24px 40px;
+        box-sizing: border-box;
+    }
+
+    .login_title img {
+        width: min(72vw, 340px);
+        margin: 24px auto;
+    }
+
+    .registerr {
+        width: min(100%, 420px);
+        margin: 20px auto 0;
+    }
+
+    .progress-bar {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 30px;
+    }
+
+    .circle {
+        width: 36px;
+        height: 36px;
+        font-size: 17px;
+        flex-shrink: 0;
+    }
+
+    #step1 h2,
+    #step2 h2,
+    #step3 h2 {
+        font-size: 1.7rem;
+        margin-bottom: 16px;
+    }
+
+    .registerr input {
+        min-height: 50px;
+        font-size: 1rem;
+    }
+
+    .registerr button {
+        padding: 13px 28px;
+        font-size: 16px;
+    }
+
+    .loading-box {
+        width: min(82vw, 380px);
+        padding: 32px 28px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* Mobile layout */
+@media (max-width: 375px) {
+    body {
+        padding: 0 16px 32px;
+    }
+
+    .login_title img {
+        width: min(78vw, 280px);
+        margin: 20px auto;
+    }
+
+    .registerr {
+        width: 100%;
+        margin-top: 14px;
+    }
+
+    .progress-bar {
+        width: 100%;
+        margin: 4px auto 24px;
+    }
+
+    .circle {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+    }
+
+    .progress-step.active .circle {
+        transform: scale(1.05);
+    }
+
+    .progress-line {
+        height: 3px;
+    }
+
+    #step1,
+    #step2,
+    #step3 {
+        gap: 12px;
+    }
+
+    #step1 h2,
+    #step2 h2,
+    #step3 h2 {
+        font-size: 1.45rem;
+        margin-bottom: 12px;
+    }
+
+    .registerr input {
+        padding: 13px 14px;
+        font-size: 16px;
+    }
+
+    .button_group {
+        gap: 10px;
+        margin-top: 14px;
+    }
+
+    .button_group button {
+        min-width: 0;
+        padding: 12px 10px;
+        font-size: 15px;
+    }
+
+    .loading-box {
+        width: calc(100% - 32px);
+        padding: 28px 18px;
+        border-radius: 12px;
+    }
+
+    .spinner {
+        width: 42px;
+        height: 42px;
+        border-width: 4px;
+    }
+
+    .loading-box p {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .overlay-close {
+        margin-top: 16px;
+        padding: 10px 26px;
+        font-size: 15px;
+    }
 }
 
 

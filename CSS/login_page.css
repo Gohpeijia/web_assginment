@@ -162,15 +162,154 @@ form input:focus{
     to { transform: rotate(360deg); }
 }
 
+/* Tablet layout */
 @media (max-width: 768px) {
-  .login_title img {
-    width: 90%;
-    max-width: 400px;
-  }
-  
-  .loginn input, 
-  .password_holder,
-  .registerr {
-    width: 90%;    
-  }
+
+    body {
+     overflow-x: hidden;
+    }
+
+    .login_title img {
+        width: 80%;
+        max-width: 320px;
+        margin-top: 24px;
+    }
+
+    .login_content {
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .login_content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-top: 18px;
+        margin-bottom: 12px;
+    }
+
+    .login_content h3 {
+        font-size: 1.05rem;
+        margin-bottom: 16px;
+    }
+
+    .loginn {
+        width: 100%;
+    }
+
+    .loginn > input,
+    .password_holder {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .loginn button {
+        min-width: 150px;
+    }
+
+    .forgotpw,
+    .newuser {
+        margin: 4px 0;
+        text-align: center;
+    }
+
+    .loading-box {
+        width: calc(100% - 48px);
+        max-width: 400px;
+        padding: 32px 28px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* Mobile layout */
+@media (max-width: 375px) {
+    .login_title img {
+        width: 75%;
+        max-width: 250px;
+        margin-top: 20px;
+    }
+
+    .login_content {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .login_content h1 {
+        font-size: 1.65rem;
+        line-height: 1.15;
+        letter-spacing: 0.5px;
+        margin-top: 16px;
+        margin-bottom: 10px;
+    }
+
+    .login_content h3 {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+
+    .loginn {
+        gap: 12px;
+    }
+
+    .loginn > input,
+    .password_holder {
+        width: 100%;
+        max-width: none;
+    }
+
+    .loginn input {
+        padding: 13px 15px;
+        font-size: 16px;
+    }
+
+    .password_holder input {
+        padding-right: 44px;
+    }
+
+    .eye {
+        right: 14px;
+        font-size: 16px;
+    }
+
+    .loginn button {
+        width: 100%;
+        max-width: 280px;
+        padding: 13px 30px;
+        font-size: 16px;
+    }
+
+    .forgotpw,
+    .newuser {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .loading-box {
+        width: calc(100% - 32px);
+        padding: 28px 20px;
+        border-radius: 12px;
+    }
+
+    .loading-box p {
+        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .spinner {
+        width: 44px;
+        height: 44px;
+        border-width: 4px;
+    }
+
+    .overlay-close {
+        width: 120px;
+        padding: 10px 20px;
+        font-size: 15px;
+    }
 }

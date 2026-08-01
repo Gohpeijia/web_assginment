@@ -147,3 +147,139 @@
         font-size: 21px;
     }
 }
+
+/* small mobile version: 375px and below */
+@media (max-width: 375px) {
+
+    .navigation_bar {
+        padding: 10px 14px 12px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "logo logo"
+            "links actions";
+        row-gap: 12px;
+    }
+
+    .nav-center {
+        grid-area: logo;
+        justify-self: center;
+    }
+
+    .nav-left {
+        grid-area: links;
+        justify-self: start;
+        gap: 8px;
+    }
+
+    .nav-right {
+        grid-area: actions;
+        justify-self: end;
+        gap: 8px;
+    }
+
+    .nav-left a {
+        font-size: 0.62rem;
+    }
+
+    .logo img {
+        width: 112px;
+    }
+
+    .icons {
+        width: 21px;
+        height: 21px;
+    }
+
+    .theme-toggle {
+        width: 26px;
+        height: 26px;
+        font-size: 1.05rem;
+    }
+
+    .video_display {
+        width: calc(100% - 28px);
+        height: 62vh;
+        min-height: 420px;
+        max-height: 560px;
+        margin: 22px auto 32px;
+        border-radius: 20px;
+    }
+
+    .video_text {
+        width: 88%;
+    }
+
+    .video_text h1 {
+        margin-bottom: 20px;
+        font-size: clamp(1.85rem, 10vw, 2.6rem);
+        letter-spacing: 2px;
+        line-height: 1.15;
+    }
+
+    .explore_button {
+        padding: 10px 18px;
+        border-width: 1.5px;
+    }
+
+    .explore_button p {
+        font-size: 0.85rem;
+    }
+
+    .footer_container {
+        padding: 26px 16px;
+        gap: 32px;
+    }
+
+    .footer_left h2,
+    .contact-form-container h3 {
+        font-size: 1.45rem;
+    }
+
+    .footer_left h4 {
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+
+    .footer_left p,
+    .contact-form label,
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.85rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    form.input-bar {
+        display: flex;
+        align-items: stretch;
+    }
+
+    #subscribeInput {
+        min-width: 0;
+    }
+
+    .subscribe-btn {
+        flex: 0 0 48px;
+    }
+
+    .submit-btn,
+    .login-redirect-btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .modal-content {
+        width: calc(100% - 30px);
+        padding: 24px 18px;
+    }
+
+    .copyright {
+        padding: 0 16px 20px;
+        font-size: 0.72rem;
+        line-height: 1.5;
+    }
+}
