@@ -1,4 +1,4 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
 const cartList = document.getElementById("cartList");
 const itemCount = document.getElementById("itemCount");
@@ -22,7 +22,7 @@ function renderCart(){
 
             <input type="checkbox" checked class="item-check">
 
-            <img src="${item.image}" class="cart-image">
+            <img src="${item.img}" class="cart-image">
 
             <div class="cart-info">
                 <h3>${item.name}</h3>
@@ -83,11 +83,13 @@ function removeItem(index){
 
 function saveCart(){
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
-    renderCart();
+sessionStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+);
+
+renderCart();
+
 }
 
 const checkoutBtn = document.getElementById("checkoutBtn");
