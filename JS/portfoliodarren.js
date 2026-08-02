@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// CV DOWNLOAD
+// CV DOWNLOAD SIMULATOR
 document.addEventListener('DOMContentLoaded', () => {
 
     const downloadButton =
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 buttonText.textContent = 'Downloaded ✓';
 
-                downloadCV();
+                viewCV();
 
                 // Reset the button after 3 seconds
                 setTimeout(() => {
@@ -102,23 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    function downloadCV() {
+    function viewCV() {
 
         const filePath = downloadButton.getAttribute('data-file');
 
-        const fileName =
-            downloadButton.getAttribute('data-filename');
-
-        const link = document.createElement('a');
-
-        link.href = filePath;
-        link.download = fileName;
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        document.body.removeChild(link);
+        window.location.href = filePath;
 
     }
 
