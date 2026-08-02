@@ -16,7 +16,7 @@ function saveCart() {
 function createCakeCardHTML(cake) {
     const wholePriceAttr = cake.priceWhole ? cake.priceWhole : '';
     return `
-        <div class="cat-card card-hover-trigger" data-name="${cake.name}" data-price="${cake.price}" data-price-whole="${wholePriceAttr}" data-category="${cake.category}">
+        <div class="cat-card card-hover-trigger" data-id="${cake.id}" data-name="${cake.name}" data-price="${cake.price}" data-price-whole="${wholePriceAttr}" data-category="${cake.category}">
           <img src="${cake.img}" alt="${cake.name}">
           <div class="cat-card-body">
             <h3 class="cat-card-name hover-underline">${cake.name}</h3>
@@ -56,6 +56,7 @@ function loadMenuToHTML() {
       const item = {
         element: card,
         parent: card.parentElement, // Save original grid container
+        id: card.getAttribute("data-id"),
         name: card.getAttribute('data-name'),
         category: card.getAttribute('data-category'),
         price: priceAttr ? parseFloat(priceAttr) : 0,
@@ -84,7 +85,7 @@ const modalImg = document.getElementById('modalImage');
 const modalTitle = document.getElementById('modalTitle');
 const modalPrice = document.getElementById('modalPrice');
 const sizeOptionGroup = document.getElementById('sizeOptionGroup');
-
+const viewCommentsBtn = document.getElementById("viewCommentsBtn");
 let currentModalItem = null;
 
 // Function to open modal and inject data
@@ -93,6 +94,8 @@ function openModal(item) {
   
   modalImg.src = item.img;
   modalTitle.textContent = item.name;
+
+  viewCommentsBtn.href = `review.html?product=${encodeURIComponent(item.id)}`;
 
   // Hide Size option for Tarts, Pies, and Tiramisu 
   if (!item.priceWhole) {

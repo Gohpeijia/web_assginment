@@ -362,18 +362,19 @@ function updateAverageRating(reviews) {
             `${reviews.length} reviews`;
     }
 }
-
-
 /* =====================================================
    CREATE REVIEW CARD
    ===================================================== */
 
 function createReviewCard(review) {
+
     const card =
         document.createElement("article");
 
     card.className = "review-card";
 
+
+    /* Review Header */
 
     const header =
         document.createElement("div");
@@ -385,7 +386,8 @@ function createReviewCard(review) {
     const reviewer =
         document.createElement("h3");
 
-    reviewer.textContent = review.name;
+    reviewer.textContent =
+        review.name;
 
 
     const date =
@@ -394,9 +396,13 @@ function createReviewCard(review) {
     const reviewDate =
         new Date(review.date);
 
+
     if (Number.isNaN(reviewDate.getTime())) {
+
         date.textContent = "";
+
     } else {
+
         date.textContent =
             reviewDate.toLocaleDateString(
                 "en-MY",
@@ -408,6 +414,8 @@ function createReviewCard(review) {
             );
     }
 
+
+    /* Stars */
 
     const stars =
         document.createElement("p");
@@ -424,8 +432,13 @@ function createReviewCard(review) {
     );
 
 
+    /* Comment */
+
     const comment =
         document.createElement("p");
+
+    comment.className =
+        "review-comment";
 
     comment.textContent =
         review.comment;
@@ -438,9 +451,66 @@ function createReviewCard(review) {
     card.appendChild(stars);
     card.appendChild(comment);
 
+
+    /* Only logged-in users can see Delete */
+
+    const isLoggedIn =
+        sessionStorage.getItem("isLoggedIn") === "true";
+
+
+    if (isLoggedIn) {
+
+        const actionArea =
+            document.createElement("div");
+
+        actionArea.className =
+            "review-actions";
+
+
+        const deleteButton =
+            document.createElement("button");
+
+        deleteButton.type =
+            "button";
+
+        deleteButton.className =
+            "delete-review-btn";
+
+        deleteButton.textContent =
+            "Delete";
+
+
+        deleteButton.addEventListener(
+            "click",
+            function () {
+
+                const confirmed =
+                    window.confirm(
+                        "Are you sure you want to delete this comment?"
+                    );
+
+                if (confirmed) {
+
+                    deleteReview(
+                        review.reviewId
+                    );
+                }
+            }
+        );
+
+
+        actionArea.appendChild(
+            deleteButton
+        );
+
+        card.appendChild(
+            actionArea
+        );
+    }
+
+
     return card;
 }
-
 
 /* =====================================================
    DISPLAY REVIEWS
@@ -489,6 +559,55 @@ function displayReviews() {
     updateAverageRating(productReviews);
 }
 
+/* =====================================================
+   DELETE REVIEW
+   ===================================================== */
+
+function deleteReview(reviewId) {
+
+    const isLoggedIn =
+        sessionStorage.getItem("isLoggedIn") === "true";
+
+
+    /* Prevent direct function use while logged out */
+
+    if (!isLoggedIn) {
+
+        alert(
+            "Please log in before deleting a comment."
+        );
+
+        return;
+    }
+
+
+    const allReviews =
+        getAllReviews();
+
+
+    const updatedReviews =
+        allReviews.filter(
+            function (review) {
+
+                return (
+                    review.reviewId !==
+                    reviewId
+                );
+            }
+        );
+
+
+    saveAllReviews(
+        updatedReviews
+    );
+
+
+    reviewMessage.textContent =
+        "The comment has been deleted.";
+
+
+    displayReviews();
+}
 
 /* =====================================================
    RATING FILTER

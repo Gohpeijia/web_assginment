@@ -13,230 +13,158 @@
     <link rel="stylesheet" href="../CSS/menu.css">
     <link rel="stylesheet" href="../CSS/theme.css">
     <link rel="stylesheet" href="../CSS/review.css">
+    <link rel="stylesheet" href="../CSS/darkmode.css">
 </head>
 
 <body>
 
-    <header>
-        <nav class="navigation_bar">
-            <!-- Left Navigation -->
-            <div class="nav-left">
-                <a href="../HTML/menu.html"
-                class="nav_fonts hover-underline">
+           <header>
+            <nav class="navigation_bar">
+                <div class="nav-left">
+                    <a href="../HTML/menu.html" class="nav_fonts hover-underline"> Our Products </a>
+                    <a href="../HTML/about_us.html" class="nav_fonts hover-underline"> About Us </a>
+                </div>
 
-                    Our Products
+                <div class="nav-center">
+                    <a href="../HTML/index.html" class="logo"><img src="../Assets/Images/logo.png" alt="SUNBAKE"></a>
+                </div>
 
-                </a>
+                <div class="nav-right">
+                    <a href="#" id="account" aria-label="User Account">
+                        <img src="../Assets/Images/account.png" class="icons" alt="Account" >
+                    </a>
+                    <a href="../HTML/cart.html" id="cart" aria-label="Shopping Cart">
+                        <img src="../Assets/Images/cartIcon.png" class="icons" alt="Cart">
+                    </a>
 
-                <a href="../HTML/about_us.html"
-                class="nav_fonts hover-underline">
+                        <button
+                            type="button"
+                            id="themeToggle"
+                            class="theme-toggle"
+                            aria-label="Switch to dark mode"
+                            title="Switch colour theme">☾
+                        </button>
+                    
+                </div>
+            </nav>
+        </header>
 
-                    About Us
-
-                </a>
-            </div>
-            <!-- Centre Logo -->
-
-            <div class="nav-center">
-
-                <a href="../HTML/index.html" class="logo">
-
-                    <img src="../Assets/Images/logo.png"
-                        alt="SUNBAKE">
-
-                </a>
-
-            </div>
-
-            <!-- Right Icons -->
-
-            <div class="nav-right">
-
-                <a href="#" id="account">
-
-                    <img src="../Assets/Images/account.png"
-                        class="icons"
-                        alt="Account">
-
-                </a>
-
-                <a href="#">
-
-                    <img src="../Assets/Images/cartIcon.png"
-                        class="icons"
-                        alt="Cart">
-
-                </a>
-
-            </div>
-
-        </nav>
-
-    </header>
 
     <main class="review-page-container">
-
         <section class="review-product-layout">
-
             <div class="review-product-image">
-
                 <img
                     id="productImage"
                     src=""
                     alt="Selected cake">
-
             </div>
 
             <div class="review-product-information">
-
                 <label for="productSelector">
                     Product
                 </label>
-
                 <select id="productSelector">
                 </select>
-
                 <h1 id="productName">
                     Product Name
                 </h1>
-
                 <div class="product-information-block">
-
                     <h2>Allergens</h2>
-
                     <ul id="allergensList">
                     </ul>
-
                 </div>
 
                 <div class="product-rating-summary">
-
                     <h2>Average Rating</h2>
-
                     <p
                         id="averageStars"
                         class="average-review-stars">
                         ☆☆☆☆☆
                     </p>
-
                     <p id="averageRating">
                         0.0 / 5
                     </p>
-
                     <p id="reviewCount">
                         0 reviews
                     </p>
-
                 </div>
-
             </div>
 
         </section>
-
         <section class="comment-section">
-
             <div class="comment-heading">
-
                 <h2>Customer Comments</h2>
-
                 <select
                     id="ratingFilter"
                     aria-label="Filter reviews by rating">
-
                     <option value="all">
                         All Ratings
                     </option>
-
                     <option value="5">
                         5 Stars
                     </option>
-
                     <option value="4">
                         4 Stars
                     </option>
-
                     <option value="3">
                         3 Stars
                     </option>
-
                     <option value="2">
                         2 Stars
                     </option>
-
                     <option value="1">
                         1 Star
                     </option>
-
                 </select>
-
             </div>
-
             <div id="reviewList">
             </div>
-
             <p id="noReviews">
                 No reviews for this product yet.
             </p>
-
         </section>
 
         <section class="write-review-section">
-
             <h2>Write a Review</h2>
-
             <form id="reviewForm">
-
                 <div class="review-form-group">
-
                     <label for="reviewerName">
                         Name
                     </label>
-
                     <input
                         type="text"
                         id="reviewerName"
                         maxlength="40"
                         placeholder="Enter your name"
                         required>
-
                 </div>
 
                 <div class="review-form-group">
-
                     <label for="reviewRating">
                         Rating
                     </label>
-
                     <select
                         id="reviewRating"
                         required>
-
                         <option value="">
                             Select Rating
                         </option>
-
                         <option value="5">
                             ★★★★★ — Excellent
                         </option>
-
                         <option value="4">
                             ★★★★ — Very Good
                         </option>
-
                         <option value="3">
                             ★★★ — Good
                         </option>
-
                         <option value="2">
                             ★★ — Fair
                         </option>
-
                         <option value="1">
                             ★ — Poor
                         </option>
-
                     </select>
-
                 </div>
 
                 <div class="review-form-group">
@@ -255,28 +183,51 @@
                     <p id="characterCount">
                         0 / 300 characters
                     </p>
-
                 </div>
-
                 <p
                     id="reviewMessage"
                     aria-live="polite">
                 </p>
-
                 <button
                     type="submit"
                     class="add-to-cart-btn">
 
                     Submit Review
                 </button>
-
             </form>
-
         </section>
-
     </main>
 
-    
+
+    <!-- PROFILE / ACCOUNT MODAL -->
+
+<div id="profileModal" class="modal hidden">
+    <div class="modal-content">
+        <p
+            id="closeProfileModal"
+            class="close-btn">
+
+            &times;
+
+        </p>
+        <div class="profile-modal-body">
+            <h2 class="modal-title">
+                Account
+            </h2>
+            <p class="profile-message">
+                You haven't logged in yet!
+            </p>
+            <a
+                href="login.html"
+                class="login-redirect-btn">
+
+                Go to Login Page
+
+            </a>
+        </div>
+    </div>
+</div>
+
     <footer>
       <hr class="divider">
       <div class="footer_container">

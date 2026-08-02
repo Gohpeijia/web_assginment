@@ -266,3 +266,64 @@ body.dark-mode .contact-form textarea::placeholder{
 body.dark-mode .submit-btn{
     background:#8B6B20;
 }
+
+/* ---------- REVIEW PAGE DARK MODE ---------- */
+
+body.dark-mode .review-product-layout,
+body.dark-mode .comment-section,
+body.dark-mode .write-review-section {
+    background-color: #3C2F2F;
+    color: #F5ECD7;
+}
+
+body.dark-mode .review-card {
+    background-color: #4B3A35;
+    color: #F5ECD7;
+    border-color: #6D584E;
+}
+
+body.dark-mode #productName,
+body.dark-mode .product-information-block h2,
+body.dark-mode .product-rating-summary h2,
+body.dark-mode .comment-heading h2,
+body.dark-mode .write-review-section h2,
+body.dark-mode .review-card h3 {
+    color: #FFF6E6;
+}
+
+body.dark-mode #allergensList,
+body.dark-mode #allergensList li,
+body.dark-mode .review-comment,
+body.dark-mode .review-card small,
+body.dark-mode #averageRating,
+body.dark-mode #reviewCount,
+body.dark-mode #characterCount,
+body.dark-mode #noReviews {
+    color: #F5ECD7;
+}
+
+body.dark-mode #productSelector,
+body.dark-mode #ratingFilter,
+body.dark-mode #reviewRating,
+body.dark-mode .review-form-group input,
+body.dark-mode .review-form-group textarea,
+body.dark-mode .review-form-group select {
+    background-color: #55443D;
+    color: #FFF6E6;
+    border-color: #6D584E;
+}
+
+body.dark-mode .review-form-group input::placeholder,
+body.dark-mode .review-form-group textarea::placeholder {
+    color: #D5C8BF;
+}
+
+body.dark-mode .average-review-stars,
+body.dark-mode .review-stars {
+    color: #F5C842;
+}
+
+body.dark-mode .add-to-cart-btn {
+    background-color: #8B6B20;
+    color: white;
+}
