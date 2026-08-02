@@ -6,6 +6,13 @@ const noResultsText = document.getElementById('noResults');
 
 let initialItems = [];
 
+/* CART SECTION */
+let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+function saveCart() {
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+}
+
 function createCakeCardHTML(cake) {
     const wholePriceAttr = cake.priceWhole ? cake.priceWhole : '';
     return `
@@ -185,6 +192,42 @@ addToCartBtn.addEventListener('click', () => {
     addToCartBtn.classList.add('success');
     addToCartBtn.innerHTML = '&#10004; ADDED TO CART'; // Adds a checkmark icon
 
+let selectedPrice = currentModalItem.price;
+
+const wholeBtn = document.querySelector(
+    "#sizeOptionGroup .opt-btn.active"
+);
+
+if (
+    wholeBtn &&
+    wholeBtn.textContent === "Whole Cake" &&
+    currentModalItem.priceWhole
+){
+    selectedPrice = currentModalItem.priceWhole;
+}
+
+const existingItem = cart.find(item =>
+    item.name === currentModalItem.name &&
+    item.price === selectedPrice
+);
+
+if(existingItem){
+    existingItem.qty += currentQty;
+}else{
+    cart.push({
+      name: currentModalItem.name,
+      price: selectedPrice,
+      qty: currentQty,
+      img: currentModalItem.img,
+      size:
+          selectedPrice === currentModalItem.priceWhole
+            ? "Whole Cake"
+            : "Slice"
+          });
+        }
+
+saveCart();
+
     // Step C: Wait 1 more second, then close modal and reset
     setTimeout(() => {
       // Hide the modal (jumps back to the menu behind it)
@@ -281,4 +324,13 @@ if (hasCatalogue) {
   searchInput.addEventListener('input', updateCatalogue);
   categoryFilter.addEventListener('change', updateCatalogue);
   sortSelect.addEventListener('change', updateCatalogue);
+}
+
+/* CART SECTION */
+const cartBtn = document.getElementById("cartBtn");
+
+if(cartBtn){
+    cartBtn.addEventListener("click",function(){
+        window.location.href="cart.html";
+    });
 }
