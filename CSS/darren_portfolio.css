@@ -51,7 +51,7 @@ html{
 }
 
 body{
-    font-family: "Courier Prime", monospace;      
+    font-family: "Courier New", Courier, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;   
     background: var(--cream);       
     color:var(--text);
     overflow-x:hidden;
