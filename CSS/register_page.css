@@ -40,20 +40,7 @@ header {
     transform: translateY(-2px);
 }
 
-.password_holder{
-    position: relative;
-    width: 350px;
-}
-
-.password_holder input{
-    width: 100%;
-    padding-right: 45px;
-    box-sizing: border-box;
-}
-
-/* ==========================
-   Multi-Step Registration
-========================== */
+/* Multi-Step Registration */
 
 #step1,
 #step2,
@@ -85,9 +72,7 @@ header {
     color: var(--brown-dark);
 }
 
-/* ==========================
-   Popup Overlay
-========================== */
+/* Popup Overlay */
 
 .loading-overlay {
     position: fixed;
@@ -148,9 +133,7 @@ header {
     display: none;
 }
 
-/* =========================
-   Progress Bar
-========================= */
+/* Progress Bar */
 
 .progress-bar{
     width:400px;
