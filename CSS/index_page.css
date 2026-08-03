@@ -152,6 +152,7 @@
 @media (max-width: 375px) {
 
     .navigation_bar {
+        display: grid;
         padding: 10px 14px 12px;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
