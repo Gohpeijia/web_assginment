@@ -4,9 +4,12 @@
     width: 400px;
     height: auto;
 }
+
 header {
     position: static;
 }
+
+/* center allign column for the entire form in login and forgot page */
 .loginn{
     display: flex;
     flex-direction: column;
@@ -22,9 +25,11 @@ header {
     background: rgba(255,255,255,0.6);
     box-sizing: border-box;
 }
+
 form input:focus{
     outline:none;
 }
+
 .loginn button{
     padding: 15px 40px;
     border: none;
@@ -124,7 +129,8 @@ form input:focus{
     cursor: pointer;
 }
 
-.login_content h1 {
+.login_content h1, 
+.forgotpww h1 {
     font-family: 'Impact', sans-serif;
     font-size: 2.5rem;
     color: var(--brown-dark);
@@ -135,7 +141,8 @@ form input:focus{
     letter-spacing: 1px;
 }
 
-.login_content h3 {
+.login_content h3,
+.forgotpww h3 {
     font-family: 'Segoe UI', sans-serif;
     color: var(--text-muted);
     font-size: 1.2rem;
@@ -158,6 +165,7 @@ form input:focus{
     animation: spin 1s linear infinite;
 }
 
+
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
@@ -175,7 +183,8 @@ form input:focus{
         margin-top: 24px;
     }
 
-    .login_content {
+    .login_content,
+    .forgotpww {
         width: 90%;
         max-width: 500px;
         margin: 0 auto;
@@ -184,19 +193,22 @@ form input:focus{
         box-sizing: border-box;
     }
 
-    .login_content h1 {
+    .login_content h1,
+    .forgotpww h1 {
         font-size: 2rem;
         line-height: 1.2;
         margin-top: 18px;
         margin-bottom: 12px;
     }
 
-    .login_content h3 {
+    .login_content h3,
+    .forgotpww h3 {
         font-size: 1.05rem;
         margin-bottom: 16px;
     }
 
-    .loginn {
+    .loginn,
+    .forgotpw {
         width: 100%;
     }
 
@@ -233,12 +245,14 @@ form input:focus{
         margin-top: 20px;
     }
 
-    .login_content {
+    .login_content,
+    .forgotpww {
         width: 100%;
         padding: 0 16px;
     }
 
-    .login_content h1 {
+    .login_content h1,
+    .forgotpww h1 {
         font-size: 1.65rem;
         line-height: 1.15;
         letter-spacing: 0.5px;
@@ -246,13 +260,15 @@ form input:focus{
         margin-bottom: 10px;
     }
 
-    .login_content h3 {
+    .login_content h3,
+    .forgotpww h3 {
         font-size: 1rem;
         line-height: 1.4;
         margin-bottom: 12px;
     }
 
-    .loginn {
+    .loginn,
+    .forgotpw {
         gap: 12px;
     }
 
