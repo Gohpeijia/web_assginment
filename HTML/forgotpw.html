@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Password Reset</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/theme.css">
+    <link rel="stylesheet" href="../CSS/login_page.css">  <!--use same login css -->
+    <link rel="stylesheet" href="../CSS/darkmode.css">
+</head>
+
+<body>
+<header>
+    <div class="login_title">
+
+    <a href="../HTML/index.html"><img src="../Assets/Images/logo.png" alt="Sunbake Logo"></a>
+    </div>
+</header>
+
+
+<div class="forgotpww">
+    <h1>Welcome to Sunbake</h1>
+    <h3>Reset Your Password</h3>
+    <br>
+
+    <form class="loginn" id="resetform">
+        <input type="text" id="resetpw" placeholder="Username or Email" required>
+
+        <div class="password_holder">
+        <input required type="password" id="password" placeholder="Password">
+        <span class="eye">👁</span>
+        </div>
+
+        <div class="password_holder">
+        <input required type="password" id="confirm_password" placeholder="Confirm Password">
+        <span class="eye">👁</span>
+        </div>
+
+        <button type="submit">Reset Password</button>
+        
+        <p class="forgotpw">
+            <a href="login.html">Back to Login</a>
+        </p>
+
+        <p class="newuser">
+            <a href="register.html">New to Sunbake? Create an Account!</a>
+        </p>
+    </form>
+
+    <br><br>
+
+
+</div>
+
+<div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="loading-box">
+        <div id="overlaySpinner" class="spinner"></div>
+        <p id="overlayMessage">Resetting password...</p>
+        <button type="button" id="overlayClose" class="overlay-close hidden">OK</button>
+    </div>
+</div>
+    <script src="../JS/forgotpw.js"></script>
+    <script src="../JS/website.js"></script>
+</body>
+</html>
