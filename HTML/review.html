@@ -140,30 +140,28 @@
                 </div>
 
                 <div class="review-form-group">
-                    <label for="reviewRating">
+                    <label>
                         Rating
                     </label>
-                    <select
-                        id="reviewRating"
-                        required>
-                        <option value="">
-                            Select Rating
-                        </option>
-                        <option value="5">
-                            ★★★★★ — Excellent
-                        </option>
-                        <option value="4">
-                            ★★★★ — Very Good
-                        </option>
-                        <option value="3">
-                            ★★★ — Good
-                        </option>
-                        <option value="2">
-                            ★★ — Fair
-                        </option>
-                        <option value="1">
-                            ★ — Poor
-                        </option>
+                    
+                    <!-- Interactive star rating -->
+                    <div class="star-rating-input" id="starRatingInput" role="radiogroup" aria-label="Select star rating">
+                        <span class="star-btn" data-value="1" role="radio" aria-label="1 star" tabindex="0">★</span>
+                        <span class="star-btn" data-value="2" role="radio" aria-label="2 stars" tabindex="0">★</span>
+                        <span class="star-btn" data-value="3" role="radio" aria-label="3 stars" tabindex="0">★</span>
+                        <span class="star-btn" data-value="4" role="radio" aria-label="4 stars" tabindex="0">★</span>
+                        <span class="star-btn" data-value="5" role="radio" aria-label="5 stars" tabindex="0">★</span>
+                    </div>
+                    <p class="star-rating-label" id="starRatingLabel">Click a star to rate</p>
+
+                    <!-- Hidden input that stores the selected value (used by review.js) -->
+                    <select id="reviewRating" aria-hidden="true" style="display:none">
+                        <option value="">Select Rating</option>
+                        <option value="5">Excellent</option>
+                        <option value="4">Very Good</option>
+                        <option value="3">Good</option>
+                        <option value="2">Fair</option>
+                        <option value="1">Poor</option>
                     </select>
                 </div>
 

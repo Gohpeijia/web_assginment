@@ -536,7 +536,7 @@ footer{
 }
 
 .newuser{   /*only for the new user reg hyperlink font, common in login html and forgotpw html */
-    font-style: times-new-roman;
+    font-style: 'times-new-roman';
 }
 
 .close-btn:hover {

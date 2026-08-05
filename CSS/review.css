@@ -1,6 +1,4 @@
-/* =============================================
-   REVIEW PAGE
-   ============================================= */
+/* REVIEW PAGE */
 
 .review-page-container {
     width: 90%;
@@ -162,6 +160,41 @@
     margin-top: 20px;
 }
 
+/* INTERACTIVE STAR RATING INPUT*/
+
+.star-rating-input {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.star-btn {
+    font-size: 2rem;
+    color: vaar(--text-muted); 
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.15s ease;
+    user-select: none;
+    line-height: 1;
+}
+
+.star-btn:hover,
+.star-btn.hovered {
+    color: var(--gold); 
+    transform: scale(1.2);
+}
+
+.star-btn.selected {
+    color: var(--gold);
+    transform: scale(1.1);
+}
+
+.star-rating-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    min-height: 1.2em;
+}
+
 /* Responsive layout */
 
 @media screen and (max-width: 768px) {
@@ -184,9 +217,7 @@
         flex-direction: column;
     }
 }
-/* =============================================
-   REVIEW DELETE ACTION
-   ============================================= */
+/* REVIEW DELETE ACTION */
 
 .review-comment {
     line-height: 1.6;

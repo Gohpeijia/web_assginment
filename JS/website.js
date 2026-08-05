@@ -40,10 +40,12 @@ if (account && profileModal && closeProfileBtn) {
     
     const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
     const userEmail = sessionStorage.getItem("userEmail");
+    const username = sessionStorage.getItem("username");
 
     if (isLoggedIn && userEmail) {
-      // User is logged in: show email and turn redirect button into "Log Out"
-      profileMsg.textContent = `Logged in as: ${userEmail}`;
+      // User is logged in: greet by username, show logout button
+      const displayName = username ? username : userEmail;
+      profileMsg.textContent = `Welcome back, ${displayName}!`;
       redirectBtn.textContent = 'Log Out';
       redirectBtn.href = '#';
       

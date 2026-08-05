@@ -55,7 +55,7 @@
   align-items: center;
   justify-content: center;
   transition: background-color var(--transition), transform var(--transition), border-color var(--transition);
-  box-shadow: 0 4px 10px var(half-transparent);
+  box-shadow: 0 4px 10px var(--half-transparent);
 }
 
 /*prevent button oversize*/

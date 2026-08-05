@@ -729,3 +729,86 @@ function initialiseReviewPage() {
 }
 
 initialiseReviewPage();
+
+/* INTERACTIVE STAR RATING UI*/
+
+(function () {
+    const starBtns = document.querySelectorAll(".star-btn");
+    const starLabel = document.getElementById("starRatingLabel");
+    const reviewRatingSelect = document.getElementById("reviewRating");
+
+    const ratingLabels = {
+        1: "Poor",
+        2: "Fair",
+        3: "Good",
+        4: "Very Good",
+        5: "Excellent"
+    };
+
+    let currentRating = 0;
+
+    /* Highlight all stars up to `upTo` */
+    function highlightStars(upTo) {
+        starBtns.forEach(function (star) {
+            const val = Number(star.getAttribute("data-value"));
+            star.classList.toggle("hovered", val <= upTo);
+            star.classList.toggle("selected", val <= currentRating && upTo === 0);
+        });
+    }
+
+    /* Set the selected rating */
+    function selectRating(value) {
+        currentRating = value;
+
+        /* Sync to the hidden select so review.js form submit reads it */
+        reviewRatingSelect.value = String(value);
+
+        /* Update label */
+        starLabel.textContent = ratingLabels[value] || "Click a star to rate";
+
+        /* Mark selected stars */
+        starBtns.forEach(function (star) {
+            const val = Number(star.getAttribute("data-value"));
+            star.classList.toggle("selected", val <= value);
+            star.classList.remove("hovered");
+        });
+    }
+
+    starBtns.forEach(function (star) {
+        const val = Number(star.getAttribute("data-value"));
+
+        /* Hover: light up stars */
+        star.addEventListener("mouseenter", function () {
+            highlightStars(val);
+        });
+
+        /* Mouse leave: restore to selected state */
+        star.addEventListener("mouseleave", function () {
+            highlightStars(0);
+        });
+
+        /* Click: confirm rating */
+        star.addEventListener("click", function () {
+            selectRating(val);
+        });
+
+        /* Keyboard: Enter or Space confirms rating */
+        star.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                selectRating(val);
+            }
+        });
+    });
+
+    /* Reset stars when the form is reset */
+    if (reviewForm) {
+        reviewForm.addEventListener("reset", function () {
+            currentRating = 0;
+            starBtns.forEach(function (star) {
+                star.classList.remove("selected", "hovered");
+            });
+            starLabel.textContent = "Click a star to rate";
+        });
+    }
+})();
