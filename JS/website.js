@@ -9,6 +9,7 @@ if (searchFilterBtn && filterSidebar) {
   searchFilterBtn.addEventListener('click', () => {
     filterSidebar.classList.add('open');
     sidebarOverlay.classList.add('open');
+    searchFilterBtn.setAttribute('aria-expanded', 'true');
     // Disable background scrolling when sidebar is open
     document.body.style.overflow = 'hidden'; 
   });
@@ -23,6 +24,9 @@ if (searchFilterBtn && filterSidebar) {
 function closeSidebar() {
   filterSidebar.classList.remove('open');
   sidebarOverlay.classList.remove('open');
+  if (searchFilterBtn) {
+    searchFilterBtn.setAttribute('aria-expanded', 'false');
+  }
   // Re-enable background scrolling
   document.body.style.overflow = ''; 
 }
@@ -132,6 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 isDarkMode
                     ? "Switch to light mode"
                     : "Switch to dark mode"
+            );
+            themeToggle.setAttribute(
+                "aria-pressed",
+                isDarkMode ? "true" : "false"
             );
         }
     }
