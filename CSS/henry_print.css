@@ -8,18 +8,15 @@ body {
     margin: 0;
     background: white !important;
     color: black !important;
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family:Arial;
     font-size: 11pt;
 }
 
 /* Hide unnecessary interactive elements */
-.portfolio-header,
-.portfolio-theme-toggle,
+.header1,
+.theme_toggle,
 .mobile-menu-button,
-.portfolio-button {
+.download_button {
     display: none !important;
 }
 
@@ -31,104 +28,103 @@ section {
     margin: 0 !important;
     break-inside: avoid;
 }
-.portfolio-section-title {
+.section_title {
     margin:0 0 20px !important;
     color: black !important;
     font-size: 22pt;
 }
 
 /* About */
-.about-grid {
+.about_grid {
     grid-template-columns:180px 1fr !important;
     gap: 35px !important;
 }
-.about-photo {
+.about_photo {
     max-width: 180px;
     border:1px solid #777 !important;
 }
 
-.about-label,
-.about-value {
+.about_info_type,
+.about_info_value {
     color: black !important;
 }
 
 /* Education */
-.education-item {
+.education_card {
     break-inside: avoid;
     border-color:#999 !important;
 }
-.education-details h3,
-.education-details p,
-.education-year {
+.education_details h3,
+.education_details p,
+.education_year {
     color: black !important;
 }
 
 /* Skills */
-.skill-item {
+.skills_card {
     break-inside: avoid;
 }
 
-.skill-information h3,
-.skill-information span {
+.skills_details h3,
+.skills_details span {
     color: black !important;
 }
-.skill-bar {
+.skills_bar {
     border:1px solid #777;
     background:white !important;
 }
-.skill-progress {
+.skills_progress {
     background:#555 !important;
 }
 
 /* Awards */
-.certification-card {
+.certification_card {
     break-inside: avoid;
     background:white !important;
     color:black !important;
     border:1px solid #777 !important;
 }
-.certification-provider,
-.certification-header h3,
-.certification-description {
-    color:
-        black !important;
+.certification_organisation,
+.certification_title h3,
+.certification_description {
+    color:black !important;
 }
-.certificate-view-btn {
+.view_certificate_button {
     display: none;
 }
 
 /* Projects */
-.project-item {
+.projects_card {
     break-inside: avoid;
     border-color:#999 !important;
 }
-.project-heading h3,
-.project-description,
-.project-language {
+.projects_title h3,
+.project_description,
+.project_language {
     color:black !important;
 }
-.repository-btn {
+.visit_repository_button {
     display: none;
 }
 
 /* Contact */
-.contact-label,
-.contact-item a {
+.contact_way,
+.contact_card a {
     color:black !important;
 }
 
 /* Display URL after external links */
-.contact-item a[href^="http"]::after {
+.contact_card a[href^="http"]::after {
     content:
         " (" attr(href) ")";
     font-size: 9pt;
 }
 /* Footer */
-.portfolio-footer {
+.footer {
     margin-top: 25px;
     padding: 15px 0;
     border-top:1px solid black !important;
 }
-.portfolio-footer p {
+.footer p {
     color:black !important;
 }

@@ -1,18 +1,10 @@
-const portfolioThemeToggle =
-    document.getElementById(
-        "portfolioThemeToggle"
-    );
+const theme_toggle_button = document.getElementById("theme_toggle_button");
 
 function applyPortfolioTheme(theme) {
-    const isDark =
-        theme === "dark";
-    document.body.classList.toggle(
-        "portfolio-dark",
-        isDark
-    );
-    portfolioThemeToggle.textContent =
-        isDark ? "☀" : "☾";
-    portfolioThemeToggle.setAttribute(
+    const isDark = theme === "dark";
+    document.body.classList.toggle("portfolio-dark", isDark);
+    theme_toggle_button.textContent = isDark ? "☀️" : "🌙";
+    theme_toggle_button.setAttribute(
         "aria-label",
         isDark
             ? "Switch to light mode"
@@ -22,120 +14,75 @@ function applyPortfolioTheme(theme) {
 
 /* Read previously saved theme */
 const savedPortfolioTheme =
-    localStorage.getItem(
-        "henryPortfolioTheme"
-    ) || "light";
-applyPortfolioTheme(
-    savedPortfolioTheme
-);
+    localStorage.getItem("henryPortfolioTheme") || "light";
+applyPortfolioTheme(savedPortfolioTheme);
 
 /* Change theme */
-portfolioThemeToggle.addEventListener(
+theme_toggle_button.addEventListener(
     "click",
     function () {
-        const isCurrentlyDark =
-            document.body.classList.contains(
-                "portfolio-dark"
-            );
-        const newTheme =
-            isCurrentlyDark
+        const isCurrentlyDark = document.body.classList.contains("portfolio-dark");
+        const newTheme = isCurrentlyDark
                 ? "light"
                 : "dark";
-        localStorage.setItem(
-            "henryPortfolioTheme",
-            newTheme
-        );
-        applyPortfolioTheme(
-            newTheme
-        );
+        localStorage.setItem("henryPortfolioTheme", newTheme);
+        applyPortfolioTheme(newTheme);
     }
 );
 
 /*MOBILE NAVIGATION*/
-const mobileMenuButton =
-    document.getElementById(
-        "mobileMenuButton"
-    );
+const mobileMenuButton = document.getElementById("mobileMenuButton");
 
-const portfolioNavLinks =
-    document.getElementById(
-        "portfolioNavLinks"
-    );
+const portfolioNavLinks = document.getElementById("portfolioNavLinks");
 
 mobileMenuButton.addEventListener(
     "click",
     function () {
-        const isOpen =
-            portfolioNavLinks.classList.toggle(
-                "open"
-            );
-        mobileMenuButton.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-        );
-        mobileMenuButton.textContent =
-            isOpen ? "✕" : "☰";
+        const isOpen = portfolioNavLinks.classList.toggle("open");
+        mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+        mobileMenuButton.textContent = isOpen ? "✕" : "☰";
     }
 );
 
 /*Close menu after selecting a section*/
-const navigationLinks =
-    portfolioNavLinks.querySelectorAll("a");
+const navigationLinks = portfolioNavLinks.querySelectorAll("a");
 navigationLinks.forEach(
     function (link) {
         link.addEventListener(
             "click",
             function () {
-                portfolioNavLinks.classList.remove(
-                    "open"
-                );
-                mobileMenuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-                mobileMenuButton.textContent =
-                    "☰";
+                portfolioNavLinks.classList.remove("open");
+                mobileMenuButton.setAttribute("aria-expanded", "false");
+                mobileMenuButton.textContent = "☰";
             }
         );
     }
 );
 
 /*SIMULATED CV DOWNLOAD*/
-const downloadCVButton =
-    document.getElementById(
-        "downloadCV"
-    );
+const downloadresumeButton = document.getElementById("downloadresume");
 
-const cvDownloadStatus =
-    document.getElementById(
-        "cvDownloadStatus"
-    );
+const resumedownloadstatus = document.getElementById("resumedownloadstatus");
 
-downloadCVButton.addEventListener(
+downloadresumeButton.addEventListener(
     "click",
     function () {
         let progress = 0;
-        downloadCVButton.disabled =
-            true;
-        cvDownloadStatus.textContent =
-            "Preparing CV... 0%";
-        const downloadInterval =
-            setInterval(
-                function () {
-                    progress += 10;
-                    cvDownloadStatus.textContent =
-                        `Preparing CV... ${progress}%`;
-                    if (progress >= 100) {
-                        clearInterval(
-                            downloadInterval
-                        );
-                        cvDownloadStatus.textContent =
-                            "CV download simulation completed.";
-                        downloadCVButton.disabled =
-                            false;
-                    }
-                },
-                120
+        downloadresumeButton.disabled = true;
+        resumedownloadstatus.textContent = "Preparing CV... 0%";
+        const downloadInterval = setInterval(
+            function () {
+                progress += 10;
+                resumedownloadstatus.textContent = `Preparing CV... ${progress}%`;
+                if (progress >= 100) {
+                    clearInterval(downloadInterval);
+                    resumedownloadstatus.textContent = "CV download simulation completed.";
+                    downloadresumeButton.disabled = false;
+
+                    window.location.href = "../Assets/Portfolio/Henry/Henry_Resume.pdf"
+                }
+            },
+            120
             );
     }
 );

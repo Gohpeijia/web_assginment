@@ -4,224 +4,263 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Henry Wong Zi Gang | Portfolio</title>
+        <link rel="icon" type="gif" href="../Assets/Portfolio/Henry/icon.gif">
         <link rel="stylesheet" href="../CSS/henry_portfolio.css">
         <link rel="stylesheet" href="../CSS/henry_print.css" media="print">
     </head>
 
-    <body id="top">
-        <header class="portfolio-header">
-            <nav class="portfolio-nav">
-                <a href="#top" class="portfolio-name">Henry</a>
-                <div class="portfolio-nav-links" id="portfolioNavLinks">
+    <body id="index">
+        <header class="header1">
+            <nav class="header_nav">
+                <a href="#index" class="header_name">Henry Wong</a>
+                <button type="button" id="mobileMenuButton" class="mobile-menu-button">☰</button>
+                <div class="header_nav_links" id="portfolioNavLinks">
                     <a href="#about">About Me</a>
                     <a href="#education">Education</a>
                     <a href="#skills">Skills</a>
-                    <a href="#awards">Awards</a>
+                    <a href="#awards">Awards & Certification</a>
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
-                    <button type="button" id="portfolioThemeToggle" class="portfolio-theme-toggle">🌙</button>
+                </div>
+                <button type="button" class="theme_toggle" id="theme_toggle_button">🌙</button>
             </nav>
         </header>
 
         <main>
             <!--About Me-->
-            <section id="about" class="about-section">
-                <h2 class="portfolio-section-title">About Me</h2>
-                <div class="about-grid">
-                    <div class="about-photo">
-                        <img src="../Assets/Portfolio/Henry/Henry.jpeg" alt="Henry_Portfolio">
+            <section id="about" class="about_section">
+                <h2 class="section_title">About Me</h2>
+                <div class="about_grid">
+                    <div class="about_photo">
+                        <img src="../Assets/Portfolio/Henry/Henry.jpeg" alt="Henry_Portfolio_Photo">
                     </div>
 
                     <!-- Personal Information -->
-                    <div class="about-information">
-                        <div class="about-info-row">
-                            <span class="about-label">Name</span>
-                            <span class="about-value">Henry Wong Zi Gang</span>
+                    <div class="about_information">
+                        <div class="about_row">
+                            <span class="about_info_type">Name</span>
+                            <span class="about_info_value">Henry Wong Zi Gang</span>
                         </div>
 
-                        <div class="about-info-row">
-                            <span class="about-label">Email</span>
-                            <a class="about-value" href="mailto:henrywong2006@hotmail.com">henrywong2006@hotmail.com</a>
+                        <div class="about_row">
+                            <span class="about_info_type">Email</span>
+                            <a class="about_info_value" href="mailto:henrywong2006@hotmail.com">henrywong2006@hotmail.com</a>
                         </div>
 
-                        <div class="about-info-row">
-                            <span class="about-label">Location</span>
-                            <span class="about-value">Subang Jaya, Selangor, Malaysia</span>
+                        <div class="about_row">
+                            <span class="about_info_type">Location</span>
+                            <span class="about_info_value">Subang Jaya, Selangor, Malaysia</span>
                         </div>
 
-                        <div class="about-info-row">
-                            <span class="about-label">GitHub</span>
-                            <a class="about-value" href="https://github.com/Henry-Wong-Zi-Gang">github.com/Henry-Wong-Zi-Gang</a>
+                        <div class="about_row">
+                            <span class="about_info_type">GitHub</span>
+                            <a class="about_info_value" href="https://github.com/Henry-Wong-Zi-Gang">github.com/Henry-Wong-Zi-Gang</a>
                         </div>
 
-                        <div class="about-info-row">
-                            <span class="about-label">LinkedIn</span>
-                            <a class="about-value" href="https://www.linkedin.com/in/忆-回-b82bb340a">linkedin.com/in/忆-回-b82bb340a</a>
+                        <div class="about_row">
+                            <span class="about_info_type">LinkedIn</span>
+                            <a class="about_info_value" href="https://www.linkedin.com/in/忆-回-b82bb340a">linkedin.com/in/忆-回-b82bb340a</a>
                         </div>
 
-                        <div class="about-info-row">
-                            <span class="about-label">Status</span>
-                            <span class="about-value about-status">
-                                <span class="status-dot"></span>
+                        <div class="about_row">
+                            <span class="about_info_type">Status</span>
+                            <span class="about_info_value current_status">
                                 Student
                             </span>
                         </div>
 
-                        <div class="cv-area">
-                            <button type="button" id="downloadCV" class="portfolio-button">
+                        <div>
+                            <button type="button" id="downloadresume" class="download_button">
                                 Download Resume / CV
                             </button>
-                            <span id="cvDownloadStatus" class="cv-download-status"></span>
+                            <span id="resumedownloadstatus" class="cv-download-status"></span>
                         </div>
                     </div>
                 </div>
             </section>
 
-
             <!--EDUCATION-->
-            <section id="education" class="education-section">
-                <h2 class="portfolio-section-title">Education</h2>
+            <section id="education" class="education_section">
+                <h2 class="section_title">Education</h2>
+                <div class="education_timeline"> <!--box-->
+                    <div class="timeline_line"></div> <!--line only-->
+                    <div class="timeline_point completed">
+                        <span class="timeline_dot"></span>
+                        <span class="timeline_year">2022</span>
+                        <span class="timeline_description">Started UEC Studies</span>
+                    </div>
 
-                <div class="education-list">
-                    <article class="education-item">
-                        <div class="education-details">
+                    <div class="timeline_point completed">
+                        <span class="timeline_dot"></span>
+                        <span class="timeline_year">2024</span>
+                        <span class="timeline_description">Completed UEC</span>
+                    </div>
+
+                    <div class="timeline_point completed">
+                        <span class="timeline_dot"></span>
+                        <span class="timeline_year">2025</span>
+                        <span class="timeline_description">Started Computer Science</span>
+                    </div>
+
+                    <div class="timeline_point current">
+                        <span class="timeline_dot"></span>
+                        <span class="timeline_year">2026</span>
+                        <span class="timeline_description">Current Study</span>
+                    </div>
+
+                    <div class="timeline_point future">
+                        <span class="timeline_dot"></span>
+                        <span class="timeline_year">2028</span>
+                        <span class="timeline_description">Expected Graduation</span>
+                    </div>
+                </div>
+
+                <div class="education_info">
+                    <div class="education_card">
+                        <div class="education_details">
                             <h3>Sunway University</h3>
                             <p>Bachelor of Computer Science (Hons)</p>
                         </div>
-                        <p class="education-year">2025 – Present</p>
-                    </article>
+                        <p class="education_year">2025 – Present</p>
+                    </div>
 
-                    <article class="education-item">
-                        <div class="education-details">
+                    <div class="education_card">
+                        <div class="education_details">
                             <h3>Catholic High School Sibu</h3>
                             <p>Unified Examination Certificate (UEC)</p>
                         </div>
-                        <p class="education-year">2022 – 2024</p>
-                    </article>
+                        <p class="education_year">2022 – 2024</p>
+                    </div>
                 </div>
             </section>
 
             <!--SKILLS-->
-            <section id="skills" class="skills-section">
-                <h2 class="portfolio-section-title">Skills</h2>
+            <section id="skills" class="skills_section">
+                <h2 class="section_title">Skills</h2>
 
-                <div class="skills-list">
-                    <div class="skill-item">
-                        <div class="skill-information">
+                <div class="skills_info">
+                    <div class="skills_card">
+                        <div class="skills_details">
                             <h3>Python</h3>
                             <span>2025 Sem 1</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress python-progress"></div>
+                        <div class="skills_bar">
+                            <div class="skills_progress python_progress"></div>
                         </div>
                     </div>
 
-                    <div class="skill-item">
-                        <div class="skill-information">
+                    <div class="skills_card">
+                        <div class="skills_details">
                             <h3>Java</h3>
                             <span>2026 Sem 3</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress java-progress"></div>
+                        <div class="skills_bar">
+                            <div class="skills_progress java_progress"></div>
                         </div>
                     </div>
 
-                    <div class="skill-item">
-                        <div class="skill-information">
+                    <div class="skills_card">
+                        <div class="skills_details">
                             <h3>HTML</h3>
                             <span>2026 Sem 3</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress html-progress"></div>
+                        <div class="skills_bar">
+                            <div class="skills_progress html_progress"></div>
                         </div>
                     </div>
 
-                    <div class="skill-item">
-                        <div class="skill-information">
+                    <div class="skills_card">
+                        <div class="skills_details">
                             <h3>CSS</h3>
                             <span>2026 Sem 3</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress css-progress"></div>
+                        <div class="skills_bar">
+                            <div class="skills_progress css_progress"></div>
                         </div>
                     </div>
 
-                    <div class="skill-item">
-                        <div class="skill-information">
+                    <div class="skills_card">
+                        <div class="skills_details">
                             <h3>SQL</h3>
                             <span>2026 Sem 3</span>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress sql-progress"></div>
+                        <div class="skills_bar">
+                            <div class="skills_progress sql_progress"></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!--AWARDS & CERTIFICATION-->
-            <section id="awards" class="awards-section">
-                <h2 class="portfolio-section-title">Awards &amp; Certification</h2>
-                <div class="certification-grid">
-                    <article class="certification-card">
-                        <div class="certification-header">
-                            <span class="certification-provider">Cisco Networking Academy</span>
+            <section id="awards" class="awards_section">
+                <h2 class="section_title">Awards &amp; Certification</h2>
+                <div class="certification_grid">
+                    <div class="certification_card">
+                        <div class="certification_title">
+                            <span class="certification_organisation">Cisco Networking Academy</span>
                             <h3>CCNA: Introduction to Networks</h3>
                         </div>
-
-                        <p class="certification-description">
-                            Completed the Introduction to Networks
-                            course through Cisco Networking Academy.
+                        <p class="certification_description">
+                            Completed CCNA: Introduction to Networks course through Cisco Networking Academy during 2026 February Semester (Sem 2).
                         </p>
-
-                        <a class="certificate-view-btn" href="../Assets/Portfolio/Henry/CCNA-_Introduction_to_Networks_certificate_25019050.pdf">
+                        <a class="view_certificate_button" href="../Assets/Portfolio/Henry/CCNA-_Introduction_to_Networks_certificate_25019050.pdf">
                             View Certificate
                         </a>
-                    </article>
+                    </div>
+
+                    <div class="certification_card">
+                        <div class="certification_title">
+                            <span class="certification_organisation">Sunway University</span>
+                            <h3>Dean's List Award</h3>
+                        </div>
+                        <p class="certification_description">
+                            Outstanding academic performance for the September 2025 Semester (Sem 1)
+                        </p>
+                        <a class="view_certificate_button" href="../Assets/Portfolio/Henry/Dean's_List_Award.pdf">
+                            View Certificate
+                        </a>
+                    </div>
                 </div>
             </section>
 
             <!--PROJECTS-->
-            <section id="projects" class="projects-section">
-                <h2 class="portfolio-section-title">Projects</h2>
-                <div class="project-list">
-                    <article class="project-item">
-                        <div class="project-information">
-                            <div class="project-heading">
-                                <h3>Blood Donation Database</h3>
-                                <span class="project-language">SQL</span>
+            <section id="projects" class="projects_section">
+                <h2 class="section_title">Projects</h2>
+                <div class="project_list">
+                    <div class="projects_card">
+                        <div class="projects_info">
+                            <div class="projects_title">
+                                <h3>Student Grading System</h3>
+                                <span class="project_language">Python</span>
                             </div>
-
-                            <p class="project-description">
-                                A database project developed to manage
-                                donor information, blood donations,
-                                blood inventory and blood issue records.
+                            <p class="project_description">
+                                A student grading system which allows users to input students, course, records marks, display individual student performance and course performance summaries and export report.
                             </p>
                         </div>
-
-                        <a class="repository-btn" href="../Assets/Portfolio/Henry/Blood_Donation_Final.sql">
-                            Visit Repository
+                        <a class="visit_repository_button" href="../Assets/Portfolio/Henry/Student_Grading_System_code.png">
+                            View Example Code and Output
                         </a>
-                    </article>
+                    </div>
                 </div>
             </section>
 
             <!--CONTACT-->
-            <section id="contact" class="contact-section">
-                <h2 class="portfolio-section-title">Let's Connect</h2>
+            <section id="contact" class="contact_section">
+                <h2 class="section_title">Let's Connect</h2>
 
-                <div class="contact-list">
-                    <div class="contact-item">
-                        <span class="contact-label">Email</span>
+                <div class="contact_list">
+                    <div class="contact_card">
+                        <span class="contact_way">Email</span>
                         <a href="mailto:henrywong2006@hotmail.com">henrywong2006@hotmail.com</a>
                     </div>
 
-                    <div class="contact-item">
-                        <span class="contact-label">LinkedIn</span>
+                    <div class="contact_card">
+                        <span class="contact_way">LinkedIn</span>
                         <a href="https://www.linkedin.com/in/忆-回-b82bb340a">linkedin.com/in/忆-回-b82bb340a</a>
                     </div>
 
-                    <div class="contact-item">
-                        <span class="contact-label">GitHub</span>
+                    <div class="contact_card">
+                        <span class="contact_way">GitHub</span>
                         <a href="https://github.com/Henry-Wong-Zi-Gang">github.com/Henry-Wong-Zi-Gang</a>
                     </div>
                 </div>
@@ -229,7 +268,7 @@
         </main>
 
         <!--FOOTER-->
-        <footer class="portfolio-footer">
+        <footer class="footer">
             <p>&copy; 2026 Henry Wong Zi Gang</p>
         </footer>
 
