@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwa Min Min Alice</title>
+    <link rel="icon" type="image/gif" href="../Assets/Portfolio/Alice/cat.gif">
+    <link rel="stylesheet" href="../CSS/alice_portfolio.css">
+    <script src="../JS/portfolioalice.js" defer></script>
+</head>
+
+<body>
+
+<!-- ================= Navigation ================= -->
+
+<header>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Kwa Min Min Alice
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="#about">👤 About Me</a></li>
+
+        <li><a href="#education">🎓 Education</a></li>
+
+        <li><a href="#skills">💻 Technical Skills</a></li>
+
+        <li><a href="#projects">🚀 Projects</a></li>
+
+        <li><a href="#awards">🏆 Awards & Certifications</a></li>
+
+        <li><a href="#contact">📬 Contact Me</a></li>
+
+    </ul>
+
+    <button id="themeToggle" class="theme-toggle">
+    🌙
+    </button>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-image">
+
+    <img src="../Assets/Portfolio/Alice/Alice.jpeg" alt="Profile">
+
+</div>
+
+
+<div class="hero-text">
+
+    <p class="hello">
+        Hello 👋 I'm
+    </p>
+
+    <h1>Kwa Min Min Alice</h1>
+    
+    <span class="status-badge">🟢 Sunway University Student</span>
+    <h3>Bachelor of Computer Science Student</h3>
+
+    <p class="intro">
+
+        Currently studying at
+        <strong>Sunway University</strong>.
+
+        Passionate about software development,
+        networking and web design.
+
+    </p>
+
+    <div class="resume-download-wrapper">
+        <button class="resume-btn" 
+                id="resumeBtn" 
+                data-file="../Assets/Portfolio/Alice/Alice_Resume.pdf" 
+                onclick="startResumeDownload(this)">
+            <span>📄 Download Resume/CV</span>
+        </button>
+
+        <div class="resume-progress-box" id="resumeProgressBox">
+            <div class="resume-progress-header">
+                <span class="resume-progress-status" id="resumeStatusText">Downloading...</span>
+                <span class="resume-progress-percentage" id="resumePercentText">0%</span>
+            </div>
+            <div class="resume-progress-bar-bg">
+                <div class="resume-progress-bar-fill" id="resumeProgressFill"></div>
+            </div>
+        </div>
+
+        <div class="resume-success-badge" id="resumeSuccessBadge">
+            ✓ Resume Downloaded Successfully!
+        </div>
+    </div>
+
+</div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ================= About ================= -->
+
+<section id="about" class="section">
+    <h2>👤 About Me</h2>
+    <div class="about-card">
+        <div class="about-grid">
+            <div class="about-bio">
+                <p>
+                    I am currently pursuing a Bachelor of Computer Science at Sunway University. 
+                    I am deeply interested in exploring various technology domains and computer science subjects. 
+                    I enjoy learning programming, web development and networking. 
+                    I enjoy solving problems and creating user-friendly applications.
+                </p>
+            </div>
+
+            <div class="about-details">
+                <div class="detail-item">
+                    <strong>📍 Location</strong>
+                    <p>Subang Jaya, Selangor</p>
+                </div>
+
+                <div class="detail-item">
+                    <strong>✉️ Email</strong>
+                    <a href="mailto:alicekwa2006@gmail.com">alicekwa2006@gmail.com</a>
+                </div>
+
+                <div class="detail-item">
+                    <strong>💻 GitHub</strong>
+                    <a href="https://github.com/KwaAlice" target="_blank">github.com/KwaAlice</a>
+                </div>
+
+                <div class="detail-item">
+                    <strong>💼 LinkedIn</strong>
+                    <a href="https://www.linkedin.com/in/kwa-alice-868031386/?locale=en" target="_blank">linkedin.com/in/kwa-alice</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ================= Education ================= -->
+
+<section id="education" class="section">
+    <h2>🎓 Education</h2>
+    <div class="education-container">
+        <div class="education-item">
+            <span class="education-time">2025 - Present</span> 
+            <h3>Bachelor of Computer Science(Honours)</h3>
+            <p>Sunway University</p>
+        </div>
+        
+        <div class="education-item">
+            <span class="education-time">2024 - 2025</span> 
+            <h3>Foundation in Science and Technology</h3>
+            <p>Sunway College</p>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ================= Technical Skills ================= -->
+
+<section id="skills" class="section">
+    <h2>💻 Technical Skills</h2>
+    <div class="skills-list">
+
+        <div class="skill-row">
+            <div class="skill-info">
+                <div class="skill-title-group">
+                    <h3>☕ Java</h3>
+                    <span class="stars">★★★★★☆</span>
+                </div>
+                <p>GUI, Methods, OOP and Basic Concepts</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-row">
+            <div class="skill-info">
+                <div class="skill-title-group">
+                    <h3>🐍 Python</h3>
+                    <span class="stars">★★★★☆☆</span>
+                </div>
+                <p>Basic syntax, Loops, Iterations, Functions and File Handling</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-row">
+            <div class="skill-info">
+                <div class="skill-title-group">
+                    <h3>🌐 Web Fundamentals (HTML, CSS & JS)</h3>
+                    <span class="stars">★★★★☆☆</span>
+                </div>
+                <p>HTML Structure, CSS Box Model (visual box), DOM Events and Visual Studio Code</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-row">
+            <div class="skill-info">
+                <div class="skill-title-group">
+                    <h3>📡 Networking</h3>
+                    <span class="stars">★★★☆☆☆</span>
+                </div>
+                <p>Cisco Packet Tracer, Switches, Routers & LAN Topologies</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 50%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-row">
+            <div class="skill-info">
+                <div class="skill-title-group">
+                    <h3>🗄️ Database Systems (SQL)</h3>
+                    <span class="stars">★★★☆☆☆</span>
+                </div>
+                <p>Database Design, SQL Queries, Data Manipulation, Table Management and ERD Diagrams</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 50%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ================= Projects ================= -->
+
+<section id="projects" class="section">
+    <h2>🚀 Projects</h2>
+    <div class="project-grid">
+
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Student Grading System</h3>
+                <p>Developed a Python system for managing student records and calculating grades efficiently.</p>
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>System Design</span>
+                </div>
+                <a href="../Assets/Portfolio/Alice/Project 1_example code.png.png" target="_blank" class="project-link">
+                    🖼️ View Example Code
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Java Desktop & Mobile Donation Application (TreeFund)</h3>
+                <p>Designed and built an interactive desktop GUI application mimicking a mobile donation interface, integrating smooth user navigation, real-time donation processing and custom GUI components in Java.</p>
+                <div class="project-tags">
+                    <span>Java</span>
+                    <span>Java Swing/AWT</span>
+                    <span>GUI Development</span>
+                </div>
+                <div class="project-links" style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                    <a href="../Assets/Portfolio/Alice/Project 2_example code.png" target="_blank" class="project-link">
+                        🖼️ View Example Code
+                    </a>
+                    <a href="../Assets/Portfolio/Alice/Project 2_example screen.png" target="_blank" class="project-link">
+                        🖼️ View Example Screen
+            </a>
+        </div>
+    </div>
+</div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <h3>Networking Design</h3>
+                <p>Designed and configured network topologies, switches and router setups using Cisco Packet Tracer.</p>
+                <div class="project-tags">
+                    <span>Networking</span>
+                    <span>Cisco Packet Tracer</span>
+                </div>
+                <a href="../Assets/Portfolio/Alice/Project 3_networking diagram.png." target="_blank" class="project-link">
+                    🖼️ View Networking Diagram
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ================= Awards ================= -->
+
+<section id="awards" class="section">
+    <h2>🏆 Awards & Certifications</h2>
+    <div class="award-grid">
+
+        <div class="award-card">
+            <div class="award-info">
+                <h3>Dean's List Award</h3>
+                <p>Awarded for outstanding academic achievement in the September 2025 semester.</p>
+            </div>
+            <a href="../Assets/Portfolio/Alice/Dean's List Award.pdf" target="_blank" class="cert-btn">
+                📄 View Certificate (PDF)
+            </a>
+        </div>
+
+        <div class="award-card">
+            <div class="award-info">
+                <h3>Cisco Packet Tracer Certification</h3>
+                <p>Certified proficiency in network simulation, switch and router configuration and routing principles.</p>
+            </div>
+            <a href="../Assets/Portfolio/Alice/CCNA Certificate.pdf" target="_blank" class="cert-btn">
+                📄 View Certificate (PDF)
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ================= Contact ================= -->
+
+<section id="contact" class="section">
+    <h2>📬 Contact Me</h2>
+    <div class="contact-grid">
+        <a href="mailto:alicekwa2006@gmail.com" class="contact-card">
+            <h3>📧 Email</h3>
+            <p>Send an Email</p>
+        </a>
+
+        <a href="https://www.linkedin.com/in/kwa-alice-868031386/" target="_blank" class="contact-card">
+            <h3>💼 LinkedIn</h3>
+            <p>Connect on LinkedIn</p>
+        </a>
+
+        <a href="https://github.com/KwaAlice" target="_blank" class="contact-card">
+            <h3>💻 GitHub</h3>
+            <p>Explore My GitHub</p>
+        </a>
+    </div>
+</section>
+
+<!-- ================= Footer ================= -->
+<footer>
+    <p>© 2026 Kwa Min Min Alice. All Rights Reserved.</p>
+    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 5px;">
+        Designed & Built by Kwa Min Min Alice
+    </p>
+</footer>
+
+</body>
+</html>
