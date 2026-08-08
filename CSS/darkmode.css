@@ -124,8 +124,9 @@ body.dark-mode .opt-btn.active{
     color: white;
 }
 
-body.dark-mode .add-to-cart-btn{
+body.dark-mode .add-to-cart-btn {
     background: #8B6B20;
+    color: white;
 }
 
 /* ---------- LOGIN & REGISTER ---------- */
@@ -321,9 +322,4 @@ body.dark-mode .review-form-group textarea::placeholder {
 body.dark-mode .average-review-stars,
 body.dark-mode .review-stars {
     color: #F5C842;
-}
-
-body.dark-mode .add-to-cart-btn {
-    background-color: #8B6B20;
-    color: white;
 }
