@@ -13,7 +13,7 @@ body {
 }
 
 /* Hide unnecessary interactive elements */
-.header1,
+header,
 .theme_toggle,
 .mobile-menu-button,
 .download_button {
@@ -54,8 +54,8 @@ section {
     break-inside: avoid;
     border-color:#999 !important;
 }
-.education_details h3,
-.education_details p,
+.education_school,
+.education_course,
 .education_year {
     color: black !important;
 }
@@ -85,7 +85,7 @@ section {
     border:1px solid #777 !important;
 }
 .certification_organisation,
-.certification_title h3,
+.certification_name,
 .certification_description {
     color:black !important;
 }
@@ -98,9 +98,8 @@ section {
     break-inside: avoid;
     border-color:#999 !important;
 }
-.projects_title h3,
-.project_description,
-.project_language {
+.projects_title,
+.project_description {
     color:black !important;
 }
 .visit_repository_button {

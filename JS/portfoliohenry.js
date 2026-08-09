@@ -30,35 +30,6 @@ theme_toggle_button.addEventListener(
     }
 );
 
-/*MOBILE NAVIGATION*/
-const mobileMenuButton = document.getElementById("mobileMenuButton");
-
-const portfolioNavLinks = document.getElementById("portfolioNavLinks");
-
-mobileMenuButton.addEventListener(
-    "click",
-    function () {
-        const isOpen = portfolioNavLinks.classList.toggle("open");
-        mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
-        mobileMenuButton.textContent = isOpen ? "✕" : "☰";
-    }
-);
-
-/*Close menu after selecting a section*/
-const navigationLinks = portfolioNavLinks.querySelectorAll("a");
-navigationLinks.forEach(
-    function (link) {
-        link.addEventListener(
-            "click",
-            function () {
-                portfolioNavLinks.classList.remove("open");
-                mobileMenuButton.setAttribute("aria-expanded", "false");
-                mobileMenuButton.textContent = "☰";
-            }
-        );
-    }
-);
-
 /*SIMULATED CV DOWNLOAD*/
 const downloadresumeButton = document.getElementById("downloadresume");
 

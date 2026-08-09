@@ -9,12 +9,11 @@
         <link rel="stylesheet" href="../CSS/henry_print.css" media="print">
     </head>
 
-    <body id="index">
-        <header class="header1">
-            <nav class="header_nav">
-                <a href="#index" class="header_name">Henry Wong</a>
-                <button type="button" id="mobileMenuButton" class="mobile-menu-button">☰</button>
-                <div class="header_nav_links" id="portfolioNavLinks">
+    <body>
+        <header>
+            <nav>
+                <span class="name">Henry Wong</span>
+                <div class="navigation_menu">
                     <a href="#about">About Me</a>
                     <a href="#education">Education</a>
                     <a href="#skills">Skills</a>
@@ -37,6 +36,9 @@
 
                     <!-- Personal Information -->
                     <div class="about_information">
+                        <p class="about_bio">
+                            Hello! I am <span class="name">Henry Wong</span>. Currently a year 1 student in Sunway University BCS course. Here is my basic information:
+                        </p>
                         <div class="about_row">
                             <span class="about_info_type">Name</span>
                             <span class="about_info_value">Henry Wong Zi Gang</span>
@@ -63,10 +65,8 @@
                         </div>
 
                         <div class="about_row">
-                            <span class="about_info_type">Status</span>
-                            <span class="about_info_value current_status">
-                                Student
-                            </span>
+                            <span class="about_info_type">Current Status</span>
+                            <span class="about_info_value">Student</span>
                         </div>
 
                         <div>
@@ -115,19 +115,19 @@
                     </div>
                 </div>
 
-                <div class="education_info">
+                <div>
                     <div class="education_card">
-                        <div class="education_details">
-                            <h3>Sunway University</h3>
-                            <p>Bachelor of Computer Science (Hons)</p>
+                        <div>
+                            <h3 class="education_school">Sunway University</h3>
+                            <p class="education_course">Bachelor of Computer Science (Hons)</p>
                         </div>
                         <p class="education_year">2025 – Present</p>
                     </div>
 
                     <div class="education_card">
-                        <div class="education_details">
-                            <h3>Catholic High School Sibu</h3>
-                            <p>Unified Examination Certificate (UEC)</p>
+                        <div>
+                            <h3 class="education_school">Catholic High School Sibu</h3>
+                            <p class="education_course">Unified Examination Certificate (UEC)</p>
                         </div>
                         <p class="education_year">2022 – 2024</p>
                     </div>
@@ -141,8 +141,8 @@
                 <div class="skills_info">
                     <div class="skills_card">
                         <div class="skills_details">
-                            <h3>Python</h3>
-                            <span>2025 Sem 1</span>
+                            <h3 class="skills_language">Python</h3>
+                            <span class="skills_time">2025 Sem 1</span>
                         </div>
                         <div class="skills_bar">
                             <div class="skills_progress python_progress"></div>
@@ -151,8 +151,8 @@
 
                     <div class="skills_card">
                         <div class="skills_details">
-                            <h3>Java</h3>
-                            <span>2026 Sem 3</span>
+                            <h3 class="skills_language">Java</h3>
+                            <span class="skills_time">2026 Sem 3</span>
                         </div>
                         <div class="skills_bar">
                             <div class="skills_progress java_progress"></div>
@@ -161,8 +161,8 @@
 
                     <div class="skills_card">
                         <div class="skills_details">
-                            <h3>HTML</h3>
-                            <span>2026 Sem 3</span>
+                            <h3 class="skills_language">HTML</h3>
+                            <span class="skills_time">2026 Sem 3</span>
                         </div>
                         <div class="skills_bar">
                             <div class="skills_progress html_progress"></div>
@@ -171,8 +171,8 @@
 
                     <div class="skills_card">
                         <div class="skills_details">
-                            <h3>CSS</h3>
-                            <span>2026 Sem 3</span>
+                            <h3 class="skills_language">CSS</h3>
+                            <span class="skills_time">2026 Sem 3</span>
                         </div>
                         <div class="skills_bar">
                             <div class="skills_progress css_progress"></div>
@@ -181,8 +181,8 @@
 
                     <div class="skills_card">
                         <div class="skills_details">
-                            <h3>SQL</h3>
-                            <span>2026 Sem 3</span>
+                            <h3 class="skills_language">SQL</h3>
+                            <span class="skills_time">2026 Sem 3</span>
                         </div>
                         <div class="skills_bar">
                             <div class="skills_progress sql_progress"></div>
@@ -198,7 +198,7 @@
                     <div class="certification_card">
                         <div class="certification_title">
                             <span class="certification_organisation">Cisco Networking Academy</span>
-                            <h3>CCNA: Introduction to Networks</h3>
+                            <span class="certification_name">CCNA: Introduction to Networks</span>
                         </div>
                         <p class="certification_description">
                             Completed CCNA: Introduction to Networks course through Cisco Networking Academy during 2026 February Semester (Sem 2).
@@ -211,7 +211,7 @@
                     <div class="certification_card">
                         <div class="certification_title">
                             <span class="certification_organisation">Sunway University</span>
-                            <h3>Dean's List Award</h3>
+                            <span class="certification_name">Dean's List Award</span>
                         </div>
                         <p class="certification_description">
                             Outstanding academic performance for the September 2025 Semester (Sem 1)
@@ -226,21 +226,18 @@
             <!--PROJECTS-->
             <section id="projects" class="projects_section">
                 <h2 class="section_title">Projects</h2>
-                <div class="project_list">
-                    <div class="projects_card">
-                        <div class="projects_info">
-                            <div class="projects_title">
-                                <h3>Student Grading System</h3>
-                                <span class="project_language">Python</span>
-                            </div>
-                            <p class="project_description">
-                                A student grading system which allows users to input students, course, records marks, display individual student performance and course performance summaries and export report.
-                            </p>
+                <div class="projects_card">
+                    <div>
+                        <div>
+                            <span class="projects_title">Student Grading System (Python)</span>
                         </div>
-                        <a class="visit_repository_button" href="../Assets/Portfolio/Henry/Student_Grading_System_code.png">
-                            View Example Code and Output
-                        </a>
+                        <p class="project_description">
+                             A student grading system which allows users to input students, course, records marks, display individual student performance and course performance summaries and export report.
+                        </p>
                     </div>
+                    <a class="visit_repository_button" href="../Assets/Portfolio/Henry/Student_Grading_System_code.png">
+                        View Example Code and Output
+                    </a>
                 </div>
             </section>
 
@@ -248,7 +245,7 @@
             <section id="contact" class="contact_section">
                 <h2 class="section_title">Let's Connect</h2>
 
-                <div class="contact_list">
+                <div class="contact_grid">
                     <div class="contact_card">
                         <span class="contact_way">Email</span>
                         <a href="mailto:henrywong2006@hotmail.com">henrywong2006@hotmail.com</a>
