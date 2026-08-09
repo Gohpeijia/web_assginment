@@ -159,117 +159,151 @@
     background: #5C3317;
 }
 
-@media (max-width: 768px) {
-    html, body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
+/* ── Tablet (≤ 780px) ── */
+@media (max-width: 780px) {
+
+    /* ── Nav: same horizontal 3-column style as index page ── */
+    .navigation_bar {
+        padding: 10px 12px;
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
     }
 
-    * {
-        box-sizing: border-box !important;
+    .logo img {
+        width: 110px;
+        height: auto;
     }
 
-    header, nav, .navbar {
-        width: 92% !important;              
-        margin: 10px auto !important;        
-        padding: 12px 15px !important;      
-        
-        display: flex !important;
-        flex-direction: column !important;   
-        align-items: center !important;
-        gap: 10px !important;
-
-        height: auto !important;             
-        position: relative !important;
-        box-sizing: border-box !important;
+    .nav-left {
+        gap: 4px;
+        flex-shrink: 0;
     }
 
-    .logo, .navbar-brand, nav h1, nav h2, header h1 {
-        font-size: 1.8rem !important;
-        margin: 0 !important;
-        text-align: center !important;
+    .nav-left a {
+        font-size: 8.5px;
+        white-space: nowrap;
+        font-weight: bold;
     }
 
-    .nav-links, .nav-container, nav ul {
-        display: flex !important;
-        flex-wrap: nowrap !important;      
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 12px !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 4px 5px !important;
-        margin: 0 !important;
-
-        overflow-x: auto !important;          
-        overflow-y: hidden !important;
-        -webkit-overflow-scrolling: touch !important; 
-        scrollbar-width: none !important;    
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
     }
 
-    .nav-links::-webkit-scrollbar,
-    .nav-container::-webkit-scrollbar {
-        display: none !important;
+    .nav-right a,
+    .nav-right button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
     }
 
-    .nav-links a,
-    .nav-links li,
-    .profile-icon,
-    .avatar,
-    #themeToggle,
-    .theme-toggle,
-    .theme-btn,
-    nav img {
-        flex-shrink: 0 !important;           
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        white-space: nowrap !important;      
-        font-size: 0.9rem !important;
+    .nav-right .icons {
+        width: 22px;
+        height: 22px;
     }
 
-    .get-to-know-us, 
-    .about-us, 
-    .section,
-    footer {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 5% !important;
-        padding-right: 5% !important;
-        box-sizing: border-box !important;
+    .theme-toggle {
+        width: 22px;
+        height: 22px;
+        font-size: 19px;
     }
 
     .cart-container {
-        flex-direction: column !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+        flex-direction: column;
+        width: 92%;
+        margin: 20px auto;
+        gap: 20px;
     }
 
-    .cart-header {
-        display: none !important;
+    .cart-items,
+    .cart-summary {
+        width: 100%;
+        box-sizing: border-box;
     }
 
+    /* Unstick the summary so it flows naturally */
+    .cart-summary {
+        position: static;
+    }
+
+    /* Each product row: keep as horizontal flex but wrap neatly */
     .cart-item {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px 0;
+        text-align: center;
+    }
+
+    /* Keep image a reasonable size, don't stretch to full width */
+    .cart-image {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+
+    /* Info block: centred text */
+    .cart-info {
+        text-align: center;
+        min-width: 120px;
+    }
+
+    /* Price, qty, total, remove: let them wrap into a centred row */
+    .cart-price,
+    .cart-qty,
+    .cart-total,
+    .remove-btn {
+        flex-shrink: 0;
+    }
+}
+
+/* ── Phone (≤ 480px) ── */
+@media (max-width: 480px) {
+
+    .cart-page h1 {
+        font-size: 26px;
+        margin: 24px 0 16px;
+    }
+
+    .cart-container {
+        width: 96%;
+        gap: 16px;
+    }
+
+    .cart-items,
+    .cart-summary {
+        padding: 16px;
+    }
+
+    /* Stack each product row fully vertically on phones */
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
     .cart-image {
-        width: 100% !important;
-        height: 220px !important;
-        object-fit: cover !important;
+        width: 120px;
+        height: 120px;
     }
 
-    .cart-summary {
-        width: 100% !important;
-        position: static !important;
-        box-sizing: border-box !important;
+    .cart-price {
+        font-size: 18px;
+    }
+
+    #totalPrice {
+        font-size: 22px;
     }
 }
+

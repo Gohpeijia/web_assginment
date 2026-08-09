@@ -99,124 +99,87 @@
 }
 
 /* Responsive adjustment for mobiles */
-@media (max-width: 768px) {
+@media (max-width: 780px) {
     html, body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     * {
-        box-sizing: border-box !important; 
+        box-sizing: border-box;
     }
 
-    header, nav, .navbar {
-        width: 92% !important;               
-        margin: 10px auto !important;       
-        padding: 12px 15px !important;       
-        
-        display: flex !important;
-        flex-direction: column !important;    
-        align-items: center !important;
-        gap: 10px !important;
-
-        height: auto !important;           
-        position: relative !important;
-        box-sizing: border-box !important;
+    /* ── Nav: same horizontal 3-column style as index page ── */
+    .navigation_bar {
+        padding: 10px 12px;
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
     }
 
-    .logo, .navbar-brand, nav h1, nav h2, header h1 {
-        font-size: 1.8rem !important;
-        margin: 0 !important;
-        text-align: center !important;
+    .logo img {
+        width: 110px;
+        height: auto;
     }
 
-    .nav-links, .nav-container, nav ul {
-        display: flex !important;
-        flex-wrap: nowrap !important;        
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 12px !important;
-
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 4px 5px !important;
-        margin: 0 !important;
-
-        overflow-x: auto !important;          
-        overflow-y: hidden !important;
-        -webkit-overflow-scrolling: touch !important; 
-        scrollbar-width: none !important;   
+    .nav-left {
+        gap: 4px;
+        flex-shrink: 0;
     }
 
-    .nav-links::-webkit-scrollbar,
-    .nav-container::-webkit-scrollbar {
-        display: none !important;
+    .nav-left a {
+        font-size: 8.5px;
+        white-space: nowrap;
+        font-weight: bold;
     }
 
-    .nav-links a,
-    .nav-links li,
-    .profile-icon,
-    .avatar,
-    #themeToggle,
-    .theme-toggle,
-    .theme-btn,
-    nav img {
-        flex-shrink: 0 !important;           
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        white-space: nowrap !important;
-        font-size: 0.9rem !important;
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
     }
 
+    .nav-right a,
+    .nav-right button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-right .icons {
+        width: 22px;
+        height: 22px;
+    }
+
+    .theme-toggle {
+        width: 22px;
+        height: 22px;
+        font-size: 19px;
+    }
+
+    /* Team grid stacks on mobile */
     .team-section {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 20px !important;
-        box-sizing: border-box !important;
+        width: 100%;
+        max-width: 100%;
+        padding: 40px 20px;
+        box-sizing: border-box;
     }
 
-    .team-container,
-    .team-grid,
-    .team-members {
-        display: flex !important;
-        flex-direction: column !important;    
-        width: 100% !important;
-        gap: 20px !important;
-        box-sizing: border-box !important;
+    .team-grid {
+        grid-template-columns: 1fr;
     }
 
-    .contact-section,
-    .contact-container,
-    .contact-us,
-    #contact {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 40px 20px !important;
-        box-sizing: border-box !important;
-    }
-
-    .contact-form,
-    .contact-info,
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form button {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .get-to-know-us, 
-    .about-us, 
-    .section,
     footer {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 5% !important;
-        padding-right: 5% !important;
-        box-sizing: border-box !important;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        box-sizing: border-box;
     }
 }

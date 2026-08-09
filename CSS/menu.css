@@ -523,133 +523,84 @@
 
 
 /* RESPONSIVE – MEDIA QUERIES */
-@media (max-width: 768px) {
-    /* 0. 根源防溢出 */
+@media (max-width: 780px) {
     html, body {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow-x: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     * {
-        box-sizing: border-box !important;
+        box-sizing: border-box;
     }
 
+    /* ── Nav: same horizontal 3-column style as index page ── */
     .navigation_bar {
-        width: 92% !important;
-        height: auto !important;
-        margin: 10px auto 15px auto !important;
-        padding: 16px !important;
-        
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 12px !important;
-        
-        background: #f7f3e8 !important;
-        border-radius: 28px !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+        padding: 10px 12px;
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
     }
 
-    .logo, 
-    .logo-img,
-    .navigation_bar h1,
-    .navigation_bar a:first-child,
-    .navigation_bar > img:first-child {
-        order: 1 !important;              
-        height: 32px !important;
-        width: auto !important;
-        max-width: 160px !important;
-        object-fit: contain !important;
-        margin: 0 !important;
+    .logo img {
+        width: 110px;
+        height: auto;
     }
 
-    .nav-left, 
-    .nav-links, 
-    .menu-links {
-        order: 2 !important;                 
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;     
-        gap: 24px !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    .nav-left {
+        gap: 4px;
+        flex-shrink: 0;
     }
 
-    .nav-left a, .nav-links a, .menu-links a {
-        font-size: 0.85rem !important;
-        font-weight: 700 !important;
-        color: #734d26 !important;
-        text-decoration: none !important;
-        white-space: nowrap !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1 !important;        
-        display: inline-flex !important;
-        align-items: center !important;    
+    .nav-left a {
+        font-size: 8.5px;
+        white-space: nowrap;
+        font-weight: bold;
     }
 
-    .nav-right, 
-    .nav-icons, 
-    .navigation_bar > div:last-child {
-        order: 3 !important;                
-        width: 100% !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;       
-        gap: 18px !important;
-        margin: 0 !important;
-        padding: 0 !important;
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
     }
 
-    .nav-right img,
-    .profile-icon,
-    #themeToggle,
-    .theme-btn,
-    .filter-icon,
-    .cart-icon,
-    .nav-right button,
-    .nav-right a {
-        width: 20px !important;
-        height: 20px !important;
-        min-width: 20px !important;
-        min-height: 20px !important;
-        flex-shrink: 0 !important;
-        
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        
-        margin: 0 !important;
-        padding: 0 !important;
-        background: transparent !important;
-        border: none !important;
-        line-height: 1 !important;
-        vertical-align: middle !important;
+    .nav-right a,
+    .nav-right button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
     }
 
-    #themeToggle, .theme-btn {
-        order: 99 !important;         
+    .nav-right .icons {
+        width: 22px;
+        height: 22px;
+    }
+
+    .theme-toggle {
+        width: 22px;
+        height: 22px;
+        font-size: 19px;
     }
 
     .menu-banner {
-        width: 100% !important;
-        height: 150px !important;
+        width: 100%;
+        height: 150px;
     }
 
     .catalogue-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
-        padding: 0 12px !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 12px;
     }
 
     .contact-section, .get-to-know-us, footer {
-        width: 100% !important;
-        padding: 30px 15px !important;
-        box-sizing: border-box !important;
+        width: 100%;
+        padding: 30px 15px;
+        box-sizing: border-box;
     }
 }
