@@ -1,36 +1,35 @@
-/* ─────────────────────────────────────────────
-   CATALOGUE GENERATOR (Static DOM Parser)
-   ───────────────────────────────────────────── */
-const hasCatalogue = document.querySelector('.catalogue-grid');
+let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+function saveCart() {
+    sessionStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// DOM References
+const modal = document.getElementById('productModal');
+const closeModalBtn = document.getElementById('closeModal');
+const modalImg = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalPrice = document.getElementById('modalPrice');
+const sizeOptionGroup = document.getElementById('sizeOptionGroup');
+const viewCommentsBtn = document.getElementById('viewCommentsBtn');
+const qtyMinus = document.getElementById('qtyMinus');
+const qtyPlus = document.getElementById('qtyPlus');
+const qtyValue = document.getElementById('qtyValue');
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
+const searchInput = document.getElementById('searchInput');
+const categoryFilter = document.getElementById('categoryFilter');
+const sortSelect = document.getElementById('sortSelect');
 const noResultsText = document.getElementById('noResults');
 
 let initialItems = [];
+let currentModalItem = null;
+let currentQty = 1;
+let isWholeCakeSelected = false;
 
-/* CART SECTION */
-let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-
-function saveCart() {
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function createCakeCardHTML(cake) {
-    const wholePriceAttr = cake.priceWhole ? cake.priceWhole : '';
-    return `
-        <div class="cat-card card-hover-trigger" data-id="${cake.id}" data-name="${cake.name}" data-price="${cake.price}" data-price-whole="${wholePriceAttr}" data-category="${cake.category}">
-          <img src="${cake.img}" alt="${cake.name}">
-          <div class="cat-card-body">
-            <h3 class="cat-card-name hover-underline">${cake.name}</h3>
-            <p class="cat-card-category">${cake.category}</p>
-            <div class="price-block single-price">
-              <div class="price-label">From</div>
-              <p class="price-value">RM ${cake.price.toFixed(2)}</p>
-            </div>
-          </div>
-        </div>
-    `;
-}
-
+// Initialize catalogue dynamically from product data
 function loadMenuToHTML() {
+    const hasCatalogue = document.querySelector('.catalogue-grid');
     if (!hasCatalogue || typeof FULL_MENU === 'undefined') return;
 
     FULL_MENU.forEach(cake => {
@@ -38,302 +37,229 @@ function loadMenuToHTML() {
         if (formattedCategory === 'Cheese-Cake' || formattedCategory === 'Cheese-cake') {
             formattedCategory = 'Cheesecake';
         }
-        
+
         const targetGrid = document.getElementById(`grid-${formattedCategory}`);
-        
-        if (targetGrid) {
-            targetGrid.innerHTML += createCakeCardHTML(cake);
+        if (!targetGrid) return;
+
+        const card = document.createElement('div');
+        card.className = 'cat-card card-hover-trigger';
+        card.dataset.id = cake.id;
+        card.dataset.name = cake.name;
+        card.dataset.price = cake.price;
+        card.dataset.category = cake.category;
+        if (cake.priceWhole) {
+            card.dataset.priceWhole = cake.priceWhole;
         }
-    });
 
-    // Parse newly created cards globally
-    const cards = Array.from(document.querySelectorAll('.cat-card'));
+        card.innerHTML = `
+            <img src="${cake.img}" alt="${cake.name}">
+            <div class="cat-card-body">
+                <h3 class="cat-card-name hover-underline">${cake.name}</h3>
+                <p class="cat-card-category">${cake.category}</p>
+                <div class="price-block single-price">
+                    <div class="price-label">From</div>
+                    <p class="price-value">RM ${cake.price.toFixed(2)}</p>
+                </div>
+            </div>
+        `;
 
-    initialItems = cards.map(card => {
-      const priceAttr = card.getAttribute('data-price');
-      const priceWholeAttr = card.getAttribute('data-price-whole');
-      
-      const item = {
-        element: card,
-        parent: card.parentElement, // Save original grid container
-        id: card.getAttribute("data-id"),
-        name: card.getAttribute('data-name'),
-        category: card.getAttribute('data-category'),
-        price: priceAttr ? parseFloat(priceAttr) : 0,
-        priceWhole: priceWholeAttr ? parseFloat(priceWholeAttr) : null,
-        img: card.querySelector('img').getAttribute('src')
-      };
+        const item = {
+            element: card,
+            parent: targetGrid,
+            id: cake.id,
+            name: cake.name,
+            category: cake.category,
+            price: cake.price,
+            priceWhole: cake.priceWhole || null,
+            img: cake.img
+        };
 
-      // Bind click listener to open detail modal
-      card.addEventListener('click', () => {
-        openModal(item);
-      });
-
-      return item;
+        card.addEventListener('click', () => openModal(item));
+        targetGrid.appendChild(card);
+        initialItems.push(item);
     });
 }
 
-// Execute on load
-loadMenuToHTML();
-
-/* ─────────────────────────────────────────────
-   MODAL LOGIC
-   ───────────────────────────────────────────── */
-const modal = document.getElementById('productModal');
-const closeModalBtn = document.getElementById('closeModal');
-const modalImg = document.getElementById('modalImage');
-const modalTitle = document.getElementById('modalTitle');
-const modalPrice = document.getElementById('modalPrice');
-const sizeOptionGroup = document.getElementById('sizeOptionGroup');
-const viewCommentsBtn = document.getElementById("viewCommentsBtn");
-let currentModalItem = null;
-
-// Function to open modal and inject data
+// Modal handling
 function openModal(item) {
-  currentModalItem = item;
-  
-  modalImg.src = item.img;
-  modalTitle.textContent = item.name;
+    currentModalItem = item;
+    currentQty = 1;
+    isWholeCakeSelected = false;
 
-  viewCommentsBtn.href = `review.html?product=${encodeURIComponent(item.id)}`;
+    if (modalImg) modalImg.src = item.img;
+    if (modalTitle) modalTitle.textContent = item.name;
+    if (viewCommentsBtn) {
+        viewCommentsBtn.href = `review.html?product=${encodeURIComponent(item.id)}`;
+    }
 
-  // Hide Size option for Tarts, Pies, and Tiramisu 
-  if (!item.priceWhole) {
-    sizeOptionGroup.classList.add('hidden'); 
-    modalPrice.textContent = `RM ${item.price.toFixed(2)}`;
-  } else {
-    sizeOptionGroup.classList.remove('hidden');
+    if (sizeOptionGroup) {
+        const sizeBtns = sizeOptionGroup.querySelectorAll('.opt-btn');
+        if (!item.priceWhole) {
+            sizeOptionGroup.classList.add('hidden');
+        } else {
+            sizeOptionGroup.classList.remove('hidden');
+            if (sizeBtns.length >= 2) {
+                sizeBtns[0].classList.add('active');
+                sizeBtns[1].classList.remove('active');
+            }
+        }
+    }
 
-    // Reset buttons to 'Slice' by default
-    const sizeBtns = sizeOptionGroup.querySelectorAll('.opt-btn');
-    sizeBtns[0].classList.add('active');    
-    sizeBtns[1].classList.remove('active'); 
-    
-    modalPrice.textContent = `RM ${item.price.toFixed(2)}`;
-  }
-
-  currentQty = 1;
-  qtyValue.textContent = currentQty;
-  
-  modal.classList.remove('hidden'); 
+    updateModalPrice();
+    if (qtyValue) qtyValue.textContent = currentQty;
+    if (modal) modal.classList.remove('hidden');
 }
 
-// Close Modal when clicking the X
-closeModalBtn.addEventListener('click', () => {
-  modal.classList.add('hidden');
-});
+function updateModalPrice() {
+    if (!currentModalItem || !modalPrice) return;
+    const unitPrice = isWholeCakeSelected && currentModalItem.priceWhole
+        ? currentModalItem.priceWhole
+        : currentModalItem.price;
+    modalPrice.textContent = `RM ${unitPrice.toFixed(2)}`;
+}
 
-// Close Modal when clicking outside the box
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.add('hidden');
-  }
-});
+function closeModal() {
+    if (modal) modal.classList.add('hidden');
+}
 
-/* ─────────────────────────────────────────────
-   MODAL INTERACTIVITY & CHECKOUT
-   ───────────────────────────────────────────── */
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+}
 
-// 1. Handle Option Buttons (Size & Candles)
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+}
+
+// Option Buttons (Size & Candles)
 const optionGroups = document.querySelectorAll('.btn-group');
 optionGroups.forEach(group => {
-  const buttons = group.querySelectorAll('.opt-btn');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active class from all buttons in this specific group
-      buttons.forEach(b => b.classList.remove('active'));
-      // Add active class to the clicked button
-      btn.classList.add('active');
+    const buttons = group.querySelectorAll('.opt-btn');
+    buttons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-      if (btn.textContent === 'Slice' && currentModalItem) {
-        modalPrice.textContent = `RM ${currentModalItem.price.toFixed(2)}`;
-      } else if (btn.textContent === 'Whole Cake' && currentModalItem) {
-        // Fallback to regular price just in case a cake is missing a priceWhole
-        const wholePrice = currentModalItem.priceWhole ? currentModalItem.priceWhole : currentModalItem.price;
-        modalPrice.textContent = `RM ${wholePrice.toFixed(2)}`;
-      }
+            if (group.parentElement === sizeOptionGroup || group.closest('#sizeOptionGroup')) {
+                isWholeCakeSelected = (index === 1);
+                updateModalPrice();
+            }
+        });
     });
-  });
 });
 
-// 2. Handle Quantity Plus/Minus
-const qtyMinus = document.getElementById('qtyMinus');
-const qtyPlus = document.getElementById('qtyPlus');
-const qtyValue = document.getElementById('qtyValue');
-let currentQty = 1;
-
-qtyMinus.addEventListener('click', () => {
-  if (currentQty > 1) { // Prevents going below 1
-    currentQty--;
-    qtyValue.textContent = currentQty;
-  }
-});
-
-qtyPlus.addEventListener('click', () => {
-  currentQty++;
-  qtyValue.textContent = currentQty;
-});
-
-// 3. Handle Add to Cart Animation
-const addToCartBtn = document.querySelector('.add-to-cart-btn');
-
-addToCartBtn.addEventListener('click', () => {
-  // Step A: Switch to Loading state
-  addToCartBtn.classList.add('loading');
-  
-  addToCartBtn.innerHTML = `
-    <div class="loading-dots">
-      <p></p>
-      <p></p>
-      <p></p>
-    </div>
-  `;
-
-  // Step B: Wait 1.5 seconds, then show Success state
-  setTimeout(() => {
-    addToCartBtn.classList.remove('loading');
-    addToCartBtn.classList.add('success');
-    addToCartBtn.innerHTML = '&#10004; ADDED TO CART'; // Adds a checkmark icon
-
-let selectedPrice = currentModalItem.price;
-
-const wholeBtn = document.querySelector(
-    "#sizeOptionGroup .opt-btn.active"
-);
-
-if (
-    wholeBtn &&
-    wholeBtn.textContent === "Whole Cake" &&
-    currentModalItem.priceWhole
-){
-    selectedPrice = currentModalItem.priceWhole;
+// Quantity handlers
+if (qtyMinus) {
+    qtyMinus.addEventListener('click', () => {
+        if (currentQty > 1) {
+            currentQty--;
+            if (qtyValue) qtyValue.textContent = currentQty;
+        }
+    });
 }
 
-const existingItem = cart.find(item =>
-    item.name === currentModalItem.name &&
-    item.price === selectedPrice
-);
+if (qtyPlus) {
+    qtyPlus.addEventListener('click', () => {
+        currentQty++;
+        if (qtyValue) qtyValue.textContent = currentQty;
+    });
+}
 
-if(existingItem){
-    existingItem.qty += currentQty;
-}else{
-    cart.push({
-      name: currentModalItem.name,
-      price: selectedPrice,
-      qty: currentQty,
-      img: currentModalItem.img,
-      size:
-          selectedPrice === currentModalItem.priceWhole
-            ? "Whole Cake"
-            : "Slice"
-          });
+// Add to Cart
+if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', () => {
+        if (!currentModalItem) return;
+
+        const selectedPrice = isWholeCakeSelected && currentModalItem.priceWhole
+            ? currentModalItem.priceWhole
+            : currentModalItem.price;
+
+        const itemSize = isWholeCakeSelected && currentModalItem.priceWhole ? "Whole Cake" : "Slice";
+
+        const existingItem = cart.find(item =>
+            item.name === currentModalItem.name &&
+            item.price === selectedPrice
+        );
+
+        if (existingItem) {
+            existingItem.qty += currentQty;
+        } else {
+            cart.push({
+                name: currentModalItem.name,
+                price: selectedPrice,
+                qty: currentQty,
+                img: currentModalItem.img,
+                size: itemSize
+            });
         }
 
-saveCart();
+        saveCart();
 
-    // Step C: Wait 1 more second, then close modal and reset
-    setTimeout(() => {
-      // Hide the modal (jumps back to the menu behind it)
-      modal.classList.add('hidden');
-      
-      // Reset the button back to normal for the next cake
-      addToCartBtn.classList.remove('success');
-      addToCartBtn.innerHTML = 'ADD TO CART';
-      
-      // Reset quantity back to 1
-      currentQty = 1;
-      qtyValue.textContent = currentQty;
-    }, 1000); // 1000ms = 1 second
+        addToCartBtn.classList.add('success');
+        const originalText = addToCartBtn.innerHTML;
+        addToCartBtn.innerHTML = '&#10004; ADDED TO CART';
 
-  }, 1500); // 1500ms = 1.5 seconds loading
-});
+        setTimeout(() => {
+            closeModal();
+            addToCartBtn.classList.remove('success');
+            addToCartBtn.innerHTML = originalText;
+            currentQty = 1;
+            if (qtyValue) qtyValue.textContent = currentQty;
+        }, 500);
+    });
+}
 
-/* ─────────────────────────────────────────────
-   SEARCH & FILTER LOGIC
-   ───────────────────────────────────────────── */
-const searchInput = document.getElementById('searchInput');
-const categoryFilter = document.getElementById('categoryFilter');
-const sortSelect = document.getElementById('sortSelect');
-
+// Search, Filter & Sort
 function updateCatalogue() {
-  const query = searchInput.value.toLowerCase().trim();
-  const selectedCat = categoryFilter.value.toLowerCase();
-  const sortVal = sortSelect.value;
+    const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const selectedCat = categoryFilter ? categoryFilter.value.toLowerCase() : 'all';
+    const sortVal = sortSelect ? sortSelect.value : 'default';
 
-  // 1. Hide all cards first
-  initialItems.forEach(item => {
-    item.element.classList.add('hidden');
-  });
-
-  // 2. Filter items globally
-  let matchedItems = initialItems.filter(item => {
-    const matchesSearch = item.name.toLowerCase().includes(query);
-    const matchesCat = selectedCat === 'all' || item.category.toLowerCase().includes(selectedCat);
-    return matchesSearch && matchesCat;
-  });
-
-  // 3. Show matched items
-  matchedItems.forEach(item => {
-    item.element.classList.remove('hidden');
-  });
-
-  // 4. Handle "No Results" message
-  if (noResultsText) {
-    if (matchedItems.length === 0) {
-      noResultsText.classList.remove('hidden');
-    } else {
-      noResultsText.classList.add('hidden');
-    }
-  }
-
-  // 5. Handle sorting and DOM movement
-  if (sortVal !== 'default') {
-    // Sort globally
-    matchedItems.sort((a, b) => sortVal === 'price-asc' ? a.price - b.price : b.price - a.price);
-    
-    // Move all sorted items into the first catalogue grid so they appear as one continuous list
-    const firstGrid = document.querySelector('.catalogue-grid');
-    matchedItems.forEach(item => {
-      firstGrid.appendChild(item.element);
+    let matchedItems = initialItems.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(query);
+        const matchesCat = selectedCat === 'all' || item.category.toLowerCase().includes(selectedCat);
+        return matchesSearch && matchesCat;
     });
-  } else {
-    // Restore items to their original sections in original order
+
     initialItems.forEach(item => {
-      item.parent.appendChild(item.element);
+        item.element.classList.add('hidden');
     });
-  }
 
-  // 6. Hide or show sections and banners based on whether they have visible cards
-  const sections = document.querySelectorAll('.catalogue-section');
-  sections.forEach(section => {
-    const visibleCards = section.querySelectorAll('.cat-card:not(.hidden)');
-    const prevElement = section.previousElementSibling; // Check if there's a banner right before the section
-    
-    if (visibleCards.length === 0) {
-      section.style.display = 'none';
-      if (prevElement && prevElement.classList.contains('menu-banner')) {
-        prevElement.style.display = 'none';
-      }
-    } else {
-      section.style.display = '';
-      if (prevElement && prevElement.classList.contains('menu-banner')) {
-        prevElement.style.display = '';
-      }
+    matchedItems.forEach(item => {
+        item.element.classList.remove('hidden');
+    });
+
+    if (noResultsText) {
+        noResultsText.classList.toggle('hidden', matchedItems.length > 0);
     }
-  });
-}
 
-if (hasCatalogue) {
-  searchInput.addEventListener('input', updateCatalogue);
-  categoryFilter.addEventListener('change', updateCatalogue);
-  sortSelect.addEventListener('change', updateCatalogue);
-}
+    if (sortVal !== 'default') {
+        matchedItems.sort((a, b) => sortVal === 'price-asc' ? a.price - b.price : b.price - a.price);
+        const firstGrid = document.querySelector('.catalogue-grid');
+        if (firstGrid) {
+            matchedItems.forEach(item => firstGrid.appendChild(item.element));
+        }
+    } else {
+        initialItems.forEach(item => item.parent.appendChild(item.element));
+    }
 
-/* CART SECTION */
-const cartBtn = document.getElementById("cartBtn");
+    const sections = document.querySelectorAll('.catalogue-section');
+    sections.forEach(section => {
+        const visibleCards = section.querySelectorAll('.cat-card:not(.hidden)');
+        const prevBanner = section.previousElementSibling;
 
-if(cartBtn){
-    cartBtn.addEventListener("click",function(){
-        window.location.href="cart.html";
+        const isVisible = visibleCards.length > 0;
+        section.style.display = isVisible ? '' : 'none';
+        if (prevBanner && prevBanner.classList.contains('menu-banner')) {
+            prevBanner.style.display = isVisible ? '' : 'none';
+        }
     });
 }
+
+if (searchInput) searchInput.addEventListener('input', updateCatalogue);
+if (categoryFilter) categoryFilter.addEventListener('change', updateCatalogue);
+if (sortSelect) sortSelect.addEventListener('change', updateCatalogue);
+
+// Load menu items on initial execution
+loadMenuToHTML();

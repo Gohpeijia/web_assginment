@@ -1,65 +1,50 @@
-// INTERACTIVE TERMINAL LOGIC
-// 1. Grab all the buttons and all the content boxes
-const termButtons = document.querySelectorAll('.term-btn');
-const termContents = document.querySelectorAll('.term-content');
-
-// 2. Loop through each button and attach a click listener
-termButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        
-        // Step A: Reset everything (remove 'active' from all buttons)
-        termButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Step B: Hide all content boxes
-        termContents.forEach(content => content.classList.add('hidden'));
-        
-        // Step C: Make the clicked button active
-        button.classList.add('active');
-        
-        // Step D: Find the matching content ID (stored in data-target) and show it
-        const targetId = button.getAttribute('data-target');
-        document.getElementById(targetId).classList.remove('hidden');
-    });
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Skill Console Terminal Tabs
+    const termButtons = document.querySelectorAll('.term-btn');
+    const termContents = document.querySelectorAll('.term-content');
+
+    termButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            if (!targetId) return;
+
+            termButtons.forEach(btn => btn.classList.remove('active'));
+            termContents.forEach(content => content.classList.add('hidden'));
+
+            button.classList.add('active');
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) targetContent.classList.remove('hidden');
+        });
+    });
+
+    // 2. Theme Toggle
     const themeToggleButton = document.getElementById('theme-toggle');
     const themeIcon = themeToggleButton ? themeToggleButton.querySelector('.theme-icon') : null;
-    const rootElement = document.documentElement; // Unify targeting <html>
+    const rootElement = document.documentElement;
 
-    // Read saved setting using key "theme"
     const savedTheme = localStorage.getItem('theme') || 'light';
-
-    // Apply setting on load
     if (savedTheme === 'dark') {
         rootElement.setAttribute('data-theme', 'dark');
         if (themeIcon) themeIcon.textContent = '☀️';
     } else {
-        rootElement.removeAttribute('data-theme');
+        rootElement.setAttribute('data-theme', 'light');
         if (themeIcon) themeIcon.textContent = '🌙';
     }
 
-    // Toggle handler
     if (themeToggleButton) {
         themeToggleButton.addEventListener('click', () => {
             const isDark = rootElement.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
 
-            if (!isDark) {
-                rootElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                if (themeIcon) themeIcon.textContent = '☀️';
-            } else {
-                rootElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                if (themeIcon) themeIcon.textContent = '🌙';
-            }
+            rootElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            if (themeIcon) themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
         });
     }
-});
 
-// DYNAMIC FLOATING CARD PREVIEWS
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card');
+    // 3. Floating Card Hover Previews
+    const cards = document.querySelectorAll('.card[data-preview]');
     const leftPreview = document.getElementById('left-preview-container');
     const rightPreview = document.getElementById('right-preview-container');
     const leftImg = document.getElementById('left-preview-img');
@@ -67,159 +52,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach(card => {
         const previewSrc = card.getAttribute('data-preview');
-        if (!previewSrc) return; // Skip cards that don't have a preview image
+        if (!previewSrc) return;
 
-        // Hover or Touch start function
         const showPreview = () => {
             const rect = card.getBoundingClientRect();
-            const cardCenterX = rect.left + rect.width / 2;
-            const windowCenterX = window.innerWidth / 2;
+            const isLeftHalf = (rect.left + rect.width / 2) < (window.innerWidth / 2);
 
-            if (cardCenterX < windowCenterX) {
-                // Card is on the left side of the screen -> Show preview on the right
+            if (isLeftHalf && rightPreview && rightImg) {
                 rightImg.src = previewSrc;
                 rightPreview.classList.add('active');
-            } else {
-                // Card is on the right side of the screen -> Show preview on the left
+            } else if (leftPreview && leftImg) {
                 leftImg.src = previewSrc;
                 leftPreview.classList.add('active');
             }
         };
 
-        // Hover or Touch end function
         const hidePreview = () => {
-            leftPreview.classList.remove('active');
-            rightPreview.classList.remove('active');
+            if (leftPreview) leftPreview.classList.remove('active');
+            if (rightPreview) rightPreview.classList.remove('active');
         };
 
-        // Desktop mouse hover listeners
         card.addEventListener('mouseenter', showPreview);
         card.addEventListener('mouseleave', hidePreview);
-
-        // Mobile touch hold listeners
-        card.addEventListener('touchstart', (e) => {
-            showPreview();
-        }, { passive: true });
-        
+        card.addEventListener('touchstart', showPreview, { passive: true });
         card.addEventListener('touchend', hidePreview, { passive: true });
     });
-});
 
-// SIMULATED CV DOWNLOAD LOGIC
-document.addEventListener('DOMContentLoaded', () => {
+    // 4. CV Download Button
     const downloadBtn = document.getElementById('cv-download-btn');
-    
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
-            if (downloadBtn.classList.contains('downloading') || downloadBtn.classList.contains('completed')) {
-                return;
-            }
-            
-            // Start simulation
-            downloadBtn.classList.add('downloading');
-            downloadBtn.disabled = true;
-            
+            if (downloadBtn.disabled) return;
+
             const btnText = downloadBtn.querySelector('.btn-text');
-            const progressBar = downloadBtn.querySelector('.download-progress-bar');
-            
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 5;
-                btnText.textContent = `Downloading... ${progress}%`;
-                progressBar.style.width = `${progress}%`;
-                
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    
-                    // Complete simulation
-                    downloadBtn.classList.remove('downloading');
-                    downloadBtn.classList.add('completed');
-                    btnText.textContent = 'Downloaded ✓';
-                    
-                    // Trigger actual file download
-                    triggerCvDownload();
-                    
-                    // Reset button after some time
-                    setTimeout(() => {
-                        downloadBtn.classList.remove('completed');
-                        downloadBtn.disabled = false;
-                        btnText.textContent = 'Download Resume / CV';
-                        progressBar.style.width = '0%';
-                    }, 5000);
-                }
-            }, 100); // 2 seconds total duration
+            const originalText = btnText ? btnText.textContent : 'Download Resume / CV';
+
+            downloadBtn.classList.add('completed');
+            downloadBtn.disabled = true;
+            if (btnText) btnText.textContent = 'Downloaded ✓';
+
+            const link = document.createElement('a');
+            link.href = "../Assets/Portfolio/GohPeiJia/Pei_Jia_Goh_CV.docx";
+            link.download = 'Goh_Pei_Jia_CV.docx';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            setTimeout(() => {
+                downloadBtn.classList.remove('completed');
+                downloadBtn.disabled = false;
+                if (btnText) btnText.textContent = originalText;
+            }, 3000);
         });
     }
-    
-    function triggerCvDownload() {
-        const cvContent = "../Assets/Portfolio/GohPeiJia/Pei_Jia_Goh_CV.docx"; // Path to your CV file
 
-        const link = document.createElement('a');
-        link.href = cvContent;
-        link.download = 'Goh_Pei_Jia_CV.docx';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-});
-
-// CONTACT FORM SUBMISSION LOGIC
-document.addEventListener('DOMContentLoaded', () => {
+    // 5. Contact Form Submission
     const contactForm = document.getElementById('contact-form');
     const successMsg = document.getElementById('form-success-msg');
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent default form submission
-
-            // Show the success message
-            if (successMsg) {
-                successMsg.classList.remove('hidden');
-            }
-
-            // Clear the form fields
+            e.preventDefault();
+            if (successMsg) successMsg.classList.remove('hidden');
             contactForm.reset();
 
-            // Hide the message after 3 seconds
             setTimeout(() => {
-                if (successMsg) {
-                    successMsg.classList.add('hidden');
-                }
+                if (successMsg) successMsg.classList.add('hidden');
             }, 3000);
         });
     }
-});
 
-// SCROLL REVEAL ANIMATION (Floating Up)
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Target all the main sections to animate
+    // 6. Scroll Reveal Observer
     const sectionsToAnimate = document.querySelectorAll('section.personalinfo, section.aboutme');
-    
-    // Add the starting CSS class to each
-    sectionsToAnimate.forEach(section => {
-        section.classList.add('fade-in-section');
-    });
+    sectionsToAnimate.forEach(section => section.classList.add('fade-in-section'));
 
-    // 2. Setup the Intersection Observer
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Triggers when 15% of the element is visible
-    };
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // When section comes into view, add the visible class
-                entry.target.classList.add('is-visible');
-                // Stop observing it so it doesn't animate out when scrolling up
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+        sectionsToAnimate.forEach(section => observer.observe(section));
+    } else {
+        sectionsToAnimate.forEach(section => section.classList.add('is-visible'));
+    }
 
-    // 3. Start observing each section
-    sectionsToAnimate.forEach(section => {
-        observer.observe(section);
-    });
 });

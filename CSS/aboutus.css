@@ -1,16 +1,33 @@
 .team-section {
-  padding: 10px 50px 100px 50px;
+  padding: 20px 40px 100px 40px;
   background-color: var(--cream);
   min-height: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* CSS Grid to perfectly align 4 members */
+.team-section h1 {
+  max-width: 1550px;
+  margin: 0 auto 20px auto;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--brown-dark);
+}
+
+/* CSS Grid to cleanly display 4 members across full screen width */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  max-width: 1550px;
+  width: 100%;
   margin: auto;
+}
+
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .team-card {
@@ -30,29 +47,29 @@
 
 .team-photo {
   width: 100%;
-  height: 280px;
+  height: 350px;
   object-fit: cover;
   object-position: top center;
   border-bottom: 3px solid var(--brown-mid);
 }
 
 .team-card-body {
-  padding: 25px 20px;
+  padding: 28px 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
 .team-name {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: var(--brown-dark);
   text-transform: uppercase;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .team-role {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 1px;
