@@ -44,6 +44,9 @@
     border: 1px solid var(--brown-light);
     border-radius: 6px;
 }
+#reviewRating{
+    display:none;
+}
 #productName {
     margin-bottom: 25px;
     font-size: 36px;
