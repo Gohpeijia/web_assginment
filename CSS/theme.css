@@ -581,6 +581,11 @@ footer{
     max-width: 100%;
   }
 
+  /* Stack the two-column form row on tablets and phones */
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 /*for tablet */
@@ -602,12 +607,6 @@ footer{
 }
 }
 
-/* for phone */
-@media (max-width: 480px) {
-  .contact-form .form-row {
-    grid-template-columns: 1fr;
-  }
-}
 
 
 /* CLEAN PRINT STYLESHEET FOR ALL PAGES*/

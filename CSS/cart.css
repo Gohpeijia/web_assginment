@@ -160,7 +160,7 @@
 }
 
 /* ── Tablet (≤ 780px) ── */
-@media (max-width: 780px) {
+@media (max-width: 768px) {
 
     /* ── Nav: same horizontal 3-column style as index page ── */
     .navigation_bar {
@@ -269,7 +269,7 @@
 }
 
 /* ── Phone (≤ 480px) ── */
-@media (max-width: 480px) {
+@media (max-width: 375px) {
 
     .cart-page h1 {
         font-size: 26px;
