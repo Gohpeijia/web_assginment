@@ -61,7 +61,6 @@ function displayAllergens(allergens) {
         allergensList.appendChild(listItem);
     });
 }
-/*UPDATE URL*/
 function updateURL(productId) {
     const newURL = `${window.location.pathname}?product=${productId}`;
     window.history.replaceState(
@@ -70,7 +69,6 @@ function updateURL(productId) {
         newURL
     );
 }
-/*PRODUCT CHANGE EVENT*/
 productSelector.addEventListener(
     "change",
     function () {
@@ -78,7 +76,7 @@ productSelector.addEventListener(
     }
 );
 
-/*LOCAL STORAGE*/
+/*localStorage*/
 function getAllReviews() {
     const storedReviews = localStorage.getItem(STORAGE_KEY);
     if (storedReviews === null) {
@@ -103,7 +101,7 @@ function saveAllReviews(reviews) {
         JSON.stringify(reviews)
     );
 }
-/*SAMPLE REVIEWS*/
+/*review example*/
 function initialiseSampleReviews() {
     if (
         localStorage.getItem(STORAGE_KEY)
@@ -140,8 +138,6 @@ function initialiseSampleReviews() {
     saveAllReviews(sampleReviews);
 }
 
-
-/*GET REVIEWS FOR SELECTED PRODUCT*/
 function getSelectedProductReviews() {
     return getAllReviews().filter(
         function (review) {
@@ -151,7 +147,7 @@ function getSelectedProductReviews() {
         }
     );
 }
-/*CREATE STAR DISPLAY*/
+/*Create display stars*/
 function createStars(rating) {
     const safeRating =Math.max(
         0,
@@ -189,7 +185,6 @@ function updateAverageRating(reviews) {
         reviewCount.textContent = `${reviews.length} reviews`;
     }
 }
-/*CREATE REVIEW CARD*/
 function createReviewCard(review) {
     const card = document.createElement("article");
     card.className = "review-card";
@@ -212,7 +207,6 @@ function createReviewCard(review) {
             }
         );
     }
-    /* Stars */
     const stars = document.createElement("p");
     stars.className = "review-stars";
     stars.textContent = createStars(review.rating);
@@ -220,7 +214,6 @@ function createReviewCard(review) {
         "aria-label",
         `${review.rating} out of 5 stars`
     );
-    /* Comment */
     const comment = document.createElement("p");
     comment.className = "review-comment";
     comment.textContent = review.comment;
@@ -230,7 +223,7 @@ function createReviewCard(review) {
     card.appendChild(stars);
     card.appendChild(comment);
 
-    /* Only logged-in users can see Delete */
+    /* Only the logged-in users can see the Delete button*/
     const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
     if (isLoggedIn) {
         const actionArea = document.createElement("div");
@@ -265,7 +258,6 @@ const reviewList = document.getElementById("reviewList");
 const noReviews = document.getElementById("noReviews");
 const ratingFilter = document.getElementById("ratingFilter");
 
-/*DISPLAY REVIEWS*/
 function displayReviews() {
     const productReviews = getSelectedProductReviews();
     const filterValue = ratingFilter.value;
@@ -281,7 +273,6 @@ function displayReviews() {
     );
     reviewList.innerHTML = "";
     filteredReviews
-        .slice()
         .sort(function (reviewA, reviewB) {
             return (
                 new Date(reviewB.date) -
@@ -297,7 +288,7 @@ function displayReviews() {
     updateAverageRating(productReviews);
 }
 const reviewMessage = document.getElementById("reviewMessage");
-/*DELETE REVIEW */
+
 function deleteReview(reviewId) {
     const allReviews = getAllReviews();
     const updatedReviews = allReviews.filter(
@@ -315,7 +306,7 @@ function deleteReview(reviewId) {
     displayReviews();
 }
 
-/* RATING FILTER*/
+/*Rating filter*/
 ratingFilter.addEventListener(
     "change",
     displayReviews
@@ -325,7 +316,7 @@ const reviewerName = document.getElementById("reviewerName");
 const reviewRating = document.getElementById("reviewRating");
 const reviewComment = document.getElementById("reviewComment");
 
-/*SUBMIT REVIEW*/
+/*Submit*/
 reviewForm.addEventListener(
     "submit",
     function (event) {
@@ -362,14 +353,12 @@ reviewForm.addEventListener(
 );
 const characterCount = document.getElementById("characterCount");
 
-/*CHARACTER COUNTER*/
 reviewComment.addEventListener(
     "input",
     function () {
         characterCount.textContent = `${reviewComment.value.length} / 300 characters`;
     }
 );
-/*INITIALISE REVIEW PAGE*/
 function initialiseReviewPage() {
     if (
         typeof FULL_MENU === "undefined" ||
@@ -388,11 +377,10 @@ function initialiseReviewPage() {
 }
 initialiseReviewPage();
 
-/* INTERACTIVE STAR RATING UI*/
+/* Interactive star rating*/
 (function () {
     const starBtns = document.querySelectorAll(".star-btn");
     const starLabel = document.getElementById("starRatingLabel");
-    const reviewRatingSelect = document.getElementById("reviewRating");
 
     const ratingLabels = {
         1: "Poor",
@@ -418,7 +406,7 @@ initialiseReviewPage();
         currentRating = value;
 
         /* Sync to the hidden select so review.js form submit reads it */
-        reviewRatingSelect.value = String(value);
+        reviewRating.value = String(value);
 
         /* Update label */
         starLabel.textContent = ratingLabels[value] || "Click a star to rate";
@@ -459,13 +447,11 @@ initialiseReviewPage();
     });
 
     /* Reset stars when the form is reset */
-    if (reviewForm) {
-        reviewForm.addEventListener("reset", function () {
-            currentRating = 0;
-            starBtns.forEach(function (star) {
-                star.classList.remove("selected", "hovered");
-            });
-            starLabel.textContent = "Click a star to rate";
+    reviewForm.addEventListener("reset", function () {
+        currentRating = 0;
+        starBtns.forEach(function (star) {
+            star.classList.remove("selected", "hovered");
         });
-    }
+        starLabel.textContent = "Click a star to rate";
+    });
 })();
