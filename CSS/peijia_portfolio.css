@@ -1,5 +1,5 @@
 :root {
-    /*body colours*/
+    /* colors */
     --bg-primary: #FCF7E6;       
     --bg-secondary: #f5e19e;     
     --wood: #c49a6c;
@@ -7,17 +7,15 @@
     --light-red: #8C2222;     
     --success: #2e7d32;
     
-    /* Footer Colors */
     --footer-bg: #151108;
     --footer-greytext: #999;
     --footer-text: #F4F1EA;
 
-    /*font-families (use sans-serif as fallback)*/
-    --font-heading:  system-ui, sans-serif;
+    --font-heading: system-ui, sans-serif;
     --font-body: Lucida Console, sans-serif; 
 }
 
-/* dark theme (applied via JS) */
+/* dark mode */
 [data-theme="dark"] {
     --bg-primary: #1A1A1A;
     --bg-secondary: #2A2A2A;
@@ -26,7 +24,7 @@
     --footer-bg: #000000;
 }
 
-/* basic reset */
+/* base reset */
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +39,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* font design for all headings. */
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
     text-transform: uppercase;
@@ -58,29 +55,31 @@ a:hover {
     color: var(--light-red);
 }
 
-/* all word which need to hide temp will use this*/
 .hidden {
     display: none;
 }
 
-/* accessibility: keyboard navigation (Tab keys etc.) */
 *:focus-visible {
     outline: 2px dashed var(--light-red);
     outline-offset: 4px;
 }
 
-/* LAYOUT, GRID, & RESPONSIVENESS*/
-/* header & navigation */
+/* header & nav */
 .site-header {
-    position: sticky;
-    top: 0;
     z-index: 1000; 
     background-color: var(--bg-primary);
     border-bottom: 2px solid var(--textandcontainer-primary);
     padding: 1rem 2rem;
 }
 
-/* logo and <nav> inside a <div> with this class */
+/* sticky header on desktop */
+@media screen and (min-width: 481px) {
+    .site-header {
+        position: sticky;
+        top: 0;
+    }
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -89,7 +88,6 @@ a:hover {
     margin: 0 auto;
 }
 
-/* use in <ul>*/
 .nav-links {
     display: flex;
     list-style: none;
@@ -101,7 +99,6 @@ a:hover {
     font-size: 0.9rem;
 }
 
-/* theme button */
 #theme-toggle {
     background: none;
     border: 2px solid var(--textandcontainer-primary);
@@ -111,7 +108,7 @@ a:hover {
     font-size: 1.2rem;
 }
 
-/* aboutme Section */
+/* main layout */
 .aboutme {
     background-color: var(--bg-secondary);
     text-align: center;
@@ -119,7 +116,6 @@ a:hover {
     border-bottom: 2px solid var(--textandcontainer-primary);
 }
 
-/* for certs */
 .personalinfo {
     max-width: 95%;
     margin: 4rem auto;
@@ -129,7 +125,6 @@ a:hover {
     gap: 4rem;
 }
 
-/*a grid which introduce a part.*/
 .item-header {
     display: flex;
     justify-content: space-between;
@@ -143,7 +138,6 @@ a:hover {
     font-size: 1.5rem;
 }
 
-/* Flex Layouts for Content inside Grid Items */
 .item-content {
     display: flex;
     gap: 2rem;
@@ -161,9 +155,6 @@ a:hover {
     font-size: 0.95rem;
 }
 
-
-/*  PROFILE DETAILS, CONTACT LIST & SKILLS */
-/* takes over the flex spacing so the whole right column grows together */
 .profile-details {
     flex: 2;
     display: flex;
@@ -171,7 +162,6 @@ a:hover {
     gap: 1.5rem; 
 }
 
-/* contact info list */
 .info-list {
     list-style: none;
     border-top: 1px solid var(--textandcontainer-primary);
@@ -194,7 +184,7 @@ a:hover {
     width: 100%;
 }
 
-/* SIMULATED CV DOWNLOAD */
+/* cv download button */
 .cv-download-container {
     margin-top: 1.5rem;
     display: flex;
@@ -250,11 +240,6 @@ a:hover {
     transition: width 0.1s linear;
 }
 
-.download-btn.downloading {
-    background-color: var(--bg-secondary);
-    color: var(--textandcontainer-primary);
-}
-
 .download-btn.completed {
     background-color: var(--success);
     color: var(--footer-text);
@@ -266,7 +251,7 @@ a:hover {
 
 
 
-/* EDUCATION TIMELINE */
+/* timeline */
 .education-timeline {
     width: 100%;
     border-left: 2px solid var(--textandcontainer-primary);
@@ -281,7 +266,6 @@ a:hover {
     position: relative;
 }
 
-/* timeline dot */
 .timeline-item::before {
     content: "";
     position: absolute;
@@ -344,13 +328,11 @@ a:hover {
 }
 
 
-/* TECH STACK & INTERACTIVE TERMINAL */
-/* helper class to ensure side-by-side columns align at the top */
+/* tech stack & terminal */
 .align-start {
     align-items: flex-start;
 }
 
-/* split the container exactly in half */
 .tech-stack-column, .interactive-column {
     flex: 1; 
     display: flex;
@@ -358,7 +340,6 @@ a:hover {
     gap: 1.5rem;
 }
 
-/* left Side: Tags and Lists */
 .stack-box h4 {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
@@ -390,7 +371,6 @@ a:hover {
 }
 
 
-/* right Side: Interactive Terminal */
 .terminal-box {
     border: 2px solid var(--textandcontainer-primary);
     background-color: var(--bg-primary);
@@ -423,7 +403,6 @@ a:hover {
     background-color: var(--bg-primary);
 }
 
-/* state when a tab is clicked */
 .term-btn.active {
     background-color: var(--textandcontainer-primary);
     color: var(--bg-primary);
@@ -431,7 +410,7 @@ a:hover {
 
 .terminal-display {
     padding: 1.5rem;
-    min-height: 180px; /* keeps the box from jumping sizes */
+    min-height: 180px;
     font-family: var(--font-body);
 }
 
@@ -439,12 +418,11 @@ a:hover {
     margin-bottom: 0.8rem;
 }
 
-/* hides inactive tabs without removing them from HTML */
 .term-content.hidden {
     display: none;
 }
 
-/* progress Bars */
+/* skill bars */
 .skills-section h4 {
     margin-bottom: 1rem;
     font-size: 1.2rem;
@@ -464,7 +442,6 @@ a:hover {
 }
 
 
-/* the outer box of the progress bar */
 .skill-bar-container {
     width: 100%;
     height: 18px;
@@ -472,35 +449,28 @@ a:hover {
     border: 1px solid var(--textandcontainer-primary);
 }
 
-/* the filled inner part of the progress bar */
 .skill-fill {
     height: 100%;
     background-color: var(--textandcontainer-primary);
-    /* Adding a subtle animation for when the page loads  */
     animation: loadBar 1.5s ease-in-out forwards;
 }
 
-/* strict external CSS width classes to avoid inline styles */
 .w-90 { width: 90%; }
 .w-80 { width: 80%; }
 .w-70 { width: 70%; }
 .w-60 { width: 60%; }
 .w-50 { width: 50%; }
 
-/* animation the skill bars filling up */
 @keyframes loadBar {
     from { transform: scaleX(0); transform-origin: left; }
     to { transform: scaleX(1); transform-origin: left; }
 }
 
-
-/* CERTIFICATIONS & AWARDS SPECIFICS */
-/* adjusts spacing inside the card to push the link to the bottom */
+/* certs */
 .cert-layout {
     gap: 0.8rem;
 }
 
-/* small, uppercase organization title */
 .cert-org {
     font-family: var(--font-heading);
     font-size: 0.8rem;
@@ -509,7 +479,6 @@ a:hover {
     font-weight: bold;
 }
 
-/* overrides the stamped title to fit better with the cert layout */
 .cert-title {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -517,7 +486,6 @@ a:hover {
     font-size: 1.3rem;
 }
 
-/* the pill-shaped tag (like the 'Certification' bubble in your image) */
 .cert-badge {
     align-self: flex-start;
     background-color: var(--bg-secondary);
@@ -529,20 +497,17 @@ a:hover {
     border: 1px solid var(--textandcontainer-primary);
 }
 
-/* Stop these specific elements from inheriting flex-grow: 1 from .card p */
 .card .cert-badge,
 .card .cert-org,
 .card .cert-date {
     flex-grow: 0;
 }
 
-/* date */
 .cert-date {
     font-size: 0.9rem;
-    margin-top: auto; /* Pushes everything below it to the bottom */
+    margin-top: auto;
 }
 
-/* minimalist text link instead of the heavy block button */
 .cert-link {
     font-weight: bold;
     color: var(--light-red);
@@ -556,8 +521,7 @@ a:hover {
     text-decoration: underline;
 }
 
-
-/* FLOATING MARGIN PREVIEWS */
+/* side previews */
 .margin-preview {
     position: fixed;
     top: 50%;
@@ -569,7 +533,7 @@ a:hover {
     box-shadow: 8px 8px 0px var(--textandcontainer-primary);
     z-index: 1001; 
     opacity: 0;
-    pointer-events: none; /* Prevents blocking mouse scrolls */
+    pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -580,7 +544,6 @@ a:hover {
     border: 1px dashed var(--textandcontainer-primary);
 }
 
-/* position left and right previews in respective margins */
 #left-preview-container {
     left: 2%;
 }
@@ -589,22 +552,18 @@ a:hover {
     right: 2%;
 }
 
-/* show preview animation */
 .margin-preview.active {
     opacity: 1;
     transform: translateY(-50%) scale(1);
 }
 
-/* hide previews on mobile/tablet viewports (where there are no margins) */
 @media screen and (max-width: 1250px) {
     .margin-preview {
         display: none;
     }
 }
 
-
-/* PROJECT GALLERY & the CARDS */
-/* grid to place cards side-by-side on desktop, stacking on mobile */
+/* project cards */
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -612,7 +571,6 @@ a:hover {
     width: 100%;
 }
 
-/* wooden board effect */
 .card {
     background-color: var(--wood); 
     border: 3px solid var(--textandcontainer-primary);
@@ -621,13 +579,11 @@ a:hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* interactive hover effect */
 .card:hover {
     transform: translate(-4px, -4px);
     box-shadow: 12px 12px 0px var(--textandcontainer-primary);
 }
 
-/* the card which put picture */
 .card-inner {
     background-color: var(--bg-primary);
     border: 2px dashed var(--textandcontainer-primary);
@@ -637,7 +593,6 @@ a:hover {
     flex-direction: column;
 }
 
-/* red stamped title */
 .stamped-title {
     font-size: 1.4rem;
     color: var(--light-red);
@@ -650,7 +605,6 @@ a:hover {
     margin-bottom: 1rem;
 }
 
-/* pushes the button to the bottom so all cards look even */
 .card p {
     flex-grow: 1; 
     margin-bottom: 1.5rem;
@@ -676,7 +630,7 @@ a:hover {
 }
 
 
-/* FOOTER & CONTACT SECTION */
+/* footer */
 .site-footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
@@ -685,7 +639,6 @@ a:hover {
     border-top: 4px solid var(--textandcontainer-primary);
 }
 
-/* 2-column grid for desktop */
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -712,8 +665,6 @@ a:hover {
     margin-bottom: 1.2rem;
 }
 
-
-/* contact form */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -773,16 +724,13 @@ a:hover {
     border: 1px solid #000000;
 }
 
-
-/* Tablet Viewport (iPad & similar, ≤ 900px) */
+/* media queries */
 @media screen and (max-width: 900px) {
-    /* Shrink outer page padding so nothing clips */
     .personalinfo {
         max-width: 100%;
         padding: 0 1rem;
     }
 
-    /* Footer: full width on tablets */
     .footer-content {
         max-width: 100%;
         grid-template-columns: 1fr;
@@ -794,13 +742,11 @@ a:hover {
         max-width: 100%;
     }
 
-    /* 2-column card grid on iPad */
     .project-gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
 
-    /* Margin previews hidden — no side margins available */
     .margin-preview {
         display: none;
     }
@@ -808,19 +754,16 @@ a:hover {
 
 /* Tablet Viewport (≤ 768px) */
 @media screen and (max-width: 768px) {
-    /* Site header: tighter padding */
     .site-header {
         padding: 0.75rem 1rem;
     }
 
-    /* Nav: stack logo + links vertically */
     .nav-container {
         flex-direction: column;
         align-items: center;
         gap: 0.75rem;
     }
 
-    /* Nav links: wrap evenly, centred */
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
@@ -832,45 +775,28 @@ a:hover {
         white-space: nowrap;
     }
 
-    /* About-me image + text: stack vertically */
     .item-content {
         flex-direction: column;
         align-items: stretch;
     }
 
-    /* Image fills full width when stacked */
     .responsive-img {
         max-width: 100%;
         width: 100%;
         flex: none;
     }
 
-    /* Tech-stack two-column: stack vertically */
     .tech-stack-column,
     .interactive-column {
         flex: none;
         width: 100%;
     }
 
-    /* Footer: single column, full width */
-    .footer-content {
-        max-width: 100%;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 1rem;
-    }
-
-    .footer-brand p {
-        max-width: 100%;
-    }
-
-    /* Project gallery: 2 columns on tablet */
     .project-gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.2rem;
     }
 
-    /* Cards: reduce inner padding so text isn't squished */
     .card-inner {
         padding: 1rem;
     }
@@ -880,14 +806,14 @@ a:hover {
     }
 }
 
-/* Mobile Viewport (≤ 480px — phones) */
+/* Mobile Viewport (≤ 480px) */
 @media screen and (max-width: 480px) {
-    /* Site header: minimal padding */
     .site-header {
+        position: static;
+        top: auto;
         padding: 0.6rem 0.75rem;
     }
 
-    /* Nav: tighter wrap */
     .nav-links {
         gap: 0.4rem 0.8rem;
     }
@@ -896,24 +822,20 @@ a:hover {
         font-size: 0.8rem;
     }
 
-    /* Reduce section padding for small screens */
     .personalinfo {
         padding: 0 0.75rem;
         gap: 2.5rem;
     }
 
-    /* Single-column card grid on phones */
     .project-gallery {
         grid-template-columns: 1fr;
         gap: 1.2rem;
     }
 
-    /* Full-width download button on phone */
     .download-btn {
         max-width: 100%;
     }
 
-    /* Footer: more compact */
     .site-footer {
         padding: 2.5rem 1rem 1rem;
         margin-top: 3rem;
@@ -923,12 +845,10 @@ a:hover {
         padding: 0;
     }
 
-    /* Chapter heading size */
     .chapter-number {
         font-size: 1.1rem;
     }
 
-    /* Terminal box: reduce min-height */
     .terminal-display {
         min-height: 120px;
         padding: 1rem;

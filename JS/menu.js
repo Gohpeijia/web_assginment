@@ -4,7 +4,7 @@ function saveCart() {
     sessionStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// DOM References
+// dom elements
 const modal = document.getElementById('productModal');
 const closeModalBtn = document.getElementById('closeModal');
 const modalImg = document.getElementById('modalImage');
@@ -27,7 +27,7 @@ let currentModalItem = null;
 let currentQty = 1;
 let isWholeCakeSelected = false;
 
-// Initialize catalogue dynamically from product data
+// render menu
 function loadMenuToHTML() {
     const hasCatalogue = document.querySelector('.catalogue-grid');
     if (!hasCatalogue || typeof FULL_MENU === 'undefined') return;
@@ -80,7 +80,7 @@ function loadMenuToHTML() {
     });
 }
 
-// Modal handling
+// modal
 function openModal(item) {
     currentModalItem = item;
     currentQty = 1;
@@ -132,7 +132,7 @@ if (modal) {
     });
 }
 
-// Option Buttons (Size & Candles)
+// options
 const optionGroups = document.querySelectorAll('.btn-group');
 optionGroups.forEach(group => {
     const buttons = group.querySelectorAll('.opt-btn');
@@ -149,7 +149,7 @@ optionGroups.forEach(group => {
     });
 });
 
-// Quantity handlers
+// quantity
 if (qtyMinus) {
     qtyMinus.addEventListener('click', () => {
         if (currentQty > 1) {
@@ -166,7 +166,7 @@ if (qtyPlus) {
     });
 }
 
-// Add to Cart
+// add to cart
 if (addToCartBtn) {
     addToCartBtn.addEventListener('click', () => {
         if (!currentModalItem) return;
@@ -210,7 +210,7 @@ if (addToCartBtn) {
     });
 }
 
-// Search, Filter & Sort
+// search & filter
 function updateCatalogue() {
     const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
     const selectedCat = categoryFilter ? categoryFilter.value.toLowerCase() : 'all';
@@ -261,5 +261,5 @@ if (searchInput) searchInput.addEventListener('input', updateCatalogue);
 if (categoryFilter) categoryFilter.addEventListener('change', updateCatalogue);
 if (sortSelect) sortSelect.addEventListener('change', updateCatalogue);
 
-// Load menu items on initial execution
+// init
 loadMenuToHTML();

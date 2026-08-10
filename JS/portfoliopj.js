@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Skill Console Terminal Tabs
+    // terminal tabs
     const termButtons = document.querySelectorAll('.term-btn');
     const termContents = document.querySelectorAll('.term-content');
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Theme Toggle
+    // dark mode toggle
     const themeToggleButton = document.getElementById('theme-toggle');
     const themeIcon = themeToggleButton ? themeToggleButton.querySelector('.theme-icon') : null;
     const rootElement = document.documentElement;
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Floating Card Hover Previews
+    // card hover preview
     const cards = document.querySelectorAll('.card[data-preview]');
     const leftPreview = document.getElementById('left-preview-container');
     const rightPreview = document.getElementById('right-preview-container');
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('touchend', hidePreview, { passive: true });
     });
 
-    // 4. CV Download Button
+    // resume download button
     const downloadBtn = document.getElementById('cv-download-btn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Contact Form Submission
+    // contact form
     const contactForm = document.getElementById('contact-form');
     const successMsg = document.getElementById('form-success-msg');
 
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Scroll Reveal Observer
+    // section animations
     const sectionsToAnimate = document.querySelectorAll('section.personalinfo, section.aboutme');
     sectionsToAnimate.forEach(section => section.classList.add('fade-in-section'));
 
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.01 });
 
         sectionsToAnimate.forEach(section => observer.observe(section));
     } else {
