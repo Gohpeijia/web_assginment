@@ -11,7 +11,6 @@ body {
     font-family:Arial;
     font-size: 11pt;
 }
-
 /* Hide unnecessary interactive elements */
 header,
 .theme_toggle,
@@ -19,7 +18,6 @@ header,
 .download_button {
     display: none !important;
 }
-
 /* General sections */
 section {
     width: 100%;
@@ -33,7 +31,6 @@ section {
     color: black !important;
     font-size: 22pt;
 }
-
 /* About */
 .about_grid {
     grid-template-columns:180px 1fr !important;
@@ -43,12 +40,10 @@ section {
     max-width: 180px;
     border:1px solid #777 !important;
 }
-
 .about_info_type,
 .about_info_value {
     color: black !important;
 }
-
 /* Education */
 .education_card {
     break-inside: avoid;
@@ -59,12 +54,10 @@ section {
 .education_year {
     color: black !important;
 }
-
 /* Skills */
 .skills_card {
     break-inside: avoid;
 }
-
 .skills_details h3,
 .skills_details span {
     color: black !important;
@@ -76,7 +69,6 @@ section {
 .skills_progress {
     background:#555 !important;
 }
-
 /* Awards */
 .certification_card {
     break-inside: avoid;
@@ -92,7 +84,6 @@ section {
 .view_certificate_button {
     display: none;
 }
-
 /* Projects */
 .projects_card {
     break-inside: avoid;
@@ -105,13 +96,11 @@ section {
 .visit_repository_button {
     display: none;
 }
-
 /* Contact */
 .contact_way,
 .contact_card a {
     color:black !important;
 }
-
 /* Display URL after external links */
 .contact_card a[href^="http"]::after {
     content:

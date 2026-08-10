@@ -13,8 +13,7 @@ function applyPortfolioTheme(theme) {
 }
 
 /* Read previously saved theme */
-const savedPortfolioTheme =
-    localStorage.getItem("henryPortfolioTheme") || "light";
+const savedPortfolioTheme = localStorage.getItem("henryPortfolioTheme") || "light";
 applyPortfolioTheme(savedPortfolioTheme);
 
 /* Change theme */
@@ -30,7 +29,7 @@ theme_toggle_button.addEventListener(
     }
 );
 
-/*SIMULATED CV DOWNLOAD*/
+/*Simulate Resume Download*/
 const downloadresumeButton = document.getElementById("downloadresume");
 
 const resumedownloadstatus = document.getElementById("resumedownloadstatus");
@@ -53,7 +52,7 @@ downloadresumeButton.addEventListener(
                     window.location.href = "../Assets/Portfolio/Henry/Henry_Resume.pdf"
                 }
             },
-            120
-            );
+        120
+        );
     }
 );

@@ -1,4 +1,3 @@
-/*Body*/
 :root {
     --bg-primary: #FCF7E6;
     --bg-secondary: #f5e19e;
@@ -33,7 +32,6 @@ body {
     font-size: 43px;
     font-weight: bold;
 }
-/*HEADER*/
 header{
     top:0;
     position: sticky;
@@ -82,7 +80,6 @@ nav {
 .theme_toggle:hover {
     transform:scale(1.15);
 }
-/*ABOUT ME*/
 .about_section {
     max-width: 1100px;
     margin:auto;
@@ -158,14 +155,12 @@ nav {
     color:var(--text-secondary);
     font-size: 14px;
 }
-/*EDUCATION*/
 .education_section {
     border-top:3px solid #d2aa68;
     max-width: 1100px;
     margin:auto;
     padding: 90px 30px;
 }
-/*TIMELINE*/
 .education_timeline {
     position: relative;
     display: flex;
@@ -217,7 +212,6 @@ nav {
     line-height: 1.4;
     text-align: center;
 }
-/*Education_card*/
 .education_card {
     display: flex;
     justify-content: space-between;
@@ -243,7 +237,6 @@ nav {
     font-size: 18px;
     font-weight: bold;
 }
-/*SKILLS*/
 .skills_section {
     border-top:3px solid #d2aa68;
     max-width: 1100px;
@@ -307,7 +300,6 @@ nav {
     from {transform:scaleX(0);}
     to {transform:scaleX(1);}
 }
-/*AWARDS & CERTIFICATION*/
 .awards_section {
     border-top:3px solid #d2aa68;
     max-width: 1100px;
@@ -373,7 +365,6 @@ nav {
     background-color:var(--accent);
     border-color:var(--accent);
 }
-/*PROJECTS*/
 .projects_section {
     border-top:3px solid #d2aa68;
     max-width: 1100px;
@@ -418,7 +409,6 @@ nav {
     transform:translateY(-3px);
     transition:color 0.3s ease;
 }
-/*CONTACT*/
 .contact_section {
     border-top:3px solid #d2aa68;
     max-width: 1100px;
@@ -452,8 +442,6 @@ nav {
     transition:transform 0.3s ease;
     transform:translateX(5px);
 }
-
-/*FOOTER*/
 .footer {
     max-width: 100%;
     background-color: #222;
@@ -464,44 +452,26 @@ nav {
     font-size: 15px;
     color: grey;
 }
-@media (max-width: 1000px) {
-    nav{
+@media (max-width: 768px) {
+    nav {
         flex-wrap: wrap;
-        padding:15px 20px;
-    }
-    .name{
-        font-size:24px;
-    }
-    .navigation_menu {
-        width:100%;
-        order:3;
-        display:flex;
-        flex-wrap:wrap;
-        justify-content: center;
-    }
-    .navigation_menu a {
-        font-size: 14px;
-    }
-    .about_grid {
-        gap: 55px;
-    }
-    .skills_card {
-        grid-template-columns:330px 1fr;
-    }
-    .section_title {
-        margin-bottom: 35px;
-        font-size: 34px;
+        padding: 15px 20px;
     }
     .name {
         font-size: 24px;
     }
-    .navigation_menu a:hover {
-        background-color:var(--bg-primary);
+    .navigation_menu {
+        width: 100%;
+        order: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 20px;
     }
-    .theme_toggle {
-        flex-shrink: 0;
+    .navigation_menu a {
+        font-size: 14px;
+        white-space: nowrap;
     }
-    /* About */
     .about_section {
         padding: 60px 20px;
     }
@@ -511,32 +481,15 @@ nav {
     }
     .about_photo {
         max-width: 400px;
-        margin: 0 auto;
+        margin: auto;
     }
-    .about_row {
-        grid-template-columns:
-            100px 1fr;
-        gap: 15px;
-    }
-    /* Education */
     .education_section {
         padding: 60px 20px;
-    }
-    .education_info {
-        gap: 45px;
     }
     .education_card {
         flex-direction: column;
         gap: 15px;
     }
-    .education_details h3 {
-        font-size: 23px;
-    }
-    .education_year {
-        color:
-            var(--accent);
-    }
-    /* Skills */
     .skills_section {
         padding: 60px 20px;
     }
@@ -544,24 +497,12 @@ nav {
         grid-template-columns: 1fr;
         gap: 15px;
     }
-    .skills_details {
-        grid-template-columns:
-            100px 1fr;
-    }
-    .skills_details h3 {
-        font-size: 21px;
-    }
-    /* Awards */
     .awards_section {
         padding: 60px 20px;
     }
     .certification_grid {
         grid-template-columns: 1fr;
     }
-    .certification_card {
-        padding: 25px;
-    }
-    /* Projects */
     .projects_section {
         padding: 60px 20px;
     }
@@ -570,29 +511,15 @@ nav {
         align-items: flex-start;
         gap: 25px;
     }
-    .projects_title {
-        flex-wrap: wrap;
-        gap: 12px;
-    }
     .visit_repository_button {
         width: 100%;
         text-align: center;
     }
-    /* Contact */
     .contact_section {
-        padding:60px 20px 80px;
-    }
-    .contact_card {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-    /* Footer */
-    .footer {
-        margin: 0 20px;
-        padding: 25px 0;
+        padding: 60px 20px 80px;
     }
 }
-/*REDUCED MOTION*/
+/*Reduce motion*/
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
