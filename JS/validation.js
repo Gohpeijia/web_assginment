@@ -73,6 +73,7 @@
 
     });
 
+    //back button 1
     backBtn1.addEventListener("click", function () {
 
         progress2.classList.remove("active");
@@ -118,6 +119,7 @@
 
     });
 
+    //back button 2
     backBtn2.addEventListener("click", function () {
 
         progress3.classList.remove("active");
@@ -179,14 +181,14 @@
 
 
     // Progress Bar
-const progress1 = document.getElementById("progress1");
-const progress2 = document.getElementById("progress2");
-const progress3 = document.getElementById("progress3");
+    const progress1 = document.getElementById("progress1");
+    const progress2 = document.getElementById("progress2");
+    const progress3 = document.getElementById("progress3");
 
-const line1 = document.getElementById("line1");
-const line2 = document.getElementById("line2");
+    const line1 = document.getElementById("line1");
+    const line2 = document.getElementById("line2");
 
-function goToStep2() {
+    function goToStep2() {
 
     line1.classList.add("completed");
 
@@ -202,9 +204,9 @@ function goToStep2() {
         step2.style.display = "flex";
     }, 550);
 
-}
+    }
 
-function goToStep3() {
+    function goToStep3() {
 
     line2.classList.add("completed");
 
@@ -220,4 +222,4 @@ function goToStep3() {
         step3.style.display = "flex";
     }, 550);
 
-}
+    }
