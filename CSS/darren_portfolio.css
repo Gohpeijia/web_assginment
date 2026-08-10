@@ -633,12 +633,16 @@ footer{
         flex-direction:column;
         gap:25px;
         padding:20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .navigation_menu{
         flex-wrap:wrap;
         justify-content:center;
         gap:20px;
+        order: 3;
+        width: 100%;
     }
 
     /* Hero */
@@ -794,6 +798,7 @@ footer{
 
 }
 
+
 /* THEME TOGGLE */
 .theme-toggle {
     width: 44px;
@@ -867,25 +872,3 @@ section:not(.hero),
     transition: background-color .3s, color .3s, border-color .3s;
 }
 
-@media (max-width:1000px) {
-    .navigation_bar {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .navigation_menu {
-        order: 3;
-        width: 100%;
-    }
-}
-
-@media (max-width:600px) {
-    .theme-toggle {
-        width: 40px;
-        height: 40px;
-    }
-
-    .button {
-        text-align: center;
-    }
-}

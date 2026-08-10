@@ -137,7 +137,7 @@
 #noReviews {
     margin-top: 20px;
 }
-/* INTERACTIVE STAR RATING INPUT*/
+/*Interactive Star Rating Input*/
 .star-rating-input {
     display: flex;
     gap: 8px;
@@ -231,7 +231,7 @@
         flex-direction: column;
     }
 }
-/* REVIEW DELETE ACTION */
+/*Review Delete Action*/
 .review-comment {
     line-height: 1.6;
 }
